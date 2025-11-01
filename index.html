@@ -545,6 +545,21 @@
   <!-- Container Ends -->
 </section>
 <!-- Portfolio Section Ends -->
+    <!-- Publications Section Start -->
+    <section id="publicaciones" class="section-padding">
+      <div class="container">
+        <h2 class="section-title wow flipInX" data-wow-delay="0.4s">My Scientific Publications</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center" id="orcid-loading">Cargando publicaciones...</div>
+            <ul class="list-group" id="orcid-list"></ul>
+            <div class="text-center" id="orcid-empty" style="display:none;">No se encontraron publicaciones.</div>
+            <div class="text-center text-danger" id="orcid-error" style="display:none;">No se pudieron cargar las publicaciones.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Publications Section End -->
     <!-- Counter Area Start-->
     <section class="counter-section section-padding">
       <div class="container">
@@ -709,5 +724,83 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/form-validator.min.js"></script>
     <script src="assets/js/contact-form-script.min.js"></script>
+    <script>
+      (function() {
+        var orcid = '0000-0001-8810-2068';
+        var listEl = document.getElementById('orcid-list');
+        var loadingEl = document.getElementById('orcid-loading');
+        var emptyEl = document.getElementById('orcid-empty');
+        var errorEl = document.getElementById('orcid-error');
+        if (!listEl) return;
+
+        fetch('https://pub.orcid.org/v3.0/' + orcid + '/works', {
+          headers: { 'Accept': 'application/json' }
+        })
+          .then(function(r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)); })
+          .then(function(data) {
+            var groups = (data && data.group) ? data.group : [];
+            var summaries = [];
+            groups.forEach(function(group) {
+              var ws = (group && group['work-summary']) ? group['work-summary'] : [];
+              ws.forEach(function(w) { summaries.push(w); });
+            });
+
+            summaries.sort(function(a, b) {
+              var ay = (a && a['publication-date'] && a['publication-date'].year && a['publication-date'].year.value) ? parseInt(a['publication-date'].year.value, 10) : 0;
+              var by = (b && b['publication-date'] && b['publication-date'].year && b['publication-date'].year.value) ? parseInt(b['publication-date'].year.value, 10) : 0;
+              return by - ay;
+            });
+
+            if (summaries.length === 0) {
+              emptyEl.style.display = '';
+              return;
+            }
+
+            summaries.slice(0, 20).forEach(function(w) {
+              var title = (w && w.title && w.title.title && w.title.title.value) ? w.title.title.value : 'Sin título';
+              var type = (w && w.type) ? w.type : '';
+              var year = (w && w['publication-date'] && w['publication-date'].year && w['publication-date'].year.value) ? w['publication-date'].year.value : '';
+
+              var doiUrl = '';
+              var extIds = (w && w['external-ids'] && w['external-ids']['external-id']) ? w['external-ids']['external-id'] : [];
+              extIds.forEach(function(eid) {
+                var t = (eid && eid['external-id-type']) ? String(eid['external-id-type']).toLowerCase() : '';
+                if (t === 'doi') {
+                  var val = eid['external-id-value'];
+                  if (val) doiUrl = 'https://doi.org/' + val;
+                }
+              });
+
+              var li = document.createElement('li');
+              li.className = 'list-group-item';
+
+              var parts = [];
+              parts.push('<strong>' + escapeHtml(title) + '</strong>');
+              var meta = [type, year].filter(Boolean).join(' · ');
+              if (meta) parts.push('<div class="text-muted" style="font-size: 0.9em;">' + escapeHtml(meta) + '</div>');
+              if (doiUrl) parts.push('<a href="' + encodeURI(doiUrl) + '" target="_blank" rel="noopener">DOI</a>');
+
+              li.innerHTML = parts.join(' ');
+              listEl.appendChild(li);
+            });
+          })
+          .catch(function(err) {
+            if (errorEl) errorEl.style.display = '';
+            if (window && window.console) console.error('ORCID fetch error', err);
+          })
+          .finally(function() {
+            if (loadingEl) loadingEl.style.display = 'none';
+          });
+
+        function escapeHtml(s) {
+          return String(s)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        }
+      })();
+    </script>
   </body>
 </html>
