@@ -2,7 +2,7 @@
 
 ![Portfolio Preview](assets/img/about/about-ElioNavarrete.jpg)
 
-A modern, responsive portfolio website showcasing the professional profile of Elio Navarrete, QA Automation Engineer and College Professor.
+A modern, responsive portfolio website showcasing the professional profile of Elio Navarrete, QA Lead and Professor.
 
 ## 🌐 Live Website
 
