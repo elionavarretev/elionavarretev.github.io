@@ -24,19 +24,23 @@ This portfolio website presents Elio Navarrete's professional journey as a Lead 
 ## 🚀 What's New
 
 - 🌙 **Dark Mode Toggle**: Persistent theme switcher with OS preference detection
-- 🧪 **Testing Portfolio Refresh**: Highlighted Playwright, Cypress, and Serenity BDD projects
-- 🧬 **ORCID Integration**: Scientific publications auto-fetched from ORCID profile (0000-0001-8810-2068)
+- 🧪 **Testing Portfolio Refresh**: Highlighted Playwright, Cypress, and Serenity BDD projects with mini case studies (problem → solution → result)
+- 🧬 **ORCID Integration**: Scientific publications auto-fetched from ORCID profile (0000-0001-8810-2068) with a direct CTA
 - 🔗 **Expanded Social Links**: Quick access to LinkedIn, GitHub, and ORCID profiles
+- 🎯 **Hero & CTA Enhancements**: New subtitle, anchor buttons to portfolio/publications, and a “Contact” ribbon promoting certifications
+- 📈 **SEO & Structured Data**: Canonical link, Open Graph metadata, Person + Breadcrumb JSON-LD, sitemap, and robots.txt
+- ♿ **Accessibility & Performance**: `loading="lazy"`, `decoding="async"`, descriptive alts/ARIA labels, focus-visible styling, and preload for hero imagery
 
 ## 🚀 Features
 
 - **Responsive Design**: Fully responsive across all devices
 - **Modern UI/UX**: Clean, professional design with smooth animations and accessible typography
-- **Interactive Portfolio**: Filterable gallery spotlighting Playwright, Cypress, and Serenity BDD work
+- **Interactive Portfolio**: Filterable gallery spotlighting Playwright, Cypress, and Serenity BDD work with contextual copy
 - **Scientific Publications**: Automated feed of recent ORCID publications (deduplicated & sorted)
-- **SEO Optimized**: Meta tags, structured data, and Google Tag Manager integration
-- **Fast Loading**: Optimized assets and efficient code structure
-- **Accessibility**: Semantic HTML, ARIA labels, and keyboard-friendly controls
+- **Quick Contact CTA**: Dedicated banner highlighting certifications and direct contact options
+- **SEO Optimized**: Meta tags, structured data (Person + Breadcrumb), canonical link, sitemap, and robots.txt
+- **Fast Loading**: Optimized assets, lazy loading, and preloaded background imagery
+- **Accessibility**: Semantic HTML, ARIA labels, keyboard-friendly controls, and visible focus states
 
 ## 🛠️ Technologies Used
 
@@ -78,7 +82,7 @@ elionavarretev.github.io/
     │   ├── about/            # About section images
     │   ├── gallery/          # Portfolio images
     │   ├── icons/            # Social/media icons (e.g. ORCID)
-    │   ├── slider/           # Hero slider images
+    │   ├── background/       # Background photography
     │   └── favi/             # Favicons and app icons
     ├── fonts/                # Web fonts
     ├── doc/                  # Documents (CV, certificates)
@@ -89,8 +93,8 @@ elionavarretev.github.io/
 ## 🎯 Sections
 
 ### 1. **Hero Area**
-- Professional introduction
-- Social media links (LinkedIn, GitHub, ORCID)
+- Professional introduction with hero subtitle (roles & toolset)
+- Social media links (LinkedIn, GitHub, ORCID) and anchor CTAs to portfolio/publications
 - Animated background slider
 
 ### 2. **About**
@@ -99,28 +103,29 @@ elionavarretev.github.io/
 - Download CV functionality
 
 ### 3. **Services**
-- QA Lead expertise
-- Scrum Master certification
-- Professor role
-- Consultancy services
+- QA Lead expertise with quantified outcomes
+- Scrum Master certification and agile coaching
+- Professor role at UPC
+- Consultancy services (assessments, tool selection, coaching)
 
 ### 4. **Resume**
 - Educational background (UPC, Universidad Austral, PUCP, Pontificia Universidad Javeriana)
-- Professional experience timeline
+- Professional experience timeline with refreshed copy focused on impact
 - Current positions at Open Loop and UPC
 - Licenses & Certifications grid
 
 ### 5. **Portfolio**
 - Interactive project showcase curated around automation/testing stacks
 - Filterable by Playwright, Cypress, and Serenity BDD
-- Links to GitHub repositories with project assets
+- Links to GitHub repositories with project assets and case study summaries
 
 ### 6. **Scientific Publications**
 - Dynamic list fed from ORCID public API
 - Deduplicated using title/year keys and sorted by most recent
-- DOI links when available
+- DOI links when available + CTA to view full profile
 
 ### 7. **Contact & Social**
+- Call-to-action banner highlighting certifications and contact methods
 - Footer with social links and location details
 - Back-to-top shortcut for quick navigation
 
@@ -175,6 +180,9 @@ elionavarretev.github.io/
    - Update the `orcid` variable in the inline script (near the end of `index.html`) to your ORCID iD
    - Adjust `summaries.slice(0, 20)` to change the number of entries shown
 
+5. **Sitemap & Robots**
+   - `sitemap.xml` and `robots.txt` live at the repository root; adjust as needed for additional pages
+
 ## 📱 Responsive Design
 
 The website is fully responsive and optimized for:
@@ -219,7 +227,7 @@ Replace placeholder images with your own:
 ## 📊 Performance
 
 - **Lighthouse Score**: Optimized for performance, accessibility, and SEO
-- **Loading Speed**: Compressed images and minified assets
+- **Loading Speed**: Compressed images, lazy loading, and preloaded hero background
 - **Mobile Performance**: Responsive design with touch-friendly interactions
 
 ## 🔒 Security

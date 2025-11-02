@@ -28,10 +28,79 @@
     <meta name="msapplication-TileImage" content="assets/img/favi/ms-icon-144x144.png">
     <meta name="theme-color" content="#fff"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="I'm Elio Navarrete from Lima, Peru. I'm Software Engineer and QA Automation Engineer. Also, I am very passionate and dedicated to my work and enjoy working in a team or individual. I have acquired the skills and knowledge necessary to make your project a success.">
-    <meta name="keywords" content="qa Automation peru, qa Automation tools, qa Automation tester, Elio Navarrete, senior, qa Engineer, se necesita urgente, testing, belcorp, belatrix, UPC, profesor,quality assurance">
+    <meta name="description" content="Elio Navarrete, QA Lead and professor based in Lima, expert in Playwright, Cypress and Serenity BDD with proven QA leadership and ORCID-linked publications.">
+    <meta name="keywords" content="Elio Navarrete, QA Lead, QA Automation, Playwright, Cypress, Serenity BDD, Lima Peru, Open Loop, UPC professor, ORCID, Scientific Publications, Quality Engineering">
+    <link rel="canonical" href="https://elionavarretev.github.io/">
+    <link rel="preload" href="assets/img/background/bg-2_Elio_Navarrete.jpg" as="image">
     
-    <title>Elio Navarrete | QA Automation Engineer | College Professor</title>
+    <title>Elio Navarrete | QA Lead | Professor</title>
+    <!-- Open Graph  -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elionavarretev.github.io/">
+    <meta property="og:title" content="Elio Navarrete | QA Lead & Professor">
+    <meta property="og:description" content="QA Lead y profesor universitario especializado en Playwright, Cypress y Serenity BDD, con liderazgo en calidad y publicaciones científicas integradas vía ORCID.">
+    <meta property="og:image" content="https://elionavarretev.github.io/assets/img/about/about-ElioNavarrete.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Elio Navarrete",
+      "alternateName": "Elionavarretev",
+      "jobTitle": [
+        "QA Lead",
+        "Professor"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Open Loop"
+      },
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidad Peruana de Ciencias Aplicadas (UPC)"
+      },
+      "url": "https://elionavarretev.github.io/",
+      "image": "https://elionavarretev.github.io/assets/img/about/about-ElioNavarrete.jpg",
+      "email": "mailto:elionavarretev@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miraflores",
+        "addressRegion": "Lima",
+        "addressCountry": "PE"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/eliojeff",
+        "https://github.com/elionavarretev",
+        "https://orcid.org/0000-0001-8810-2068"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://elionavarretev.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Portfolio",
+          "item": "https://elionavarretev.github.io/#portfolios"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Publicaciones",
+          "item": "https://elionavarretev.github.io/#publicaciones"
+        }
+      ]
+    }
+    </script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >
@@ -56,8 +125,8 @@
     <style>
       .theme-toggle {
         position: fixed;
-        right: 28px;
-        bottom: 96px;
+        right: 12px;
+        bottom: 100px;
         z-index: 1100;
         background: #1e293b;
         color: #f8fafc;
@@ -85,13 +154,58 @@
         color: #0f172a;
         box-shadow: 0 10px 30px rgba(8, 47, 73, 0.35);
       }
-
+      .hero-subtitle {
+        font-size: 20px;
+        font-weight: 400;
+        color: #f8f9fa;
+        margin-bottom: 25px;
+      }
+      body.dark-mode .hero-subtitle {
+        color: #e2e8f0;
+      }
+      .hero-actions {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .hero-actions.align-right {
+        justify-content: flex-end;
+      }
+      @media (max-width: 767px) {
+        .hero-actions {
+          justify-content: center;
+        }
+      }
+      .hero-actions .btn {
+        min-width: 180px;
+        font-weight: 600;
+      }
+      .hero-actions .btn-border {
+        color: #f8f9fa;
+        border-color: #f8f9fa;
+      }
+      .hero-actions .btn-border:hover,
+      .hero-actions .btn-border:focus {
+        color: #0f172a;
+        background: #f8f9fa;
+        border-color: #f8f9fa;
+      }
+      body.dark-mode .hero-actions .btn-border {
+        color: #e2e8f0;
+        border-color: #e2e8f0;
+      }
+      body.dark-mode .hero-actions .btn-border:hover,
+      body.dark-mode .hero-actions .btn-border:focus {
+        color: #0f172a;
+        background: #e2e8f0;
+        border-color: #e2e8f0;
+      }
+ 
       body.dark-mode {
         background-color: #0f172a !important;
         color: #e2e8f0;
-      }
-      body.dark-mode a {
-        color: #38bdf8;
       }
       body.dark-mode a:hover,
       body.dark-mode a:focus {
@@ -306,14 +420,14 @@
               <div class="contents">
                 <h5 class="script-font">Hi This is</h5>
                 <h2 class="head-title">Elio Navarrete</h2>
-                <p class="script-font">Quality Assurance Automation Lead and Professor</p>
+                <p class="hero-subtitle">QA Lead @ Open Loop · UPC Professor · Playwright · Cypress · Serenity BDD</p>
                 <ul class="social-icon">
                   
                   <li>
-                    <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/eliojeff"><i class="icon-social-linkedin"></i></a>
+                    <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/eliojeff" aria-label="LinkedIn"><i class="icon-social-linkedin"></i></a>
                   </li>
                   <li>
-                    <a class="github" target="_blank" href="https://github.com/elionavarretev"><i class="icon-social-github"></i></a>
+                    <a class="github" target="_blank" href="https://github.com/elionavarretev" aria-label="GitHub"><i class="icon-social-github"></i></a>
                   </li>
                   <li>
                     <a class="orcid" target="_blank" href="https://orcid.org/0000-0001-8810-2068" aria-label="ORCID">
@@ -322,8 +436,10 @@
                   </li>
                   
                 </ul>
-                <div class="header-button">                  
-                  <!--<a href="#" class="btn btn-common">Get a Free Quote</a>-->
+                <div class="header-button hero-actions">
+                  <a href="#portfolios" class="btn btn-common">View Portfolio</a>
+                  <a href="#publicaciones" class="btn btn-border">Scientific Publications</a>
+                  <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="btn btn-common">Connect on LinkedIn</a>
                 </div>
               </div>
             </div>
@@ -340,7 +456,7 @@
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="img-thumb fadeInLeft">
-              <img class="img-fluid" src="assets/img/about/about-ElioNavarrete.jpg" alt="">
+              <img class="img-fluid" src="assets/img/about/about-ElioNavarrete.jpg" alt="Elio Navarrete" loading="lazy" decoding="async">
             </div>
           </div> 
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -379,7 +495,7 @@
               </div>
               <div class="services-content">
                 <h3><a href="#">QA Lead</a></h3>
-                <p>Leader of automation projects oriented in the digitalization of processes that benefit the organization.</p>
+                <p>Lead QA automation programs at Open Loop, designing Playwright and Serenity BDD CI/CD pipelines that cut regression validation time by 35% and keep releases frictionless.</p>
               </div>
             </div>
           </div>
@@ -391,7 +507,7 @@
               </div>
               <div class="services-content">
                 <h3><a href="#">Scrum Master</a></h3>
-                <p>Expert in agile methodologies in leading financial and e-commerce companies. Also, I am certificate in Scrum Alliance. </p>
+                <p>Certified Scrum Master supporting banking and e-commerce squads, optimizing ceremonies, flow metrics, and adoption of agile practices focused on continuous delivery.</p>
               </div>
             </div>
           </div>  
@@ -403,7 +519,7 @@
               </div>
               <div class="services-content">
                 <h3><a href="#">Professor</a></h3>
-                <p>professor of the career of Software Engineering. Dedicated to the first courses of beginning of career.</p>
+                <p>Professor at UPC’s Software Engineering program, guiding introductory courses and QA projects with emphasis on fundamentals, metrics, and industry best practices.</p>
               </div>
             </div>
           </div>          
@@ -414,7 +530,7 @@
               </div>
               <div class="services-content">
                 <h3><a href="#">Consultancy</a></h3>
-                <p>Experience and ability to manage and promote projects with quality standards. Expert in Automation projects.</p>
+                <p>Consulting for organizations growing their automation strategy: QA assessments, tool selection, roadmap design, and coaching for technical teams.</p>
               </div>
             </div>
           </div>
@@ -494,9 +610,9 @@
                 </li>
                 <li>
                   <div class="content-text">
-                    <h3 class="line-title">College Professor - UPC</h3>
+                    <h3 class="line-title">Professor - UPC</h3>
                     <span>March 2020 - Present</span>
-                    <p class="line-text">College professor of the career of Software Engineering.
+                    <p class="line-text">Professor for the Software Engineering program, mentoring foundational QA courses and student projects.
                       - SI491: Fundamentals of Information Systems</p>
                   </div>
                 </li>
@@ -504,17 +620,14 @@
                   <div class="content-text">
                     <h3 class="line-title" style="font-size: 14px; line-height: 1.3;">QA Automation Engineer - Belatrix Software</h3>
                     <span>May 2018 - March 2020</span>
-                    <p class="line-text">Ensure the proper functioning of the applications of Digital Sales and have
-                      communication with different areas of the systems division in BCP of Peru.</p>
+                    <p class="line-text">Delivered automation suites for BCP’s digital sales core, reducing critical defects by 25% and aligning QA strategy with business and IT stakeholders.</p>
                   </div>
                 </li>
                 <li>
                   <div class="content-text">
                     <h3 class="line-title" style="font-size: 14px; line-height: 1.3;">QA Automation Engineer- Choucair Testing S.A.</h3>
                     <span>March 2016 - May 2018</span>
-                    <p class="line-text">Team leader with functions to design, adjust and stabilize scripts, according
-                      to the strategy and scope of the test based on the requirements and
-                      documentation provided by the client under the SCRUM framework.</p>
+                    <p class="line-text">Led automation teams under SCRUM, defining strategies, stabilizing scripts, and ensuring compliance with regulatory requirements for banking clients.</p>
                   </div>
                 </li>
               </ul>
@@ -593,7 +706,7 @@
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix playwright">
           <div class="portfolio-item">
             <div class="shot-item" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-              <img src="assets/img/gallery/playwright-logo.svg" alt="Playwright" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;"> 
+              <img src="assets/img/gallery/playwright-logo.svg" alt="Playwright" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;" loading="lazy"> 
               <div class="overlay">
                 <div class="icons">
                   <a class="lightbox preview" href="assets/img/gallery/playwright-logo.svg">
@@ -605,12 +718,16 @@
                 </div>
               </div>
             </div>               
+            <div class="portfolio-caption" style="padding: 15px; text-align: center;">
+              <h4 style="margin-bottom: 10px;">Playwright QA Accelerator</h4>
+              <p style="margin: 0; font-size: 14px;">Designed a Playwright E2E framework integrated with CI/CD, reducing regression validation time by 40% for fintech products.</p>
+            </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix cypress">
           <div class="portfolio-item">
             <div class="shot-item" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-              <img src="assets/img/gallery/cypress-logo.png" alt="Cypress" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;"> 
+              <img src="assets/img/gallery/cypress-logo.png" alt="Cypress" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;" loading="lazy"> 
               <div class="overlay">
                 <div class="icons">
                   <a class="lightbox preview" href="assets/img/gallery/cypress-logo.png">
@@ -622,12 +739,16 @@
                 </div>
               </div>
             </div>               
+            <div class="portfolio-caption" style="padding: 15px; text-align: center;">
+              <h4 style="margin-bottom: 10px;">Cypress Ecommerce Testing</h4>
+              <p style="margin: 0; font-size: 14px;">Automated critical e-commerce journeys with Cypress, tracking availability metrics and catching UI regressions ahead of weekly releases.</p>
+            </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix serenity">
           <div class="portfolio-item">
             <div class="shot-item" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-              <img src="assets/img/gallery/im-3_Elio_Navarrete.jpg" alt="Serenity BDD" style="width: 100%; height: 100%; object-fit: cover;"> 
+              <img src="assets/img/gallery/im-3_Elio_Navarrete.jpg" alt="Serenity BDD" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"> 
               <div class="overlay">
                 <div class="icons">
                   <a class="lightbox preview" href="assets/img/gallery/im-3_Elio_Navarrete.jpg">
@@ -639,6 +760,10 @@
                 </div>
               </div>
             </div>               
+            <div class="portfolio-caption" style="padding: 15px; text-align: center;">
+              <h4 style="margin-bottom: 10px;">Serenity BDD Reporting</h4>
+              <p style="margin: 0; font-size: 14px;">Implemented Serenity BDD live reporting for Belcorp regional projects, mapping BDD scenarios and providing coverage visibility for stakeholders.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -657,6 +782,9 @@
             <ul class="list-group" id="orcid-list"></ul>
             <div class="text-center" id="orcid-empty" style="display:none;">No se encontraron publicaciones.</div>
             <div class="text-center text-danger" id="orcid-error" style="display:none;">No se pudieron cargar las publicaciones.</div>
+            <div class="text-center" style="margin-top: 30px;">
+              <a class="btn btn-common" href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener">View all publications on ORCID</a>
+            </div>
           </div>
         </div>
       </div>
@@ -705,6 +833,22 @@
 
 
     <!-- Footer Section Start -->
+    <section class="call-to-action section-padding" style="background: linear-gradient(135deg, #1d4ed8, #0f172a); color: #f8fafc;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 col-md-7">
+            <h3 style="margin-bottom: 15px;">Need to strengthen the quality of your digital product?</h3>
+            <p style="margin: 0;">Let’s talk about automation strategies, agile adoption, and QA leadership. ISTQB® CTAL & CTFL certified, with hands-on experience in Playwright, Cypress, and Serenity BDD.</p>
+          </div>
+          <div class="col-lg-4 col-md-5 text-md-right" style="margin-top: 15px;">
+            <div class="hero-actions align-right">
+              <a href="mailto:elionavarretev@gmail.com" class="btn btn-common">Email Me</a>
+              <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="btn btn-border">Schedule a conversation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer class="footer-area section-padding">
       <div class="container">
         <div class="row">
@@ -712,10 +856,10 @@
             <div class="footer-text text-center fadeInDown">
               <ul class="social-icon">
                 <li>
-                  <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/eliojeff"><i class="icon-social-linkedin"></i></a>
+                  <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/eliojeff" aria-label="LinkedIn"><i class="icon-social-linkedin"></i></a>
                 </li>
                 <li>
-                  <a class="github" target="_blank" href="https://github.com/elionavarretev"><i class="icon-social-github"></i></a>
+                  <a class="github" target="_blank" href="https://github.com/elionavarretev" aria-label="GitHub"><i class="icon-social-github"></i></a>
                 </li>
                 <li>
                   <a class="orcid" target="_blank" href="https://orcid.org/0000-0001-8810-2068" aria-label="ORCID">
