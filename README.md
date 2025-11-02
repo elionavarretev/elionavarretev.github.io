@@ -21,15 +21,22 @@ This portfolio website presents Elio Navarrete's professional journey as a Lead 
 - Coordinating with cross-functional teams to implement best practices
 - Optimizing testing workflows and delivering robust solutions
 
+## 🚀 What's New
+
+- 🌙 **Dark Mode Toggle**: Persistent theme switcher with OS preference detection
+- 🧪 **Testing Portfolio Refresh**: Highlighted Playwright, Cypress, and Serenity BDD projects
+- 🧬 **ORCID Integration**: Scientific publications auto-fetched from ORCID profile (0000-0001-8810-2068)
+- 🔗 **Expanded Social Links**: Quick access to LinkedIn, GitHub, and ORCID profiles
+
 ## 🚀 Features
 
 - **Responsive Design**: Fully responsive across all devices
-- **Modern UI/UX**: Clean, professional design with smooth animations
-- **Interactive Portfolio**: Showcase of projects in Java, JavaScript, Python, and C#
-- **Contact Form**: Functional contact form with validation
+- **Modern UI/UX**: Clean, professional design with smooth animations and accessible typography
+- **Interactive Portfolio**: Filterable gallery spotlighting Playwright, Cypress, and Serenity BDD work
+- **Scientific Publications**: Automated feed of recent ORCID publications (deduplicated & sorted)
 - **SEO Optimized**: Meta tags, structured data, and Google Tag Manager integration
 - **Fast Loading**: Optimized assets and efficient code structure
-- **Accessibility**: Semantic HTML and proper ARIA labels
+- **Accessibility**: Semantic HTML, ARIA labels, and keyboard-friendly controls
 
 ## 🛠️ Technologies Used
 
@@ -42,14 +49,13 @@ This portfolio website presents Elio Navarrete's professional journey as a Lead 
 ### Libraries & Frameworks
 - **Bootstrap 4**: Responsive grid system and components
 - **jQuery**: DOM manipulation and AJAX requests
-- **Font Awesome**: Icon library
-- **Simple Line Icons**: Minimalist icon set
+- **Font Awesome & Simple Line Icons**: Icon libraries
 - **Animate.css**: CSS animations
 - **Nivo Lightbox**: Image gallery functionality
 - **MixItUp**: Portfolio filtering
 
 ### Backend
-- **PHP**: Contact form processing
+- **PHP**: Legacy contact form processing (currently disabled on UI)
 - **GitHub Pages**: Static site hosting
 
 ## 📁 Project Structure
@@ -71,8 +77,9 @@ elionavarretev.github.io/
     ├── img/                  # Images and graphics
     │   ├── about/            # About section images
     │   ├── gallery/          # Portfolio images
+    │   ├── icons/            # Social/media icons (e.g. ORCID)
     │   ├── slider/           # Hero slider images
-    │   └── favi/            # Favicons and app icons
+    │   └── favi/             # Favicons and app icons
     ├── fonts/                # Web fonts
     ├── doc/                  # Documents (CV, certificates)
     ├── php/                  # PHP scripts
@@ -83,7 +90,7 @@ elionavarretev.github.io/
 
 ### 1. **Hero Area**
 - Professional introduction
-- Social media links (LinkedIn, GitHub, Twitter)
+- Social media links (LinkedIn, GitHub, ORCID)
 - Animated background slider
 
 ### 2. **About**
@@ -101,18 +108,21 @@ elionavarretev.github.io/
 - Educational background (UPC, Universidad Austral, PUCP, Pontificia Universidad Javeriana)
 - Professional experience timeline
 - Current positions at Open Loop and UPC
+- Licenses & Certifications grid
 
 ### 5. **Portfolio**
-- Interactive project showcase
-- Filterable by technology (Java, JavaScript, Python, C#)
-- Links to GitHub repositories
-- Project screenshots and descriptions
+- Interactive project showcase curated around automation/testing stacks
+- Filterable by Playwright, Cypress, and Serenity BDD
+- Links to GitHub repositories with project assets
 
-### 6. **Contact**
-- Contact form with validation
-- Location information (Miraflores, Lima, Perú)
-- Embedded Google Maps
-- Social media integration
+### 6. **Scientific Publications**
+- Dynamic list fed from ORCID public API
+- Deduplicated using title/year keys and sorted by most recent
+- DOI links when available
+
+### 7. **Contact & Social**
+- Footer with social links and location details
+- Back-to-top shortcut for quick navigation
 
 ## 🔧 Setup & Installation
 
@@ -161,6 +171,10 @@ elionavarretev.github.io/
    - Update portfolio section in `index.html`
    - Add corresponding GitHub repository links
 
+4. **ORCID Publications**
+   - Update the `orcid` variable in the inline script (near the end of `index.html`) to your ORCID iD
+   - Adjust `summaries.slice(0, 20)` to change the number of entries shown
+
 ## 📱 Responsive Design
 
 The website is fully responsive and optimized for:
@@ -188,9 +202,7 @@ Replace placeholder images with your own:
 
 ## 📧 Contact Form
 
-The contact form uses PHP for processing. For GitHub Pages deployment:
-- Consider using a third-party service like Formspree or Netlify Forms
-- Or implement client-side form handling with JavaScript
+> The legacy contact form markup has been removed from the UI. To re-enable it, restore the section in `index.html` and configure the PHP endpoint under `assets/php/` or integrate a third-party email service.
 
 ## 🚀 Deployment
 
@@ -212,7 +224,7 @@ The contact form uses PHP for processing. For GitHub Pages deployment:
 
 ## 🔒 Security
 
-- Form validation on both client and server side
+- Form validation hooks ready for re-enabling contact form
 - No sensitive information exposed in client-side code
 - HTTPS enabled on GitHub Pages
 
@@ -236,10 +248,11 @@ While this is a personal portfolio, suggestions and improvements are welcome:
 - 📧 Email: [elionavarretev@gmail.com](mailto:elionavarretev@gmail.com)
 - 💼 LinkedIn: [linkedin.com/in/eliojeff](https://www.linkedin.com/in/eliojeff)
 - 🐙 GitHub: [github.com/elionavarretev](https://github.com/elionavarretev)
+- 🧬 ORCID: [orcid.org/0000-0001-8810-2068](https://orcid.org/0000-0001-8810-2068)
 - 📍 Location: Miraflores, Lima, Perú
 
 ---
 
 ⭐ **Star this repository if you found it helpful!**
 
-*Last updated: January 2025*
+*Last updated: November 2025*

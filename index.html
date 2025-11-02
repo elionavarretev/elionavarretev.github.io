@@ -53,9 +53,160 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+    <style>
+      .theme-toggle {
+        position: fixed;
+        right: 28px;
+        bottom: 96px;
+        z-index: 1100;
+        background: #1e293b;
+        color: #f8fafc;
+        border: none;
+        border-radius: 999px;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      }
+      .theme-toggle:focus {
+        outline: 2px solid #38bdf8;
+        outline-offset: 4px;
+      }
+      .theme-toggle:hover {
+        transform: translateY(-2px);
+      }
+      body.dark-mode .theme-toggle {
+        background: #f8fafc;
+        color: #0f172a;
+        box-shadow: 0 10px 30px rgba(8, 47, 73, 0.35);
+      }
+
+      body.dark-mode {
+        background-color: #0f172a !important;
+        color: #e2e8f0;
+      }
+      body.dark-mode a {
+        color: #38bdf8;
+      }
+      body.dark-mode a:hover,
+      body.dark-mode a:focus {
+        color: #0ea5e9;
+      }
+      body.dark-mode .section-title,
+      body.dark-mode h1,
+      body.dark-mode h2,
+      body.dark-mode h3,
+      body.dark-mode h4,
+      body.dark-mode h5,
+      body.dark-mode h6 {
+        color: #f8fafc;
+      }
+      body.dark-mode #header-wrap,
+      body.dark-mode .menu-bg,
+      body.dark-mode .menu-list,
+      body.dark-mode .navbar,
+      body.dark-mode .navbar.fixed-top,
+      body.dark-mode .mobile-menu,
+      body.dark-mode .menu-wrap,
+      body.dark-mode .menu,
+      body.dark-mode .navbar-collapse {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+      }
+      body.dark-mode .menu-wrap .nav-link,
+      body.dark-mode .menu-wrap .nav-link:focus,
+      body.dark-mode .menu-wrap .nav-link:hover,
+      body.dark-mode .menu-wrap .nav-item.active .nav-link {
+        color: #e2e8f0 !important;
+      }
+      body.dark-mode .menu-wrap .nav-item.active .nav-link {
+        font-weight: 600;
+        color: #38bdf8 !important;
+      }
+      body.dark-mode #hero-area .overlay {
+        background: rgba(15, 23, 42, 0.8);
+      }
+      body.dark-mode section,
+      body.dark-mode .section-padding,
+      body.dark-mode #resume,
+      body.dark-mode #services,
+      body.dark-mode #about,
+      body.dark-mode #publicaciones,
+      body.dark-mode #portfolios,
+      body.dark-mode .counter-section,
+      body.dark-mode .footer-area {
+        background-color: #111827 !important;
+      }
+      body.dark-mode .portfolio-item,
+      body.dark-mode .services-item,
+      body.dark-mode .timeline li .content-text,
+      body.dark-mode .about-profile,
+      body.dark-mode .profile-wrapper,
+      body.dark-mode .education,
+      body.dark-mode .experience,
+      body.dark-mode .certifications,
+      body.dark-mode .work-counter-widget .counter,
+      body.dark-mode .list-group-item {
+        background-color: rgba(15, 23, 42, 0.9) !important;
+        color: #e2e8f0 !important;
+        border-color: rgba(148, 163, 184, 0.25) !important;
+      }
+      body.dark-mode .timeline li {
+        border-left-color: rgba(148, 163, 184, 0.35) !important;
+      }
+      body.dark-mode .timeline li:before {
+        border-color: #38bdf8 !important;
+        background: #38bdf8 !important;
+      }
+      body.dark-mode .timeline li span,
+      body.dark-mode .timeline li .line-text {
+        color: #cbd5f5 !important;
+      }
+      body.dark-mode .about-profile .pro-title {
+        color: #38bdf8 !important;
+      }
+      body.dark-mode .about-profile .pro-detail {
+        color: #e2e8f0 !important;
+      }
+      body.dark-mode .about-profile .pro-title:after {
+        color: #38bdf8 !important;
+      }
+      .social-icon li a.orcid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .social-icon li a.orcid img {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+ 
+      /* Fix portfolio item width when filtered */
+      #portfolio .mix {
+        display: block !important;
+        vertical-align: top;
+      }
+      #portfolio .mix[style*="inline-block"] {
+        display: block !important;
+      }
+      #portfolio .portfolio-item {
+        width: 100%;
+      }
+      #portfolio .shot-item {
+        position: relative;
+      }
+    </style>
 
   </head>
   <body>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activar modo oscuro">
+      <span class="theme-toggle-icon" aria-hidden="true">&#9789;</span>
+    </button>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3HLXH3"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -155,7 +306,7 @@
               <div class="contents">
                 <h5 class="script-font">Hi This is</h5>
                 <h2 class="head-title">Elio Navarrete</h2>
-                <p class="script-font">Quality Assurance Automation Lead Engineer and Professor</p>
+                <p class="script-font">Quality Assurance Automation Lead and Professor</p>
                 <ul class="social-icon">
                   
                   <li>
@@ -163,6 +314,11 @@
                   </li>
                   <li>
                     <a class="github" target="_blank" href="https://github.com/elionavarretev"><i class="icon-social-github"></i></a>
+                  </li>
+                  <li>
+                    <a class="orcid" target="_blank" href="https://orcid.org/0000-0001-8810-2068" aria-label="ORCID">
+                      <img src="assets/img/icons/orcid-icon.png" alt="ORCID">
+                    </a>
                   </li>
                   
                 </ul>
@@ -372,28 +528,28 @@
                   <h2 class="timelin-title" style="margin-bottom: 30px;">Licenses & Certifications</h2>
                 </li>
                 <li>
-                  <div class="content-text" style="margin-top: 30px;">
+                  <div class="content-text" >
                     <h3 class="line-title" style="font-size: 14px; line-height: 1.3;">ISTQB® CTAL Test Automation Engineering v2.0</h3>
                     <span>April 2025 - April 2035</span>
                     <p class="line-text">ISTQB® - International Software Testing Qualifications Board<br>Credential ID: 25-CTAL-TAE v2-261512-81</p>
                   </div>
                 </li>
                 <li>
-                  <div class="content-text" style="margin-top: 25px;">
+                  <div class="content-text" >
                     <h3 class="line-title" style="font-size: 14px; line-height: 1.3;">ISTQB® CTFL Foundation Level 4.0</h3>
                     <span>March 2025 - March 2035</span>
                     <p class="line-text">ISTQB® - International Software Testing Qualifications Board<br>Credential ID: 25-CTFL 4-259589-12</p>
                   </div>
                 </li>
                 <li>
-                  <div class="content-text" style="margin-top: 25px;">
+                  <div class="content-text" >
                     <h3 class="line-title" style="font-size: 14px; line-height: 1.3;">Scrum Master Certified (SMC)</h3>
                     <span>May 2019 - May 2021</span>
                     <p class="line-text">Scrum Alliance<br>Credential ID: 928700</p>
                   </div>
                 </li>
                 <li>
-                  <div class="content-text" style="margin-top: 25px;">
+                  <div class="content-text">
                     <h3 class="line-title" style="font-size: 14px; line-height: 1.3;">Colegio de Ingenieros del Perú (CIP)</h3>
                     <span>April 2020</span>
                     <p class="line-text">Professional Engineering License<br>Credential ID: 243791</p>
@@ -419,17 +575,14 @@
           <a class="filter active btn btn-common" data-filter="all">
             All 
           </a>
-          <a class="filter btn btn-common" data-filter=".">
-            Java 
+          <a class="filter btn btn-common" data-filter=".playwright">
+            Playwright 
           </a>
-          <a class="filter btn btn-common" data-filter=".">
-            Javascript
+          <a class="filter btn btn-common" data-filter=".cypress">
+            Cypress
           </a>
-          <a class="filter btn btn-common" data-filter=".">
-            Phyton 
-          </a>
-          <a class="filter btn btn-common" data-filter=".">
-            C# 
+          <a class="filter btn btn-common" data-filter=".serenity">
+            Serenity 
           </a>
         </div>
         <!-- Portfolio Controller/Buttons Ends-->
@@ -437,16 +590,16 @@
  
       <!-- Portfolio Recent Projects -->
       <div id="portfolio" class="row wow fadeInDown" data-wow-delay="0.4s">
-        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix design print">
+        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix playwright">
           <div class="portfolio-item">
-            <div class="shot-item">
-              <img src="assets/img/gallery/im-2_Elio_Navarrete.png" alt="Javascript"> 
+            <div class="shot-item" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <img src="assets/img/gallery/playwright-logo.svg" alt="Playwright" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;"> 
               <div class="overlay">
                 <div class="icons">
-                  <a class="lightbox preview" href="assets/img/gallery/im-2_Elio_Navarrete.png">
+                  <a class="lightbox preview" href="assets/img/gallery/playwright-logo.svg">
                     <i class="icon-eye"></i>
                   </a>
-                  <a class="link" target="_blank" href="https://github.com/elionavarretev/Postman-to-k6Script">
+                  <a class="link" target="_blank" href="https://github.com/elionavarretev/Demo-playwright">
                     <i class="icon-link"></i>
                   </a>
                 </div>
@@ -454,16 +607,16 @@
             </div>               
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development print">
+        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix cypress">
           <div class="portfolio-item">
-            <div class="shot-item">
-              <img src="assets/img/gallery/im-1_Elio_Navarrete.jpg" alt="Python">  
+            <div class="shot-item" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <img src="assets/img/gallery/cypress-logo.png" alt="Cypress" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;"> 
               <div class="overlay">
                 <div class="icons">
-                  <a class="lightbox preview" href="assets/img/gallery/im-1_Elio_Navarrete.jpg">
+                  <a class="lightbox preview" href="assets/img/gallery/cypress-logo.png">
                     <i class="icon-eye"></i>
                   </a>
-                  <a class="link" target="_blank" href="https://github.com/elionavarretev/PythonBDD-Belcorp">
+                  <a class="link" target="_blank" href="https://github.com/elionavarretev">
                     <i class="icon-link"></i>
                   </a>
                 </div>
@@ -471,67 +624,16 @@
             </div>               
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
+        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix serenity">
           <div class="portfolio-item">
-            <div class="shot-item">
-              <img src="assets/img/gallery/im-3_Elio_Navarrete.jpg" alt="Java"> 
+            <div class="shot-item" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <img src="assets/img/gallery/im-3_Elio_Navarrete.jpg" alt="Serenity BDD" style="width: 100%; height: 100%; object-fit: cover;"> 
               <div class="overlay">
                 <div class="icons">
                   <a class="lightbox preview" href="assets/img/gallery/im-3_Elio_Navarrete.jpg">
                     <i class="icon-eye"></i>
                   </a>
                    <a class="link" target="_blank" href="https://github.com/elionavarretev/SerenityBDD-Belcorp">
-                    <i class="icon-link"></i>
-                  </a>
-                </div>
-              </div>
-            </div>               
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development design">
-          <div class="portfolio-item">
-            <div class="shot-item">
-              <img src="assets/img/gallery/im-4_Elio_Navarrete.jpg" alt="Javascript"> 
-              <div class="overlay">
-                <div class="icons">
-                  <a class="lightbox preview" href="assets/img/gallery/im-4_Elio_Navarrete.jpg">
-                    <i class="icon-eye"></i>
-                  </a>
-                  <a class="link" target="_blank" href="https://github.com/elionavarretev/CodeceptJSWEB">
-                    <i class="icon-link"></i>
-                  </a>
-                </div>
-              </div>
-            </div>               
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
-          <div class="portfolio-item">
-            <div class="shot-item">
-              <img src="assets/img/gallery/im-5_Elio_Navarrete.jpg" alt="c#"> 
-              <div class="overlay">
-                <div class="icons">
-                  <a class="lightbox preview" href="assets/img/gallery/im-5_Elio_Navarrete.jpg">
-                    <i class="icon-eye"></i>
-                  </a>
-                  <a class="link" target="_blank" href="https://github.com/elionavarretev/FormularioPago">
-                    <i class="icon-link"></i>
-                  </a>
-                </div>
-              </div>
-            </div>               
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix print design">
-          <div class="portfolio-item">
-            <div class="shot-item">
-              <img src="assets/img/gallery/im-6_Elio_Navarrete.jpg" alt="Javascript">
-              <div class="overlay">
-                <div class="icons">
-                  <a class="lightbox preview" href="assets/img/gallery/im-6_Elio_Navarrete.jpg">
-                    <i class="icon-eye"></i>
-                  </a>
-                  <a class="link" href="https://github.com/elionavarretev/CodeceptJSMOBIL">
                     <i class="icon-link"></i>
                   </a>
                 </div>
@@ -601,83 +703,6 @@
     </section>
     <!-- Counter Area End-->
 
-    <!-- Contact Section Start -->
-    <section id="contact" class="section-padding">      
-      <div class="contact-form">
-        <div class="container">
-          <div class="row contact-form-area">          
-            <div class="col-md-6 col-lg-6 col-sm-12">
-              <div class="contact-block">
-                <h2>Contact Form</h2>
-                <form id="contactForm">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required data-error="Please enter your name">
-                        <div class="help-block with-errors"></div>
-                      </div>                                 
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <input type="text" placeholder="Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
-                        <div class="help-block with-errors"></div>
-                      </div> 
-                    </div>
-                     <div class="col-md-12">
-                      <div class="form-group">
-                        <input type="text" placeholder="Subject" id="msg_subject" class="form-control" required data-error="Please enter your subject">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group"> 
-                        <textarea class="form-control" id="message" placeholder="Your Message" rows="5" data-error="Write your message" required></textarea>
-                        <div class="help-block with-errors"></div>
-                      </div>
-                      <div class="submit-button">
-                        <button class="btn btn-common" id="submit" type="submit">Send Message</button>
-                        <div id="msgSubmit" class="h3 text-center hidden"></div> 
-                        <div class="clearfix"></div> 
-                      </div>
-                    </div>
-                  </div>            
-                </form>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-sm-12">
-              <div class="footer-right-area fadeIn">
-                <h2>Contact Address</h2>
-                <div class="footer-right-contact">
-                  <div class="single-contact">
-                    <div class="contact-icon">
-                      <i class="fa fa-map-marker"></i>
-                    </div>
-                    <p>Lima, Perú</p>
-                  </div>
-                  <div class="single-contact">
-                    <div class="contact-icon">
-                      <i class="fa fa-envelope"></i>
-                    </div>
-                    <p><a target="_blank" href="mailto:elionavarretev@gmail.com">elionavarretev@gmail.com</a></p>
-                  </div>
-                  <!-- <div class="single-contact">
-                    <div class="contact-icon">
-                      <i class="fa fa-phone"></i>
-                    </div>
-                    <p><a href="#">+ (00) 123 456 789</a></p>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12">
-            <object style="border:0; height: 450px; width: 100%;" data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.777339939257!2d-77.01473452335202!3d-12.127381588115666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c800435c2d3f%3A0x3433e849ff1630b6!2sAv.%20Alfredo%20Benavides%201944%2C%20Miraflores%2015048!5e0!3m2!1sen!2spe!4v1761448072899!5m2!1sen!2spe"></object>
-            
-          </div>
-          </div>
-        </div>
-      </div>   
-    </section>
-    <!-- Contact Section End -->
 
     <!-- Footer Section Start -->
     <footer class="footer-area section-padding">
@@ -691,6 +716,11 @@
                 </li>
                 <li>
                   <a class="github" target="_blank" href="https://github.com/elionavarretev"><i class="icon-social-github"></i></a>
+                </li>
+                <li>
+                  <a class="orcid" target="_blank" href="https://orcid.org/0000-0001-8810-2068" aria-label="ORCID">
+                    <img src="assets/img/icons/orcid-icon.png" alt="ORCID">
+                  </a>
                 </li>
               
               </ul>
@@ -726,6 +756,41 @@
     <script src="assets/js/contact-form-script.min.js"></script>
     <script>
       (function() {
+        var bodyEl = document.body;
+        var themeToggle = document.getElementById('theme-toggle');
+        var themeIcon = themeToggle ? themeToggle.querySelector('.theme-toggle-icon') : null;
+        var prefersDark = false;
+        try {
+          prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        } catch (err) {}
+
+        var storedTheme = null;
+        try {
+          storedTheme = localStorage.getItem('preferred-theme');
+        } catch (err) {}
+
+        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+          bodyEl.classList.add('dark-mode');
+        }
+        updateThemeToggle();
+
+        if (themeToggle) {
+          themeToggle.addEventListener('click', function() {
+            var isDark = bodyEl.classList.toggle('dark-mode');
+            updateThemeToggle();
+            try {
+              localStorage.setItem('preferred-theme', isDark ? 'dark' : 'light');
+            } catch (err) {}
+          });
+        }
+
+        function updateThemeToggle() {
+          if (!themeToggle || !themeIcon) return;
+          var isDark = bodyEl.classList.contains('dark-mode');
+          themeToggle.setAttribute('aria-label', isDark ? 'Activar modo claro' : 'Activar modo oscuro');
+          themeIcon.innerHTML = isDark ? '&#9728;' : '&#9789;';
+        }
+
         var orcid = '0000-0001-8810-2068';
         var listEl = document.getElementById('orcid-list');
         var loadingEl = document.getElementById('orcid-loading');
@@ -740,9 +805,27 @@
           .then(function(data) {
             var groups = (data && data.group) ? data.group : [];
             var summaries = [];
+            var seenPutCodes = Object.create(null);
+            var seenFallback = Object.create(null);
             groups.forEach(function(group) {
               var ws = (group && group['work-summary']) ? group['work-summary'] : [];
-              ws.forEach(function(w) { summaries.push(w); });
+              ws.forEach(function(w) {
+                if (!w) return;
+                var titleVal = (w.title && w.title.title && w.title.title.value) ? w.title.title.value : '';
+                var yearVal = (w['publication-date'] && w['publication-date'].year && w['publication-date'].year.value) ? String(w['publication-date'].year.value) : '';
+                var normalizedTitle = titleVal.trim().replace(/\s+/g, ' ').toLowerCase();
+                var fallbackKey = normalizedTitle + '|' + yearVal;
+
+                var putCode = (typeof w['put-code'] !== 'undefined' && w['put-code'] !== null) ? String(w['put-code']) : '';
+                if (putCode && seenPutCodes[putCode]) return;
+                if (seenFallback[fallbackKey]) return;
+
+                if (putCode) {
+                  seenPutCodes[putCode] = true;
+                }
+                seenFallback[fallbackKey] = true;
+                summaries.push(w);
+              });
             });
 
             summaries.sort(function(a, b) {
