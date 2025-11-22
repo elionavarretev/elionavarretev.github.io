@@ -211,7 +211,55 @@
         background: #e2e8f0;
         border-color: #e2e8f0;
       }
- 
+
+      /* High contrast buttons for better accessibility */
+      .btn-common {
+        background: #0d6efd !important;
+        border-color: #0d6efd !important;
+        color: #ffffff !important;
+      }
+      .btn-common:hover,
+      .btn-common:focus {
+        background: #0b5ed7 !important;
+        border-color: #0a58ca !important;
+        color: #ffffff !important;
+      }
+      .filter.btn-common {
+        background: #6c757d !important;
+        border-color: #6c757d !important;
+        color: #ffffff !important;
+      }
+      .filter.btn-common.active {
+        background: #0d6efd !important;
+        border-color: #0d6efd !important;
+        color: #ffffff !important;
+      }
+
+      /* High contrast for service links (4.5:1 on dark mode) */
+      .services-content h3 a {
+        color: #4da3ff !important;
+        text-decoration: none;
+      }
+      .services-content h3 a:hover,
+      .services-content h3 a:focus {
+        color: #66b3ff !important;
+        text-decoration: underline;
+      }
+
+      /* High contrast for publications (4.5:1 on dark mode) */
+      #orcid-list .list-group-item {
+        color: #e2e8f0 !important;
+      }
+      #orcid-list .text-muted {
+        color: #94a3b8 !important;
+      }
+      #orcid-list a {
+        color: #4da3ff !important;
+      }
+      #orcid-list a:hover {
+        color: #66b3ff !important;
+      }
+
       body.dark-mode {
         background-color: #0f172a !important;
         color: #e2e8f0;
@@ -360,7 +408,7 @@
             </ul>
           </div>
         </div> 
-        <button class="close-button" id="close-button"><i class="icon-close"></i></button>
+        <button class="close-button" id="close-button" aria-label="Close navigation menu"><i class="icon-close"></i></button>
       </div>  
       <!-- Navbar Start -->
       <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar menu-bg">
@@ -439,7 +487,10 @@
                   </li>
                   <li>
                     <a class="orcid" target="_blank" href="https://orcid.org/0000-0001-8810-2068" aria-label="ORCID">
-                      <img src="assets/img/icons/orcid-icon.png" alt="ORCID" width="18" height="18">
+                      <svg width="18" height="18" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path fill="#A6CE39" d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z"/>
+                        <path fill="#FFF" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM71.7 64.5c0-5.4 4.5-9.9 9.9-9.9s9.9 4.5 9.9 9.9c0 5.5-4.4 9.9-9.9 9.9s-9.9-4.4-9.9-9.9z"/>
+                      </svg>
                     </a>
                   </li>
                   
@@ -458,6 +509,7 @@
     </header>
     <!-- Header Area wrapper End -->
 
+    <main>
     <!-- About Section Start -->
     <section id="about" class="section-padding">
       <div class="container">
@@ -693,18 +745,18 @@
       <div class="col-md-12">
         <!-- Portfolio Controller/Buttons -->
         <div class="controls text-center">
-          <a class="filter active btn btn-common" data-filter="all">
-            All 
-          </a>
-          <a class="filter btn btn-common" data-filter=".playwright">
-            Playwright 
-          </a>
-          <a class="filter btn btn-common" data-filter=".cypress">
+          <button type="button" class="filter active btn btn-common" data-filter="all">
+            All
+          </button>
+          <button type="button" class="filter btn btn-common" data-filter=".playwright">
+            Playwright
+          </button>
+          <button type="button" class="filter btn btn-common" data-filter=".cypress">
             Cypress
-          </a>
-          <a class="filter btn btn-common" data-filter=".serenity">
-            Serenity 
-          </a>
+          </button>
+          <button type="button" class="filter btn btn-common" data-filter=".serenity">
+            Serenity
+          </button>
         </div>
         <!-- Portfolio Controller/Buttons Ends-->
       </div>
@@ -717,17 +769,17 @@
               <img src="assets/img/gallery/playwright-logo.svg" alt="Playwright" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;" loading="lazy"> 
               <div class="overlay">
                 <div class="icons">
-                  <a class="lightbox preview" href="assets/img/gallery/playwright-logo.svg">
+                  <a class="lightbox preview" href="assets/img/gallery/playwright-logo.svg" aria-label="View Playwright project image">
                     <i class="icon-eye"></i>
                   </a>
-                  <a class="link" target="_blank" href="https://github.com/elionavarretev/Demo-playwright">
+                  <a class="link" target="_blank" href="https://github.com/elionavarretev/Demo-playwright" aria-label="Visit Playwright QA Accelerator GitHub repository">
                     <i class="icon-link"></i>
                   </a>
                 </div>
               </div>
             </div>               
             <div class="portfolio-caption" style="padding: 15px; text-align: center;">
-              <h4 style="margin-bottom: 10px;">Playwright QA Accelerator</h4>
+              <h3 style="margin-bottom: 10px; font-size: 18px; font-weight: 600;">Playwright QA Accelerator</h3>
               <p style="margin: 0; font-size: 14px;">Designed a Playwright E2E framework integrated with CI/CD, reducing regression validation time by 40% for fintech products.</p>
             </div>
           </div>
@@ -735,20 +787,20 @@
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix cypress">
           <div class="portfolio-item">
             <div class="shot-item" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-              <img src="assets/img/gallery/cypress-logo.png" alt="Cypress" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;" loading="lazy"> 
+              <img src="assets/img/gallery/cypress-logo.png" alt="Cypress" style="width: 100%; height: 100%; object-fit: contain; background: white; padding: 40px;" loading="lazy">
               <div class="overlay">
                 <div class="icons">
-                  <a class="lightbox preview" href="assets/img/gallery/cypress-logo.png">
+                  <a class="lightbox preview" href="assets/img/gallery/cypress-logo.png" aria-label="View Cypress project image">
                     <i class="icon-eye"></i>
                   </a>
-                  <a class="link" target="_blank" href="https://github.com/elionavarretev">
+                  <a class="link" target="_blank" href="https://github.com/elionavarretev" aria-label="Visit Cypress Ecommerce Testing GitHub profile">
                     <i class="icon-link"></i>
                   </a>
                 </div>
               </div>
-            </div>               
+            </div>
             <div class="portfolio-caption" style="padding: 15px; text-align: center;">
-              <h4 style="margin-bottom: 10px;">Cypress Ecommerce Testing</h4>
+              <h3 style="margin-bottom: 10px; font-size: 18px; font-weight: 600;">Cypress Ecommerce Testing</h3>
               <p style="margin: 0; font-size: 14px;">Automated critical e-commerce journeys with Cypress, tracking availability metrics and catching UI regressions ahead of weekly releases.</p>
             </div>
           </div>
@@ -756,20 +808,20 @@
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix serenity">
           <div class="portfolio-item">
             <div class="shot-item" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-              <img src="assets/img/gallery/im-3_Elio_Navarrete.jpg" alt="Serenity BDD" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"> 
+              <img src="assets/img/gallery/im-3_Elio_Navarrete.jpg" alt="Serenity BDD" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
               <div class="overlay">
                 <div class="icons">
-                  <a class="lightbox preview" href="assets/img/gallery/im-3_Elio_Navarrete.jpg">
+                  <a class="lightbox preview" href="assets/img/gallery/im-3_Elio_Navarrete.jpg" aria-label="View Serenity BDD project image">
                     <i class="icon-eye"></i>
                   </a>
-                   <a class="link" target="_blank" href="https://github.com/elionavarretev/SerenityBDD-Belcorp">
+                  <a class="link" target="_blank" href="https://github.com/elionavarretev/SerenityBDD-Belcorp" aria-label="Visit Serenity BDD Reporting GitHub repository">
                     <i class="icon-link"></i>
                   </a>
                 </div>
               </div>
-            </div>               
+            </div>
             <div class="portfolio-caption" style="padding: 15px; text-align: center;">
-              <h4 style="margin-bottom: 10px;">Serenity BDD Reporting</h4>
+              <h3 style="margin-bottom: 10px; font-size: 18px; font-weight: 600;">Serenity BDD Reporting</h3>
               <p style="margin: 0; font-size: 14px;">Implemented Serenity BDD live reporting for Belcorp regional projects, mapping BDD scenarios and providing coverage visibility for stakeholders.</p>
             </div>
           </div>
@@ -850,14 +902,16 @@
           </div>
           <div class="col-lg-4 col-md-5 text-md-right" style="margin-top: 15px;">
             <div class="hero-actions align-right">
-              <a href="mailto:elionavarretev@gmail.com" class="btn btn-common" aria-label="Send email to Elio Navarrete">Email Me</a>
-              <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="btn btn-border" aria-label="Connect with Elio Navarrete on LinkedIn">Schedule a conversation</a>
+              <a href="mailto:elionavarretev@gmail.com" class="btn btn-common">Email Me</a>
+              <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="btn btn-border">Schedule a conversation</a>
             </div>
           </div>
         </div>
       </div>
     </section>
     <!-- Contact/CTA Section End -->
+    </main>
+
     <footer class="footer-area section-padding">
       <div class="container">
         <div class="row">
@@ -872,7 +926,10 @@
                 </li>
                 <li>
                   <a class="orcid" target="_blank" href="https://orcid.org/0000-0001-8810-2068" aria-label="ORCID">
-                    <img src="assets/img/icons/orcid-icon.png" alt="ORCID" width="18" height="18">
+                    <svg width="18" height="18" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path fill="#A6CE39" d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z"/>
+                      <path fill="#FFF" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM71.7 64.5c0-5.4 4.5-9.9 9.9-9.9s9.9 4.5 9.9 9.9c0 5.5-4.4 9.9-9.9 9.9s-9.9-4.4-9.9-9.9z"/>
+                    </svg>
                   </a>
                 </li>
               
@@ -886,7 +943,7 @@
     <!-- Footer Section End -->
 
     <!-- Go to Top Link -->
-    <a href="#" class="back-to-top">
+    <a href="#hero-area" class="back-to-top" aria-label="Back to top">
     	<i class="icon-arrow-up"></i>
     </a>
 
@@ -1018,10 +1075,10 @@
               li.className = 'list-group-item';
 
               var parts = [];
-              parts.push('<strong>' + escapeHtml(title) + '</strong>');
+              parts.push('<strong style="color: #e2e8f0;">' + escapeHtml(title) + '</strong>');
               var meta = [type, year].filter(Boolean).join(' · ');
-              if (meta) parts.push('<div class="text-muted" style="font-size: 0.9em;">' + escapeHtml(meta) + '</div>');
-              if (doiUrl) parts.push('<a href="' + encodeURI(doiUrl) + '" target="_blank" rel="noopener">DOI</a>');
+              if (meta) parts.push('<div class="text-muted" style="font-size: 0.9em; color: #94a3b8;">' + escapeHtml(meta) + '</div>');
+              if (doiUrl) parts.push('<a href="' + encodeURI(doiUrl) + '" target="_blank" rel="noopener" style="color: #4da3ff;">DOI</a>');
 
               li.innerHTML = parts.join(' ');
               listEl.appendChild(li);
