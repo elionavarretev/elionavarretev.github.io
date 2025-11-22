@@ -35,7 +35,7 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/css/bootstrap.min.css" as="style">
     <link rel="preload" href="assets/css/main.css" as="style">
-    <link rel="preload" href="assets/img/background/bg-2_Elio_Navarrete_v2.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/img/background/bg-2-desktop.webp" as="image" type="image/webp" imagesrcset="assets/img/background/bg-2-mobile.webp 375w, assets/img/background/bg-2-tablet.webp 768w, assets/img/background/bg-2-desktop.webp 1920w" imagesizes="100vw">
     
     <title>Elio Navarrete | QA Lead | Professor</title>
     <!-- Open Graph  -->
@@ -855,6 +855,17 @@
     <!-- Publications Section End -->
     <!-- Counter Area Start-->
     <section class="counter-section section-padding">
+      <img
+        srcset="assets/img/background/bg-2-mobile.webp 375w,
+                assets/img/background/bg-2-tablet.webp 768w,
+                assets/img/background/bg-2-desktop.webp 1920w"
+        sizes="100vw"
+        src="assets/img/background/bg-2-desktop.webp"
+        fetchpriority="high"
+        class="counter-bg-image"
+        alt=""
+        width="1920"
+        height="1440">
       <div class="container">
         <div class="row">
           <!-- Counter Item -->
