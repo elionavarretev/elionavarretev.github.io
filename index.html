@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K3HLXH3');</script>
-    <!-- End Google Tag Manager -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favi/apple-icon-57x57.png">
@@ -32,6 +25,16 @@
     <meta name="description" content="Elio Navarrete, QA Lead and professor based in Lima, expert in Playwright, Cypress and Serenity BDD with proven QA leadership and ORCID-linked publications.">
     <meta name="keywords" content="Elio Navarrete, QA Lead, QA Automation, Playwright, Cypress, Serenity BDD, Lima Peru, Open Loop, UPC professor, ORCID, Scientific Publications, Quality Engineering">
     <link rel="canonical" href="https://elionavarretev.github.io/">
+
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="dns-prefetch" href="https://pub.orcid.org">
+    <link rel="preconnect" href="https://pub.orcid.org" crossorigin>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="assets/css/main.css" as="style">
     <link rel="preload" href="assets/img/background/bg-2_Elio_Navarrete_v2.jpg" as="image">
     
     <title>Elio Navarrete | QA Lead | Professor</title>
@@ -103,26 +106,31 @@
     }
     </script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >
-    <!-- Fonts -->
-    <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome.min.css">
-    <!-- Icon -->
-    <link rel="stylesheet" type="text/css" href="assets/fonts/simple-line-icons.css">
-    <!-- Slicknav -->
-    <link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
-    <!-- Menu CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/menu_sideslide.css">
-    <!-- Slider CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/slide-style.css">
-    <!-- Nivo Lightbox -->
-    <link rel="stylesheet" type="text/css" href="assets/css/nivo-lightbox.css" >
-    <!-- Animate -->
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-    <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-    <!-- Responsive Style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/fonts/simple-line-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/slicknav.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/menu_sideslide.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/slide-style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/nivo-lightbox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+      <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+      <link rel="stylesheet" href="assets/fonts/simple-line-icons.css">
+      <link rel="stylesheet" href="assets/css/slicknav.css">
+      <link rel="stylesheet" href="assets/css/menu_sideslide.css">
+      <link rel="stylesheet" href="assets/css/slide-style.css">
+      <link rel="stylesheet" href="assets/css/nivo-lightbox.css">
+      <link rel="stylesheet" href="assets/css/animate.css">
+      <link rel="stylesheet" href="assets/css/responsive.css">
+    </noscript>
     <style>
       .theme-toggle {
         position: fixed;
@@ -381,19 +389,19 @@
         <!-- Mobile Menu Start -->
         <ul class="mobile-menu">
           <li>
-            <a href="#home">Home</a>
+            <a href="#hero-area">Home</a>
           </li>
           <li>
-            <a href="#about">about</a>
+            <a href="#about">About</a>
           </li>
           <li>
             <a href="#services">Services</a>
           </li>
           <li>
-            <a href="#resume">resume</a>
+            <a href="#resume">Resume</a>
           </li>
           <li>
-            <a href="#portfolio">Work</a>
+            <a href="#portfolios">Work</a>
           </li>
           <li>
             <a href="#contact">Contact</a>
@@ -431,7 +439,7 @@
                   </li>
                   <li>
                     <a class="orcid" target="_blank" href="https://orcid.org/0000-0001-8810-2068" aria-label="ORCID">
-                      <img src="assets/img/icons/orcid-icon.png" alt="ORCID">
+                      <img src="assets/img/icons/orcid-icon.png" alt="ORCID" width="18" height="18">
                     </a>
                   </li>
                   
@@ -456,7 +464,7 @@
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="img-thumb fadeInLeft">
-              <img class="img-fluid" src="assets/img/about/about-ElioNavarrete.jpg" alt="Elio Navarrete" loading="lazy" decoding="async">
+              <img class="img-fluid" src="assets/img/about/about-ElioNavarrete.jpg" alt="Elio Navarrete" width="600" height="600" loading="lazy" decoding="async">
             </div>
           </div> 
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -494,7 +502,7 @@
                 <i class="icon-briefcase"></i>
               </div>
               <div class="services-content">
-                <h3><a href="#">QA Lead</a></h3>
+                <h3><a href="#contact" aria-label="Contact me about QA Lead services">QA Lead</a></h3>
                 <p>Lead QA automation programs at Open Loop, designing Playwright and Serenity BDD CI/CD pipelines that cut regression validation time by 35% and keep releases frictionless.</p>
               </div>
             </div>
@@ -506,11 +514,11 @@
                 <i class="icon-grid"></i>
               </div>
               <div class="services-content">
-                <h3><a href="#">Scrum Master</a></h3>
+                <h3><a href="#contact" aria-label="Contact me about Scrum Master services">Scrum Master</a></h3>
                 <p>Certified Scrum Master supporting banking and e-commerce squads, optimizing ceremonies, flow metrics, and adoption of agile practices focused on continuous delivery.</p>
               </div>
             </div>
-          </div>  
+          </div>
           <!-- Services item -->
           <div class="col-md-6 col-lg-3 col-xs-12">
             <div class="services-item fadeInDown">
@@ -518,18 +526,18 @@
                 <i class="icon-layers"></i>
               </div>
               <div class="services-content">
-                <h3><a href="#">Professor</a></h3>
-                <p>Professor at UPC’s Software Engineering program, guiding introductory courses and QA projects with emphasis on fundamentals, metrics, and industry best practices.</p>
+                <h3><a href="#contact" aria-label="Contact me about teaching and professor services">Professor</a></h3>
+                <p>Professor at UPC's Software Engineering program, guiding introductory courses and QA projects with emphasis on fundamentals, metrics, and industry best practices.</p>
               </div>
             </div>
-          </div>          
+          </div>
           <div class="col-md-6 col-lg-3 col-xs-12">
             <div class="services-item fadeInDown">
               <div class="icon">
                 <i class="icon-bubbles"></i>
               </div>
               <div class="services-content">
-                <h3><a href="#">Consultancy</a></h3>
+                <h3><a href="#contact" aria-label="Contact me about QA consultancy services">Consultancy</a></h3>
                 <p>Consulting for organizations growing their automation strategy: QA assessments, tool selection, roadmap design, and coaching for technical teams.</p>
               </div>
             </div>
@@ -832,23 +840,24 @@
     <!-- Counter Area End-->
 
 
-    <!-- Footer Section Start -->
-    <section class="call-to-action section-padding" style="background: linear-gradient(135deg, #1d4ed8, #0f172a); color: #f8fafc;">
+    <!-- Contact/CTA Section Start -->
+    <section id="contact" class="call-to-action section-padding" style="background: linear-gradient(135deg, #1d4ed8, #0f172a); color: #f8fafc;">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-8 col-md-7">
             <h3 style="margin-bottom: 15px;">Need to strengthen the quality of your digital product?</h3>
-            <p style="margin: 0;">Let’s talk about automation strategies, agile adoption, and QA leadership. ISTQB® CTAL & CTFL certified, with hands-on experience in Playwright, Cypress, and Serenity BDD.</p>
+            <p style="margin: 0;">Let's talk about automation strategies, agile adoption, and QA leadership. ISTQB® CTAL & CTFL certified, with hands-on experience in Playwright, Cypress, and Serenity BDD.</p>
           </div>
           <div class="col-lg-4 col-md-5 text-md-right" style="margin-top: 15px;">
             <div class="hero-actions align-right">
-              <a href="mailto:elionavarretev@gmail.com" class="btn btn-common">Email Me</a>
-              <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="btn btn-border">Schedule a conversation</a>
+              <a href="mailto:elionavarretev@gmail.com" class="btn btn-common" aria-label="Send email to Elio Navarrete">Email Me</a>
+              <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="btn btn-border" aria-label="Connect with Elio Navarrete on LinkedIn">Schedule a conversation</a>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- Contact/CTA Section End -->
     <footer class="footer-area section-padding">
       <div class="container">
         <div class="row">
@@ -863,7 +872,7 @@
                 </li>
                 <li>
                   <a class="orcid" target="_blank" href="https://orcid.org/0000-0001-8810-2068" aria-label="ORCID">
-                    <img src="assets/img/icons/orcid-icon.png" alt="ORCID">
+                    <img src="assets/img/icons/orcid-icon.png" alt="ORCID" width="18" height="18">
                   </a>
                 </li>
               
@@ -882,22 +891,29 @@
     </a>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="assets/js/jquery-min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.mixitup.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/menu.js"></script>
-    <script src="assets/js/classie.js"></script>
-    <script src="assets/js/jquery.nav.js"></script>
-    <script src="assets/js/jquery.easing.min.js"></script>  
-    <script src="assets/js/nivo-lightbox.js"></script>
-    <script src="assets/js/jquery.slicknav.js"></script>
-    <script src="assets/js/modernizr.custom.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/form-validator.min.js"></script>
-    <script src="assets/js/contact-form-script.min.js"></script>
+    <script src="assets/js/jquery-min.js" defer></script>
+    <script src="assets/js/popper.min.js" defer></script>
+    <script src="assets/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/jquery.mixitup.js" defer></script>
+    <script src="assets/js/jquery.counterup.min.js" defer></script>
+    <script src="assets/js/waypoints.min.js" defer></script>
+    <script src="assets/js/menu.js" defer></script>
+    <script src="assets/js/classie.js" defer></script>
+    <script src="assets/js/jquery.nav.js" defer></script>
+    <script src="assets/js/jquery.easing.min.js" defer></script>
+    <script src="assets/js/nivo-lightbox.js" defer></script>
+    <script src="assets/js/jquery.slicknav.js" defer></script>
+    <script src="assets/js/modernizr.custom.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/form-validator.min.js" defer></script>
+    <script src="assets/js/contact-form-script.min.js" defer></script>
+
+    <!-- Google Tag Manager (non-blocking) -->
+    <script async>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K3HLXH3');</script>
     <script>
       (function() {
         var bodyEl = document.body;
