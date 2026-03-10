@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="110" viewBox="0 0 130 110">
+  <!-- Speech bubble body -->
+  <rect x="4" y="4" width="122" height="80" rx="10" ry="10" fill="#000" stroke="rgba(0,180,217,0.25)" stroke-width="1"/>
+  <!-- Speech bubble tail (triangle pointer) -->
+  <polygon points="92,84 108,84 112,104" fill="#000"/>
+  <line x1="112" y1="104" x2="108" y2="84" stroke="rgba(0,180,217,0.25)" stroke-width="1"/>
+  <line x1="112" y1="104" x2="92" y2="84" stroke="rgba(0,180,217,0.25)" stroke-width="1"/>
+  <!-- Text -->
+  <text x="65" y="40" text-anchor="middle" font-family="Rajdhani, sans-serif" font-size="13" font-weight="700" letter-spacing="0.16em" fill="#00b4d9">LATEST</text>
+  <text x="65" y="58" text-anchor="middle" font-family="Rajdhani, sans-serif" font-size="13" font-weight="700" letter-spacing="0.16em" fill="#00b4d9">CONTENTS</text>
+</svg>

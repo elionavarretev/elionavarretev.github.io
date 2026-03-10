@@ -1,11 +1,38 @@
-//All Preset color variables are here
-$primary-font: 'Source Sans Pro', sans-serif;
+// Typography
+$primary-font: 'Inter', 'Source Sans Pro', sans-serif;
+$title-font: 'Cormorant Garamond', serif;
+$accent-font: 'Rajdhani', sans-serif;
 $regular: 400;
 $medium: 500;
+$semi-bold: 600;
 $bold: 700;
+$extra-bold: 800;
 
- // Red
- $red: #00b4d9;
- 
-//Current Preset Declareation
- $preset:  $red;
+// Dark Theme Base
+$bg-primary: #000000;
+$bg-card: #141414;
+$bg-elevated: #1a1a1a;
+$bg-light-section: #eeeeee;
+
+// Text
+$text-primary: #eeeeee;
+$text-secondary: #999999;
+$text-dark: #1a1a1a;
+
+// Accent
+$accent: #00b4d9;
+$accent-hover: #33c8e8;
+
+// Borders
+$border-subtle: rgba(255, 255, 255, 0.08);
+$border-medium: rgba(255, 255, 255, 0.15);
+
+// Nav
+$nav-height: 50px;
+
+// Sections
+$section-title-size: 35.2px;
+
+// Transitions
+$transition: all 0.3s ease-in-out;
+$transition-fast: all 0.2s ease;

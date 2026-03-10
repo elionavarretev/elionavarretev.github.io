@@ -2,265 +2,155 @@
 
 ![Portfolio Preview](assets/img/about/about-ElioNavarrete.jpg)
 
-A modern, responsive portfolio website showcasing the professional profile of Elio Navarrete, QA Lead and Professor.
+A modern, multi-page portfolio website for Elio Navarrete — QA Lead, Professor & Author. Built with a dark premium aesthetic inspired by L'Arc-en-Ciel's official site, featuring bilingual support (EN/ES), WCAG-accessible markup, and modular SCSS architecture.
 
-## 🌐 Live Website
+## Live Website
 
-Visit the live website: [elionavarretev.github.io](https://elionavarretev.github.io)
+Visit: [elionavarretev.github.io](https://elionavarretev.github.io)
 
-## 👨‍💼 About
+## Pages
 
-This portfolio website presents Elio Navarrete's professional journey as a Lead QA Engineer with 9+ years of experience. Currently serving as Lead QA at Open Loop, Elio has demonstrated exceptional leadership in quality assurance, driving excellence in software testing processes and mentoring teams. The site highlights his expertise in QA automation, leadership in quality assurance, Scrum Master certification, and his role as a professor at UPC (Universidad Peruana de Ciencias Aplicadas).
+| Page | Description |
+|------|-------------|
+| `index.html` | Main portfolio — hero slider, news ticker, dual panels, services, discography grid, book showcase, footer |
+| `news.html` | Filterable news/timeline page with focus + type filters and i18n |
+| `profile.html` | Full CV-style profile — experience, education, certifications, publications |
 
-## 🎯 Current Role
+## Tech Stack
 
-**Lead QA at Open Loop** (October 2025 - Present)
-- Leading quality assurance initiatives and driving excellence in software testing processes
-- Overseeing testing strategies and mentoring team members
-- Ensuring highest quality standards across all projects
-- Coordinating with cross-functional teams to implement best practices
-- Optimizing testing workflows and delivering robust solutions
+### Core
+- **HTML5** — Semantic markup with ARIA landmarks, skip-link, `.sr-only` utilities
+- **SCSS** — Modular architecture (12 partials compiled to 2 CSS files)
+- **JavaScript** — jQuery, Swiper.js, MixItUp, client-side i18n engine
+- **Bootstrap 4** — Grid system and base components
 
-## 🚀 What's New
+### Key Libraries
+- **Swiper.js** — Hero slider, news ticker, banner carousel
+- **MixItUp** — Portfolio/discography filtering
+- **Font Awesome + Simple Line Icons** — Iconography
+- **Animate.css** — Scroll-triggered animations
 
-- 🌙 **Dark Mode Toggle**: Persistent theme switcher with OS preference detection
-- 🧪 **Testing Portfolio Refresh**: Highlighted Playwright, Cypress, and Serenity BDD projects with mini case studies (problem → solution → result)
-- 🧬 **ORCID Integration**: Scientific publications auto-fetched from ORCID profile (0000-0001-8810-2068) with a direct CTA
-- 🔗 **Expanded Social Links**: Quick access to LinkedIn, GitHub, and ORCID profiles
-- 🎯 **Hero & CTA Enhancements**: New subtitle, anchor buttons to portfolio/publications, and a “Contact” ribbon promoting certifications
-- 📈 **SEO & Structured Data**: Canonical link, Open Graph metadata, Person + Breadcrumb JSON-LD, sitemap, and robots.txt
-- ♿ **Accessibility & Performance**: `loading="lazy"`, `decoding="async"`, descriptive alts/ARIA labels, focus-visible styling, and preload for hero imagery
+### Infrastructure
+- **GitHub Pages** — Static hosting from `master` branch
+- **Google Tag Manager** — Analytics
+- **Open Graph + Twitter Cards** — Social sharing metadata
+- **JSON-LD** — Person + BreadcrumbList structured data
+- **hreflang** — EN/ES/x-default language alternates
 
-## 🚀 Features
-
-- **Responsive Design**: Fully responsive across all devices
-- **Modern UI/UX**: Clean, professional design with smooth animations and accessible typography
-- **Interactive Portfolio**: Filterable gallery spotlighting Playwright, Cypress, and Serenity BDD work with contextual copy
-- **Scientific Publications**: Automated feed of recent ORCID publications (deduplicated & sorted)
-- **Quick Contact CTA**: Dedicated banner highlighting certifications and direct contact options
-- **SEO Optimized**: Meta tags, structured data (Person + Breadcrumb), canonical link, sitemap, and robots.txt
-- **Fast Loading**: Optimized assets, lazy loading, and preloaded background imagery
-- **Accessibility**: Semantic HTML, ARIA labels, keyboard-friendly controls, and visible focus states
-
-## 🛠️ Technologies Used
-
-### Frontend
-- **HTML5**: Semantic markup and modern web standards
-- **CSS3**: Custom styles with Bootstrap framework
-- **JavaScript**: jQuery-based interactions and animations
-- **SCSS**: Modular CSS architecture with preprocessing
-
-### Libraries & Frameworks
-- **Bootstrap 4**: Responsive grid system and components
-- **jQuery**: DOM manipulation and AJAX requests
-- **Font Awesome & Simple Line Icons**: Icon libraries
-- **Animate.css**: CSS animations
-- **Nivo Lightbox**: Image gallery functionality
-- **MixItUp**: Portfolio filtering
-
-### Backend
-- **PHP**: Legacy contact form processing (currently disabled on UI)
-- **GitHub Pages**: Static site hosting
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 elionavarretev.github.io/
-├── index.html                 # Main HTML file
-├── README.md                  # Project documentation
-└── assets/                    # Static assets
-    ├── css/                   # Stylesheets
-    │   ├── main.css          # Main styles
-    │   ├── responsive.css    # Responsive design
-    │   ├── about.css         # About section styles
-    │   └── ...               # Additional CSS files
-    ├── js/                   # JavaScript files
-    │   ├── main.js           # Main JavaScript logic
-    │   ├── menu.js           # Menu functionality
-    │   └── ...               # Additional JS files
-    ├── img/                  # Images and graphics
-    │   ├── about/            # About section images
-    │   ├── gallery/          # Portfolio images
-    │   ├── icons/            # Social/media icons (e.g. ORCID)
-    │   ├── background/       # Background photography
-    │   └── favi/             # Favicons and app icons
-    ├── fonts/                # Web fonts
-    ├── doc/                  # Documents (CV, certificates)
-    ├── php/                  # PHP scripts
-    └── scss/                 # SCSS source files
+├── index.html                  # Main portfolio page
+├── news.html                   # News / timeline page
+├── profile.html                # CV / profile page
+├── sitemap.xml                 # XML sitemap (3 URLs)
+├── robots.txt                  # Crawl directives
+├── assets/
+│   ├── css/
+│   │   ├── main.css            # Compiled from SCSS
+│   │   └── responsive.css      # Responsive breakpoints
+│   ├── scss/
+│   │   ├── main.scss           # SCSS entry point
+│   │   ├── responsive.scss     # Responsive entry point
+│   │   ├── colors/_presets.scss # Design tokens (colors, fonts, spacing)
+│   │   ├── _global.scss        # Base styles, resets, utilities
+│   │   ├── _navbar.scss        # Navigation bar
+│   │   ├── _hero-area.scss     # Hero slider section
+│   │   ├── _about.scss         # News banner, update info, book section
+│   │   ├── _dual-panels.scss   # Professional/Academic split panels
+│   │   ├── _portfolio.scss     # Discography/portfolio grid
+│   │   ├── _service.scss       # Services section with overlay cards
+│   │   ├── _footer.scss        # Site footer
+│   │   ├── _news-page.scss     # News page styles
+│   │   └── _profile-page.scss  # Profile page styles
+│   ├── js/
+│   │   ├── main.js             # Core interactions
+│   │   ├── menu.js             # Mobile menu
+│   │   ├── i18n.js             # Client-side EN/ES translation engine
+│   │   ├── news.js             # News page data loader
+│   │   └── hover-sound.js      # Hover sound effects
+│   ├── data/
+│   │   ├── i18n.json           # Translation strings (EN + ES)
+│   │   └── news.json           # News items data
+│   ├── img/
+│   │   ├── about/              # Profile photo
+│   │   ├── background/         # Hero backgrounds (WebP + JPG)
+│   │   ├── books/              # Book cover images
+│   │   ├── icons/              # Certification/tool logos (SVG)
+│   │   ├── panels/             # Dual panel badges (SVG)
+│   │   ├── portfolio/          # Portfolio card images
+│   │   ├── slider/             # Hero slider photos
+│   │   └── favi/               # Favicons and app icons
+│   ├── fonts/                  # Web fonts
+│   └── doc/                    # Documents (CV, certificates)
 ```
 
-## 🎯 Sections
+## i18n System
 
-### 1. **Hero Area**
-- Professional introduction with hero subtitle (roles & toolset)
-- Social media links (LinkedIn, GitHub, ORCID) and anchor CTAs to portfolio/publications
-- Animated background slider
+Client-side translation engine using `data-i18n` attributes:
 
-### 2. **About**
-- Personal information and professional summary
-- Contact details and availability status
-- Download CV functionality
-
-### 3. **Services**
-- QA Lead expertise with quantified outcomes
-- Scrum Master certification and agile coaching
-- Professor role at UPC
-- Consultancy services (assessments, tool selection, coaching)
-
-### 4. **Resume**
-- Educational background (UPC, Universidad Austral, PUCP, Pontificia Universidad Javeriana)
-- Professional experience timeline with refreshed copy focused on impact
-- Current positions at Open Loop and UPC
-- Licenses & Certifications grid
-
-### 5. **Portfolio**
-- Interactive project showcase curated around automation/testing stacks
-- Filterable by Playwright, Cypress, and Serenity BDD
-- Links to GitHub repositories with project assets and case study summaries
-
-### 6. **Scientific Publications**
-- Dynamic list fed from ORCID public API
-- Deduplicated using title/year keys and sorted by most recent
-- DOI links when available + CTA to view full profile
-
-### 7. **Contact & Social**
-- Call-to-action banner highlighting certifications and contact methods
-- Footer with social links and location details
-- Back-to-top shortcut for quick navigation
-
-## 🔧 Setup & Installation
-
-### Prerequisites
-- Web browser
-- Text editor (VS Code, Sublime Text, etc.)
-- Git (for version control)
-
-### Local Development
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/elionavarretev/elionavarretev.github.io.git
-   cd elionavarretev.github.io
-   ```
-
-2. **Open in browser**
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve .
-   
-   # Or simply open index.html in your browser
-   ```
-
-3. **Access locally**
-   - Navigate to `http://localhost:8000` (if using a server)
-   - Or open `index.html` directly in your browser
-
-### Customization
-
-1. **Update Personal Information**
-   - Edit `index.html` to update personal details
-   - Replace images in `assets/img/` with your own
-   - Update CV in `assets/doc/`
-
-2. **Modify Styling**
-   - Edit SCSS files in `assets/scss/`
-   - Compile to CSS or edit CSS files directly
-   - Customize colors in `assets/scss/colors/_presets.scss`
-
-3. **Add Projects**
-   - Add new project images to `assets/img/gallery/`
-   - Update portfolio section in `index.html`
-   - Add corresponding GitHub repository links
-
-4. **ORCID Publications**
-   - Update the `orcid` variable in the inline script (near the end of `index.html`) to your ORCID iD
-   - Adjust `summaries.slice(0, 20)` to change the number of entries shown
-
-5. **Sitemap & Robots**
-   - `sitemap.xml` and `robots.txt` live at the repository root; adjust as needed for additional pages
-
-## 📱 Responsive Design
-
-The website is fully responsive and optimized for:
-- **Desktop**: 1200px and above
-- **Tablet**: 768px - 1199px
-- **Mobile**: 320px - 767px
-
-## 🎨 Customization Guide
-
-### Colors
-Edit `assets/scss/colors/_presets.scss` to change the color scheme:
-```scss
-$primary-color: #your-color;
-$secondary-color: #your-color;
+```html
+<span data-i18n="nav.home">HOME</span>
 ```
 
-### Fonts
-Update font imports in `index.html` and corresponding CSS files.
+Translations loaded from `assets/data/i18n.json`. Language toggle in navbar switches between EN/ES with `localStorage` persistence.
 
-### Images
-Replace placeholder images with your own:
-- Profile photo: `assets/img/about/about-ElioNavarrete.jpg`
-- Portfolio images: `assets/img/gallery/`
-- Background images: `assets/img/background/`
+## SCSS Compilation
 
-## 📧 Contact Form
+```bash
+# Install sass (one-time)
+npm install
 
-> The legacy contact form markup has been removed from the UI. To re-enable it, restore the section in `index.html` and configure the PHP endpoint under `assets/php/` or integrate a third-party email service.
+# Compile main styles
+npx sass assets/scss/main.scss assets/css/main.css --no-source-map
 
-## 🚀 Deployment
+# Compile responsive styles
+npx sass assets/scss/responsive.scss assets/css/responsive.css --no-source-map
+```
 
-### GitHub Pages (Current)
-1. Push changes to the `master` branch
-2. GitHub Pages automatically deploys from the root directory
-3. Site is available at `https://elionavarretev.github.io`
+## Accessibility
 
-### Alternative Hosting
-- **Netlify**: Drag and drop deployment
-- **Vercel**: Git-based deployment
-- **Firebase Hosting**: Google's hosting platform
+- Skip-link navigation (`Skip to main content`)
+- ARIA landmarks: `banner`, `navigation`, `main`, `contentinfo`, `region`
+- `aria-label` on all nav elements and interactive controls
+- `role="dialog"` on mobile menu overlay
+- `.sr-only` utility for visually hidden content
+- WCAG AA color contrast compliance
+- Semantic heading hierarchy (h1-h4)
+- `alt` attributes on all images
 
-## 📊 Performance
+## SEO
 
-- **Lighthouse Score**: Optimized for performance, accessibility, and SEO
-- **Loading Speed**: Compressed images, lazy loading, and preloaded hero background
-- **Mobile Performance**: Responsive design with touch-friendly interactions
+- Canonical URLs and hreflang alternates (en/es/x-default)
+- Open Graph and Twitter Card meta tags
+- JSON-LD structured data (Person + BreadcrumbList)
+- XML sitemap with 3 pages
+- robots.txt with sitemap reference
+- Semantic HTML5 elements throughout
 
-## 🔒 Security
+## Local Development
 
-- Form validation hooks ready for re-enabling contact form
-- No sensitive information exposed in client-side code
-- HTTPS enabled on GitHub Pages
+```bash
+git clone https://github.com/elionavarretev/elionavarretev.github.io.git
+cd elionavarretev.github.io
+npx http-server . -p 8090 -c-1
+# Open http://localhost:8090
+```
 
-## 📄 License
+## Deployment
+
+Push to `master` branch — GitHub Pages deploys automatically at `https://elionavarretev.github.io`.
+
+## Contact
+
+**Elio Navarrete**
+- LinkedIn: [linkedin.com/in/eliojeff](https://www.linkedin.com/in/eliojeff)
+- GitHub: [github.com/elionavarretev](https://github.com/elionavarretev)
+- ORCID: [orcid.org/0000-0001-8810-2068](https://orcid.org/0000-0001-8810-2068)
+
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🤝 Contributing
-
-While this is a personal portfolio, suggestions and improvements are welcome:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Commit your changes (`git commit -am 'Add some improvement'`)
-4. Push to the branch (`git push origin feature/improvement`)
-5. Create a Pull Request
-
-## 📞 Contact
-
-**Elio Navarrete**
-- 📧 Email: [elionavarretev@gmail.com](mailto:elionavarretev@gmail.com)
-- 💼 LinkedIn: [linkedin.com/in/eliojeff](https://www.linkedin.com/in/eliojeff)
-- 🐙 GitHub: [github.com/elionavarretev](https://github.com/elionavarretev)
-- 🧬 ORCID: [orcid.org/0000-0001-8810-2068](https://orcid.org/0000-0001-8810-2068)
-- 📍 Location: Miraflores, Lima, Perú
-
----
-
-⭐ **Star this repository if you found it helpful!**
-
-*Last updated: November 2025*
+*Last updated: March 2026*

@@ -1,0 +1,369 @@
+// ===== DUAL PANELS — L'Arc-en-Ciel LE-CIEL style =====
+// Flex-based 50/50 layout with gradient + dark panels,
+// floating badge animation, and featured content cards.
+
+// --- Floating badge animation (fuwafuwa = ふわふわ) ---
+@keyframes fuwafuwa {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+// ===== Container =====
+.dual-panels {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+// ===== Base panel =====
+.dual-panel {
+  width: 50%;
+  padding: 70px 4% 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+// --- Logo row (logo + buttons + description) ---
+.panel-logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.panel-logo-col {
+  width: 55%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.panel-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.panel-logo-text {
+  font-family: $accent-font;
+  font-size: 40px;
+  font-weight: $bold;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.panel-buttons-col {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.panel-desc {
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+}
+
+// --- CTA buttons ---
+.panel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 20px;
+  font-family: $accent-font;
+  font-size: 12px;
+  font-weight: $semi-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  i {
+    margin-right: 6px;
+    font-size: 13px;
+  }
+}
+
+// --- Featured content card ---
+.panel-featured-wrap {
+  position: relative;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.panel-featured-link {
+  text-decoration: none;
+  display: block;
+}
+
+.panel-featured-card {
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: $transition-fast;
+}
+
+.panel-featured-img {
+  width: 444px;
+  max-width: 62%;
+  height: 250px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    // Portrait images (like book covers) → show full without cropping
+    &.img-contain {
+      object-fit: contain;
+      padding: 12px;
+    }
+  }
+}
+
+.panel-featured-info {
+  width: 38%;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.panel-featured-date {
+  font-family: $accent-font;
+  font-size: 13px;
+  font-weight: $bold;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+}
+
+.panel-featured-tag {
+  font-family: $accent-font;
+  font-size: 10px;
+  font-weight: $semi-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  width: fit-content;
+}
+
+.panel-featured-title {
+  font-size: 14px;
+  font-weight: $bold;
+  line-height: 1.5;
+}
+
+// --- Floating badge ---
+.panel-floating-badge {
+  position: absolute;
+  top: 0;
+  left: -24px;
+  width: 130px;
+  height: auto;
+  animation: fuwafuwa 3s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// --- Bottom links ---
+.panel-bottom-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 36px;
+  padding-top: 20px;
+
+  a {
+    font-family: $accent-font;
+    font-size: 11px;
+    font-weight: $medium;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: $transition-fast;
+  }
+}
+
+
+// ===== PROFESSIONAL PANEL (cyan gradient — like FC-LC) =====
+.panel-professional {
+  background: linear-gradient(60deg, #0090A9, #33C2D5 50%, #46D5E6);
+
+  .panel-logo-text {
+    color: #000;
+  }
+
+  .panel-desc {
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .panel-btn-solid {
+    background: #000;
+    color: $accent;
+    border: 1px solid #000;
+
+    &:hover {
+      background: #1a1a1a;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .panel-btn-outline {
+    background: transparent;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      border-color: #000;
+      background: rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .panel-featured-card {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .panel-featured-img {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .panel-featured-date {
+    color: #000;
+  }
+
+  .panel-featured-tag {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .panel-featured-title {
+    color: #000;
+  }
+
+  .panel-featured-card:hover {
+    background: rgba(0, 0, 0, 0.16);
+  }
+
+  .panel-bottom-links a {
+    color: rgba(0, 0, 0, 0.55);
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+
+// ===== ACADEMIC PANEL (dark — like FC-DL) =====
+.panel-academic {
+  background: #000;
+  border-top: 1px solid rgba(0, 227, 247, 0.25);
+  border-bottom: 1px solid rgba(0, 227, 247, 0.25);
+
+  .panel-logo-text {
+    color: $accent;
+  }
+
+  .panel-desc {
+    color: $accent;
+  }
+
+  .panel-btn-solid {
+    background: $accent;
+    color: #000;
+    border: 1px solid $accent;
+
+    &:hover {
+      background: $accent-hover;
+      border-color: $accent-hover;
+      box-shadow: 0 6px 20px rgba(0, 180, 217, 0.3);
+    }
+  }
+
+  .panel-btn-outline {
+    background: transparent;
+    color: $text-primary;
+    border: 1px solid $border-medium;
+
+    &:hover {
+      border-color: $accent;
+      color: $accent;
+      box-shadow: 0 4px 14px rgba(0, 180, 217, 0.12);
+    }
+  }
+
+  .panel-featured-card {
+    background: $bg-card;
+    border: 1px solid $border-subtle;
+  }
+
+  .panel-featured-img {
+    background: $bg-elevated;
+  }
+
+  .panel-featured-date {
+    color: $accent;
+  }
+
+  .panel-featured-tag {
+    color: $accent;
+  }
+
+  .panel-featured-title {
+    color: $accent;
+  }
+
+  .panel-featured-card:hover {
+    border-color: $border-medium;
+  }
+
+  .panel-bottom-links a {
+    color: $accent;
+
+    &:hover {
+      color: $accent-hover;
+    }
+  }
+}
