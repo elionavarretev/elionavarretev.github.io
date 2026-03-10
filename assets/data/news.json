@@ -1,0 +1,62 @@
+{
+  "en": [
+    {
+      "date": "2026.3.4",
+      "member": "Book",
+      "tag": "Launch",
+      "text": "Official book presentation — \"Quality Assurance: From Fundamentals to Automation with AI\"",
+      "link": "news.html"
+    },
+    {
+      "date": "2025.10.1",
+      "member": "QA",
+      "tag": "Career",
+      "text": "Joined Open Loop as QA Lead - Leading quality engineering initiatives across product delivery",
+      "link": "news.html"
+    },
+    {
+      "date": "2025.8",
+      "member": "Academic",
+      "tag": "Research",
+      "text": "Completed Introduction to R and Anomaly Detection program at Universidad Austral, Buenos Aires",
+      "link": "news.html"
+    },
+    {
+      "date": "2025.4",
+      "member": "Cert",
+      "tag": "ISTQB",
+      "text": "Achieved ISTQB Certified Tester Advanced Level - Test Automation Engineering v2.0",
+      "link": "news.html"
+    }
+  ],
+  "es": [
+    {
+      "date": "2026.3.4",
+      "member": "Libro",
+      "tag": "Lanzamiento",
+      "text": "Presentación oficial del libro — \"Quality Assurance: De Fundamentos a Automatización con IA\"",
+      "link": "news.html"
+    },
+    {
+      "date": "2025.10.1",
+      "member": "QA",
+      "tag": "Carrera",
+      "text": "Ingreso a Open Loop como QA Lead - Liderando iniciativas de ingeniería de calidad en entrega de producto",
+      "link": "news.html"
+    },
+    {
+      "date": "2025.8",
+      "member": "Académico",
+      "tag": "Investigación",
+      "text": "Completé el programa de Introducción a R y Detección de Anomalías en Universidad Austral, Buenos Aires",
+      "link": "news.html"
+    },
+    {
+      "date": "2025.4",
+      "member": "Cert",
+      "tag": "ISTQB",
+      "text": "Obtuve ISTQB Certified Tester Advanced Level - Test Automation Engineering v2.0",
+      "link": "news.html"
+    }
+  ]
+}
