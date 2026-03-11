@@ -129,7 +129,7 @@
       "datePublished": "2026-03-04",
       "bookFormat": ["https://schema.org/EBook", "https://schema.org/Paperback"],
       "genre": ["Quality Assurance", "Software Testing", "Test Automation", "Artificial Intelligence"],
-      "brand": { "@type": "Brand", "name": "Elio Navarrete" },
+      "brand": { "@type": "Organization", "name": "Elio Navarrete" },
       "category": "Books > Computers & Technology > Software Testing",
       "about": [
         { "@type": "Thing", "name": "Quality Assurance" },
@@ -180,7 +180,26 @@
           "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
           "seller": { "@type": "Organization", "name": "Amazon" },
-          "itemCondition": "https://schema.org/NewCondition"
+          "itemCondition": "https://schema.org/NewCondition",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"] },
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }
+            },
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "US",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 7,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          }
         },
         {
           "@type": "Offer",
@@ -191,7 +210,26 @@
           "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
           "seller": { "@type": "Organization", "name": "Amazon" },
-          "itemCondition": "https://schema.org/NewCondition"
+          "itemCondition": "https://schema.org/NewCondition",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"] },
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 7, "unitCode": "DAY" }
+            },
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "US",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 30,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          }
         }
       ]
     }
@@ -269,7 +307,7 @@
         </div>
         <ul class="nav-links">
           <li><a href="#news" class="active" data-i18n="nav.news">News</a></li>
-          <li><a href="#profile" data-i18n="nav.profile">Profile</a></li>
+          <li><a href="profile.html" data-i18n="nav.profile">Profile</a></li>
           <li><a href="#services" data-i18n="nav.services">Services</a></li>
           <li><a href="#book" data-i18n="nav.book">Book</a></li>
           <li><a href="#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
@@ -309,7 +347,7 @@
       </div>
       <ul class="mobile-menu-links">
         <li><a href="#news" data-i18n="nav.news">Noticias</a></li>
-        <li><a href="#profile" data-i18n="nav.profile">Perfil</a></li>
+        <li><a href="profile.html" data-i18n="nav.profile">Perfil</a></li>
         <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
         <li><a href="#portfolios" data-i18n="nav.portfolio">Portafolio</a></li>
         <li><a href="#book" data-i18n="nav.book">Libro</a></li>
@@ -990,7 +1028,7 @@
             <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
             <ul class="footer-link-list">
               <li><a href="#news" data-i18n="nav.news">News</a></li>
-              <li><a href="#profile" data-i18n="nav.profile">Profile</a></li>
+              <li><a href="profile.html" data-i18n="nav.profile">Profile</a></li>
               <li><a href="#services" data-i18n="nav.services">Services</a></li>
               <li><a href="#book" data-i18n="nav.book">Book</a></li>
               <li><a href="#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
@@ -1152,12 +1190,6 @@
         pulseToggle();
       });
 
-      document.querySelectorAll('a[href="#profile"]').forEach(function(link) {
-        link.addEventListener('click', function() {
-          setExpanded(true);
-          pulseToggle();
-        });
-      });
     })();
 
     // ===== Portfolio Filters =====
