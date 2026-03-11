@@ -59,7 +59,7 @@
     <link rel="alternate" hreflang="es" href="https://elionavarretev.github.io/?lang=es">
     <link rel="alternate" hreflang="x-default" href="https://elionavarretev.github.io/">
 
-    <!-- Schema: Person (author) -->
+    <!-- Schema: Person (author) — bidirectional link to Book -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -74,6 +74,33 @@
       "image": "https://elionavarretev.github.io/assets/img/about/about-ElioNavarrete.jpg",
       "email": "mailto:elionavarretev@gmail.com",
       "address": { "@type": "PostalAddress", "addressLocality": "Miraflores", "addressRegion": "Lima", "addressCountry": "PE" },
+      "knowsAbout": ["Quality Assurance", "Test Automation", "Playwright", "Cypress", "Artificial Intelligence"],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certification",
+          "name": "ISTQB Certified Tester — Advanced Level Test Automation Engineer",
+          "recognizedBy": { "@type": "Organization", "name": "ISTQB" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certification",
+          "name": "ISTQB Certified Tester — Foundation Level",
+          "recognizedBy": { "@type": "Organization", "name": "ISTQB" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certification",
+          "name": "Scrum Master Certified (SMC)",
+          "recognizedBy": { "@type": "Organization", "name": "Scrum Alliance" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "name": "CIP Licensed Engineer",
+          "recognizedBy": { "@type": "Organization", "name": "Colegio de Ingenieros del Perú" }
+        }
+      ],
       "sameAs": [
         "https://www.linkedin.com/in/eliojeff",
         "https://github.com/elionavarretev",
@@ -82,23 +109,28 @@
       ]
     }
     </script>
-    <!-- Schema: Book (rich result for Google) -->
+    <!-- Schema: Book + Product co-typed (Google recommended pattern for books with purchase options) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Book",
+      "@type": ["Product", "Book"],
       "@id": "https://elionavarretev.github.io/#book",
       "name": "Quality Assurance: De Fundamentos a Automatización con Herramientas e Inteligencia Artificial",
       "alternateName": "Quality Assurance: De Fundamentos a Automatización con IA",
       "author": { "@id": "https://elionavarretev.github.io/#author" },
-      "url": "https://elionavarretev.github.io/#book",
+      "publisher": { "@type": "Organization", "name": "Independently Published" },
+      "url": "https://www.amazon.com/dp/B0GRKF9CZD",
       "image": "https://elionavarretev.github.io/assets/img/books/quality-assurance-book.jpg",
       "description": "Guía completa de Quality Assurance que cubre fundamentos, automatización de pruebas con Playwright, Cypress y Serenity BDD, e integración de Inteligencia Artificial en testing.",
       "inLanguage": "es",
       "numberOfPages": 144,
+      "isbn": "9798250518185",
+      "gtin13": "9798250518185",
       "datePublished": "2026-03-04",
       "bookFormat": ["https://schema.org/EBook", "https://schema.org/Paperback"],
       "genre": ["Quality Assurance", "Software Testing", "Test Automation", "Artificial Intelligence"],
+      "brand": { "@type": "Brand", "name": "Elio Navarrete" },
+      "category": "Books > Computers & Technology > Software Testing",
       "about": [
         { "@type": "Thing", "name": "Quality Assurance" },
         { "@type": "Thing", "name": "Test Automation" },
@@ -110,6 +142,8 @@
         {
           "@type": "Book",
           "bookFormat": "https://schema.org/EBook",
+          "isbn": "9798250518185",
+          "inLanguage": "es",
           "url": "https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8",
           "potentialAction": {
             "@type": "ReadAction",
@@ -123,6 +157,8 @@
         {
           "@type": "Book",
           "bookFormat": "https://schema.org/Paperback",
+          "isbn": "9798250518185",
+          "inLanguage": "es",
           "url": "https://www.amazon.com/dp/B0GRKF9CZD",
           "potentialAction": {
             "@type": "ReadAction",
@@ -133,19 +169,7 @@
             }
           }
         }
-      ]
-    }
-    </script>
-    <!-- Schema: Product (enables product rich results with price/availability) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Quality Assurance: De Fundamentos a Automatización con Herramientas e Inteligencia Artificial",
-      "image": "https://elionavarretev.github.io/assets/img/books/quality-assurance-book.jpg",
-      "description": "Guía completa de Quality Assurance que cubre fundamentos, automatización con Playwright, Cypress, Serenity BDD e Inteligencia Artificial aplicada al testing de software.",
-      "brand": { "@type": "Person", "name": "Elio Navarrete" },
-      "category": "Books > Computers & Technology > Software Testing",
+      ],
       "offers": [
         {
           "@type": "Offer",
@@ -153,6 +177,7 @@
           "url": "https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8",
           "priceCurrency": "USD",
           "price": "9.99",
+          "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
           "seller": { "@type": "Organization", "name": "Amazon" },
           "itemCondition": "https://schema.org/NewCondition"
@@ -163,6 +188,7 @@
           "url": "https://www.amazon.com/dp/B0GRKF9CZD",
           "priceCurrency": "USD",
           "price": "14.99",
+          "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
           "seller": { "@type": "Organization", "name": "Amazon" },
           "itemCondition": "https://schema.org/NewCondition"
@@ -275,26 +301,52 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-label="Navigation menu">
-      <button class="close-menu" id="menuClose" aria-label="Close menu">&times;</button>
-      <ul class="mobile-menu-links">
-        <li><a href="#news" data-i18n="nav.news">News</a></li>
-        <li><a href="#profile" data-i18n="nav.profile">Profile</a></li>
-        <li><a href="#services" data-i18n="nav.services">Services</a></li>
-        <li><a href="#book" data-i18n="nav.book">Book</a></li>
-        <li><a href="#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
-        <li><a href="#links" data-i18n="nav.links">Highlights</a></li>
-      </ul>
-      <div class="mobile-menu-social" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
-        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
-      </div>
       <div class="mobile-menu-language" aria-label="Language selector">
         <i class="fa fa-globe" aria-hidden="true"></i>
         <button type="button" class="nav-language-option">ESP</button>
         <span class="nav-language-separator" aria-hidden="true">|</span>
         <button type="button" class="nav-language-option is-active">ENG</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><a href="#news" data-i18n="nav.news">Noticias</a></li>
+        <li><a href="#profile" data-i18n="nav.profile">Perfil</a></li>
+        <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#portfolios" data-i18n="nav.portfolio">Portafolio</a></li>
+        <li><a href="#book" data-i18n="nav.book">Libro</a></li>
+        <li><a href="#links" data-i18n="nav.links">Destacados</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+      <!-- Panel: Professional (cyan gradient) -->
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="mailto:elionavarretev@gmail.com" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <!-- Panel: Academic (dark) -->
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="mailto:elionavarretev@gmail.com" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <!-- Social icons -->
+      <div class="mobile-menu-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
       </div>
     </div>
 
@@ -320,7 +372,7 @@
               <p data-i18n="hero.slide2.desc">Playwright &middot; Cypress &middot; Serenity BDD</p>
             </div>
           </div>
-          <div class="swiper-slide" style="background-image:url('assets/img/background/bg-2_Elio_Navarrete_v2.webp')">
+          <div class="swiper-slide" style="background-image:url('assets/img/background/bg-3_hero.webp')">
             <div class="slide-overlay"></div>
             <div class="slide-content">
               <h2 data-i18n="hero.slide3.title">Academic Research</h2>
@@ -350,13 +402,13 @@
             <div class="swiper bannerSwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <img src="assets/img/background/bg-2-desktop.webp" alt="QA Leadership" loading="lazy">
+                  <a href="#book"><img src="assets/images/banners/banner-book.png" alt="Quality Assurance Book — Available on Amazon" loading="lazy"></a>
                 </div>
                 <div class="swiper-slide">
-                  <img src="assets/img/background/bg-1_Elio_Navarrete.jpg" alt="Automation" loading="lazy">
+                  <a href="#services"><img src="assets/images/banners/banner-consulting.png" alt="QA Consulting & Test Automation Services" loading="lazy"></a>
                 </div>
                 <div class="swiper-slide">
-                  <img src="assets/img/background/bg-2_Elio_Navarrete_v2.webp" alt="Teaching" loading="lazy">
+                  <a href="#profile"><img src="assets/images/banners/banner-connect.png" alt="Connect on GitHub and LinkedIn" loading="lazy"></a>
                 </div>
               </div>
               <div class="swiper-button-prev banner-prev"></div>
@@ -853,7 +905,7 @@
           </article>
         </div>
 
-        <section class="recognition-panel" aria-labelledby="recognition-title">
+        <section class="recognition-panel" id="links" aria-labelledby="recognition-title">
           <div class="recognition-header">
             <span class="recognition-kicker" data-i18n="recognition.kicker">Recognition &amp; Academic Activity</span>
             <h3 class="recognition-title" id="recognition-title" data-i18n="recognition.title">Recognition &amp; Academic Activity</h3>
@@ -922,7 +974,7 @@
     </main>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="site-footer" id="links">
+    <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-grid">
           <div class="footer-brand">
@@ -1014,14 +1066,30 @@
       }
     });
 
-    // ===== Mobile Menu =====
+    // Banner click → navigate to section (bypass Swiper event interception)
+    (function() {
+      var el = document.querySelector('.bannerSwiper');
+      var startX, startY;
+      el.addEventListener('pointerdown', function(e) { startX = e.clientX; startY = e.clientY; });
+      el.addEventListener('pointerup', function(e) {
+        if (Math.abs(e.clientX - startX) < 10 && Math.abs(e.clientY - startY) < 10) {
+          var link = e.target.closest('a');
+          if (link && link.hash) {
+            var target = document.querySelector(link.hash);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    })();
+
+    // ===== Mobile Menu (L'Arc-en-Ciel style) =====
     (function() {
       var toggle = document.getElementById('menuToggle');
       var menu = document.getElementById('mobileMenu');
-      var close = document.getElementById('menuClose');
-      if (toggle && menu && close) {
+      if (toggle && menu) {
         function setMenuOpen(isOpen) {
           menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
           document.body.classList.toggle('mobile-menu-open', isOpen);
           toggle.setAttribute('aria-expanded', String(isOpen));
           toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
@@ -1031,18 +1099,8 @@
           setMenuOpen(!menu.classList.contains('active'));
         });
 
-        close.addEventListener('click', function() {
-          setMenuOpen(false);
-        });
-
         menu.querySelectorAll('a').forEach(function(link) {
           link.addEventListener('click', function() { setMenuOpen(false); });
-        });
-
-        menu.addEventListener('click', function(event) {
-          if (event.target === menu) {
-            setMenuOpen(false);
-          }
         });
 
         document.addEventListener('keydown', function(event) {
