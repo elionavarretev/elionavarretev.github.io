@@ -114,16 +114,46 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-label="Navigation menu">
-      <button class="close-menu" id="menuClose" aria-label="Close menu">&times;</button>
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active">ENG</button>
+      </div>
       <ul class="mobile-menu-links">
         <li><a href="index.html#news" data-i18n="nav.news">News</a></li>
         <li><a href="index.html#profile" data-i18n="nav.profile">Profile</a></li>
         <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
-        <li><a href="index.html#book" data-i18n="nav.book">Book</a></li>
         <li><a href="index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="index.html#book" data-i18n="nav.book">Book</a></li>
         <li><a href="index.html#links" data-i18n="nav.links">Links</a></li>
       </ul>
-      <div class="mobile-menu-social">
+      <!-- Panel: Professional (cyan gradient) -->
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="mailto:elionavarretev@gmail.com" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <!-- Panel: Academic (dark) -->
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="mailto:elionavarretev@gmail.com" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <!-- Social icons -->
+      <div class="mobile-menu-social" aria-label="Social links">
         <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
         <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
         <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
@@ -134,12 +164,19 @@
     <!-- ===== NEWS PAGE CONTENT ===== -->
     <main class="news-page" id="main-content">
       <div class="news-page-header">
+        <div class="news-masthead-rule" aria-hidden="true"></div>
         <h1 class="news-page-title" data-i18n="newspage.title">News</h1>
+        <p class="news-page-edition">Vol. I — <span id="newsEditionDate">March 2026</span></p>
         <p class="news-page-subtitle" data-i18n="newspage.subtitle">Updates &amp; Announcements</p>
+        <div class="news-masthead-rule" aria-hidden="true"></div>
       </div>
 
       <!-- Filters -->
-      <div class="news-filters">
+      <button class="news-filters-toggle" id="filtersToggle" aria-expanded="false" aria-controls="newsFilters">
+        <span data-i18n="newspage.filter.toggle">Filters</span>
+        <i class="fa fa-angle-down"></i>
+      </button>
+      <div class="news-filters" id="newsFilters" role="search" aria-label="Filter news">
         <div class="news-filter-group">
           <span class="news-filter-label" data-i18n="newspage.filter.focus">Focus</span>
           <button class="news-filter-btn is-active" data-filter="all" data-i18n="newspage.filter.all">ALL</button>
@@ -158,14 +195,14 @@
         </div>
       </div>
 
-      <div class="news-page-separator"></div>
+      <div class="news-page-separator" aria-hidden="true"></div>
 
       <!-- News List -->
-      <div class="news-page-list">
+      <div class="news-page-list" role="feed" aria-label="News articles">
 
-        <a href="#" class="news-page-item" data-category="career" data-type="milestone">
+        <div class="news-page-item is-lead" data-category="career" data-type="milestone">
           <div class="news-page-item-meta">
-            <span class="news-page-item-date">2025.10.1</span>
+            <span class="news-page-item-date">October 2025</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
             <div class="news-page-item-tags">
               <span class="news-page-item-tag is-primary">QA</span>
@@ -173,14 +210,13 @@
             </div>
           </div>
           <div class="news-page-item-body">
-            <span class="news-page-item-title" data-i18n="newspage.item1.title">Joined Open Loop as QA Lead - Leading quality engineering initiatives across product delivery</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
+            <span class="news-page-item-title" data-i18n="newspage.item1.title">Joined OpenLoop as QA Lead - Leading quality engineering initiatives across product delivery</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="news-page-item" data-category="academic" data-type="milestone">
+        <div class="news-page-item" data-category="academic" data-type="milestone">
           <div class="news-page-item-meta">
-            <span class="news-page-item-date">2025.8</span>
+            <span class="news-page-item-date">August 2025</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
             <div class="news-page-item-tags">
               <span class="news-page-item-tag is-primary" data-i18n="newspage.tag.academic">Academic</span>
@@ -189,13 +225,12 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item2.title">Completed Introduction to R and Anomaly Detection program at Universidad Austral, Buenos Aires</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="news-page-item" data-category="cert" data-type="certification">
+        <div class="news-page-item" data-category="cert" data-type="certification">
           <div class="news-page-item-meta">
-            <span class="news-page-item-date">2025.4</span>
+            <span class="news-page-item-date">April 2025</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
             <div class="news-page-item-tags">
               <span class="news-page-item-tag is-primary" data-i18n="newspage.tag.cert">Cert</span>
@@ -204,13 +239,12 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item3.title">Achieved ISTQB Certified Tester Advanced Level - Test Automation Engineering v2.0</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="news-page-item" data-category="cert" data-type="certification">
+        <div class="news-page-item" data-category="cert" data-type="certification">
           <div class="news-page-item-meta">
-            <span class="news-page-item-date">2025.3</span>
+            <span class="news-page-item-date">March 2025</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
             <div class="news-page-item-tags">
               <span class="news-page-item-tag is-primary" data-i18n="newspage.tag.cert">Cert</span>
@@ -219,13 +253,18 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item4.title">ISTQB Certified Tester Foundation Level (CTFL) 4.0 credential achieved</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
-        </a>
+        </div>
+
+        <div class="news-year-divider" aria-hidden="true">
+          <span class="news-year-divider-line"></span>
+          <span class="news-year-divider-label">2024</span>
+          <span class="news-year-divider-line"></span>
+        </div>
 
         <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8" class="news-page-item" data-category="research" data-type="publication" target="_blank" rel="noopener noreferrer">
           <div class="news-page-item-meta">
-            <span class="news-page-item-date">2024.12</span>
+            <span class="news-page-item-date">December 2024</span>
             <span class="news-page-item-status" data-i18n="newspage.status.release">release</span>
             <div class="news-page-item-tags">
               <span class="news-page-item-tag is-primary" data-i18n="newspage.tag.book">Book</span>
@@ -234,11 +273,10 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item5.title">Published "Quality Assurance: De Fundamentos a Automatización con IA" on Amazon Kindle</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
         </a>
 
-        <a href="#" class="news-page-item" data-category="academic" data-type="milestone">
+        <div class="news-page-item" data-category="academic" data-type="milestone">
           <div class="news-page-item-meta">
             <span class="news-page-item-date">2024</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
@@ -249,11 +287,16 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item6.title">Finalist in the 2024 Project Competition of the College of Engineers of Peru (CIP) - Recognized for innovation and technical excellence</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="news-page-item" data-category="academic" data-type="milestone">
+        <div class="news-year-divider" aria-hidden="true">
+          <span class="news-year-divider-line"></span>
+          <span class="news-year-divider-label">2023</span>
+          <span class="news-year-divider-line"></span>
+        </div>
+
+        <div class="news-page-item" data-category="academic" data-type="milestone">
           <div class="news-page-item-meta">
             <span class="news-page-item-date">2023</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
@@ -264,13 +307,18 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item7.title">Third Place in the Young Engineer Competition 2023 - Organized by the College of Engineers of Peru</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="news-page-item" data-category="career" data-type="milestone">
+        <div class="news-year-divider" aria-hidden="true">
+          <span class="news-year-divider-line"></span>
+          <span class="news-year-divider-label">2022</span>
+          <span class="news-year-divider-line"></span>
+        </div>
+
+        <div class="news-page-item" data-category="career" data-type="milestone">
           <div class="news-page-item-meta">
-            <span class="news-page-item-date">2022.9</span>
+            <span class="news-page-item-date">September 2022</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
             <div class="news-page-item-tags">
               <span class="news-page-item-tag is-primary">QA</span>
@@ -279,13 +327,18 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item8.title">Promoted to Senior Quality Assurance Engineer at Belcorp - Leading automation and strategy</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="news-page-item" data-category="academic" data-type="teaching">
+        <div class="news-year-divider" aria-hidden="true">
+          <span class="news-year-divider-line"></span>
+          <span class="news-year-divider-label">2020</span>
+          <span class="news-year-divider-line"></span>
+        </div>
+
+        <div class="news-page-item" data-category="academic" data-type="teaching">
           <div class="news-page-item-meta">
-            <span class="news-page-item-date">2020.3</span>
+            <span class="news-page-item-date">March 2020</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
             <div class="news-page-item-tags">
               <span class="news-page-item-tag is-primary" data-i18n="newspage.tag.academic">Academic</span>
@@ -294,13 +347,12 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item9.title">Started as Professor at Universidad Peruana de Ciencias Aplicadas (UPC) - Software Quality Engineering</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#" class="news-page-item" data-category="career" data-type="milestone">
+        <div class="news-page-item" data-category="career" data-type="milestone">
           <div class="news-page-item-meta">
-            <span class="news-page-item-date">2020.3</span>
+            <span class="news-page-item-date">March 2020</span>
             <span class="news-page-item-status" data-i18n="newspage.status.update">update</span>
             <div class="news-page-item-tags">
               <span class="news-page-item-tag is-primary">QA</span>
@@ -309,19 +361,9 @@
           </div>
           <div class="news-page-item-body">
             <span class="news-page-item-title" data-i18n="newspage.item10.title">Joined Belcorp as Quality Assurance Engineer - E-commerce and digital platform testing</span>
-            <span class="news-page-item-arrow">&rsaquo;</span>
           </div>
-        </a>
+        </div>
 
-      </div>
-
-      <!-- Pagination -->
-      <div class="news-pagination">
-        <button class="news-pagination-btn is-disabled"><i class="fa fa-angle-left"></i></button>
-        <button class="news-pagination-btn is-active">1</button>
-        <button class="news-pagination-btn">2</button>
-        <button class="news-pagination-btn">3</button>
-        <button class="news-pagination-btn"><i class="fa fa-angle-right"></i></button>
       </div>
 
       <!-- Back Link -->
@@ -376,26 +418,23 @@
     </footer>
 
     <script>
-    // ===== Mobile Menu =====
+    // ===== Mobile Menu (L'Arc-en-Ciel style) =====
     (function() {
       var toggle = document.getElementById('menuToggle');
       var menu = document.getElementById('mobileMenu');
-      var close = document.getElementById('menuClose');
-      if (toggle && menu && close) {
+      if (toggle && menu) {
         function setMenuOpen(isOpen) {
           menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
           document.body.classList.toggle('mobile-menu-open', isOpen);
           toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
         }
         toggle.addEventListener('click', function() {
           setMenuOpen(!menu.classList.contains('active'));
         });
-        close.addEventListener('click', function() { setMenuOpen(false); });
         menu.querySelectorAll('a').forEach(function(link) {
           link.addEventListener('click', function() { setMenuOpen(false); });
-        });
-        menu.addEventListener('click', function(e) {
-          if (e.target === menu) setMenuOpen(false);
         });
         document.addEventListener('keydown', function(e) {
           if (e.key === 'Escape' && menu.classList.contains('active')) setMenuOpen(false);
@@ -417,10 +456,23 @@
       });
     })();
 
+    // ===== Filters Toggle (mobile) =====
+    (function() {
+      var toggleBtn = document.getElementById('filtersToggle');
+      var filtersEl = document.getElementById('newsFilters');
+      if (toggleBtn && filtersEl) {
+        toggleBtn.addEventListener('click', function() {
+          var isOpen = filtersEl.classList.toggle('is-open');
+          toggleBtn.classList.toggle('is-open', isOpen);
+          toggleBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+    })();
+
     // ===== News Filters =====
     (function() {
-      var categoryBtns = document.querySelectorAll('[data-filter]');
-      var typeBtns = document.querySelectorAll('[data-type]');
+      var categoryBtns = document.querySelectorAll('.news-filter-btn[data-filter]');
+      var typeBtns = document.querySelectorAll('.news-filter-btn[data-type]');
       var items = document.querySelectorAll('.news-page-item');
       var currentCategory = 'all';
       var currentType = 'all';

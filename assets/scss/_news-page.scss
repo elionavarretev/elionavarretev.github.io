@@ -3,50 +3,121 @@
 .news-page {
   min-height: 100vh;
   background: #f5f0eb;
-  padding-top: calc(#{$nav-height} + 50px);
+  padding-top: calc(#{$nav-height} + 20px);
 
-  // --- Page Header ---
+  // --- Page Header (Newspaper Masthead) ---
   .news-page-header {
     width: 100%;
-    padding: 60px 0 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 40px 20px;
     text-align: center;
     position: relative;
 
     &::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 2px;
-      margin: 24px auto 0;
-      background: rgba(26, 26, 26, 0.25);
+      display: none;
     }
+  }
+
+  .news-masthead-rule {
+    width: 100%;
+    height: 0;
+    border-top: 2px solid $text-dark;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.3);
+    padding-top: 3px;
+  }
+
+  .news-page-edition {
+    font-family: $accent-font;
+    font-size: 11.5px;
+    font-weight: $medium;
+    color: rgba(26, 26, 26, 0.5);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    margin-bottom: 0;
   }
 
   .news-page-title {
     font-family: $title-font;
-    font-size: 35.2px;
+    font-size: 42px;
     font-weight: $regular;
     color: $text-dark;
-    letter-spacing: 2px;
+    letter-spacing: 6px;
     text-transform: uppercase;
-    margin: 0;
+    margin: 16px 0 0;
   }
 
   .news-page-subtitle {
     font-family: $accent-font;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: $medium;
-    color: rgba(26, 26, 26, 0.62);
+    color: rgba(26, 26, 26, 0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 4px 0 16px;
+  }
+
+  // --- Filters Toggle (mobile only) ---
+  .news-filters-toggle {
+    display: none; // Hidden on desktop
+    appearance: none;
+    border: 1px solid rgba(26, 26, 26, 0.15);
+    background: transparent;
+    color: rgba(26, 26, 26, 0.5);
+    font-family: $accent-font;
+    font-size: 12px;
+    font-weight: $semi-bold;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-top: 8px;
+    padding: 10px 20px;
+    margin: 0 auto 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: calc(100% - 32px);
+    max-width: 1100px;
+
+    i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    &.is-open i {
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      border-color: rgba(26, 26, 26, 0.3);
+      color: $text-dark;
+    }
+
+    @media (max-width: 767px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   // --- Filters ---
   .news-filters {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 40px 30px;
+    padding: 0 40px 20px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+
+    @media (max-width: 767px) {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &.is-open {
+        max-height: 300px;
+        opacity: 1;
+        padding-bottom: 20px;
+      }
+    }
   }
 
   .news-filter-group {
@@ -122,6 +193,59 @@
     padding: 0 40px 60px;
   }
 
+  // --- Two-column newspaper grid (desktop) ---
+  @media (min-width: 768px) {
+    .news-page-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
+      position: relative;
+
+      // Vertical center divider
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 0.15) 5%, rgba(26, 26, 26, 0.15) 95%, rgba(26, 26, 26, 0) 100%);
+        pointer-events: none;
+      }
+
+      // Lead story spans full width
+      .news-page-item.is-lead {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .news-page-item {
+      flex-direction: column;
+      padding-left: 0;
+      padding-right: 0;
+
+      &::before {
+        display: none;
+      }
+
+      .news-page-item-meta {
+        width: 100%;
+        min-width: 0;
+        padding-left: 0;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      .news-page-item-body {
+        border-left: none;
+        padding-left: 0;
+      }
+    }
+  }
+
   .news-page-item {
     display: flex;
     align-items: flex-start;
@@ -148,17 +272,13 @@
     }
 
     &:hover {
-      background: rgba(26, 26, 26, 0.02);
+      background: rgba(26, 26, 26, 0.025);
+      transform: translateX(4px);
+      border-bottom-color: rgba(26, 26, 26, 0.18);
 
       &::before {
         width: 40px;
         background: $text-dark;
-      }
-
-      .news-page-item-arrow {
-        color: $text-dark;
-        transform: translateX(3px);
-        opacity: 1;
       }
 
       .news-page-item-title {
@@ -167,6 +287,10 @@
 
       .news-page-item-date {
         color: $text-dark;
+      }
+
+      .news-page-item-tag.is-primary {
+        background: rgba(26, 26, 26, 0.85);
       }
     }
   }
@@ -250,94 +374,113 @@
     flex: 1;
   }
 
-  .news-page-item-arrow {
-    color: rgba(26, 26, 26, 0.25);
-    font-size: 18px;
-    margin-left: 20px;
-    opacity: 0.6;
-    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    flex-shrink: 0;
+  // --- Lead Story ---
+  .news-page-item.is-lead {
+    padding: 28px 20px 30px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid rgba(26, 26, 26, 0.2);
+    background: #f5f0eb;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      display: none;
+    }
+
+    .news-page-item-meta {
+      width: 100%;
+      min-width: 0;
+      padding-left: 0;
+      padding-right: 0;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .news-page-item-date {
+      font-size: 13px;
+    }
+
+    .news-page-item-body {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .news-page-item-title {
+      font-family: $title-font;
+      font-size: 26px;
+      font-weight: $regular;
+      line-height: 1.35;
+      color: $text-dark;
+      letter-spacing: 0.5px;
+    }
+
+    .news-page-item-tags {
+      display: inline-flex;
+    }
   }
 
-  // --- Pagination ---
-  .news-pagination {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 40px 80px;
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-  }
-
-  .news-pagination-btn {
-    appearance: none;
-    width: 36px;
-    height: 36px;
+  // --- Year Dividers (newspaper style) ---
+  .news-year-divider {
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: none;
-    background: transparent;
-    color: rgba(26, 26, 26, 0.4);
-    font-family: $accent-font;
-    font-size: 14px;
-    font-weight: $medium;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    gap: 16px;
+    padding: 20px 20px 10px;
+    grid-column: 1 / -1;
+  }
 
-    &:hover {
-      color: $text-dark;
-    }
+  .news-year-divider-line {
+    flex: 1;
+    height: 0;
+    border-top: 1px solid rgba(26, 26, 26, 0.15);
+  }
 
-    &.is-active {
-      color: $text-dark;
-      font-weight: $bold;
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 4px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 16px;
-        height: 2px;
-        background: $text-dark;
-      }
-    }
-
-    &.is-disabled {
-      opacity: 0.25;
-      cursor: default;
-      pointer-events: none;
-    }
+  .news-year-divider-label {
+    font-family: $title-font;
+    font-size: 18px;
+    font-weight: $regular;
+    color: rgba(26, 26, 26, 0.35);
+    letter-spacing: 3px;
   }
 
   // --- Back Link ---
   .news-back-link {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 40px 60px;
+    padding: 20px 40px 60px;
     text-align: center;
+    border-top: 1px solid rgba(26, 26, 26, 0.1);
 
     a {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-family: $accent-font;
-      font-size: 14px;
-      font-weight: $medium;
-      color: rgba(26, 26, 26, 0.45);
+      font-size: 13px;
+      font-weight: $semi-bold;
+      color: rgba(26, 26, 26, 0.5);
       text-decoration: none;
-      letter-spacing: 0.5px;
-      transition: color 0.3s ease;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: 1px solid rgba(26, 26, 26, 0.15);
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
       &:hover {
         color: $text-dark;
+        border-color: $text-dark;
+        transform: translateX(-4px);
       }
 
       i {
-        font-size: 12px;
+        font-size: 14px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover i {
+        transform: translateX(-3px);
       }
     }
   }

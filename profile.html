@@ -133,16 +133,46 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-label="Navigation menu">
-      <button class="close-menu" id="menuClose" aria-label="Close menu">&times;</button>
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active">ENG</button>
+      </div>
       <ul class="mobile-menu-links">
         <li><a href="index.html#news" data-i18n="nav.news">News</a></li>
         <li><a href="profile.html" data-i18n="nav.profile">Profile</a></li>
         <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
-        <li><a href="index.html#book" data-i18n="nav.book">Book</a></li>
         <li><a href="index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="index.html#book" data-i18n="nav.book">Book</a></li>
         <li><a href="index.html#links" data-i18n="nav.links">Links</a></li>
       </ul>
-      <div class="mobile-menu-social">
+      <!-- Panel: Professional (cyan gradient) -->
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="mailto:elionavarretev@gmail.com" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <!-- Panel: Academic (dark) -->
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="mailto:elionavarretev@gmail.com" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <!-- Social icons -->
+      <div class="mobile-menu-social" aria-label="Social links">
         <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
         <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
         <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
@@ -503,26 +533,23 @@
     </footer>
 
     <script>
-    // ===== Mobile Menu =====
+    // ===== Mobile Menu (L'Arc-en-Ciel style) =====
     (function() {
       var toggle = document.getElementById('menuToggle');
       var menu = document.getElementById('mobileMenu');
-      var close = document.getElementById('menuClose');
-      if (toggle && menu && close) {
+      if (toggle && menu) {
         function setMenuOpen(isOpen) {
           menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
           document.body.classList.toggle('mobile-menu-open', isOpen);
           toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
         }
         toggle.addEventListener('click', function() {
           setMenuOpen(!menu.classList.contains('active'));
         });
-        close.addEventListener('click', function() { setMenuOpen(false); });
         menu.querySelectorAll('a').forEach(function(link) {
           link.addEventListener('click', function() { setMenuOpen(false); });
-        });
-        menu.addEventListener('click', function(e) {
-          if (e.target === menu) setMenuOpen(false);
         });
         document.addEventListener('keydown', function(e) {
           if (e.key === 'Escape' && menu.classList.contains('active')) setMenuOpen(false);

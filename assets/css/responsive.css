@@ -142,6 +142,14 @@
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .news-page .news-page-item-meta {
+    width: 200px;
+    min-width: 200px;
+    padding-left: 34px;
+  }
+  .news-page .news-page-item::before {
+    width: 22px;
+  }
   .discography-section .portfolio-featured {
     grid-template-columns: 1fr;
   }
@@ -305,6 +313,10 @@
   .goods-section .goods-book-actions {
     justify-content: center;
   }
+  .goods-section .goods-book-actions .btn-view-more {
+    width: 100%;
+    justify-content: center;
+  }
   .services-section .services-inner {
     padding: 60px 16px 0;
   }
@@ -334,6 +346,54 @@
     text-align: left;
     padding-right: 0;
     margin-top: 12px;
+  }
+  .news-page .news-page-header {
+    padding: 16px 0 16px;
+  }
+  .news-page .news-page-title {
+    font-size: 26px;
+  }
+  .news-page .news-filters {
+    padding: 0 16px 24px;
+  }
+  .news-page .news-filter-group {
+    gap: 6px;
+  }
+  .news-page .news-filter-label {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 2px;
+  }
+  .news-page .news-page-separator {
+    padding: 0 16px;
+  }
+  .news-page .news-page-list {
+    padding: 0 16px 40px;
+  }
+  .news-page .news-page-item {
+    flex-direction: column;
+    padding: 18px 14px;
+  }
+  .news-page .news-page-item::before {
+    display: none;
+  }
+  .news-page .news-page-item-meta {
+    width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 12px;
+  }
+  .news-page .news-page-item-body {
+    padding-left: 0;
+    border-left: none;
+    min-height: 0;
+  }
+  .news-page .news-back-link {
+    padding: 0 16px 40px;
+  }
+  .news-page .news-page-item.is-lead .news-page-item-title {
+    font-size: 22px;
   }
   .discography-section .discography-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -396,10 +456,6 @@
   .goods-section .goods-book-name {
     font-size: 28px;
   }
-  .goods-section .goods-book-actions .btn-view-more {
-    width: 100%;
-    justify-content: center;
-  }
   .discography-section .discography-grid {
     grid-template-columns: 1fr;
   }
@@ -416,7 +472,21 @@
   .latest-news-banner .latest-news-item:nth-child(n+4) {
     display: none;
   }
-  /* nav-top-line visible on mobile */
+  .news-page .news-page-title {
+    font-size: 22px;
+    letter-spacing: 1.5px;
+  }
+  .news-page .news-filter-btn {
+    font-size: 11px;
+    padding: 4px 12px;
+  }
+  .news-page .news-page-item-title {
+    font-size: 13.5px;
+    line-height: 20px;
+  }
+  .news-page .news-page-item.is-lead .news-page-item-title {
+    font-size: 19px;
+  }
   .site-footer .footer-grid {
     grid-template-columns: 1fr;
     gap: 30px;
