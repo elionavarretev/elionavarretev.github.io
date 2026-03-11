@@ -1,6 +1,9 @@
 # Claude Code settings
 .claude/
 
+# Dependencies
+node_modules/
+
 # macOS
 .DS_Store
 
@@ -10,3 +13,9 @@
 *.swp
 *.swo
 *~
+
+# Source maps
+*.css.map
+
+# Playwright MCP
+.playwright-mcp/
