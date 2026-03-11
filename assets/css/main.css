@@ -3518,9 +3518,14 @@ body.mobile-menu-open {
     flex-direction: column;
     padding-left: 0;
     padding-right: 0;
+    overflow: hidden;
   }
   .news-page .news-page-item::before {
     display: none;
+  }
+  .news-page .news-page-item:hover {
+    transform: none;
+    background: none;
   }
   .news-page .news-page-item .news-page-item-meta {
     width: 100%;
@@ -4068,6 +4073,7 @@ body.mobile-menu-open {
   height: auto;
   opacity: 0.2;
   transition: opacity 0.3s ease;
+  mix-blend-mode: multiply;
 }
 .news-page .news-page-item.has-cert-card:hover .news-cert-card-icon,
 .news-page .news-page-item.has-cert-card.is-expanded .news-cert-card-icon {
@@ -4108,11 +4114,10 @@ body.mobile-menu-open {
   height: auto;
   object-fit: contain;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  mix-blend-mode: multiply;
 }
 .news-page .news-cert-card-badge-img.is-round {
   border-radius: 50%;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
 .news-page .news-cert-card-content {
   flex: 1;
@@ -4251,6 +4256,10 @@ body.mobile-menu-open {
   font-weight: 400;
   color: rgba(26, 26, 26, 0.35);
   letter-spacing: 3px;
+  background: #f5f0eb;
+  padding: 0 12px;
+  position: relative;
+  z-index: 1;
 }
 .news-page .news-page-item.has-embed {
   cursor: pointer;
@@ -4267,6 +4276,17 @@ body.mobile-menu-open {
   color: rgba(26, 26, 26, 0.3);
   font-size: 20px;
   transition: all 0.3s ease;
+}
+.news-page .news-page-item-company-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  opacity: 0.25;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: multiply;
+}
+.news-page .news-page-item:hover .news-page-item-company-icon {
+  opacity: 0.85;
 }
 .news-page .news-page-item.has-embed:hover .news-page-item-expand,
 .news-page .news-page-item.is-expanded .news-page-item-expand {
@@ -4327,6 +4347,40 @@ body.mobile-menu-open {
 }
 .news-page .news-back-link a:hover i {
   transform: translateX(-3px);
+}
+.news-page .news-filter-btn:focus-visible,
+.news-page .news-filters-toggle:focus-visible {
+  outline: 2px solid #00b4d9;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.news-page .news-page-item:focus-visible {
+  outline: 2px solid #00b4d9;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.news-page .news-cert-card-cta:focus-visible,
+.news-page .news-paper-card-cta:focus-visible,
+.news-page .news-award-card-cta:focus-visible,
+.news-page .news-book-card-cta:focus-visible {
+  outline: 2px solid #00b4d9;
+  outline-offset: 2px;
+}
+.news-page .news-back-link a:focus-visible {
+  outline: 2px solid #00b4d9;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.news-page .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .profile-page {
