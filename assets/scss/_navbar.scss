@@ -41,11 +41,12 @@ body.mobile-menu-open {
     content: '';
     position: absolute;
     top: 0;
-    left: -120px;
+    left: 0;
     width: 120px;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(0,206,240,0.95), transparent);
     animation: navLineSweep 3s ease-in-out infinite;
+    will-change: transform;
   }
 
   &.top { top: 0; }
@@ -53,8 +54,8 @@ body.mobile-menu-open {
 }
 
 @keyframes navLineSweep {
-  0%   { left: -120px; }
-  100% { left: 100%; }
+  0%   { transform: translateX(-120px); }
+  100% { transform: translateX(100vw); }
 }
 
 .main-nav {

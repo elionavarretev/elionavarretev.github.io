@@ -159,11 +159,13 @@ img { max-width: 100%; height: auto; }
     &::before {
       content: '';
       position: absolute;
+      top: 0;
       left: 0;
       width: 1px;
       height: 48px;
       background: rgba(0, 206, 240, 0.95);
       animation: scrollLine 2s ease-in-out infinite;
+      will-change: transform;
     }
 
     &::after {
@@ -181,8 +183,8 @@ img { max-width: 100%; height: auto; }
 }
 
 @keyframes scrollLine {
-  0% { top: -48px; }
-  100% { top: 169px; }
+  0% { transform: translateY(-48px); }
+  100% { transform: translateY(169px); }
 }
 
 // Preloader

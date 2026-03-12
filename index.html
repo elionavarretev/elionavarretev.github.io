@@ -24,20 +24,18 @@
     <meta name="google-site-verification" content="tTRjN8SewHBXLH1snoAdvin6G52UJpR-turE2gFoh5Y" />
     <meta name="description" content="Elio Navarrete, QA Lead and professor based in Lima, expert in Playwright, Cypress and Serenity BDD with proven QA leadership and ORCID-linked publications.">
     <meta name="keywords" content="Elio Navarrete, QA Lead, QA Automation, Playwright, Cypress, Serenity BDD, Lima Peru, OpenLoop, UPC professor, ORCID, Scientific Publications, Quality Engineering">
-    <link rel="canonical" href="https://elionavarrete.com/">
-
     <!-- DNS Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="dns-prefetch" href="https://pub.orcid.org">
-    <link rel="preconnect" href="https://pub.orcid.org" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/css/main.css" as="style">
@@ -280,7 +278,7 @@
 
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 
     <!-- Skip Navigation -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -440,13 +438,13 @@
             <div class="swiper bannerSwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#book"><img src="assets/images/banners/banner-book.png" alt="Quality Assurance Book — Available on Amazon" loading="lazy"></a>
+                  <a href="#book"><picture><source srcset="assets/images/banners/banner-book.webp" type="image/webp"><img src="assets/images/banners/banner-book.png" alt="Quality Assurance Book — Available on Amazon" loading="lazy" width="720" height="253"></picture></a>
                 </div>
                 <div class="swiper-slide">
-                  <a href="#services"><img src="assets/images/banners/banner-consulting.png" alt="QA Consulting & Test Automation Services" loading="lazy"></a>
+                  <a href="#services"><picture><source srcset="assets/images/banners/banner-consulting.webp" type="image/webp"><img src="assets/images/banners/banner-consulting.png" alt="QA Consulting & Test Automation Services" loading="lazy" width="720" height="253"></picture></a>
                 </div>
                 <div class="swiper-slide">
-                  <a href="#profile"><img src="assets/images/banners/banner-connect.png" alt="Connect on GitHub and LinkedIn" loading="lazy"></a>
+                  <a href="#profile"><picture><source srcset="assets/images/banners/banner-connect.webp" type="image/webp"><img src="assets/images/banners/banner-connect.png" alt="Connect on GitHub and LinkedIn" loading="lazy" width="720" height="253"></picture></a>
                 </div>
               </div>
               <div class="swiper-button-prev banner-prev"></div>
@@ -511,7 +509,7 @@
           <a href="#services" class="panel-featured-link">
             <div class="panel-featured-card">
               <div class="panel-featured-img">
-                <img src="assets/img/portfolio/openloop-featured.jpg" alt="QA Lead at OpenLoop">
+                <picture><source srcset="assets/img/portfolio/openloop-featured.webp" type="image/webp"><img src="assets/img/portfolio/openloop-featured.jpg" alt="QA Lead at OpenLoop" fetchpriority="high" width="400" height="267"></picture>
               </div>
               <div class="panel-featured-info">
                 <span class="panel-featured-date">2025.10</span>
@@ -521,7 +519,7 @@
             </div>
           </a>
           <div class="panel-floating-badge">
-            <img src="assets/img/panels/badge-latest-dark.svg" alt="Latest Contents">
+            <img src="assets/img/panels/badge-latest-dark.svg" alt="Latest Contents" width="130" height="110">
           </div>
         </div>
 
@@ -549,7 +547,7 @@
           <a href="#book" class="panel-featured-link">
             <div class="panel-featured-card">
               <div class="panel-featured-img">
-                <img src="assets/img/books/quality-assurance-book-3d.jpg" alt="QA Book" class="img-contain">
+                <picture><source srcset="assets/img/books/quality-assurance-book-3d.webp" type="image/webp"><img src="assets/img/books/quality-assurance-book-3d.jpg" alt="QA Book" class="img-contain" fetchpriority="high" width="400" height="267"></picture>
               </div>
               <div class="panel-featured-info">
                 <span class="panel-featured-date">2026.3</span>
@@ -559,13 +557,13 @@
             </div>
           </a>
           <div class="panel-floating-badge">
-            <img src="assets/img/panels/badge-latest-cyan.svg" alt="Latest Contents">
+            <img src="assets/img/panels/badge-latest-cyan.svg" alt="Latest Contents" width="130" height="110">
           </div>
         </div>
 
         <div class="panel-bottom-links">
           <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
-          <a href="#" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="#faq" data-i18n="panels.acad.link2">FAQ</a>
           <a href="mailto:elionavarretev@gmail.com" data-i18n="panels.acad.link3">Contact</a>
         </div>
       </div>
@@ -684,11 +682,15 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="assets/img/books/quality-assurance-book.jpg"
-              alt="Quality Assurance: De Fundamentos a Automatizacion con IA"
-              loading="lazy"
-            >
+            <picture>
+              <source srcset="assets/img/books/quality-assurance-book.webp" type="image/webp">
+              <img
+                src="assets/img/books/quality-assurance-book.jpg"
+                alt="Quality Assurance: De Fundamentos a Automatizacion con IA"
+                loading="lazy"
+                width="600" height="900"
+              >
+            </picture>
           </a>
           <div class="goods-book-details">
             <span class="goods-book-kicker" data-i18n="book.kicker">Featured Publication</span>
@@ -730,7 +732,7 @@
       <div class="portfolio-shell">
         <article class="portfolio-featured">
           <div class="portfolio-featured-media">
-            <img src="assets/img/portfolio/openloop-qa-leadership.jpg" alt="OpenLoop office lobby - QA Leadership" loading="lazy">
+            <picture><source srcset="assets/img/portfolio/openloop-qa-leadership.webp" type="image/webp"><img src="assets/img/portfolio/openloop-qa-leadership.jpg" alt="OpenLoop office lobby - QA Leadership" loading="lazy" width="800" height="600"></picture>
             <span class="portfolio-featured-badge" data-i18n="portfolio.featured.badge">Featured Case</span>
           </div>
           <div class="portfolio-featured-content">
@@ -805,7 +807,7 @@
           <article class="portfolio-card" data-category="automation">
             <a class="portfolio-card-link" href="https://github.com/elionavarretev/Demo-playwright" target="_blank" rel="noopener" aria-label="Open Playwright end-to-end architecture repository on GitHub">
               <div class="portfolio-card-media">
-                <img src="assets/img/portfolio/playwright-e2e-architecture.jpg" alt="Playwright test suite E2E report showing test results, browser matrix and fixtures" loading="lazy">
+                <picture><source srcset="assets/img/portfolio/playwright-e2e-architecture.webp" type="image/webp"><img src="assets/img/portfolio/playwright-e2e-architecture.jpg" alt="Playwright test suite E2E report showing test results, browser matrix and fixtures" loading="lazy" width="800" height="600"></picture>
                 <span class="portfolio-card-focus">Automation</span>
               </div>
               <div class="portfolio-card-body">
@@ -833,7 +835,7 @@
           <article class="portfolio-card" data-category="teaching">
             <a class="portfolio-card-link" href="https://www.gob.pe/institucion/unaat/noticias/1099473-profesionales-de-renombre-en-la-investigacion-presentes-en-la-4-conferencia-internacional-de-tecnologias-avanzadas-en-educacion" target="_blank" rel="noopener" aria-label="View academic conference recognition on the UNAAT website">
               <div class="portfolio-card-media">
-                <img src="assets/img/portfolio/upc-software-quality.jpg" alt="Software Quality Engineering at UPC" loading="lazy">
+                <picture><source srcset="assets/img/portfolio/upc-software-quality.webp" type="image/webp"><img src="assets/img/portfolio/upc-software-quality.jpg" alt="Software Quality Engineering at UPC" loading="lazy" width="800" height="600"></picture>
                 <span class="portfolio-card-focus">Teaching</span>
               </div>
               <div class="portfolio-card-body">
@@ -861,7 +863,7 @@
           <article class="portfolio-card" data-category="api">
             <a class="portfolio-card-link" href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="View API and contract verification work on GitHub">
               <div class="portfolio-card-media">
-                <img src="assets/img/portfolio/api-contract-verification.jpg" alt="API contract verification dashboard showing endpoint validation results" loading="lazy">
+                <picture><source srcset="assets/img/portfolio/api-contract-verification.webp" type="image/webp"><img src="assets/img/portfolio/api-contract-verification.jpg" alt="API contract verification dashboard showing endpoint validation results" loading="lazy" width="800" height="600"></picture>
                 <span class="portfolio-card-focus">API</span>
               </div>
               <div class="portfolio-card-body">
@@ -889,7 +891,7 @@
           <article class="portfolio-card" data-category="research">
             <a class="portfolio-card-link" href="https://ieeexplore.ieee.org/document/11064189/" target="_blank" rel="noopener" aria-label="Read the IEEE publication about applied AI research">
               <div class="portfolio-card-media">
-                <img src="assets/img/portfolio/ieee-publication.jpg" alt="IEEE Xplore — Prediction of Academic Desertion Using Machine Learning Techniques" loading="lazy">
+                <picture><source srcset="assets/img/portfolio/ieee-publication.webp" type="image/webp"><img src="assets/img/portfolio/ieee-publication.jpg" alt="IEEE Xplore — Prediction of Academic Desertion Using Machine Learning Techniques" loading="lazy" width="800" height="600"></picture>
                 <span class="portfolio-card-focus">Research</span>
               </div>
               <div class="portfolio-card-body">
@@ -952,7 +954,7 @@
           <div class="recognition-grid">
             <a class="recognition-card" href="https://www.gob.pe/institucion/unaat/noticias/1099473-profesionales-de-renombre-en-la-investigacion-presentes-en-la-4-conferencia-internacional-de-tecnologias-avanzadas-en-educacion" target="_blank" rel="noopener" aria-label="View conference recognition on the UNAAT website">
               <div class="recognition-media">
-                <img src="assets/img/portfolio/conference-presentation.jpg" alt="Elio Navarrete presenting Team Software Process at conference" loading="lazy">
+                <picture><source srcset="assets/img/portfolio/conference-presentation.webp" type="image/webp"><img src="assets/img/portfolio/conference-presentation.jpg" alt="Elio Navarrete presenting Team Software Process at conference" loading="lazy" width="800" height="600"></picture>
                 <span class="recognition-pill" data-i18n="recognition.card1.pill">Academic Activity</span>
               </div>
               <div class="recognition-body">
@@ -969,7 +971,7 @@
 
             <a class="recognition-card" href="https://www.cip.org.pe/premiacion-concurso-2da-edicion-ji/" target="_blank" rel="noopener" aria-label="View CIP project recognition">
               <div class="recognition-media">
-                <img src="assets/img/portfolio/cip-recognition.jpg" alt="CIP Young Engineer Recognition ceremony" loading="lazy">
+                <picture><source srcset="assets/img/portfolio/cip-recognition.webp" type="image/webp"><img src="assets/img/portfolio/cip-recognition.jpg" alt="CIP Young Engineer Recognition ceremony" loading="lazy" width="800" height="600"></picture>
                 <span class="recognition-pill" data-i18n="recognition.card2.pill">Recognition</span>
               </div>
               <div class="recognition-body">
@@ -986,7 +988,7 @@
 
             <a class="recognition-card" href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="View teaching profile on LinkedIn">
               <div class="recognition-media">
-                <img src="assets/img/portfolio/IMG_4985.jpg" alt="Elio Navarrete — Professor at UPC" loading="lazy">
+                <picture><source srcset="assets/img/portfolio/IMG_4985.webp" type="image/webp"><img src="assets/img/portfolio/IMG_4985.jpg" alt="Elio Navarrete — Professor at UPC" loading="lazy" width="800" height="600"></picture>
                 <span class="recognition-pill" data-i18n="recognition.card3.pill">Teaching · 2021–Present</span>
               </div>
               <div class="recognition-body">
