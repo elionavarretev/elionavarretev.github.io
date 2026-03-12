@@ -1169,7 +1169,7 @@
   .news-back-link {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 20px 40px 60px;
+    padding: 48px 40px 60px;
     text-align: center;
     border-top: 1px solid rgba(26, 26, 26, 0.1);
 
@@ -1184,9 +1184,34 @@
       text-decoration: none;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 14px 28px;
+      padding: 14px 28px 14px 48px;
       border: 1px solid rgba(26, 26, 26, 0.15);
+      position: relative;
       transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+      // CSS arrow pointing left
+      &::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        width: 16px;
+        height: 1px;
+        background: currentColor;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        width: 7px;
+        height: 7px;
+        border-bottom: 1px solid currentColor;
+        border-left: 1px solid currentColor;
+        transform: translateY(-50%) rotate(45deg);
+      }
 
       &:hover {
         color: $text-dark;
@@ -1194,13 +1219,9 @@
         transform: translateX(-4px);
       }
 
+      // Hide Font Awesome icon (using CSS arrow instead)
       i {
-        font-size: 14px;
-        transition: transform 0.3s ease;
-      }
-
-      &:hover i {
-        transform: translateX(-3px);
+        display: none;
       }
     }
   }

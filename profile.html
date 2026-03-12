@@ -25,10 +25,14 @@
     <meta name="twitter:description" content="Full professional profile: 10+ years in quality engineering, ISTQB certified, published author, IEEE researcher.">
     <meta name="twitter:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload data files -->
+    <link rel="preload" href="assets/data/i18n.json" as="fetch" crossorigin>
 
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="preload" href="assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -130,7 +134,7 @@
     </header>
 
     <!-- Internationalization -->
-    <script src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-label="Navigation menu">
@@ -574,7 +578,7 @@
     </script>
 
     <!-- Hover Sound FX -->
-    <script src="assets/js/hover-sound.js"></script>
+    <script defer src="assets/js/hover-sound.js"></script>
 
     <!-- Scroll Reveal (book-page effect) -->
     <script>

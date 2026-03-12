@@ -391,6 +391,12 @@ $overlay-gold: #b8963e;
     padding: 14px 36px;
     transition: $transition;
 
+    // Override global .btn-view-more arrows — this button uses inline ›
+    &::after,
+    &::before {
+      display: none;
+    }
+
     span {
       font-size: 18px;
       line-height: 1;

@@ -30,16 +30,17 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-    <!-- Google Fonts (non-render-blocking) -->
+    <!-- Google Fonts (non-render-blocking: media=print + onload swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/css/main.css" as="style">
     <link rel="preload" as="image" href="assets/img/background/bg-2-desktop.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="assets/data/i18n.json" as="fetch" crossorigin>
+    <link rel="preload" href="assets/data/news.json" as="fetch" crossorigin>
 
     <title>Elio Navarrete | QA Lead | Professor</title>
     <!-- Open Graph -->
@@ -1061,11 +1062,11 @@
     <!-- Swiper.js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Internationalization (must load before news.js for correct initial lang) -->
-    <script src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
     <!-- Centralized News -->
-    <script src="assets/js/news.js"></script>
+    <script defer src="assets/js/news.js"></script>
     <!-- Hover Sound FX -->
-    <script src="assets/js/hover-sound.js"></script>
+    <script defer src="assets/js/hover-sound.js"></script>
 
     <script>
     'use strict';
