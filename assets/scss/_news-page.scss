@@ -152,7 +152,9 @@
     font-size: 12.8px;
     font-weight: $medium;
     letter-spacing: 0.5px;
-    padding: 5px 16px;
+    padding: 8px 16px;
+    min-height: 48px;
+    box-sizing: border-box;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -450,8 +452,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    min-width: 48px;
+    min-height: 48px;
     flex-shrink: 0;
     margin-left: 14px;
     color: rgba(26, 26, 26, 0.25);
@@ -605,8 +607,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    min-width: 48px;
+    min-height: 48px;
     flex-shrink: 0;
     margin-left: 14px;
     transition: all 0.3s ease;
@@ -872,8 +874,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    min-width: 48px;
+    min-height: 48px;
     flex-shrink: 0;
     margin-left: 14px;
     transition: all 0.3s ease;
@@ -1109,8 +1111,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    min-width: 48px;
+    min-height: 48px;
     flex-shrink: 0;
     margin-left: 14px;
     color: rgba(26, 26, 26, 0.3);

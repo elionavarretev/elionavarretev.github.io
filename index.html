@@ -39,6 +39,7 @@
 
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" as="image" href="assets/img/background/bg-2-desktop.webp" type="image/webp" fetchpriority="high">
 
     <title>Elio Navarrete | QA Lead | Professor</title>
     <!-- Open Graph -->
@@ -258,16 +259,15 @@
     }
     </script>
 
-    <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
     <!-- Critical CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
 
-    <!-- Non-critical CSS -->
+    <!-- Non-critical CSS (deferred) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
       <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
       <link rel="stylesheet" href="assets/css/responsive.css">
     </noscript>
@@ -401,7 +401,7 @@
               <p data-i18n="hero.slide1.desc">Leading QA teams to deliver excellence</p>
             </div>
           </div>
-          <div class="swiper-slide" style="background-image:url('assets/img/background/bg-1_Elio_Navarrete.jpg')">
+          <div class="swiper-slide" style="background-image:url('assets/img/background/bg-1_Elio_Navarrete.webp')">
             <div class="slide-overlay"></div>
             <div class="slide-content">
               <h2 data-i18n="hero.slide2.title">Test Automation</h2>
@@ -500,7 +500,7 @@
           </div>
           <div class="panel-buttons-col">
             <a href="https://github.com/elionavarretev" class="panel-btn panel-btn-solid" target="_blank" rel="noopener" data-i18n="panels.pro.cta1">Github</a>
-            <a href="https://www.linkedin.com/in/elionavarrete/" class="panel-btn panel-btn-outline" target="_blank" rel="noopener" data-i18n="panels.pro.cta2">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/eliojeff" class="panel-btn panel-btn-outline" target="_blank" rel="noopener" data-i18n="panels.pro.cta2">LinkedIn</a>
           </div>
           <p class="panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
         </div>
@@ -509,7 +509,7 @@
           <a href="#services" class="panel-featured-link">
             <div class="panel-featured-card">
               <div class="panel-featured-img">
-                <picture><source srcset="assets/img/portfolio/openloop-featured.webp" type="image/webp"><img src="assets/img/portfolio/openloop-featured.jpg" alt="QA Lead at OpenLoop" fetchpriority="high" width="400" height="267"></picture>
+                <picture><source srcset="assets/img/portfolio/openloop-featured.webp" type="image/webp"><img src="assets/img/portfolio/openloop-featured.jpg" alt="QA Lead at OpenLoop" loading="lazy" width="800" height="522"></picture>
               </div>
               <div class="panel-featured-info">
                 <span class="panel-featured-date">2025.10</span>
@@ -547,7 +547,7 @@
           <a href="#book" class="panel-featured-link">
             <div class="panel-featured-card">
               <div class="panel-featured-img">
-                <picture><source srcset="assets/img/books/quality-assurance-book-3d.webp" type="image/webp"><img src="assets/img/books/quality-assurance-book-3d.jpg" alt="QA Book" class="img-contain" fetchpriority="high" width="400" height="267"></picture>
+                <picture><source srcset="assets/img/books/quality-assurance-book-3d.webp" type="image/webp"><img src="assets/img/books/quality-assurance-book-3d.jpg" alt="QA Book" class="img-contain" loading="lazy" width="800" height="541"></picture>
               </div>
               <div class="panel-featured-info">
                 <span class="panel-featured-date">2026.3</span>
@@ -779,7 +779,7 @@
           <article class="portfolio-card" data-category="leadership">
             <a class="portfolio-card-link" href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="View quality strategy and team enablement on LinkedIn">
               <div class="portfolio-card-media">
-                <img src="assets/img/slider/img2_Elio_Navarrete.jpg" alt="Team enablement and collaboration photo" loading="lazy">
+                <picture><source srcset="assets/img/slider/img2_Elio_Navarrete.webp" type="image/webp"><img src="assets/img/slider/img2_Elio_Navarrete.jpg" alt="Team enablement and collaboration photo" loading="lazy" width="1304" height="734"></picture>
                 <span class="portfolio-card-focus">Leadership</span>
               </div>
               <div class="portfolio-card-body">

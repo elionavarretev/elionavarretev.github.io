@@ -62,13 +62,17 @@
     .swiper-pagination-bullet {
       width: 7px;
       height: 7px;
-      margin: 0 5px !important;
+      padding: 21px;
+      box-sizing: content-box;
+      margin: 0 -16px !important;
       background: rgba(255,255,255,0.3);
+      background-clip: content-box;
       opacity: 1;
       transition: $transition-fast;
 
       &-active {
         background: #fff;
+        background-clip: content-box;
         transform: scale(1.15);
       }
     }
@@ -325,12 +329,16 @@
     .swiper-pagination-bullet {
       width: 7px;
       height: 7px;
-      margin: 0 5px !important;
+      padding: 21px;
+      box-sizing: content-box;
+      margin: 0 -16px !important;
       background: rgba(238,238,238,0.3);
+      background-clip: content-box;
       opacity: 1;
 
       &-active {
         background: rgba(238,238,238,1);
+        background-clip: content-box;
       }
     }
   }
