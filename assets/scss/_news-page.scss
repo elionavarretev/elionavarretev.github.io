@@ -383,6 +383,17 @@
     border-left: 1px solid rgba(26, 26, 26, 0.1);
   }
 
+  .news-page-item-logo {
+    height: 22px;
+    width: auto;
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+  }
+
+  .news-page-item:hover .news-page-item-logo {
+    opacity: 0.85;
+  }
+
   .news-page-item-title {
     font-family: $primary-font;
     font-size: 14.72px;
