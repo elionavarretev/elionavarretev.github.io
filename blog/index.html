@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Blog - Elio Navarrete. Insights on QA Strategy, Test Automation, AI in Testing, and Software Quality Engineering.">
     <meta name="keywords" content="Elio Navarrete, Blog, QA Strategy, Test Automation, AI Testing, Playwright, Cypress, Quality Engineering">
     <meta name="theme-color" content="#000000">
@@ -17,6 +17,9 @@
     <meta property="og:title" content="Blog | Elio Navarrete">
     <meta property="og:description" content="Insights on QA Strategy, Test Automation, AI in Testing, and Software Quality Engineering.">
     <meta property="og:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:site_name" content="Elio Navarrete">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blog | Elio Navarrete">
@@ -175,7 +178,14 @@
       <div class="blog-page-header">
         <div class="news-masthead-rule" aria-hidden="true"></div>
         <h1 class="blog-page-title" data-i18n="blog.title">Blog</h1>
-        <p class="blog-page-subtitle" data-i18n="blog.subtitle">Insights &amp; Articles</p>
+        <p class="blog-page-tagline" data-i18n="blog.tagline">Quality engineering insights from the field — strategy, automation, AI and teaching</p>
+        <div class="blog-hero-stats">
+          <span data-i18n="blog.stats.articles">13 Articles</span>
+          <span class="blog-hero-stats-dot" aria-hidden="true"></span>
+          <span data-i18n="blog.stats.reading">120+ min reading</span>
+          <span class="blog-hero-stats-dot" aria-hidden="true"></span>
+          <span data-i18n="blog.stats.topics">6 Topics</span>
+        </div>
         <div class="news-masthead-rule" aria-hidden="true"></div>
       </div>
 
@@ -194,8 +204,11 @@
       <!-- Article Grid -->
       <div class="blog-grid">
 
-        <!-- Card: Vibe Testing -->
-        <a href="vibe-testing-ai-qa.html" class="blog-card" data-category="ai">
+        <!-- Card: Vibe Testing (Featured) -->
+        <a href="vibe-testing-ai-qa.html" class="blog-card blog-card-featured" data-category="ai">
+          <div class="blog-card-featured-visual">
+            <span class="blog-card-featured-badge" data-i18n="blog.featured">Featured</span>
+          </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
               <span class="blog-card-tag" data-i18n="blog.filter.ai">AI in Testing</span>
@@ -449,7 +462,7 @@
         <div class="footer-bottom">
           <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
           <div class="footer-meta">
-            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
+            <a href="../privacy.html" class="footer-privacy-link" data-i18n="footer.privacy">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -507,6 +520,30 @@
             }
           });
         });
+      });
+    })();
+
+    // ===== Scroll Animations (IntersectionObserver) =====
+    (function() {
+      var cards = document.querySelectorAll('.blog-card');
+      if (!('IntersectionObserver' in window)) {
+        cards.forEach(function(c) { c.classList.add('is-visible'); });
+        return;
+      }
+      var revealedCount = 0;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+            revealedCount++;
+            if (revealedCount >= cards.length) observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      cards.forEach(function(card, i) {
+        card.style.transitionDelay = Math.min(i * 0.05, 0.3) + 's';
+        observer.observe(card);
       });
     })();
     </script>

@@ -1,14 +1,14 @@
 (function() {
-  // Interstellar — Cornfield Chase by Hans Zimmer
-  // The iconic organ ostinato pattern: A-E-A-E-C-A-E-A ascending
+  // Interstellar — Main Theme by Hans Zimmer
+  // The famous ascending melody: A4-B4-C5-E5 | D5-C5-B4-A4
   var notes = [
-    { freq: 220.00 },  // A3  — Book
-    { freq: 329.63 },  // E4  — ISCMI
-    { freq: 440.00 },  // A4  — ICALTER 2025
-    { freq: 329.63 },  // E4  — Anxiety
-    { freq: 523.25 },  // C5  — Cognitive AI
-    { freq: 440.00 },  // A4  — Eat4U
-    { freq: 329.63 },  // E4  — Vik's Adventures
+    { freq: 440.00 },  // A4  — Book
+    { freq: 493.88 },  // B4  — ISCMI
+    { freq: 523.25 },  // C5  — ICALTER 2025
+    { freq: 659.25 },  // E5  — Anxiety
+    { freq: 587.33 },  // D5  — Cognitive AI
+    { freq: 523.25 },  // C5  — Eat4U
+    { freq: 493.88 },  // B4  — Vik's Adventures
     { freq: 440.00 }   // A4  — ORCID
   ];
 
