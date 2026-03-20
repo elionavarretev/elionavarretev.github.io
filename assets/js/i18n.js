@@ -66,6 +66,15 @@
       }
     }
 
+    // Placeholder replacements
+    var placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+    for (var p = 0; p < placeholderNodes.length; p++) {
+      var pKey = placeholderNodes[p].getAttribute('data-i18n-placeholder');
+      if (t[pKey] !== undefined) {
+        placeholderNodes[p].setAttribute('placeholder', t[pKey]);
+      }
+    }
+
     // Rich HTML replacements (supports <strong>, <em>, etc.)
     var richNodes = document.querySelectorAll('[data-i18n-rich]');
     for (var r = 0; r < richNodes.length; r++) {
@@ -128,7 +137,27 @@
     }
   }
 
+  /**
+   * Merge extra translations into the main translations object.
+   * Each extra file has the same {"en":{…}, "es":{…}} structure.
+   */
+  function mergeTranslations(extra) {
+    if (!extra) return;
+    ['en', 'es'].forEach(function (lang) {
+      if (extra[lang]) {
+        if (!translations[lang]) translations[lang] = {};
+        var keys = Object.keys(extra[lang]);
+        for (var i = 0; i < keys.length; i++) {
+          translations[lang][keys[i]] = extra[lang][keys[i]];
+        }
+      }
+    });
+  }
+
   function init() {
+    var basePath = window.__i18nBase || 'assets/data/';
+    var extraFiles = window.__i18nExtra || [];
+
     fetch(I18N_PATH)
       .then(function (res) {
         if (!res.ok) throw new Error('i18n fetch failed: ' + res.status);
@@ -136,6 +165,20 @@
       })
       .then(function (data) {
         translations = data;
+
+        // Load extra translation files (e.g. blog batch files)
+        var extraPromises = extraFiles.map(function (file) {
+          return fetch(basePath + file)
+            .then(function (res) { return res.ok ? res.json() : null; })
+            .catch(function () { return null; });
+        });
+
+        return Promise.all(extraPromises);
+      })
+      .then(function (extras) {
+        for (var i = 0; i < extras.length; i++) {
+          if (extras[i]) mergeTranslations(extras[i]);
+        }
         applyTranslations(currentLang);
         bindButtons();
       })

@@ -141,7 +141,7 @@
     </header>
 
     <!-- i18n (configurable base path for subdirectory) -->
-    <script>window.__i18nBase = '../assets/data/';</script>
+    <script>window.__i18nBase = '../assets/data/'; window.__i18nExtra = ['i18n-blog-batch1.json'];</script>
     <script defer src="../assets/js/i18n.js"></script>
 
     <!-- Mobile Menu Overlay -->
@@ -197,7 +197,7 @@
 
         <header class="blog-article-header">
           <span class="blog-article-tag" data-i18n="blog.filter.ai">AI in Testing</span>
-          <h1 class="blog-article-title">AI-Powered Test Maintenance: Reducing Automation Debt</h1>
+          <h1 class="blog-article-title" data-i18n="blog.ai-maintenance.title">AI-Powered Test Maintenance: Reducing Automation Debt</h1>
           <div class="blog-article-meta">
             <span>Elio Navarrete</span>
             <span class="blog-article-meta-sep" aria-hidden="true"></span>
@@ -206,79 +206,166 @@
         </header>
 
         <div class="blog-article-body">
-          <p>Every QA automation team eventually hits the same wall: the test suite that was supposed to accelerate delivery starts slowing it down. Tests break not because the application has bugs, but because the UI changed, a third-party API updated its response format, or test data drifted out of sync. Maintaining these tests consumes engineering hours that should be spent on new coverage, and the backlog of broken tests grows faster than the team can fix it.</p>
+          <p data-i18n="blog.ai-maintenance.p.1">Every QA automation team eventually hits the same wall: the test suite that was supposed to accelerate delivery starts slowing it down. Tests break not because the application has bugs, but because the UI changed, a third-party API updated its response format, or test data drifted out of sync. Maintaining these tests consumes engineering hours that should be spent on new coverage, and the backlog of broken tests grows faster than the team can fix it.</p>
 
-          <p>This is automation debt, and according to the <a href="https://www.istqb.org/" target="_blank" rel="noopener">ISTQB Test Automation Engineering syllabus</a>, test maintenance accounts for <strong>40-60% of the total cost of test automation</strong> over a project's lifetime. That number matches what I have observed across every team I have led. The question is not whether maintenance will consume your resources — it is whether you can reduce the cost per maintenance cycle. AI is proving to be genuinely effective at exactly that.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.2">This is automation debt, and according to the <a href="https://www.istqb.org/" target="_blank" rel="noopener">ISTQB Test Automation Engineering syllabus</a>, test maintenance accounts for <strong>40-60% of the total cost of test automation</strong> over a project's lifetime. That number matches what I have observed across every team I have led. The question is not whether maintenance will consume your resources — it is whether you can reduce the cost per maintenance cycle. AI is proving to be genuinely effective at exactly that.</p>
 
-          <h2>Understanding the Types of Test Breakage</h2>
+          <h2 data-i18n="blog.ai-maintenance.h2.1">Understanding the Types of Test Breakage</h2>
 
-          <p>Before applying AI to maintenance, you need to classify what breaks and why. Not all failures are equal, and the appropriate response differs by category:</p>
+          <p data-i18n="blog.ai-maintenance.p.3">Before applying AI to maintenance, you need to classify what breaks and why. Not all failures are equal, and the appropriate response differs by category:</p>
 
-          <p><strong>Locator rot.</strong> The most common breakage. A frontend developer renames a CSS class, changes a component hierarchy, or replaces a <code>div</code> with a semantic HTML element. The test's selector no longer matches anything on the page. The application works perfectly — the test is simply looking in the wrong place. This category accounts for roughly 50-60% of all test maintenance in UI-heavy suites.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.4"><strong>Locator rot.</strong> The most common breakage. A frontend developer renames a CSS class, changes a component hierarchy, or replaces a <code>div</code> with a semantic HTML element. The test's selector no longer matches anything on the page. The application works perfectly — the test is simply looking in the wrong place. This category accounts for roughly 50-60% of all test maintenance in UI-heavy suites.</p>
 
-          <p><strong>Timing issues.</strong> An API that used to respond in 200ms now takes 800ms under load. A UI animation was added that delays element visibility. A database query slows down as test data accumulates. The test fails intermittently because it expected an element to be present before the application had time to render it. This is the classic flakiness category.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.5"><strong>Timing issues.</strong> An API that used to respond in 200ms now takes 800ms under load. A UI animation was added that delays element visibility. A database query slows down as test data accumulates. The test fails intermittently because it expected an element to be present before the application had time to render it. This is the classic flakiness category.</p>
 
-          <p><strong>Data drift.</strong> Tests depend on specific database records, user accounts, or external system states that change over time. A test that logs in as "test-user-01" fails because that account was deleted during a database cleanup. A test that checks for "5 items in cart" fails because a background job modified the cart contents.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.6"><strong>Data drift.</strong> Tests depend on specific database records, user accounts, or external system states that change over time. A test that logs in as "test-user-01" fails because that account was deleted during a database cleanup. A test that checks for "5 items in cart" fails because a background job modified the cart contents.</p>
 
-          <p><strong>API contract changes.</strong> A backend team modifies a response payload — adding a field, removing one, changing a type from string to number. The test that parsed that response now fails even though the UI adapted correctly.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.7"><strong>API contract changes.</strong> A backend team modifies a response payload — adding a field, removing one, changing a type from string to number. The test that parsed that response now fails even though the UI adapted correctly.</p>
 
-          <p>Understanding these categories is essential because AI handles each one differently. Locator rot is highly automatable. Timing issues require environmental analysis. Data drift requires infrastructure changes. API contract changes require cross-team coordination.</p>
+          <p data-i18n="blog.ai-maintenance.p.8">Understanding these categories is essential because AI handles each one differently. Locator rot is highly automatable. Timing issues require environmental analysis. Data drift requires infrastructure changes. API contract changes require cross-team coordination.</p>
 
-          <h2>AI-Assisted Detection: Analyzing CI Failures</h2>
+          <h2 data-i18n="blog.ai-maintenance.h2.2">AI-Assisted Detection: Analyzing CI Failures</h2>
 
-          <p>The first step in AI-powered maintenance is not fixing — it is classifying. When a CI pipeline fails with 15 broken tests, the QA engineer's first task is triage: which failures are real bugs, and which are maintenance issues? This triage historically takes 30-60 minutes of manual investigation per CI run.</p>
+          <p data-i18n="blog.ai-maintenance.p.9">The first step in AI-powered maintenance is not fixing — it is classifying. When a CI pipeline fails with 15 broken tests, the QA engineer's first task is triage: which failures are real bugs, and which are maintenance issues? This triage historically takes 30-60 minutes of manual investigation per CI run.</p>
 
-          <p>LLMs excel at this classification task. By feeding the AI the test failure trace, the recent git diff, and the test source code, you can get a structured classification in seconds. The AI analyzes the error message ("Element not found: [data-testid='submit-btn']"), cross-references it with the diff (which shows the element was renamed to <code>data-testid="confirm-btn"</code>), and correctly classifies it as locator rot — not a bug.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.10">LLMs excel at this classification task. By feeding the AI the test failure trace, the recent git diff, and the test source code, you can get a structured classification in seconds. The AI analyzes the error message ("Element not found: [data-testid='submit-btn']"), cross-references it with the diff (which shows the element was renamed to <code>data-testid="confirm-btn"</code>), and correctly classifies it as locator rot — not a bug.</p>
 
-          <p>In teams I have worked with, this classification step alone reduced triage time by <strong>70%</strong>. The engineer still reviews the AI's classification, but reviewing a structured summary is far faster than reading raw stack traces.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.11">In teams I have worked with, this classification step alone reduced triage time by <strong>70%</strong>. The engineer still reviews the AI's classification, but reviewing a structured summary is far faster than reading raw stack traces.</p>
 
-          <h2>Self-Healing Selectors: How AI Proposes Fixes</h2>
+          <h2 data-i18n="blog.ai-maintenance.h2.3">Self-Healing Selectors: How AI Proposes Fixes</h2>
 
-          <p>Once a failure is classified as locator rot, the AI can propose a fix. The process works like this: the AI examines the current DOM (captured by the test framework's trace or screenshot), identifies the element that most closely matches the original selector's intent, and proposes an updated locator.</p>
+          <p data-i18n="blog.ai-maintenance.p.12">Once a failure is classified as locator rot, the AI can propose a fix. The process works like this: the AI examines the current DOM (captured by the test framework's trace or screenshot), identifies the element that most closely matches the original selector's intent, and proposes an updated locator.</p>
 
-          <p>For example, if the original selector was <code>[data-testid="submit-btn"]</code> and the element was renamed, the AI might propose <code>getByRole('button', { name: 'Submit' })</code> — which is actually a better selector because it is resilient to future <code>data-testid</code> changes. The AI does not just fix the immediate problem; when prompted correctly, it can upgrade the selector strategy.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.13">For example, if the original selector was <code>[data-testid="submit-btn"]</code> and the element was renamed, the AI might propose <code>getByRole('button', { name: 'Submit' })</code> — which is actually a better selector because it is resilient to future <code>data-testid</code> changes. The AI does not just fix the immediate problem; when prompted correctly, it can upgrade the selector strategy.</p>
 
-          <p>This is not hypothetical. Tools built on LLM APIs are already capable of this workflow: parse the Playwright trace file, extract the DOM snapshot at the point of failure, compare it with the expected element, and generate a code diff with the updated locator. The key is that the AI proposes the fix as a pull request — it does not merge it. Human review remains mandatory.</p>
+          <p data-i18n="blog.ai-maintenance.p.14">This is not hypothetical. Tools built on LLM APIs are already capable of this workflow: parse the Playwright trace file, extract the DOM snapshot at the point of failure, compare it with the expected element, and generate a code diff with the updated locator. The key is that the AI proposes the fix as a pull request — it does not merge it. Human review remains mandatory.</p>
 
-          <h2>The Practical Workflow</h2>
+          <h2 data-i18n="blog.ai-maintenance.h2.4">The Practical Workflow</h2>
 
-          <p>The workflow I recommend for AI-powered test maintenance follows a clear pipeline with human checkpoints:</p>
+          <p data-i18n="blog.ai-maintenance.p.15">The workflow I recommend for AI-powered test maintenance follows a clear pipeline with human checkpoints:</p>
 
           <ol>
-            <li><strong>CI failure triggers analysis.</strong> When E2E tests fail, the CI pipeline sends the failure report (traces, screenshots, error logs) to an AI analysis step.</li>
-            <li><strong>AI classifies each failure.</strong> The AI categorizes failures as: locator rot, timing issue, data drift, API change, or potential real bug. Each classification includes a confidence score.</li>
-            <li><strong>AI generates fix PRs for high-confidence classifications.</strong> For locator rot failures with high confidence (above 85%), the AI creates a branch with the proposed selector fixes and opens a PR.</li>
-            <li><strong>Engineer reviews and merges.</strong> The QA engineer reviews the AI's PRs. This review is fast because the PR description explains the classification reasoning and the specific change. A locator fix that would take 20 minutes to investigate and implement now takes 2 minutes to review.</li>
-            <li><strong>Low-confidence failures go to manual triage.</strong> When the AI is uncertain — which often indicates a real bug or a complex multi-factor failure — it flags the failure for human investigation with its analysis notes as a starting point.</li>
+            <li data-i18n-rich="blog.ai-maintenance.li.1"><strong>CI failure triggers analysis.</strong> When E2E tests fail, the CI pipeline sends the failure report (traces, screenshots, error logs) to an AI analysis step.</li>
+            <li data-i18n-rich="blog.ai-maintenance.li.2"><strong>AI classifies each failure.</strong> The AI categorizes failures as: locator rot, timing issue, data drift, API change, or potential real bug. Each classification includes a confidence score.</li>
+            <li data-i18n-rich="blog.ai-maintenance.li.3"><strong>AI generates fix PRs for high-confidence classifications.</strong> For locator rot failures with high confidence (above 85%), the AI creates a branch with the proposed selector fixes and opens a PR.</li>
+            <li data-i18n-rich="blog.ai-maintenance.li.4"><strong>Engineer reviews and merges.</strong> The QA engineer reviews the AI's PRs. This review is fast because the PR description explains the classification reasoning and the specific change. A locator fix that would take 20 minutes to investigate and implement now takes 2 minutes to review.</li>
+            <li data-i18n-rich="blog.ai-maintenance.li.5"><strong>Low-confidence failures go to manual triage.</strong> When the AI is uncertain — which often indicates a real bug or a complex multi-factor failure — it flags the failure for human investigation with its analysis notes as a starting point.</li>
           </ol>
 
-          <h2>Measuring the Impact: MTTR Before and After</h2>
+          <h2 data-i18n="blog.ai-maintenance.h2.5">Measuring the Impact: MTTR Before and After</h2>
 
-          <p>The metric that best captures the value of AI-assisted maintenance is <strong>Mean Time to Resolution (MTTR) for test failures</strong>. In teams I have coached through this transition, the numbers are consistent:</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.16">The metric that best captures the value of AI-assisted maintenance is <strong>Mean Time to Resolution (MTTR) for test failures</strong>. In teams I have coached through this transition, the numbers are consistent:</p>
 
           <ul>
-            <li><strong>Before AI assistance:</strong> Average MTTR for a broken E2E test was 45-90 minutes. This includes investigation, root cause analysis, implementing the fix, and verifying the fix passes.</li>
-            <li><strong>After AI assistance:</strong> Average MTTR dropped to 8-15 minutes. The investigation and root cause analysis are handled by the AI. The engineer's time is spent on review and verification.</li>
+            <li data-i18n-rich="blog.ai-maintenance.li.6"><strong>Before AI assistance:</strong> Average MTTR for a broken E2E test was 45-90 minutes. This includes investigation, root cause analysis, implementing the fix, and verifying the fix passes.</li>
+            <li data-i18n-rich="blog.ai-maintenance.li.7"><strong>After AI assistance:</strong> Average MTTR dropped to 8-15 minutes. The investigation and root cause analysis are handled by the AI. The engineer's time is spent on review and verification.</li>
           </ul>
 
-          <p>Over a quarter, for a team maintaining 300+ E2E tests with an average of 10-15 breakages per sprint, this translates to roughly <strong>20-30 hours of engineering time saved per sprint</strong>. That is time redirected to writing new coverage, improving test architecture, or — crucially — working on preventing breakages in the first place through better selector strategies and test design.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.17">Over a quarter, for a team maintaining 300+ E2E tests with an average of 10-15 breakages per sprint, this translates to roughly <strong>20-30 hours of engineering time saved per sprint</strong>. That is time redirected to writing new coverage, improving test architecture, or — crucially — working on preventing breakages in the first place through better selector strategies and test design.</p>
 
-          <h2>When NOT to Use AI Maintenance</h2>
+          <h2 data-i18n="blog.ai-maintenance.h2.6">When NOT to Use AI Maintenance</h2>
 
-          <p>AI-powered maintenance is not a universal solution. There are categories where automated fixes are inappropriate or dangerous:</p>
+          <p data-i18n="blog.ai-maintenance.p.18">AI-powered maintenance is not a universal solution. There are categories where automated fixes are inappropriate or dangerous:</p>
 
-          <p><strong>Business logic changes.</strong> If a test fails because the application's behavior genuinely changed — a pricing formula was updated, a workflow step was added, a validation rule was modified — the AI should not fix the test to match the new behavior. That "fix" would silently hide whether the behavior change was intentional. Business logic failures must be triaged by a human who understands the product context.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.19"><strong>Business logic changes.</strong> If a test fails because the application's behavior genuinely changed — a pricing formula was updated, a workflow step was added, a validation rule was modified — the AI should not fix the test to match the new behavior. That "fix" would silently hide whether the behavior change was intentional. Business logic failures must be triaged by a human who understands the product context.</p>
 
-          <p><strong>Security-sensitive tests.</strong> Tests that verify authentication flows, authorization rules, or data access controls should never have their assertions modified by AI. A broken security test is a signal that requires manual investigation, not automated remediation.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.20"><strong>Security-sensitive tests.</strong> Tests that verify authentication flows, authorization rules, or data access controls should never have their assertions modified by AI. A broken security test is a signal that requires manual investigation, not automated remediation.</p>
 
-          <p><strong>Compliance-critical paths.</strong> In regulated environments — healthcare, finance, government — test modifications may require documentation trails and explicit approval. AI-generated fixes should be flagged for enhanced review in these contexts.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.21"><strong>Compliance-critical paths.</strong> In regulated environments — healthcare, finance, government — test modifications may require documentation trails and explicit approval. AI-generated fixes should be flagged for enhanced review in these contexts.</p>
 
-          <p>The general principle: AI should fix <em>how</em> a test finds an element, not <em>what</em> the test asserts about behavior. Locators are mechanical; assertions are intentional.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.22">The general principle: AI should fix <em>how</em> a test finds an element, not <em>what</em> the test asserts about behavior. Locators are mechanical; assertions are intentional.</p>
 
           <hr>
 
-          <p>Automation debt is real, measurable, and — with AI assistance — manageable. The teams that will maintain velocity over the next few years are not the ones with the most tests, but the ones whose test suites cost the least to maintain per cycle. AI does not eliminate the need for QA engineers in maintenance; it eliminates the tedious, repetitive investigation work that drains engineering energy. The engineer's role shifts from "person who debugs broken selectors" to "person who designs resilient test architectures" — a far better use of human expertise.</p>
+          <p data-i18n="blog.ai-maintenance.p.23">Automation debt is real, measurable, and — with AI assistance — manageable. The teams that will maintain velocity over the next few years are not the ones with the most tests, but the ones whose test suites cost the least to maintain per cycle. AI does not eliminate the need for QA engineers in maintenance; it eliminates the tedious, repetitive investigation work that drains engineering energy. The engineer's role shifts from "person who debugs broken selectors" to "person who designs resilient test architectures" — a far better use of human expertise.</p>
         </div>
+
+        <!-- Share Bar -->
+        <div class="blog-share-bar">
+          <p class="blog-share-bar-title" data-i18n="blog.share.title">Share this article</p>
+          <div class="blog-share-buttons">
+            <a class="blog-share-btn blog-share-btn--whatsapp" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp" data-share="whatsapp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--linkedin" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn" data-share="linkedin">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--facebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook" data-share="facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--twitter" href="#" target="_blank" rel="noopener" aria-label="Share on X" data-share="twitter">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X</span>
+            </a>
+            <button class="blog-share-btn blog-share-btn--copy" type="button" aria-label="Copy link" data-share="copy">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span class="blog-share-btn-label" data-i18n="blog.share.copyLabel">Copy Link</span>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Article Rating -->
+        <section class="blog-rating" data-article="ai-test-maintenance">
+          <p class="blog-rating-title" data-i18n="blog.rate.title">Was this article helpful?</p>
+          <div class="blog-rating-stars" role="radiogroup" aria-label="Rate this article">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          </div>
+          <p class="blog-rating-thanks" data-i18n="blog.rate.thanks">Thanks for your feedback!</p>
+        </section>
+
+        <!-- Related Articles -->
+        <section class="blog-related">
+          <h2 class="blog-related-title" data-i18n="blog.related.title">You might also like</h2>
+          <div class="blog-related-grid">
+            <a href="vibe-testing-ai-qa.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.ai">AI in Testing</span>
+              <h3 class="blog-related-card-title">Vibe Testing: The New AI Testing Paradigm</h3>
+              <span class="blog-related-card-meta">8 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+            <a href="manual-to-ai-qa-transformation.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.ai">AI in Testing</span>
+              <h3 class="blog-related-card-title">From Manual to AI-Assisted: A QA Transformation Roadmap</h3>
+              <span class="blog-related-card-meta">10 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+            <a href="state-test-automation-2026.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.research">Research</span>
+              <h3 class="blog-related-card-title">The State of Test Automation in 2026</h3>
+              <span class="blog-related-card-meta">10 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+          </div>
+        </section>
+
+        <!-- References -->
+        <section class="blog-references">
+          <details>
+            <summary data-i18n="blog.refs.title">References</summary>
+            <div class="blog-refs-body">
+              <p class="blog-refs-intro" data-i18n="blog.refs.intro">All information we provide is backed by authoritative and up-to-date bibliographic sources, ensuring reliable content in line with our editorial principles.</p>
+              <ul class="blog-refs-list">
+                <li>Testim.io. (2024). Self-Healing Test Automation: How AI Keeps Tests Stable. <a href="https://www.testim.io/" target="_blank" rel="noopener">https://www.testim.io/</a></li>
+                <li>Wang, S., &amp; Li, M. (2024). AI in Test Maintenance: A Systematic Review. <em>IEEE International Conference on Software Testing, Verification and Validation (ICST)</em>, 112-121.</li>
+                <li>ISTQB. (2024). <em>ISTQB Certified Tester AI Testing (CT-AI) Syllabus</em>. <a href="https://www.istqb.org/" target="_blank" rel="noopener">https://www.istqb.org/</a></li>
+              </ul>
+              <h3 class="blog-refs-how-cite" data-i18n="blog.refs.howCite">How to cite this article</h3>
+              <p class="blog-refs-cite-explain" data-i18n="blog.refs.citeExplain">Citing original sources serves to give credit to corresponding authors and avoid plagiarism. It also allows readers to access the original sources to verify or expand information.</p>
+              <div class="blog-refs-citation-tabs">
+                <button class="blog-refs-tab active" data-tab="apa">APA</button>
+                <button class="blog-refs-tab" data-tab="ieee">IEEE</button>
+              </div>
+              <div class="blog-refs-apa" id="refsCitationApa"></div>
+              <div class="blog-refs-apa" id="refsCitationIeee" style="display:none"></div>
+              <button class="blog-cite-copy-btn" id="copyCitationBtn" data-i18n="blog.refs.copyCite" data-i18n-default="Copy citation" data-i18n-copied="Copied!">Copy citation</button>
+            </div>
+          </details>
+        </section>
 
         <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
         <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
@@ -328,30 +415,33 @@
 
       </article>
 
-      <!-- Comment Section (placeholder) -->
+      <!-- Comment Section -->
       <section class="blog-comments" aria-labelledby="comments-heading">
         <div class="blog-comments-header">
-          <h2 id="comments-heading">Comments</h2>
-          <span class="blog-comments-count">0 comments</span>
+          <h2 id="comments-heading" data-i18n="blog.comments.title">Comments</h2>
+          <span class="blog-comments-count" data-i18n="blog.comments.count">0 comments</span>
         </div>
 
-        <form class="blog-comment-form" id="commentForm" novalidate>
+        <form class="blog-comment-form" id="commentForm" action="https://formspree.io/f/mqeyjyyg" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New blog comment">
+          <input type="hidden" name="_page" id="formPageUrl">
           <div class="blog-comment-form-row">
-            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
-            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+            <input type="text" class="blog-comment-input" id="commentName" name="name" data-i18n-placeholder="blog.comments.namePlaceholder" placeholder="Name *" aria-label="Your name" required minlength="2" maxlength="100">
+            <input type="email" class="blog-comment-input" id="commentEmail" name="email" data-i18n-placeholder="blog.comments.emailPlaceholder" placeholder="Email * (not published)" aria-label="Your email" required>
           </div>
-          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <textarea class="blog-comment-textarea" id="commentMessage" name="message" data-i18n-placeholder="blog.comments.textPlaceholder" placeholder="Share your thoughts... *" aria-label="Your comment" rows="4" required minlength="10" maxlength="1000"></textarea>
+          <div class="blog-comment-char-count"><span id="charCount">0</span> / 1000</div>
           <div class="blog-comment-form-footer">
-            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
-            <button type="submit" class="blog-comment-submit">Post Comment</button>
+            <span class="blog-comment-guidelines" data-i18n="blog.comments.guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit" data-i18n="blog.comments.submit">Post Comment</button>
           </div>
         </form>
 
         <div class="blog-comment-notice" id="commentNotice" hidden>
           <i class="fa fa-check-circle" aria-hidden="true"></i>
           <div>
-            <strong>Thank you for your comment.</strong>
-            <p>All comments are moderated and will appear after review.</p>
+            <strong data-i18n="blog.comments.thankYou">Thank you for your comment.</strong>
+            <p data-i18n="blog.comments.moderation">All comments are moderated and will appear after review.</p>
           </div>
         </div>
       </section>
@@ -445,16 +535,192 @@
     })();
     </script>
 
-    <!-- Comment form placeholder handler -->
+    <!-- Comment form handler -->
     <script>
     (function() {
       var form = document.getElementById('commentForm');
       var notice = document.getElementById('commentNotice');
+      var textarea = document.getElementById('commentMessage');
+      var charCount = document.getElementById('charCount');
+      
+      if (textarea && charCount) {
+        textarea.addEventListener('input', function() {
+          var len = this.value.length;
+          charCount.textContent = len;
+          charCount.parentElement.classList.toggle('near-limit', len > 900);
+          charCount.parentElement.classList.toggle('at-limit', len >= 1000);
+        });
+      }
+      
       if (form && notice) {
         form.addEventListener('submit', function(e) {
           e.preventDefault();
-          form.style.display = 'none';
-          notice.removeAttribute('hidden');
+          var name = document.getElementById('commentName');
+          var email = document.getElementById('commentEmail');
+          var msg = document.getElementById('commentMessage');
+          var valid = true;
+          
+          [name, email, msg].forEach(function(el) {
+            el.classList.remove('is-invalid');
+          });
+          
+          if (!name.value.trim() || name.value.trim().length < 2) {
+            name.classList.add('is-invalid'); valid = false;
+          }
+          if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+            email.classList.add('is-invalid'); valid = false;
+          }
+          if (!msg.value.trim() || msg.value.trim().length < 10) {
+            msg.classList.add('is-invalid'); valid = false;
+          }
+          
+          if (!valid) return;
+          
+          var submitBtn = form.querySelector('.blog-comment-submit');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+          
+          var pageUrl = document.getElementById('formPageUrl');
+          if (pageUrl) pageUrl.value = window.location.href;
+          
+          fetch('https://formspree.io/f/mqeyjyyg', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          }).then(function(res) {
+            if (res.ok) {
+              form.style.display = 'none';
+              notice.hidden = false;
+            } else {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Post Comment';
+              alert('Error sending comment. Please try again.');
+            }
+          }).catch(function() {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Post Comment';
+            alert('Error sending comment. Please try again.');
+          });
+        });
+      }
+    })();
+    </script>
+    <!-- Share buttons handler -->
+    <script>
+    (function() {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title);
+      var shareLinks = {
+        whatsapp: 'https://wa.me/?text=' + title + '%20' + url,
+        linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + url,
+        facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
+        twitter: 'https://x.com/intent/tweet?text=' + title + '&url=' + url
+      };
+      document.querySelectorAll('[data-share]').forEach(function(btn) {
+        var type = btn.getAttribute('data-share');
+        if (type === 'copy') {
+          btn.addEventListener('click', function() {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+              var label = btn.querySelector('.blog-share-btn-label');
+              var orig = label.textContent;
+              label.textContent = (document.documentElement.lang === 'es' || window.location.search.indexOf('lang=es') > -1) ? '\u00a1Copiado!' : 'Copied!';
+              btn.classList.add('is-copied');
+              setTimeout(function() { label.textContent = orig; btn.classList.remove('is-copied'); }, 2000);
+            });
+          });
+        } else if (shareLinks[type]) {
+          btn.setAttribute('href', shareLinks[type]);
+        }
+      });
+    })();
+    </script>
+  
+    <!-- Article Rating Script -->
+    <script>
+    (function() {
+      var section = document.querySelector('.blog-rating[data-article="ai-test-maintenance"]');
+      if (!section) return;
+      var stars = section.querySelectorAll('.blog-rating-stars svg');
+      var container = section.querySelector('.blog-rating-stars');
+      var thanks = section.querySelector('.blog-rating-thanks');
+      var key = 'rating-ai-test-maintenance';
+      var saved = localStorage.getItem(key);
+
+      function fillStars(n) {
+        stars.forEach(function(s, i) {
+          if (i < n) { s.classList.add('hovered'); } else { s.classList.remove('hovered'); }
+        });
+      }
+      function selectStars(n) {
+        stars.forEach(function(s, i) {
+          if (i < n) { s.classList.add('selected'); } else { s.classList.remove('selected'); }
+        });
+        container.classList.add('is-rated');
+        thanks.classList.add('is-visible');
+      }
+
+      if (saved) { selectStars(parseInt(saved, 10)); }
+
+      stars.forEach(function(star, idx) {
+        star.addEventListener('mouseenter', function() {
+          if (!container.classList.contains('is-rated')) fillStars(idx + 1);
+        });
+        star.addEventListener('mouseleave', function() {
+          if (!container.classList.contains('is-rated')) fillStars(0);
+        });
+        star.addEventListener('click', function() {
+          localStorage.setItem(key, String(idx + 1));
+          selectStars(idx + 1);
+        });
+      });
+    })();
+    </script>
+    <!-- Dynamic citations -->
+    <script>
+    (function() {
+      var title = document.title.split('|')[0].trim();
+      var url = window.location.href;
+      var now = new Date();
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var monthsShort = ['Jan.','Feb.','Mar.','Apr.','May','Jun.','Jul.','Aug.','Sep.','Oct.','Nov.','Dec.'];
+      var day = now.getDate();
+      var month = months[now.getMonth()];
+      var monthShort = monthsShort[now.getMonth()];
+      var year = now.getFullYear();
+
+      var apa = 'Navarrete, E. (' + year + '). ' + title + '. QA Engineering Blog. Retrieved ' + month + ' ' + day + ', ' + year + ', from ' + url;
+      var ieee = 'E. Navarrete, "' + title + '," QA Engineering Blog, ' + year + '. [Online]. Available: ' + url + '. [Accessed: ' + monthShort + ' ' + day + ', ' + year + '].';
+
+      var apaEl = document.getElementById('refsCitationApa');
+      var ieeeEl = document.getElementById('refsCitationIeee');
+      if (apaEl) apaEl.textContent = apa;
+      if (ieeeEl) ieeeEl.textContent = ieee;
+
+      var tabs = document.querySelectorAll('.blog-refs-tab');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          var isApa = tab.getAttribute('data-tab') === 'apa';
+          if (apaEl) apaEl.style.display = isApa ? '' : 'none';
+          if (ieeeEl) ieeeEl.style.display = isApa ? 'none' : '';
+        });
+      });
+
+      var copyBtn = document.getElementById('copyCitationBtn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+          var activeTab = document.querySelector('.blog-refs-tab.active');
+          var text = (activeTab && activeTab.getAttribute('data-tab') === 'ieee') ? ieee : apa;
+          navigator.clipboard.writeText(text).then(function() {
+            var orig = copyBtn.getAttribute('data-i18n-default') || 'Copy citation';
+            copyBtn.textContent = copyBtn.getAttribute('data-i18n-copied') || 'Copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(function() {
+              copyBtn.textContent = orig;
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          });
         });
       }
     })();

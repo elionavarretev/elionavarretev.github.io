@@ -141,7 +141,7 @@
     </header>
 
     <!-- i18n (configurable base path for subdirectory) -->
-    <script>window.__i18nBase = '../assets/data/';</script>
+    <script>window.__i18nBase = '../assets/data/'; window.__i18nExtra = ['i18n-blog-batch2.json'];</script>
     <script defer src="../assets/js/i18n.js"></script>
 
     <!-- Mobile Menu Overlay -->
@@ -197,7 +197,7 @@
 
         <header class="blog-article-header">
           <span class="blog-article-tag" data-i18n="blog.filter.qa">QA Strategy</span>
-          <h1 class="blog-article-title">Building a QA Team from Scratch for Telehealth</h1>
+          <h1 class="blog-article-title" data-i18n="blog.telehealth-qa.title">Building a QA Team from Scratch for Telehealth</h1>
           <div class="blog-article-meta">
             <span>Elio Navarrete</span>
             <span class="blog-article-meta-sep" aria-hidden="true"></span>
@@ -206,81 +206,168 @@
         </header>
 
         <div class="blog-article-body">
-          <p>Telehealth is no longer an emergency response to a pandemic — it is a permanent pillar of modern healthcare delivery. Millions of patients now expect to book, attend, and follow up on medical visits from their phones. But behind that seamless experience sits an extraordinarily complex system where a single defect can delay a diagnosis, expose protected health information, or disrupt a prescription workflow across state lines.</p>
+          <p data-i18n="blog.telehealth-qa.p.1">Telehealth is no longer an emergency response to a pandemic — it is a permanent pillar of modern healthcare delivery. Millions of patients now expect to book, attend, and follow up on medical visits from their phones. But behind that seamless experience sits an extraordinarily complex system where a single defect can delay a diagnosis, expose protected health information, or disrupt a prescription workflow across state lines.</p>
 
-          <p>When I was tasked with building a QA team from zero for a telehealth platform processing millions of virtual visits annually, I quickly realized that traditional QA playbooks do not map cleanly to healthcare. The regulatory constraints, the real-time communication requirements, and the sheer clinical stakes demand a fundamentally different approach to quality engineering.</p>
+          <p data-i18n="blog.telehealth-qa.p.2">When I was tasked with building a QA team from zero for a telehealth platform processing millions of virtual visits annually, I quickly realized that traditional QA playbooks do not map cleanly to healthcare. The regulatory constraints, the real-time communication requirements, and the sheer clinical stakes demand a fundamentally different approach to quality engineering.</p>
 
-          <p>This article covers the lessons I learned — the decisions that worked, the mistakes that cost us time, and the framework that ultimately scaled from one SDET to a quality engineering organization.</p>
+          <p data-i18n="blog.telehealth-qa.p.3">This article covers the lessons I learned — the decisions that worked, the mistakes that cost us time, and the framework that ultimately scaled from one SDET to a quality engineering organization.</p>
 
-          <h2>The Unique Challenges of Telehealth QA</h2>
+          <h2 data-i18n="blog.telehealth-qa.h2.1">The Unique Challenges of Telehealth QA</h2>
 
-          <p>Healthcare software operates under constraints that most SaaS products never encounter. <strong>HIPAA compliance</strong> is not optional — every test environment, every log file, every screenshot captured during a test run is potentially subject to audit. This means your QA infrastructure itself must be compliant from day one, not retrofitted later.</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.4">Healthcare software operates under constraints that most SaaS products never encounter. <strong>HIPAA compliance</strong> is not optional — every test environment, every log file, every screenshot captured during a test run is potentially subject to audit. This means your QA infrastructure itself must be compliant from day one, not retrofitted later.</p>
 
-          <p><strong>Real-time video consultation</strong> introduces non-deterministic behavior that is inherently difficult to test. Network jitter, camera permissions, browser codec support, and audio echo cancellation all interact in ways that produce different outcomes on every run. You cannot write a deterministic assertion for "the video quality was acceptable during a 15-minute consultation."</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.5"><strong>Real-time video consultation</strong> introduces non-deterministic behavior that is inherently difficult to test. Network jitter, camera permissions, browser codec support, and audio echo cancellation all interact in ways that produce different outcomes on every run. You cannot write a deterministic assertion for "the video quality was acceptable during a 15-minute consultation."</p>
 
-          <p>Then there is <strong>multi-state licensing</strong>. A provider licensed in California cannot treat a patient located in Texas unless specific interstate compacts apply. This means the appointment booking flow alone must validate provider credentials, patient location, insurance coverage, and formulary restrictions — all before the visit starts. Each of these validations touches a different service, often backed by third-party APIs with their own reliability characteristics.</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.6">Then there is <strong>multi-state licensing</strong>. A provider licensed in California cannot treat a patient located in Texas unless specific interstate compacts apply. This means the appointment booking flow alone must validate provider credentials, patient location, insurance coverage, and formulary restrictions — all before the visit starts. Each of these validations touches a different service, often backed by third-party APIs with their own reliability characteristics.</p>
 
-          <h2>Hiring Strategy: What to Look For</h2>
+          <h2 data-i18n="blog.telehealth-qa.h2.2">Hiring Strategy: What to Look For</h2>
 
-          <p>When hiring the first QA engineers for a healthcare platform, domain knowledge matters more than you might expect. I learned this the hard way: our first hire was an excellent automation engineer from e-commerce, but the ramp-up time to understand HIPAA implications, HL7 FHIR data formats, and clinical workflows took nearly four months.</p>
+          <p data-i18n="blog.telehealth-qa.p.7">When hiring the first QA engineers for a healthcare platform, domain knowledge matters more than you might expect. I learned this the hard way: our first hire was an excellent automation engineer from e-commerce, but the ramp-up time to understand HIPAA implications, HL7 FHIR data formats, and clinical workflows took nearly four months.</p>
 
-          <p>The ideal profile combines <strong>strong automation skills</strong> with either healthcare industry experience or a demonstrated ability to learn regulated domains quickly. Look for candidates who ask about compliance during the interview, not just about the tech stack. Engineers who have worked in fintech or aviation — other heavily regulated industries — tend to adapt faster because they already understand the mindset of "every decision has audit implications."</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.8">The ideal profile combines <strong>strong automation skills</strong> with either healthcare industry experience or a demonstrated ability to learn regulated domains quickly. Look for candidates who ask about compliance during the interview, not just about the tech stack. Engineers who have worked in fintech or aviation — other heavily regulated industries — tend to adapt faster because they already understand the mindset of "every decision has audit implications."</p>
 
-          <p>For the first three hires, I prioritized generalists who could write automation, participate in architecture reviews, and draft test strategies. Specialists came later, once we had enough volume to justify dedicated performance testers and security-focused QA engineers.</p>
+          <p data-i18n="blog.telehealth-qa.p.9">For the first three hires, I prioritized generalists who could write automation, participate in architecture reviews, and draft test strategies. Specialists came later, once we had enough volume to justify dedicated performance testers and security-focused QA engineers.</p>
 
-          <h2>Building the Test Pyramid for Telehealth</h2>
+          <h2 data-i18n="blog.telehealth-qa.h2.3">Building the Test Pyramid for Telehealth</h2>
 
-          <p>The classic test pyramid — unit tests at the base, integration tests in the middle, E2E tests at the top — applies to telehealth, but the proportions shift. In a typical SaaS product, you might target 70% unit, 20% integration, 10% E2E. In telehealth, the integration layer is disproportionately important because so much of the system's correctness depends on how services interact.</p>
+          <p data-i18n="blog.telehealth-qa.p.10">The classic test pyramid — unit tests at the base, integration tests in the middle, E2E tests at the top — applies to telehealth, but the proportions shift. In a typical SaaS product, you might target 70% unit, 20% integration, 10% E2E. In telehealth, the integration layer is disproportionately important because so much of the system's correctness depends on how services interact.</p>
 
-          <p><strong>Unit tests</strong> remain essential for business logic: insurance eligibility calculations, scheduling conflict detection, prescription dosage validation. These are fast, deterministic, and should be owned by the development teams with QA providing coverage guidance.</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.11"><strong>Unit tests</strong> remain essential for business logic: insurance eligibility calculations, scheduling conflict detection, prescription dosage validation. These are fast, deterministic, and should be owned by the development teams with QA providing coverage guidance.</p>
 
-          <p><strong>Integration tests</strong> are where telehealth QA earns its keep. The appointment booking service must correctly communicate with the provider credentialing service, the insurance verification API, the pharmacy network, and the EHR system. Each of these integrations has its own failure modes, timeout behaviors, and data format quirks. We built contract tests for every external dependency using Pact, which caught breaking changes from third-party providers weeks before they would have hit production.</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.12"><strong>Integration tests</strong> are where telehealth QA earns its keep. The appointment booking service must correctly communicate with the provider credentialing service, the insurance verification API, the pharmacy network, and the EHR system. Each of these integrations has its own failure modes, timeout behaviors, and data format quirks. We built contract tests for every external dependency using Pact, which caught breaking changes from third-party providers weeks before they would have hit production.</p>
 
-          <p><strong>E2E tests</strong> cover the critical patient journeys end-to-end: booking an appointment, completing a video visit, receiving a prescription, and processing a co-pay. We kept this layer deliberately thin — around 40 scenarios — because E2E tests in telehealth are slow (video calls take real time) and flaky (network conditions vary). Every E2E test had to justify its existence by covering a flow that could not be adequately validated at a lower level.</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.13"><strong>E2E tests</strong> cover the critical patient journeys end-to-end: booking an appointment, completing a video visit, receiving a prescription, and processing a co-pay. We kept this layer deliberately thin — around 40 scenarios — because E2E tests in telehealth are slow (video calls take real time) and flaky (network conditions vary). Every E2E test had to justify its existence by covering a flow that could not be adequately validated at a lower level.</p>
 
-          <p><strong>Exploratory testing</strong> rounds out the strategy. We scheduled structured exploratory sessions around every major release, focusing on edge cases that automated tests cannot easily cover: accessibility with screen readers during a video call, behavior when a patient switches from Wi-Fi to cellular mid-consultation, or how the UI recovers when the provider's camera fails.</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.14"><strong>Exploratory testing</strong> rounds out the strategy. We scheduled structured exploratory sessions around every major release, focusing on edge cases that automated tests cannot easily cover: accessibility with screen readers during a video call, behavior when a patient switches from Wi-Fi to cellular mid-consultation, or how the UI recovers when the provider's camera fails.</p>
 
-          <h2>Critical Flows and Their Testing Strategies</h2>
+          <h2 data-i18n="blog.telehealth-qa.h2.4">Critical Flows and Their Testing Strategies</h2>
 
-          <p>Not all flows are equal. We identified four <strong>critical paths</strong> that, if broken, would directly impact patient care or regulatory compliance:</p>
-
-          <ul>
-            <li><strong>Appointment booking</strong>: Must validate provider availability, patient eligibility, insurance coverage, and state licensing — all within a response time that does not frustrate the patient. We tested this flow against every combination of insurance type and state pairing in our coverage matrix.</li>
-            <li><strong>Video consultation</strong>: The core product experience. We built a custom harness using WebRTC test utilities to simulate varying network conditions (3G, packet loss, high latency) and validated that the fallback to audio-only triggered correctly.</li>
-            <li><strong>Prescription workflow</strong>: After a consultation, the provider sends a prescription to the patient's pharmacy. This flow touches EPCS (Electronic Prescribing for Controlled Substances) regulations and must produce an audit trail. We used API-level tests with synthetic patient data to validate the complete chain.</li>
-            <li><strong>Billing and co-pay</strong>: Financial transactions in healthcare involve insurance adjudication, patient responsibility calculation, and payment processing. Errors here affect both the patient and the provider's revenue. We implemented reconciliation tests that compared expected charges against actual ledger entries nightly.</li>
-          </ul>
-
-          <h2>Test Environments in Healthcare: PHI and Data Masking</h2>
-
-          <p>You cannot copy production data into a test environment. Period. Protected Health Information (PHI) under HIPAA includes names, dates of birth, medical record numbers, and dozens of other identifiers. Using real patient data for testing — even in a "secure" staging environment — is a compliance violation that carries serious penalties.</p>
-
-          <p>We invested early in a <strong>synthetic patient data generator</strong> that produced clinically realistic but entirely fictional patient records. This generator created patients with varied insurance plans, medical histories, medication lists, and demographic profiles. The data was realistic enough to exercise edge cases (a patient with multiple active prescriptions from different providers, or a patient whose insurance changed mid-treatment) without any PHI exposure.</p>
-
-          <p>For integration testing with third-party services, we maintained <strong>sandboxed environments with data masking</strong>. Responses from external APIs were intercepted and anonymized before reaching our test systems. This added complexity to our test infrastructure, but it was non-negotiable.</p>
-
-          <h2>Monitoring and Observability for Quality</h2>
-
-          <p>Testing before deployment is necessary but insufficient. In telehealth, we needed to know about quality issues <em>during</em> patient visits, not after. We implemented quality-focused observability on three levels:</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.15">Not all flows are equal. We identified four <strong>critical paths</strong> that, if broken, would directly impact patient care or regulatory compliance:</p>
 
           <ul>
-            <li><strong>Video quality metrics</strong>: Frame rate, resolution switches, audio packet loss, and reconnection events — all tracked per session and aggregated into a quality score dashboard.</li>
-            <li><strong>Clinical workflow completion rates</strong>: What percentage of appointments that started actually completed with a clinical note and (if applicable) a prescription? Drop-offs at any stage indicated either a UX problem or a system failure.</li>
-            <li><strong>Error budget tracking</strong>: We adopted SRE-style error budgets for our critical flows. When the appointment booking success rate dropped below 99.5%, automated alerts triggered and the QA team investigated before engineering triaged.</li>
+            <li data-i18n-rich="blog.telehealth-qa.li.1"><strong>Appointment booking</strong>: Must validate provider availability, patient eligibility, insurance coverage, and state licensing — all within a response time that does not frustrate the patient. We tested this flow against every combination of insurance type and state pairing in our coverage matrix.</li>
+            <li data-i18n-rich="blog.telehealth-qa.li.2"><strong>Video consultation</strong>: The core product experience. We built a custom harness using WebRTC test utilities to simulate varying network conditions (3G, packet loss, high latency) and validated that the fallback to audio-only triggered correctly.</li>
+            <li data-i18n-rich="blog.telehealth-qa.li.3"><strong>Prescription workflow</strong>: After a consultation, the provider sends a prescription to the patient's pharmacy. This flow touches EPCS (Electronic Prescribing for Controlled Substances) regulations and must produce an audit trail. We used API-level tests with synthetic patient data to validate the complete chain.</li>
+            <li data-i18n-rich="blog.telehealth-qa.li.4"><strong>Billing and co-pay</strong>: Financial transactions in healthcare involve insurance adjudication, patient responsibility calculation, and payment processing. Errors here affect both the patient and the provider's revenue. We implemented reconciliation tests that compared expected charges against actual ledger entries nightly.</li>
           </ul>
 
-          <h2>Scaling: From 1 SDET to a Quality Engineering Org</h2>
+          <h2 data-i18n="blog.telehealth-qa.h2.5">Test Environments in Healthcare: PHI and Data Masking</h2>
 
-          <p>The team grew in phases aligned with product maturity. Phase one (months 1-6) was a single SDET — me — establishing the automation framework, CI pipeline, and core test suites. Phase two (months 7-12) added two more engineers: one focused on API and integration testing, the other on performance and load testing for video infrastructure. Phase three (year two) expanded to a team of seven, organized by product domain rather than testing type.</p>
+          <p data-i18n="blog.telehealth-qa.p.16">You cannot copy production data into a test environment. Period. Protected Health Information (PHI) under HIPAA includes names, dates of birth, medical record numbers, and dozens of other identifiers. Using real patient data for testing — even in a "secure" staging environment — is a compliance violation that carries serious penalties.</p>
 
-          <p>The organizational shift that mattered most was moving from a <strong>centralized QA team</strong> to an <strong>embedded model</strong>. Each product squad got a dedicated quality engineer who participated in sprint planning, reviewed PRs for testability, and owned the quality metrics for their domain. A small platform team (two engineers) maintained the shared test infrastructure, synthetic data generation, and CI/CD pipeline.</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.17">We invested early in a <strong>synthetic patient data generator</strong> that produced clinically realistic but entirely fictional patient records. This generator created patients with varied insurance plans, medical histories, medication lists, and demographic profiles. The data was realistic enough to exercise edge cases (a patient with multiple active prescriptions from different providers, or a patient whose insurance changed mid-treatment) without any PHI exposure.</p>
 
-          <p>This model works because it aligns quality ownership with delivery responsibility. The squad's quality engineer is not a gatekeeper — they are an enabler who helps developers write better tests, identifies risks early, and ensures that the team's definition of done includes measurable quality criteria.</p>
+          <p data-i18n-rich="blog.telehealth-qa.p.18">For integration testing with third-party services, we maintained <strong>sandboxed environments with data masking</strong>. Responses from external APIs were intercepted and anonymized before reaching our test systems. This added complexity to our test infrastructure, but it was non-negotiable.</p>
+
+          <h2 data-i18n="blog.telehealth-qa.h2.6">Monitoring and Observability for Quality</h2>
+
+          <p data-i18n-rich="blog.telehealth-qa.p.19">Testing before deployment is necessary but insufficient. In telehealth, we needed to know about quality issues <em>during</em> patient visits, not after. We implemented quality-focused observability on three levels:</p>
+
+          <ul>
+            <li data-i18n-rich="blog.telehealth-qa.li.5"><strong>Video quality metrics</strong>: Frame rate, resolution switches, audio packet loss, and reconnection events — all tracked per session and aggregated into a quality score dashboard.</li>
+            <li data-i18n-rich="blog.telehealth-qa.li.6"><strong>Clinical workflow completion rates</strong>: What percentage of appointments that started actually completed with a clinical note and (if applicable) a prescription? Drop-offs at any stage indicated either a UX problem or a system failure.</li>
+            <li data-i18n-rich="blog.telehealth-qa.li.7"><strong>Error budget tracking</strong>: We adopted SRE-style error budgets for our critical flows. When the appointment booking success rate dropped below 99.5%, automated alerts triggered and the QA team investigated before engineering triaged.</li>
+          </ul>
+
+          <h2 data-i18n="blog.telehealth-qa.h2.7">Scaling: From 1 SDET to a Quality Engineering Org</h2>
+
+          <p data-i18n="blog.telehealth-qa.p.20">The team grew in phases aligned with product maturity. Phase one (months 1-6) was a single SDET — me — establishing the automation framework, CI pipeline, and core test suites. Phase two (months 7-12) added two more engineers: one focused on API and integration testing, the other on performance and load testing for video infrastructure. Phase three (year two) expanded to a team of seven, organized by product domain rather than testing type.</p>
+
+          <p data-i18n-rich="blog.telehealth-qa.p.21">The organizational shift that mattered most was moving from a <strong>centralized QA team</strong> to an <strong>embedded model</strong>. Each product squad got a dedicated quality engineer who participated in sprint planning, reviewed PRs for testability, and owned the quality metrics for their domain. A small platform team (two engineers) maintained the shared test infrastructure, synthetic data generation, and CI/CD pipeline.</p>
+
+          <p data-i18n="blog.telehealth-qa.p.22">This model works because it aligns quality ownership with delivery responsibility. The squad's quality engineer is not a gatekeeper — they are an enabler who helps developers write better tests, identifies risks early, and ensures that the team's definition of done includes measurable quality criteria.</p>
 
           <hr>
 
-          <p>Building a QA team for telehealth taught me that quality in healthcare is not about finding more bugs — it is about building systems that prevent patient harm. Every test strategy decision, every hiring choice, and every infrastructure investment must be evaluated through that lens. The technical challenges are real, but the regulatory and clinical context is what makes healthcare QA fundamentally different. Teams that understand this distinction from day one will build quality organizations that scale with the platform, rather than becoming bottlenecks as the product grows.</p>
+          <p data-i18n="blog.telehealth-qa.p.23">Building a QA team for telehealth taught me that quality in healthcare is not about finding more bugs — it is about building systems that prevent patient harm. Every test strategy decision, every hiring choice, and every infrastructure investment must be evaluated through that lens. The technical challenges are real, but the regulatory and clinical context is what makes healthcare QA fundamentally different. Teams that understand this distinction from day one will build quality organizations that scale with the platform, rather than becoming bottlenecks as the product grows.</p>
         </div>
+
+        <!-- Share Bar -->
+        <div class="blog-share-bar">
+          <p class="blog-share-bar-title" data-i18n="blog.share.title">Share this article</p>
+          <div class="blog-share-buttons">
+            <a class="blog-share-btn blog-share-btn--whatsapp" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp" data-share="whatsapp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--linkedin" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn" data-share="linkedin">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--facebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook" data-share="facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--twitter" href="#" target="_blank" rel="noopener" aria-label="Share on X" data-share="twitter">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X</span>
+            </a>
+            <button class="blog-share-btn blog-share-btn--copy" type="button" aria-label="Copy link" data-share="copy">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span class="blog-share-btn-label" data-i18n="blog.share.copyLabel">Copy Link</span>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Article Rating -->
+        <section class="blog-rating" data-article="telehealth-qa-team">
+          <p class="blog-rating-title" data-i18n="blog.rate.title">Was this article helpful?</p>
+          <div class="blog-rating-stars" role="radiogroup" aria-label="Rate this article">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          </div>
+          <p class="blog-rating-thanks" data-i18n="blog.rate.thanks">Thanks for your feedback!</p>
+        </section>
+
+        <!-- Related Articles -->
+        <section class="blog-related">
+          <h2 class="blog-related-title" data-i18n="blog.related.title">You might also like</h2>
+          <div class="blog-related-grid">
+            <a href="shift-left-testing.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.qa">QA Strategy</span>
+              <h3 class="blog-related-card-title">Shift-Left Testing: Moving Quality Earlier in the Pipeline</h3>
+              <span class="blog-related-card-meta">9 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+            <a href="risk-based-testing.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.qa">QA Strategy</span>
+              <h3 class="blog-related-card-title">Risk-Based Testing: Prioritizing What Matters Most</h3>
+              <span class="blog-related-card-meta">9 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+            <a href="quality-gates-when-to-ship.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.qa">QA Strategy</span>
+              <h3 class="blog-related-card-title">Quality Gates: When to Ship and When to Stop</h3>
+              <span class="blog-related-card-meta">9 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+          </div>
+        </section>
+
+        <!-- References -->
+        <section class="blog-references">
+          <details>
+            <summary data-i18n="blog.refs.title">References</summary>
+            <div class="blog-refs-body">
+              <p class="blog-refs-intro" data-i18n="blog.refs.intro">All information we provide is backed by authoritative and up-to-date bibliographic sources, ensuring reliable content in line with our editorial principles.</p>
+              <ul class="blog-refs-list">
+                <li>U.S. Department of Health &amp; Human Services. (2024). <em>HIPAA Compliance Checklist</em>. <a href="https://www.hhs.gov/" target="_blank" rel="noopener">https://www.hhs.gov/</a></li>
+                <li>Eysenbach, G. (2023). Quality Assurance in Healthcare Software: A Systematic Review. <em>Journal of Medical Internet Research</em>, 25(4), e41523.</li>
+                <li>InfoQ. (2024). Building Quality Engineering Teams That Scale. <a href="https://www.infoq.com/" target="_blank" rel="noopener">https://www.infoq.com/</a></li>
+              </ul>
+              <h3 class="blog-refs-how-cite" data-i18n="blog.refs.howCite">How to cite this article</h3>
+              <p class="blog-refs-cite-explain" data-i18n="blog.refs.citeExplain">Citing original sources serves to give credit to corresponding authors and avoid plagiarism. It also allows readers to access the original sources to verify or expand information.</p>
+              <div class="blog-refs-citation-tabs">
+                <button class="blog-refs-tab active" data-tab="apa">APA</button>
+                <button class="blog-refs-tab" data-tab="ieee">IEEE</button>
+              </div>
+              <div class="blog-refs-apa" id="refsCitationApa"></div>
+              <div class="blog-refs-apa" id="refsCitationIeee" style="display:none"></div>
+              <button class="blog-cite-copy-btn" id="copyCitationBtn" data-i18n="blog.refs.copyCite" data-i18n-default="Copy citation" data-i18n-copied="Copied!">Copy citation</button>
+            </div>
+          </details>
+        </section>
 
         <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
         <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
@@ -330,30 +417,33 @@
 
       </article>
 
-      <!-- Comment Section (placeholder) -->
+      <!-- Comment Section -->
       <section class="blog-comments" aria-labelledby="comments-heading">
         <div class="blog-comments-header">
-          <h2 id="comments-heading">Comments</h2>
-          <span class="blog-comments-count">0 comments</span>
+          <h2 id="comments-heading" data-i18n="blog.comments.title">Comments</h2>
+          <span class="blog-comments-count" data-i18n="blog.comments.count">0 comments</span>
         </div>
 
-        <form class="blog-comment-form" id="commentForm" novalidate>
+        <form class="blog-comment-form" id="commentForm" action="https://formspree.io/f/mqeyjyyg" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New blog comment">
+          <input type="hidden" name="_page" id="formPageUrl">
           <div class="blog-comment-form-row">
-            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
-            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+            <input type="text" class="blog-comment-input" id="commentName" name="name" data-i18n-placeholder="blog.comments.namePlaceholder" placeholder="Name *" aria-label="Your name" required minlength="2" maxlength="100">
+            <input type="email" class="blog-comment-input" id="commentEmail" name="email" data-i18n-placeholder="blog.comments.emailPlaceholder" placeholder="Email * (not published)" aria-label="Your email" required>
           </div>
-          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <textarea class="blog-comment-textarea" id="commentMessage" name="message" data-i18n-placeholder="blog.comments.textPlaceholder" placeholder="Share your thoughts... *" aria-label="Your comment" rows="4" required minlength="10" maxlength="1000"></textarea>
+          <div class="blog-comment-char-count"><span id="charCount">0</span> / 1000</div>
           <div class="blog-comment-form-footer">
-            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
-            <button type="submit" class="blog-comment-submit">Post Comment</button>
+            <span class="blog-comment-guidelines" data-i18n="blog.comments.guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit" data-i18n="blog.comments.submit">Post Comment</button>
           </div>
         </form>
 
         <div class="blog-comment-notice" id="commentNotice" hidden>
           <i class="fa fa-check-circle" aria-hidden="true"></i>
           <div>
-            <strong>Thank you for your comment.</strong>
-            <p>All comments are moderated and will appear after review.</p>
+            <strong data-i18n="blog.comments.thankYou">Thank you for your comment.</strong>
+            <p data-i18n="blog.comments.moderation">All comments are moderated and will appear after review.</p>
           </div>
         </div>
       </section>
@@ -447,16 +537,192 @@
     })();
     </script>
 
-    <!-- Comment form placeholder handler -->
+    <!-- Comment form handler -->
     <script>
     (function() {
       var form = document.getElementById('commentForm');
       var notice = document.getElementById('commentNotice');
+      var textarea = document.getElementById('commentMessage');
+      var charCount = document.getElementById('charCount');
+      
+      if (textarea && charCount) {
+        textarea.addEventListener('input', function() {
+          var len = this.value.length;
+          charCount.textContent = len;
+          charCount.parentElement.classList.toggle('near-limit', len > 900);
+          charCount.parentElement.classList.toggle('at-limit', len >= 1000);
+        });
+      }
+      
       if (form && notice) {
         form.addEventListener('submit', function(e) {
           e.preventDefault();
-          form.style.display = 'none';
-          notice.removeAttribute('hidden');
+          var name = document.getElementById('commentName');
+          var email = document.getElementById('commentEmail');
+          var msg = document.getElementById('commentMessage');
+          var valid = true;
+          
+          [name, email, msg].forEach(function(el) {
+            el.classList.remove('is-invalid');
+          });
+          
+          if (!name.value.trim() || name.value.trim().length < 2) {
+            name.classList.add('is-invalid'); valid = false;
+          }
+          if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+            email.classList.add('is-invalid'); valid = false;
+          }
+          if (!msg.value.trim() || msg.value.trim().length < 10) {
+            msg.classList.add('is-invalid'); valid = false;
+          }
+          
+          if (!valid) return;
+          
+          var submitBtn = form.querySelector('.blog-comment-submit');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+          
+          var pageUrl = document.getElementById('formPageUrl');
+          if (pageUrl) pageUrl.value = window.location.href;
+          
+          fetch('https://formspree.io/f/mqeyjyyg', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          }).then(function(res) {
+            if (res.ok) {
+              form.style.display = 'none';
+              notice.hidden = false;
+            } else {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Post Comment';
+              alert('Error sending comment. Please try again.');
+            }
+          }).catch(function() {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Post Comment';
+            alert('Error sending comment. Please try again.');
+          });
+        });
+      }
+    })();
+    </script>
+    <!-- Share buttons handler -->
+    <script>
+    (function() {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title);
+      var shareLinks = {
+        whatsapp: 'https://wa.me/?text=' + title + '%20' + url,
+        linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + url,
+        facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
+        twitter: 'https://x.com/intent/tweet?text=' + title + '&url=' + url
+      };
+      document.querySelectorAll('[data-share]').forEach(function(btn) {
+        var type = btn.getAttribute('data-share');
+        if (type === 'copy') {
+          btn.addEventListener('click', function() {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+              var label = btn.querySelector('.blog-share-btn-label');
+              var orig = label.textContent;
+              label.textContent = (document.documentElement.lang === 'es' || window.location.search.indexOf('lang=es') > -1) ? '\u00a1Copiado!' : 'Copied!';
+              btn.classList.add('is-copied');
+              setTimeout(function() { label.textContent = orig; btn.classList.remove('is-copied'); }, 2000);
+            });
+          });
+        } else if (shareLinks[type]) {
+          btn.setAttribute('href', shareLinks[type]);
+        }
+      });
+    })();
+    </script>
+  
+    <!-- Article Rating Script -->
+    <script>
+    (function() {
+      var section = document.querySelector('.blog-rating[data-article="telehealth-qa-team"]');
+      if (!section) return;
+      var stars = section.querySelectorAll('.blog-rating-stars svg');
+      var container = section.querySelector('.blog-rating-stars');
+      var thanks = section.querySelector('.blog-rating-thanks');
+      var key = 'rating-telehealth-qa-team';
+      var saved = localStorage.getItem(key);
+
+      function fillStars(n) {
+        stars.forEach(function(s, i) {
+          if (i < n) { s.classList.add('hovered'); } else { s.classList.remove('hovered'); }
+        });
+      }
+      function selectStars(n) {
+        stars.forEach(function(s, i) {
+          if (i < n) { s.classList.add('selected'); } else { s.classList.remove('selected'); }
+        });
+        container.classList.add('is-rated');
+        thanks.classList.add('is-visible');
+      }
+
+      if (saved) { selectStars(parseInt(saved, 10)); }
+
+      stars.forEach(function(star, idx) {
+        star.addEventListener('mouseenter', function() {
+          if (!container.classList.contains('is-rated')) fillStars(idx + 1);
+        });
+        star.addEventListener('mouseleave', function() {
+          if (!container.classList.contains('is-rated')) fillStars(0);
+        });
+        star.addEventListener('click', function() {
+          localStorage.setItem(key, String(idx + 1));
+          selectStars(idx + 1);
+        });
+      });
+    })();
+    </script>
+    <!-- Dynamic citations -->
+    <script>
+    (function() {
+      var title = document.title.split('|')[0].trim();
+      var url = window.location.href;
+      var now = new Date();
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var monthsShort = ['Jan.','Feb.','Mar.','Apr.','May','Jun.','Jul.','Aug.','Sep.','Oct.','Nov.','Dec.'];
+      var day = now.getDate();
+      var month = months[now.getMonth()];
+      var monthShort = monthsShort[now.getMonth()];
+      var year = now.getFullYear();
+
+      var apa = 'Navarrete, E. (' + year + '). ' + title + '. QA Engineering Blog. Retrieved ' + month + ' ' + day + ', ' + year + ', from ' + url;
+      var ieee = 'E. Navarrete, "' + title + '," QA Engineering Blog, ' + year + '. [Online]. Available: ' + url + '. [Accessed: ' + monthShort + ' ' + day + ', ' + year + '].';
+
+      var apaEl = document.getElementById('refsCitationApa');
+      var ieeeEl = document.getElementById('refsCitationIeee');
+      if (apaEl) apaEl.textContent = apa;
+      if (ieeeEl) ieeeEl.textContent = ieee;
+
+      var tabs = document.querySelectorAll('.blog-refs-tab');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          var isApa = tab.getAttribute('data-tab') === 'apa';
+          if (apaEl) apaEl.style.display = isApa ? '' : 'none';
+          if (ieeeEl) ieeeEl.style.display = isApa ? 'none' : '';
+        });
+      });
+
+      var copyBtn = document.getElementById('copyCitationBtn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+          var activeTab = document.querySelector('.blog-refs-tab.active');
+          var text = (activeTab && activeTab.getAttribute('data-tab') === 'ieee') ? ieee : apa;
+          navigator.clipboard.writeText(text).then(function() {
+            var orig = copyBtn.getAttribute('data-i18n-default') || 'Copy citation';
+            copyBtn.textContent = copyBtn.getAttribute('data-i18n-copied') || 'Copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(function() {
+              copyBtn.textContent = orig;
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          });
         });
       }
     })();

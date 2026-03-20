@@ -141,7 +141,7 @@
     </header>
 
     <!-- i18n (configurable base path for subdirectory) -->
-    <script>window.__i18nBase = '../assets/data/';</script>
+    <script>window.__i18nBase = '../assets/data/'; window.__i18nExtra = ['i18n-blog-batch3.json'];</script>
     <script defer src="../assets/js/i18n.js"></script>
 
     <!-- Mobile Menu Overlay -->
@@ -197,7 +197,7 @@
 
         <header class="blog-article-header">
           <span class="blog-article-tag" data-i18n="blog.filter.ai">AI in Testing</span>
-          <h1 class="blog-article-title">From Manual to AI-Assisted: A QA Transformation Roadmap</h1>
+          <h1 class="blog-article-title" data-i18n="blog.manual-to-ai.title">From Manual to AI-Assisted: A QA Transformation Roadmap</h1>
           <div class="blog-article-meta">
             <span>Elio Navarrete</span>
             <span class="blog-article-meta-sep" aria-hidden="true"></span>
@@ -206,99 +206,186 @@
         </header>
 
         <div class="blog-article-body">
-          <p>The most common question I get from QA leaders — whether at conferences or in my university courses at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener">UPC</a> — is some variation of: "We're mostly manual. How do we get to AI-assisted automation without losing our team or breaking our delivery?" It's a fair question, and the answer is never "just buy a tool." Transformation is a journey with distinct stages, and skipping stages almost always leads to failure.</p>
+          <p data-i18n-rich="blog.manual-to-ai.p.1">The most common question I get from QA leaders — whether at conferences or in my university courses at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener">UPC</a> — is some variation of: "We're mostly manual. How do we get to AI-assisted automation without losing our team or breaking our delivery?" It's a fair question, and the answer is never "just buy a tool." Transformation is a journey with distinct stages, and skipping stages almost always leads to failure.</p>
 
-          <p>This article lays out a practical roadmap based on patterns I've seen succeed (and fail) across dozens of organizations. The goal is not to rush to the finish line — it's to build a sustainable capability that grows with your team.</p>
+          <p data-i18n="blog.manual-to-ai.p.2">This article lays out a practical roadmap based on patterns I've seen succeed (and fail) across dozens of organizations. The goal is not to rush to the finish line — it's to build a sustainable capability that grows with your team.</p>
 
-          <h2>The Transformation Spectrum</h2>
+          <h2 data-i18n="blog.manual-to-ai.h2.1">The Transformation Spectrum</h2>
 
-          <p>QA maturity exists on a spectrum with four distinct stages:</p>
+          <p data-i18n="blog.manual-to-ai.p.3">QA maturity exists on a spectrum with four distinct stages:</p>
 
           <ol>
-            <li><strong>Manual</strong>: All testing is performed by humans executing test cases from spreadsheets or test management tools. No automation exists.</li>
-            <li><strong>Scripted</strong>: The team has started writing automated tests, typically E2E scripts using tools like Selenium or Playwright. Automation covers some regression paths but is fragile and maintenance-heavy.</li>
-            <li><strong>Framework</strong>: Automation is built on a structured framework with Page Objects, reusable fixtures, CI/CD integration, and a clear test pyramid. The team has dedicated automation engineers and established patterns.</li>
-            <li><strong>AI-Assisted</strong>: The framework stage is augmented with AI capabilities — test generation from prompts, self-healing locators, risk-based prioritization, and intelligent maintenance. This is where the <strong>Vibe Testing</strong> approach operates.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.1"><strong>Manual</strong>: All testing is performed by humans executing test cases from spreadsheets or test management tools. No automation exists.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.2"><strong>Scripted</strong>: The team has started writing automated tests, typically E2E scripts using tools like Selenium or Playwright. Automation covers some regression paths but is fragile and maintenance-heavy.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.3"><strong>Framework</strong>: Automation is built on a structured framework with Page Objects, reusable fixtures, CI/CD integration, and a clear test pyramid. The team has dedicated automation engineers and established patterns.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.4"><strong>AI-Assisted</strong>: The framework stage is augmented with AI capabilities — test generation from prompts, self-healing locators, risk-based prioritization, and intelligent maintenance. This is where the <strong>Vibe Testing</strong> approach operates.</li>
           </ol>
 
-          <p>Most teams I encounter are somewhere between stages 1 and 2. The mistake they make is trying to jump directly to stage 4. AI-assisted testing without a solid framework underneath produces impressive demos and terrible long-term results.</p>
+          <p data-i18n="blog.manual-to-ai.p.4">Most teams I encounter are somewhere between stages 1 and 2. The mistake they make is trying to jump directly to stage 4. AI-assisted testing without a solid framework underneath produces impressive demos and terrible long-term results.</p>
 
-          <h2>Stage 1: Foundation</h2>
+          <h2 data-i18n="blog.manual-to-ai.h2.2">Stage 1: Foundation</h2>
 
-          <p>Before you write a single automated test, you need three things in place: a <strong>CI/CD pipeline</strong> that can execute tests automatically, a <strong>chosen framework and language</strong> that the team will standardize on, and a <strong>skills baseline</strong> — at least two team members who can write and maintain code.</p>
+          <p data-i18n-rich="blog.manual-to-ai.p.5">Before you write a single automated test, you need three things in place: a <strong>CI/CD pipeline</strong> that can execute tests automatically, a <strong>chosen framework and language</strong> that the team will standardize on, and a <strong>skills baseline</strong> — at least two team members who can write and maintain code.</p>
 
-          <p>The foundation stage is where most transformations stall, because it requires investment that doesn't immediately produce automated tests. Leadership wants to see green checkmarks in CI; instead, you're asking for training time and infrastructure setup. This is where you need executive buy-in and clear communication about why the foundation matters.</p>
+          <p data-i18n="blog.manual-to-ai.p.6">The foundation stage is where most transformations stall, because it requires investment that doesn't immediately produce automated tests. Leadership wants to see green checkmarks in CI; instead, you're asking for training time and infrastructure setup. This is where you need executive buy-in and clear communication about why the foundation matters.</p>
 
-          <p>Concrete deliverables for this stage: a working CI pipeline that runs a "hello world" test on every commit, a documented decision on framework (I recommend Playwright for web, but the choice matters less than the commitment), and a training plan that gives at least two team members 20% of their time for learning over 8-12 weeks.</p>
+          <p data-i18n="blog.manual-to-ai.p.7">Concrete deliverables for this stage: a working CI pipeline that runs a "hello world" test on every commit, a documented decision on framework (I recommend Playwright for web, but the choice matters less than the commitment), and a training plan that gives at least two team members 20% of their time for learning over 8-12 weeks.</p>
 
-          <p><strong>Common pitfall</strong>: Choosing a framework based on hype rather than team skills. If your team knows Java, starting with a JavaScript framework adds unnecessary friction. Meet people where they are.</p>
+          <p data-i18n-rich="blog.manual-to-ai.p.8"><strong>Common pitfall</strong>: Choosing a framework based on hype rather than team skills. If your team knows Java, starting with a JavaScript framework adds unnecessary friction. Meet people where they are.</p>
 
-          <h2>Stage 2: Scale</h2>
+          <h2 data-i18n="blog.manual-to-ai.h2.3">Stage 2: Scale</h2>
 
-          <p>Once the foundation is solid, stage 2 focuses on making automation a reliable, integral part of the development workflow. This means three capabilities: <strong>parallel execution</strong> so your test suite finishes in minutes, not hours; <strong>test data management</strong> so tests are independent and repeatable; and <strong>reporting and visibility</strong> so everyone — not just QA — can see test results.</p>
+          <p data-i18n-rich="blog.manual-to-ai.p.9">Once the foundation is solid, stage 2 focuses on making automation a reliable, integral part of the development workflow. This means three capabilities: <strong>parallel execution</strong> so your test suite finishes in minutes, not hours; <strong>test data management</strong> so tests are independent and repeatable; and <strong>reporting and visibility</strong> so everyone — not just QA — can see test results.</p>
 
-          <p>At this stage, you should establish a Page Object Model (or equivalent abstraction pattern), create shared fixtures for authentication and common setup, and integrate test results into your team's existing dashboards. The goal is that developers start relying on automated tests as a safety net, not just something QA runs on the side.</p>
+          <p data-i18n="blog.manual-to-ai.p.10">At this stage, you should establish a Page Object Model (or equivalent abstraction pattern), create shared fixtures for authentication and common setup, and integrate test results into your team's existing dashboards. The goal is that developers start relying on automated tests as a safety net, not just something QA runs on the side.</p>
 
-          <p><strong>Common pitfall</strong>: Automating everything at the E2E level. Teams at stage 2 often confuse "test automation" with "E2E automation." A healthy automation strategy includes unit and integration tests. If developers aren't writing tests, that's a cultural problem to address — not a gap to fill with more E2E scripts.</p>
+          <p data-i18n-rich="blog.manual-to-ai.p.11"><strong>Common pitfall</strong>: Automating everything at the E2E level. Teams at stage 2 often confuse "test automation" with "E2E automation." A healthy automation strategy includes unit and integration tests. If developers aren't writing tests, that's a cultural problem to address — not a gap to fill with more E2E scripts.</p>
 
-          <p>Another frequent mistake is neglecting test data. Flaky tests are overwhelmingly caused by shared test data, race conditions in test environments, or implicit dependencies between tests. Invest in test data factories and environment isolation early — it pays dividends for the entire lifetime of your suite.</p>
+          <p data-i18n="blog.manual-to-ai.p.12">Another frequent mistake is neglecting test data. Flaky tests are overwhelmingly caused by shared test data, race conditions in test environments, or implicit dependencies between tests. Invest in test data factories and environment isolation early — it pays dividends for the entire lifetime of your suite.</p>
 
-          <h2>Stage 3: Intelligence</h2>
+          <h2 data-i18n="blog.manual-to-ai.h2.4">Stage 3: Intelligence</h2>
 
-          <p>This is where AI enters the picture, and it only works because stages 1 and 2 created the foundation it needs. AI-assisted testing requires well-structured code for the model to understand, clean patterns for it to follow, and reliable infrastructure for it to execute against.</p>
+          <p data-i18n="blog.manual-to-ai.p.13">This is where AI enters the picture, and it only works because stages 1 and 2 created the foundation it needs. AI-assisted testing requires well-structured code for the model to understand, clean patterns for it to follow, and reliable infrastructure for it to execute against.</p>
 
-          <p>Stage 3 introduces three AI capabilities:</p>
-
-          <ul>
-            <li><strong>AI test generation</strong>: Using LLMs to generate test scaffolding from structured prompts. The engineer defines the test scenarios and context; the AI produces the initial code. This is the core of the Vibe Testing framework — the AI accelerates the "how" while the human owns the "what" and "why."</li>
-            <li><strong>Self-healing tests</strong>: When a UI change breaks a locator, AI analyzes the DOM diff and proposes updated selectors. Instead of a developer spending 30 minutes debugging a CSS selector change, they review a one-line fix suggestion.</li>
-            <li><strong>Risk-based prioritization</strong>: AI analyzes code changes, historical defect data, and test execution history to determine which tests to run first. This reduces feedback time from 45 minutes to 12 minutes for the most common change patterns.</li>
-          </ul>
-
-          <p><strong>Common pitfall</strong>: Trusting AI output without review. Every AI-generated test must pass through human review before reaching the main branch. The AI doesn't understand your business domain, regulatory requirements, or edge cases that only domain experts know about. Treat AI output as a first draft from a fast but junior engineer.</p>
-
-          <h2>Team Structure Evolution</h2>
-
-          <p>The transformation isn't just technical — it's organizational. Team roles evolve across stages:</p>
-
-          <p>In <strong>stage 1</strong>, you likely have manual testers and maybe one person learning automation. Don't rebrand anyone yet. Let skills develop organically.</p>
-
-          <p>In <strong>stage 2</strong>, roles start differentiating: some team members focus on automation framework development, others on test design and exploratory testing. Both are valuable. The worst thing you can do is signal that "automation is the only path forward" — that alienates your best exploratory testers, who find the bugs automation never will.</p>
-
-          <p>In <strong>stage 3</strong>, the team has evolved into <strong>quality engineers</strong>: professionals who combine testing expertise, coding ability, and strategic thinking. Manual-only roles may still exist for specialized domains (accessibility auditing, usability testing, regulatory compliance review), and they should be respected as specialized expertise, not leftovers.</p>
-
-          <h2>Measuring Transformation Success</h2>
-
-          <p>You need metrics to know whether the transformation is working. Here are the ones I track:</p>
+          <p data-i18n="blog.manual-to-ai.p.14">Stage 3 introduces three AI capabilities:</p>
 
           <ul>
-            <li><strong>Deployment frequency</strong>: Are you shipping more often? If automation isn't enabling faster delivery, something is wrong.</li>
-            <li><strong>Defect escape rate</strong>: What percentage of defects reach production? This should decrease as automation matures.</li>
-            <li><strong>Mean time to feedback</strong>: How long from code commit to test results? Target under 15 minutes for PR-level checks.</li>
-            <li><strong>Test maintenance cost</strong>: Hours spent per sprint fixing broken tests. This should decrease in stage 3 with AI assistance.</li>
-            <li><strong>Team confidence</strong>: Do developers trust the test suite enough to deploy on Friday? This is qualitative but telling.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.5"><strong>AI test generation</strong>: Using LLMs to generate test scaffolding from structured prompts. The engineer defines the test scenarios and context; the AI produces the initial code. This is the core of the Vibe Testing framework — the AI accelerates the "how" while the human owns the "what" and "why."</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.6"><strong>Self-healing tests</strong>: When a UI change breaks a locator, AI analyzes the DOM diff and proposes updated selectors. Instead of a developer spending 30 minutes debugging a CSS selector change, they review a one-line fix suggestion.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.7"><strong>Risk-based prioritization</strong>: AI analyzes code changes, historical defect data, and test execution history to determine which tests to run first. This reduces feedback time from 45 minutes to 12 minutes for the most common change patterns.</li>
           </ul>
 
-          <h2>Cultural Challenges</h2>
+          <p data-i18n-rich="blog.manual-to-ai.p.15"><strong>Common pitfall</strong>: Trusting AI output without review. Every AI-generated test must pass through human review before reaching the main branch. The AI doesn't understand your business domain, regulatory requirements, or edge cases that only domain experts know about. Treat AI output as a first draft from a fast but junior engineer.</p>
 
-          <p>The hardest part of transformation is never the technology — it's the people. Two cultural challenges appear consistently:</p>
+          <h2 data-i18n="blog.manual-to-ai.h2.5">Team Structure Evolution</h2>
 
-          <p><strong>Fear of replacement</strong>: Manual testers worry that automation will eliminate their jobs. Address this directly and honestly. Automation changes the job, it doesn't eliminate it. The team members who embrace learning will become more valuable, not less. But this requires genuine investment in their growth — training time, mentorship, and patience.</p>
+          <p data-i18n="blog.manual-to-ai.p.16">The transformation isn't just technical — it's organizational. Team roles evolve across stages:</p>
 
-          <p><strong>Resistance from developers</strong>: Some development teams see QA automation as "not their problem." In healthy organizations, quality is everyone's responsibility. If developers don't write unit tests, the test pyramid collapses regardless of how good your E2E suite is. This requires leadership alignment and sometimes difficult conversations about engineering standards.</p>
+          <p data-i18n-rich="blog.manual-to-ai.p.17">In <strong>stage 1</strong>, you likely have manual testers and maybe one person learning automation. Don't rebrand anyone yet. Let skills develop organically.</p>
 
-          <h2>The Role of Leadership</h2>
+          <p data-i18n-rich="blog.manual-to-ai.p.18">In <strong>stage 2</strong>, roles start differentiating: some team members focus on automation framework development, others on test design and exploratory testing. Both are valuable. The worst thing you can do is signal that "automation is the only path forward" — that alienates your best exploratory testers, who find the bugs automation never will.</p>
 
-          <p>As a Tech Lead Manager, I can say unequivocally: QA transformation fails without active leadership support. This means protecting training time from sprint commitments, setting realistic timelines (expect 12-18 months for a full stage 1 to stage 3 journey), celebrating incremental wins rather than waiting for the "big reveal," and making quality metrics visible at the leadership level alongside velocity and delivery metrics.</p>
+          <p data-i18n-rich="blog.manual-to-ai.p.19">In <strong>stage 3</strong>, the team has evolved into <strong>quality engineers</strong>: professionals who combine testing expertise, coding ability, and strategic thinking. Manual-only roles may still exist for specialized domains (accessibility auditing, usability testing, regulatory compliance review), and they should be respected as specialized expertise, not leftovers.</p>
+
+          <h2 data-i18n="blog.manual-to-ai.h2.6">Measuring Transformation Success</h2>
+
+          <p data-i18n="blog.manual-to-ai.p.20">You need metrics to know whether the transformation is working. Here are the ones I track:</p>
+
+          <ul>
+            <li data-i18n-rich="blog.manual-to-ai.li.8"><strong>Deployment frequency</strong>: Are you shipping more often? If automation isn't enabling faster delivery, something is wrong.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.9"><strong>Defect escape rate</strong>: What percentage of defects reach production? This should decrease as automation matures.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.10"><strong>Mean time to feedback</strong>: How long from code commit to test results? Target under 15 minutes for PR-level checks.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.11"><strong>Test maintenance cost</strong>: Hours spent per sprint fixing broken tests. This should decrease in stage 3 with AI assistance.</li>
+            <li data-i18n-rich="blog.manual-to-ai.li.12"><strong>Team confidence</strong>: Do developers trust the test suite enough to deploy on Friday? This is qualitative but telling.</li>
+          </ul>
+
+          <h2 data-i18n="blog.manual-to-ai.h2.7">Cultural Challenges</h2>
+
+          <p data-i18n="blog.manual-to-ai.p.21">The hardest part of transformation is never the technology — it's the people. Two cultural challenges appear consistently:</p>
+
+          <p data-i18n-rich="blog.manual-to-ai.p.22"><strong>Fear of replacement</strong>: Manual testers worry that automation will eliminate their jobs. Address this directly and honestly. Automation changes the job, it doesn't eliminate it. The team members who embrace learning will become more valuable, not less. But this requires genuine investment in their growth — training time, mentorship, and patience.</p>
+
+          <p data-i18n-rich="blog.manual-to-ai.p.23"><strong>Resistance from developers</strong>: Some development teams see QA automation as "not their problem." In healthy organizations, quality is everyone's responsibility. If developers don't write unit tests, the test pyramid collapses regardless of how good your E2E suite is. This requires leadership alignment and sometimes difficult conversations about engineering standards.</p>
+
+          <h2 data-i18n="blog.manual-to-ai.h2.8">The Role of Leadership</h2>
+
+          <p data-i18n="blog.manual-to-ai.p.24">As a Tech Lead Manager, I can say unequivocally: QA transformation fails without active leadership support. This means protecting training time from sprint commitments, setting realistic timelines (expect 12-18 months for a full stage 1 to stage 3 journey), celebrating incremental wins rather than waiting for the "big reveal," and making quality metrics visible at the leadership level alongside velocity and delivery metrics.</p>
 
           <blockquote>
-            <p>Transformation is not a project with a finish date. It's a capability you build and continuously improve. The teams that succeed treat it as an ongoing investment, not a one-time initiative.</p>
+            <p data-i18n="blog.manual-to-ai.bq.1">Transformation is not a project with a finish date. It's a capability you build and continuously improve. The teams that succeed treat it as an ongoing investment, not a one-time initiative.</p>
           </blockquote>
 
           <hr>
 
-          <p>The path from manual testing to AI-assisted quality engineering is achievable for any team willing to invest in the journey. The key is respecting the stages: build the foundation before scaling, scale before adding intelligence, and keep your people at the center of every decision. Technology enables transformation, but people drive it.</p>
+          <p data-i18n="blog.manual-to-ai.p.25">The path from manual testing to AI-assisted quality engineering is achievable for any team willing to invest in the journey. The key is respecting the stages: build the foundation before scaling, scale before adding intelligence, and keep your people at the center of every decision. Technology enables transformation, but people drive it.</p>
         </div>
+
+        <!-- Share Bar -->
+        <div class="blog-share-bar">
+          <p class="blog-share-bar-title" data-i18n="blog.share.title">Share this article</p>
+          <div class="blog-share-buttons">
+            <a class="blog-share-btn blog-share-btn--whatsapp" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp" data-share="whatsapp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--linkedin" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn" data-share="linkedin">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--facebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook" data-share="facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a class="blog-share-btn blog-share-btn--twitter" href="#" target="_blank" rel="noopener" aria-label="Share on X" data-share="twitter">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X</span>
+            </a>
+            <button class="blog-share-btn blog-share-btn--copy" type="button" aria-label="Copy link" data-share="copy">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span class="blog-share-btn-label" data-i18n="blog.share.copyLabel">Copy Link</span>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Article Rating -->
+        <section class="blog-rating" data-article="manual-to-ai-qa-transformation">
+          <p class="blog-rating-title" data-i18n="blog.rate.title">Was this article helpful?</p>
+          <div class="blog-rating-stars" role="radiogroup" aria-label="Rate this article">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          </div>
+          <p class="blog-rating-thanks" data-i18n="blog.rate.thanks">Thanks for your feedback!</p>
+        </section>
+
+        <!-- Related Articles -->
+        <section class="blog-related">
+          <h2 class="blog-related-title" data-i18n="blog.related.title">You might also like</h2>
+          <div class="blog-related-grid">
+            <a href="vibe-testing-ai-qa.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.ai">AI in Testing</span>
+              <h3 class="blog-related-card-title">Vibe Testing: The New AI Testing Paradigm</h3>
+              <span class="blog-related-card-meta">8 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+            <a href="ai-test-maintenance.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.ai">AI in Testing</span>
+              <h3 class="blog-related-card-title">AI-Powered Test Maintenance: Reducing Automation Debt</h3>
+              <span class="blog-related-card-meta">8 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+            <a href="state-test-automation-2026.html" class="blog-related-card">
+              <span class="blog-related-card-tag" data-i18n="blog.filter.research">Research</span>
+              <h3 class="blog-related-card-title">The State of Test Automation in 2026</h3>
+              <span class="blog-related-card-meta">10 <span data-i18n="blog.readTime">min read</span></span>
+            </a>
+          </div>
+        </section>
+
+        <!-- References -->
+        <section class="blog-references">
+          <details>
+            <summary data-i18n="blog.refs.title">References</summary>
+            <div class="blog-refs-body">
+              <p class="blog-refs-intro" data-i18n="blog.refs.intro">All information we provide is backed by authoritative and up-to-date bibliographic sources, ensuring reliable content in line with our editorial principles.</p>
+              <ul class="blog-refs-list">
+                <li>Deloitte Insights. (2024). Digital Transformation in QA: The Road Ahead. <a href="https://www2.deloitte.com/" target="_blank" rel="noopener">https://www2.deloitte.com/</a></li>
+                <li>ISTQB. (2024). <em>ISTQB Certified Tester AI Testing (CT-AI) Syllabus</em>. <a href="https://www.istqb.org/" target="_blank" rel="noopener">https://www.istqb.org/</a></li>
+                <li>Forbes Technology Council. (2024). The AI-Powered QA Revolution: What Leaders Need to Know. <em>Forbes</em>.</li>
+              </ul>
+              <h3 class="blog-refs-how-cite" data-i18n="blog.refs.howCite">How to cite this article</h3>
+              <p class="blog-refs-cite-explain" data-i18n="blog.refs.citeExplain">Citing original sources serves to give credit to corresponding authors and avoid plagiarism. It also allows readers to access the original sources to verify or expand information.</p>
+              <div class="blog-refs-citation-tabs">
+                <button class="blog-refs-tab active" data-tab="apa">APA</button>
+                <button class="blog-refs-tab" data-tab="ieee">IEEE</button>
+              </div>
+              <div class="blog-refs-apa" id="refsCitationApa"></div>
+              <div class="blog-refs-apa" id="refsCitationIeee" style="display:none"></div>
+              <button class="blog-cite-copy-btn" id="copyCitationBtn" data-i18n="blog.refs.copyCite" data-i18n-default="Copy citation" data-i18n-copied="Copied!">Copy citation</button>
+            </div>
+          </details>
+        </section>
 
         <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
         <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
@@ -348,30 +435,33 @@
 
       </article>
 
-      <!-- Comment Section (placeholder) -->
+      <!-- Comment Section -->
       <section class="blog-comments" aria-labelledby="comments-heading">
         <div class="blog-comments-header">
-          <h2 id="comments-heading">Comments</h2>
-          <span class="blog-comments-count">0 comments</span>
+          <h2 id="comments-heading" data-i18n="blog.comments.title">Comments</h2>
+          <span class="blog-comments-count" data-i18n="blog.comments.count">0 comments</span>
         </div>
 
-        <form class="blog-comment-form" id="commentForm" novalidate>
+        <form class="blog-comment-form" id="commentForm" action="https://formspree.io/f/mqeyjyyg" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New blog comment">
+          <input type="hidden" name="_page" id="formPageUrl">
           <div class="blog-comment-form-row">
-            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
-            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+            <input type="text" class="blog-comment-input" id="commentName" name="name" data-i18n-placeholder="blog.comments.namePlaceholder" placeholder="Name *" aria-label="Your name" required minlength="2" maxlength="100">
+            <input type="email" class="blog-comment-input" id="commentEmail" name="email" data-i18n-placeholder="blog.comments.emailPlaceholder" placeholder="Email * (not published)" aria-label="Your email" required>
           </div>
-          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <textarea class="blog-comment-textarea" id="commentMessage" name="message" data-i18n-placeholder="blog.comments.textPlaceholder" placeholder="Share your thoughts... *" aria-label="Your comment" rows="4" required minlength="10" maxlength="1000"></textarea>
+          <div class="blog-comment-char-count"><span id="charCount">0</span> / 1000</div>
           <div class="blog-comment-form-footer">
-            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
-            <button type="submit" class="blog-comment-submit">Post Comment</button>
+            <span class="blog-comment-guidelines" data-i18n="blog.comments.guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit" data-i18n="blog.comments.submit">Post Comment</button>
           </div>
         </form>
 
         <div class="blog-comment-notice" id="commentNotice" hidden>
           <i class="fa fa-check-circle" aria-hidden="true"></i>
           <div>
-            <strong>Thank you for your comment.</strong>
-            <p>All comments are moderated and will appear after review.</p>
+            <strong data-i18n="blog.comments.thankYou">Thank you for your comment.</strong>
+            <p data-i18n="blog.comments.moderation">All comments are moderated and will appear after review.</p>
           </div>
         </div>
       </section>
@@ -465,16 +555,192 @@
     })();
     </script>
 
-    <!-- Comment form placeholder handler -->
+    <!-- Comment form handler -->
     <script>
     (function() {
       var form = document.getElementById('commentForm');
       var notice = document.getElementById('commentNotice');
+      var textarea = document.getElementById('commentMessage');
+      var charCount = document.getElementById('charCount');
+      
+      if (textarea && charCount) {
+        textarea.addEventListener('input', function() {
+          var len = this.value.length;
+          charCount.textContent = len;
+          charCount.parentElement.classList.toggle('near-limit', len > 900);
+          charCount.parentElement.classList.toggle('at-limit', len >= 1000);
+        });
+      }
+      
       if (form && notice) {
         form.addEventListener('submit', function(e) {
           e.preventDefault();
-          form.style.display = 'none';
-          notice.removeAttribute('hidden');
+          var name = document.getElementById('commentName');
+          var email = document.getElementById('commentEmail');
+          var msg = document.getElementById('commentMessage');
+          var valid = true;
+          
+          [name, email, msg].forEach(function(el) {
+            el.classList.remove('is-invalid');
+          });
+          
+          if (!name.value.trim() || name.value.trim().length < 2) {
+            name.classList.add('is-invalid'); valid = false;
+          }
+          if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+            email.classList.add('is-invalid'); valid = false;
+          }
+          if (!msg.value.trim() || msg.value.trim().length < 10) {
+            msg.classList.add('is-invalid'); valid = false;
+          }
+          
+          if (!valid) return;
+          
+          var submitBtn = form.querySelector('.blog-comment-submit');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+          
+          var pageUrl = document.getElementById('formPageUrl');
+          if (pageUrl) pageUrl.value = window.location.href;
+          
+          fetch('https://formspree.io/f/mqeyjyyg', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          }).then(function(res) {
+            if (res.ok) {
+              form.style.display = 'none';
+              notice.hidden = false;
+            } else {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Post Comment';
+              alert('Error sending comment. Please try again.');
+            }
+          }).catch(function() {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Post Comment';
+            alert('Error sending comment. Please try again.');
+          });
+        });
+      }
+    })();
+    </script>
+    <!-- Share buttons handler -->
+    <script>
+    (function() {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title);
+      var shareLinks = {
+        whatsapp: 'https://wa.me/?text=' + title + '%20' + url,
+        linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + url,
+        facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
+        twitter: 'https://x.com/intent/tweet?text=' + title + '&url=' + url
+      };
+      document.querySelectorAll('[data-share]').forEach(function(btn) {
+        var type = btn.getAttribute('data-share');
+        if (type === 'copy') {
+          btn.addEventListener('click', function() {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+              var label = btn.querySelector('.blog-share-btn-label');
+              var orig = label.textContent;
+              label.textContent = (document.documentElement.lang === 'es' || window.location.search.indexOf('lang=es') > -1) ? '\u00a1Copiado!' : 'Copied!';
+              btn.classList.add('is-copied');
+              setTimeout(function() { label.textContent = orig; btn.classList.remove('is-copied'); }, 2000);
+            });
+          });
+        } else if (shareLinks[type]) {
+          btn.setAttribute('href', shareLinks[type]);
+        }
+      });
+    })();
+    </script>
+  
+    <!-- Article Rating Script -->
+    <script>
+    (function() {
+      var section = document.querySelector('.blog-rating[data-article="manual-to-ai-qa-transformation"]');
+      if (!section) return;
+      var stars = section.querySelectorAll('.blog-rating-stars svg');
+      var container = section.querySelector('.blog-rating-stars');
+      var thanks = section.querySelector('.blog-rating-thanks');
+      var key = 'rating-manual-to-ai-qa-transformation';
+      var saved = localStorage.getItem(key);
+
+      function fillStars(n) {
+        stars.forEach(function(s, i) {
+          if (i < n) { s.classList.add('hovered'); } else { s.classList.remove('hovered'); }
+        });
+      }
+      function selectStars(n) {
+        stars.forEach(function(s, i) {
+          if (i < n) { s.classList.add('selected'); } else { s.classList.remove('selected'); }
+        });
+        container.classList.add('is-rated');
+        thanks.classList.add('is-visible');
+      }
+
+      if (saved) { selectStars(parseInt(saved, 10)); }
+
+      stars.forEach(function(star, idx) {
+        star.addEventListener('mouseenter', function() {
+          if (!container.classList.contains('is-rated')) fillStars(idx + 1);
+        });
+        star.addEventListener('mouseleave', function() {
+          if (!container.classList.contains('is-rated')) fillStars(0);
+        });
+        star.addEventListener('click', function() {
+          localStorage.setItem(key, String(idx + 1));
+          selectStars(idx + 1);
+        });
+      });
+    })();
+    </script>
+    <!-- Dynamic citations -->
+    <script>
+    (function() {
+      var title = document.title.split('|')[0].trim();
+      var url = window.location.href;
+      var now = new Date();
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var monthsShort = ['Jan.','Feb.','Mar.','Apr.','May','Jun.','Jul.','Aug.','Sep.','Oct.','Nov.','Dec.'];
+      var day = now.getDate();
+      var month = months[now.getMonth()];
+      var monthShort = monthsShort[now.getMonth()];
+      var year = now.getFullYear();
+
+      var apa = 'Navarrete, E. (' + year + '). ' + title + '. QA Engineering Blog. Retrieved ' + month + ' ' + day + ', ' + year + ', from ' + url;
+      var ieee = 'E. Navarrete, "' + title + '," QA Engineering Blog, ' + year + '. [Online]. Available: ' + url + '. [Accessed: ' + monthShort + ' ' + day + ', ' + year + '].';
+
+      var apaEl = document.getElementById('refsCitationApa');
+      var ieeeEl = document.getElementById('refsCitationIeee');
+      if (apaEl) apaEl.textContent = apa;
+      if (ieeeEl) ieeeEl.textContent = ieee;
+
+      var tabs = document.querySelectorAll('.blog-refs-tab');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          var isApa = tab.getAttribute('data-tab') === 'apa';
+          if (apaEl) apaEl.style.display = isApa ? '' : 'none';
+          if (ieeeEl) ieeeEl.style.display = isApa ? 'none' : '';
+        });
+      });
+
+      var copyBtn = document.getElementById('copyCitationBtn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+          var activeTab = document.querySelector('.blog-refs-tab.active');
+          var text = (activeTab && activeTab.getAttribute('data-tab') === 'ieee') ? ieee : apa;
+          navigator.clipboard.writeText(text).then(function() {
+            var orig = copyBtn.getAttribute('data-i18n-default') || 'Copy citation';
+            copyBtn.textContent = copyBtn.getAttribute('data-i18n-copied') || 'Copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(function() {
+              copyBtn.textContent = orig;
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          });
         });
       }
     })();

@@ -104,11 +104,8 @@
       '.back-to-top',
       '.footer-social a',
       '.profile-hero-social a',
-      '.profile-cert-item',
-      '.profile-pub-detail a',
       '.profile-skill-tags span',
       '.profile-back-link a',
-      '.profile-pub-orcid a',
       'button',
       '.btn'
     ].join(',');
