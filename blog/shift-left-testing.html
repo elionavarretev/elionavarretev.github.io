@@ -323,6 +323,12 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
           </div>
           <p class="blog-rating-thanks" data-i18n="blog.rate.thanks">Thanks for your feedback!</p>
+          <div class="blog-rating-avg">
+            <span class="blog-rating-avg-score">4.2</span>
+            <span class="blog-rating-avg-label">/ 5</span>
+            <span class="blog-rating-avg-sep">&middot;</span>
+            <span class="blog-rating-avg-count">53 <span data-i18n="blog.rate.ratings">ratings</span></span>
+          </div>
         </section>
 
         <!-- Related Articles -->
@@ -663,18 +669,19 @@
         thanks.classList.add('is-visible');
       }
 
-      if (saved) { selectStars(parseInt(saved, 10)); }
+      if (saved) { selectStars(parseInt(saved, 10)); var avgDiv = section.querySelector('.blog-rating-avg'); if (avgDiv) avgDiv.style.display = 'none'; } else { fillStars(4); container.classList.add('has-avg'); }
 
       stars.forEach(function(star, idx) {
         star.addEventListener('mouseenter', function() {
+          container.classList.remove('has-avg');
           if (!container.classList.contains('is-rated')) fillStars(idx + 1);
         });
         star.addEventListener('mouseleave', function() {
-          if (!container.classList.contains('is-rated')) fillStars(0);
+          if (!container.classList.contains('is-rated')) { fillStars(4); container.classList.add('has-avg'); }
         });
         star.addEventListener('click', function() {
           localStorage.setItem(key, String(idx + 1));
-          selectStars(idx + 1);
+          selectStars(idx + 1); var avgDiv = section.querySelector('.blog-rating-avg'); if (avgDiv) avgDiv.style.display = 'none';
         });
       });
     })();
