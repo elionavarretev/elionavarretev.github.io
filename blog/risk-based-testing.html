@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A practical guide to risk-based testing strategies that help QA teams focus effort where it delivers the most value, aligned with ISTQB principles.">
+    <meta name="keywords" content="Risk-Based Testing, QA Strategy, ISTQB, Test Planning, Test Prioritization, Quality Engineering, Elio Navarrete">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png">
+    <link rel="canonical" href="https://elionavarrete.com/blog/risk-based-testing.html">
+    <title>Risk-Based Testing: Prioritizing What Matters Most | Elio Navarrete</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://elionavarrete.com/blog/risk-based-testing.html">
+    <meta property="og:title" content="Risk-Based Testing: Prioritizing What Matters Most">
+    <meta property="og:description" content="A practical guide to risk-based testing strategies that help QA teams focus effort where it delivers the most value, aligned with ISTQB principles.">
+    <meta property="og:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <meta property="article:author" content="https://elionavarrete.com/">
+    <meta property="article:published_time" content="2026-03-19">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Risk-Based Testing: Prioritizing What Matters Most">
+    <meta name="twitter:description" content="A practical guide to risk-based testing strategies that help QA teams focus effort where it delivers the most value.">
+    <meta name="twitter:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/risk-based-testing.html">
+    <link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/risk-based-testing.html?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/risk-based-testing.html">
+
+    <!-- Preconnect CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload data files -->
+    <link rel="preload" href="../assets/data/i18n.json" as="fetch" crossorigin>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+      <link rel="stylesheet" href="../assets/css/responsive.css">
+    </noscript>
+
+    <!-- JSON-LD: BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Risk-Based Testing: Prioritizing What Matters Most",
+      "description": "A practical guide to risk-based testing strategies that help QA teams focus effort where it delivers the most value, aligned with ISTQB principles.",
+      "author": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/", "@id": "https://elionavarrete.com/#author" },
+      "publisher": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/" },
+      "datePublished": "2026-03-19",
+      "dateModified": "2026-03-19",
+      "mainEntityOfPage": "https://elionavarrete.com/blog/risk-based-testing.html",
+      "image": "https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg",
+      "articleSection": "QA Strategy",
+      "wordCount": 1200,
+      "timeRequired": "PT9M"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://elionavarrete.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://elionavarrete.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Risk-Based Testing: Prioritizing What Matters Most", "item": "https://elionavarrete.com/blog/risk-based-testing.html" }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+    <div class="nav-top-line">
+      <span class="nav-top-line-glow top"></span>
+      <span class="nav-top-line-glow bottom"></span>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html" class="nav-brand">
+            <span class="nav-brand-name">ELIO NAVARRETE</span>
+            <span class="nav-brand-divider" aria-hidden="true"></span>
+            <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+          <li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+          <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+          <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+        </ul>
+        <div class="nav-utilities">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+            <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+            <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+          </div>
+          <div class="nav-language" aria-label="Language selector">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Español">ESP</button>
+            <span class="nav-language-separator" aria-hidden="true">|</span>
+            <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+          </div>
+        </div>
+        <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <div class="hamburger-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    </header>
+
+    <!-- i18n (configurable base path for subdirectory) -->
+    <script>window.__i18nBase = '../assets/data/';</script>
+    <script defer src="../assets/js/i18n.js"></script>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Español">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+        <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+        <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-menu-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+      </div>
+    </div>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <main class="blog-article-page" id="main-content">
+      <article class="blog-article">
+
+        <header class="blog-article-header">
+          <span class="blog-article-tag" data-i18n="blog.filter.qa">QA Strategy</span>
+          <h1 class="blog-article-title">Risk-Based Testing: Prioritizing What Matters Most</h1>
+          <div class="blog-article-meta">
+            <span>Elio Navarrete</span>
+            <span class="blog-article-meta-sep" aria-hidden="true"></span>
+            <span>9 <span data-i18n="blog.readTime">min read</span></span>
+          </div>
+        </header>
+
+        <div class="blog-article-body">
+          <p>Every QA team faces the same fundamental constraint: there is never enough time to test everything. Deadlines compress, scope expands, and the test suite grows faster than the team's capacity to execute it. The teams that thrive under this pressure are not the ones that test more — they are the ones that test <em>smarter</em>. Risk-based testing is the discipline of directing test effort toward the areas where defects would cause the greatest damage.</p>
+
+          <p>I teach this framework in my QA courses at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener">UPC</a> and have applied it across healthcare, fintech, and e-commerce platforms. The principles are rooted in <a href="https://www.istqb.org/" target="_blank" rel="noopener">ISTQB</a> foundations, but the implementation details come from years of production experience where theoretical frameworks had to survive contact with real sprints, real stakeholders, and real production incidents.</p>
+
+          <h2>Why Testing Everything Equally Is Wasteful</h2>
+
+          <p>Consider a typical web application with a login page, a dashboard, a settings page, and a payment checkout. If you allocate equal testing effort to each module, you are implicitly saying that a bug in the settings page (where a user changes their display name) is as important as a bug in the payment flow (where a customer is charged incorrectly). Obviously, it is not.</p>
+
+          <p>Yet many teams operate exactly this way. They write tests in the order features are developed, maintain them all with equal priority, and run them all on every pipeline. The result is predictable: the CI pipeline takes 40 minutes, most of that time is spent on low-risk areas, and when a critical defect does slip through, the team wonders how they missed it despite having "comprehensive" coverage.</p>
+
+          <p>Risk-based testing solves this by making the allocation of testing effort an explicit, data-driven decision rather than an accidental byproduct of development order.</p>
+
+          <h2>ISTQB Foundations: Risk as a Framework</h2>
+
+          <p>The ISTQB Foundation Level syllabus defines risk in testing as a factor that could result in future negative consequences. It distinguishes between two dimensions:</p>
+
+          <ul>
+            <li><strong>Product risk</strong>: The risk that the software fails to meet quality requirements — functionality, performance, security, usability. These are the risks that testing directly addresses.</li>
+            <li><strong>Project risk</strong>: The risk that project factors (schedule, resources, skills) affect the ability to achieve testing objectives. These risks affect how you plan and staff your testing effort.</li>
+          </ul>
+
+          <p>Risk-based testing focuses primarily on product risks and uses two attributes to evaluate each risk: the <strong>likelihood</strong> that a defect exists in a given area, and the <strong>impact</strong> that such a defect would have on users, the business, or regulatory compliance.</p>
+
+          <blockquote>
+            <p>Risk Level = Business Impact &times; Likelihood of Failure</p>
+          </blockquote>
+
+          <p>This formula is deceptively simple. The real challenge lies in estimating these values accurately and keeping them updated as the product evolves.</p>
+
+          <h2>Risk Identification: Gathering the Inputs</h2>
+
+          <p>Effective risk identification draws from multiple sources. No single input is sufficient, because each provides a different lens on where defects are likely to hide:</p>
+
+          <ul>
+            <li><strong>Defect history</strong>: Modules that have had more bugs in the past are statistically more likely to have bugs in the future. Analyze your bug tracker for the last 6-12 months and identify hotspots by component.</li>
+            <li><strong>Code complexity</strong>: High cyclomatic complexity, deeply nested conditionals, and large methods are correlated with defect density. Static analysis tools can quantify this.</li>
+            <li><strong>Change frequency</strong>: Code that changes frequently (high churn) introduces more opportunities for regression. A module that was modified in 15 of the last 20 sprints deserves more attention than one that has been stable for six months.</li>
+            <li><strong>Business criticality</strong>: What happens if this feature breaks? A failed login blocks all users. A broken notification preference inconveniences some users. The business impact is fundamentally different.</li>
+            <li><strong>Regulatory exposure</strong>: Features that handle PII, financial transactions, or health data carry compliance risk beyond the immediate user impact. A defect in these areas can trigger audits, fines, or legal liability.</li>
+            <li><strong>Technical novelty</strong>: New technologies, unfamiliar integrations, or first-time architectural patterns carry higher risk simply because the team has less experience with them.</li>
+          </ul>
+
+          <h2>Building a Risk Matrix</h2>
+
+          <p>A practical risk matrix maps your product's modules against likelihood and impact scores. I use a 1-5 scale for each dimension, producing a risk score between 1 and 25. Here is a simplified example for an e-commerce platform:</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Likelihood (1-5)</th>
+                <th>Impact (1-5)</th>
+                <th>Risk Score</th>
+                <th>Test Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Payment checkout</td>
+                <td>3</td>
+                <td>5</td>
+                <td>15</td>
+                <td>Critical</td>
+              </tr>
+              <tr>
+                <td>User authentication</td>
+                <td>2</td>
+                <td>5</td>
+                <td>10</td>
+                <td>High</td>
+              </tr>
+              <tr>
+                <td>Product search</td>
+                <td>4</td>
+                <td>3</td>
+                <td>12</td>
+                <td>High</td>
+              </tr>
+              <tr>
+                <td>Order history</td>
+                <td>2</td>
+                <td>3</td>
+                <td>6</td>
+                <td>Medium</td>
+              </tr>
+              <tr>
+                <td>User preferences</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>Low</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>The risk score directly informs test allocation: critical-priority modules get the most test cases, the most diverse test types (unit, integration, E2E, performance, security), and the most frequent execution. Low-priority modules get basic happy-path coverage and run less frequently.</p>
+
+          <h2>Mapping Risks to Test Priorities</h2>
+
+          <p>Once you have risk scores, translate them into concrete testing decisions:</p>
+
+          <ul>
+            <li><strong>Critical (score 15-25)</strong>: Full coverage — unit, integration, E2E, performance, security testing. Run on every PR. Include in smoke suite. Assign senior engineers to review test quality.</li>
+            <li><strong>High (score 10-14)</strong>: Strong coverage — unit, integration, E2E. Run on every PR. Include in regression suite.</li>
+            <li><strong>Medium (score 5-9)</strong>: Moderate coverage — unit and integration tests. Run nightly. E2E only for critical paths within the module.</li>
+            <li><strong>Low (score 1-4)</strong>: Basic coverage — unit tests and exploratory testing during release cycles. Run weekly.</li>
+          </ul>
+
+          <p>This mapping is not static. It should be reviewed and adjusted at least quarterly, or whenever a significant architectural change, a production incident, or a major feature launch shifts the risk landscape.</p>
+
+          <h2>Dynamic Risk Adjustment in Sprints</h2>
+
+          <p>Risk-based testing is not a one-time planning exercise. In agile environments, risk profiles change every sprint. A module that was low-risk last month might become high-risk this sprint because of a major refactor, a new integration, or a reported security vulnerability.</p>
+
+          <p>I recommend incorporating a <strong>risk review</strong> into sprint planning. During backlog refinement, the QA lead should evaluate each story's impact on the existing risk matrix. Questions to ask:</p>
+
+          <ul>
+            <li>Does this story touch a critical flow? If so, the test plan for this sprint should prioritize regression coverage for that flow.</li>
+            <li>Does this story introduce a new external dependency? New integrations carry inherent risk and should be tested more thoroughly.</li>
+            <li>Has a recent production incident changed our risk assessment for any module? Update the risk scores accordingly.</li>
+            <li>Is the team member working on this story experienced with the codebase? Junior engineers working in complex modules increase the likelihood score.</li>
+          </ul>
+
+          <p>This dynamic adjustment prevents the risk matrix from becoming a stale document that nobody consults. It keeps risk assessment as a living practice embedded in the team's workflow.</p>
+
+          <h2>Practical Example: Risk Assessment for a Payment Module</h2>
+
+          <p>Let me walk through a concrete risk assessment for a payment processing module, the kind of analysis I do regularly with my teams.</p>
+
+          <p>The payment module handles credit card tokenization, charge authorization, refund processing, and receipt generation. Its risk profile:</p>
+
+          <ul>
+            <li><strong>Business impact</strong>: 5/5. A payment bug means lost revenue, customer disputes, and potential PCI compliance violations. There is no tolerance for defects here.</li>
+            <li><strong>Defect history</strong>: 3/5. Over the last year, the module has had 8 bugs, mostly related to edge cases in partial refunds and currency conversion.</li>
+            <li><strong>Code complexity</strong>: 4/5. The payment orchestration service has high cyclomatic complexity due to the number of payment methods, currencies, and error handling paths.</li>
+            <li><strong>Change frequency</strong>: 3/5. The module is modified roughly every other sprint, usually to add support for new payment methods or update third-party API versions.</li>
+          </ul>
+
+          <p>Composite risk score: <strong>high to critical</strong>. The testing strategy for this module includes: comprehensive unit tests for every calculation path (including currency conversion and partial refund math), contract tests against the payment gateway API, E2E tests covering the complete checkout flow with multiple payment methods, performance tests simulating Black Friday traffic levels, and quarterly security penetration testing focused on tokenization and PCI data handling.</p>
+
+          <h2>Tools and Techniques for Risk Tracking</h2>
+
+          <p>You do not need specialized software to implement risk-based testing. A spreadsheet works for small teams. For larger organizations, I recommend tracking risk scores alongside your test management tool — whether that is TestRail, Zephyr, qase.io, or even a structured Notion database. The key is that the risk matrix is accessible to the entire team and updated regularly.</p>
+
+          <p>Automated inputs improve accuracy over time. Connect your defect tracker to automatically update likelihood scores based on recent bug counts. Use code analysis tools to flag modules where complexity has increased. Integrate with your CI pipeline to track which areas have the most test failures. These automated signals reduce the manual effort of maintaining the risk matrix and make the assessments more objective.</p>
+
+          <h2>How Risk-Based Testing Improves Stakeholder Confidence</h2>
+
+          <p>One of the most underappreciated benefits of risk-based testing is how it transforms the conversation with stakeholders. When a product manager asks "Can we ship on Friday?" the typical QA response is either "We need more time to test everything" or a vague "We think it's ready." Neither answer inspires confidence.</p>
+
+          <p>With risk-based testing, the response becomes specific and data-driven: "All critical and high-risk areas are fully tested and passing. Medium-risk areas have regression coverage. The remaining untested items are low-risk preference settings. Here is the risk matrix showing our coverage against each priority level." This gives stakeholders the information they need to make an informed release decision, and it positions QA as a strategic partner rather than a gate that says yes or no.</p>
+
+          <hr>
+
+          <p>Risk-based testing is not about testing less — it is about testing with intention. By explicitly identifying where defects would hurt the most and directing effort accordingly, QA teams deliver more value with the same resources. The discipline required to maintain a risk matrix and adjust it dynamically pays for itself the first time it prevents a critical defect from reaching production while low-risk tests run in the background.</p>
+        </div>
+
+        <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
+        <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
+          <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener" class="blog-book-banner">
+            <div class="blog-book-banner-icon">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+            <div class="blog-book-banner-content">
+              <span class="blog-book-banner-label">From the Author</span>
+              <strong class="blog-book-banner-title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong>
+              <p class="blog-book-banner-desc">Comprehensive coverage of risk-based testing, test prioritization frameworks, and practical templates for your team.</p>
+            </div>
+            <span class="blog-book-banner-cta">
+              <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon
+            </span>
+          </a>
+        </aside>
+
+        <footer class="blog-article-footer">
+          <div class="blog-article-tags">
+            <span class="blog-article-tag-item">Risk-Based Testing</span>
+            <span class="blog-article-tag-item">QA Strategy</span>
+            <span class="blog-article-tag-item">ISTQB</span>
+            <span class="blog-article-tag-item">Test Planning</span>
+            <span class="blog-article-tag-item">Test Prioritization</span>
+            <span class="blog-article-tag-item">Quality Engineering</span>
+          </div>
+
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <span data-i18n="blog.discuss">Discuss on LinkedIn</span>
+          </a>
+
+          <!--
+          <div class="blog-article-nav">
+            <a href="#" class="blog-article-nav-link is-prev">
+              <span class="blog-article-nav-label">Previous</span>
+              <span class="blog-article-nav-title">Previous article title here</span>
+            </a>
+            <a href="#" class="blog-article-nav-link is-next">
+              <span class="blog-article-nav-label">Next</span>
+              <span class="blog-article-nav-title">Next article title here</span>
+            </a>
+          </div>
+          -->
+        </footer>
+
+      </article>
+
+      <!-- Comment Section (placeholder) -->
+      <section class="blog-comments" aria-labelledby="comments-heading">
+        <div class="blog-comments-header">
+          <h2 id="comments-heading">Comments</h2>
+          <span class="blog-comments-count">0 comments</span>
+        </div>
+
+        <form class="blog-comment-form" id="commentForm" novalidate>
+          <div class="blog-comment-form-row">
+            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
+            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+          </div>
+          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <div class="blog-comment-form-footer">
+            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit">Post Comment</button>
+          </div>
+        </form>
+
+        <div class="blog-comment-notice" id="commentNotice" hidden>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <div>
+            <strong>Thank you for your comment.</strong>
+            <p>All comments are moderated and will appear after review.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Slot: Bottom (reserved for future ad network) -->
+      <aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden>
+        <!-- Paste Carbon Ads, AdSense, or EthicalAds script here when ready -->
+      </aside>
+
+      <div class="blog-affiliate-disclosure">
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+
+      <div class="blog-article-back">
+        <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="links">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span>
+            <div class="footer-logo">Elio Navarrete</div>
+            <p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p>
+            <p class="footer-summary" data-i18n="footer.summary">
+              Quality engineering, test automation and applied AI for teams, products and academic initiatives.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
+            <ul class="footer-link-list">
+              <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+              <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+              <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+              <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+              <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-connect">
+            <span class="footer-heading" data-i18n="footer.connect">Connect</span>
+            <ul class="footer-social">
+              <li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
+              <li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li>
+              <li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li>
+              <li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
+          <div class="footer-meta">
+            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    // ===== Mobile Menu =====
+    (function() {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        var focusableEls = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        function setMenuOpen(isOpen) {
+          menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+          if (isOpen && focusableEls.length) focusableEls[0].focus();
+          else if (!isOpen) toggle.focus();
+        }
+        toggle.addEventListener('click', function() { setMenuOpen(!menu.classList.contains('active')); });
+        menu.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { setMenuOpen(false); }); });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) { setMenuOpen(false); return; }
+          if (e.key === 'Tab' && menu.classList.contains('active') && focusableEls.length) {
+            var first = focusableEls[0], last = focusableEls[focusableEls.length - 1];
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+          }
+        });
+      }
+    })();
+    </script>
+
+    <!-- Comment form placeholder handler -->
+    <script>
+    (function() {
+      var form = document.getElementById('commentForm');
+      var notice = document.getElementById('commentNotice');
+      if (form && notice) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          notice.removeAttribute('hidden');
+        });
+      }
+    })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="How to design testing stages in your CI/CD pipeline that balance speed with confidence — from pre-commit hooks to production canaries. By Elio Navarrete.">
+    <meta name="keywords" content="CI/CD, Pipeline Testing, GitHub Actions, DevOps, Test Automation, Quality Gates, Elio Navarrete">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png">
+    <link rel="canonical" href="https://elionavarrete.com/blog/cicd-pipeline-testing.html">
+    <title>CI/CD Pipeline Testing: A Complete Integration Guide | Elio Navarrete</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://elionavarrete.com/blog/cicd-pipeline-testing.html">
+    <meta property="og:title" content="CI/CD Pipeline Testing: A Complete Integration Guide">
+    <meta property="og:description" content="How to design testing stages in your CI/CD pipeline that balance speed with confidence — from pre-commit hooks to production canaries.">
+    <meta property="og:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <meta property="article:author" content="https://elionavarrete.com/">
+    <meta property="article:published_time" content="2026-03-19">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CI/CD Pipeline Testing: A Complete Integration Guide">
+    <meta name="twitter:description" content="How to design testing stages in your CI/CD pipeline that balance speed with confidence — from pre-commit hooks to production canaries.">
+    <meta name="twitter:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/cicd-pipeline-testing.html">
+    <link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/cicd-pipeline-testing.html?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/cicd-pipeline-testing.html">
+
+    <!-- Preconnect CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload data files -->
+    <link rel="preload" href="../assets/data/i18n.json" as="fetch" crossorigin>
+
+    <!-- Prism.js syntax highlighting (One Dark theme) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+      <link rel="stylesheet" href="../assets/css/responsive.css">
+    </noscript>
+
+    <!-- JSON-LD: BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "CI/CD Pipeline Testing: A Complete Integration Guide",
+      "description": "How to design testing stages in your CI/CD pipeline that balance speed with confidence — from pre-commit hooks to production canaries.",
+      "author": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/", "@id": "https://elionavarrete.com/#author" },
+      "publisher": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/" },
+      "datePublished": "2026-03-19",
+      "dateModified": "2026-03-19",
+      "mainEntityOfPage": "https://elionavarrete.com/blog/cicd-pipeline-testing.html",
+      "image": "https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg",
+      "articleSection": "Test Automation",
+      "wordCount": 1400,
+      "timeRequired": "PT11M"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://elionavarrete.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://elionavarrete.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "CI/CD Pipeline Testing: A Complete Integration Guide", "item": "https://elionavarrete.com/blog/cicd-pipeline-testing.html" }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+    <div class="nav-top-line">
+      <span class="nav-top-line-glow top"></span>
+      <span class="nav-top-line-glow bottom"></span>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html" class="nav-brand">
+            <span class="nav-brand-name">ELIO NAVARRETE</span>
+            <span class="nav-brand-divider" aria-hidden="true"></span>
+            <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+          <li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+          <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+          <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+        </ul>
+        <div class="nav-utilities">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+            <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+            <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+          </div>
+          <div class="nav-language" aria-label="Language selector">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
+            <span class="nav-language-separator" aria-hidden="true">|</span>
+            <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+          </div>
+        </div>
+        <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <div class="hamburger-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    </header>
+
+    <!-- i18n (configurable base path for subdirectory) -->
+    <script>window.__i18nBase = '../assets/data/';</script>
+    <script defer src="../assets/js/i18n.js"></script>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+        <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+        <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-menu-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+      </div>
+    </div>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <main class="blog-article-page" id="main-content">
+      <article class="blog-article">
+
+        <header class="blog-article-header">
+          <span class="blog-article-tag" data-i18n="blog.filter.automation">Automation</span>
+          <h1 class="blog-article-title">CI/CD Pipeline Testing: A Complete Integration Guide</h1>
+          <div class="blog-article-meta">
+            <span>Elio Navarrete</span>
+            <span class="blog-article-meta-sep" aria-hidden="true"></span>
+            <span>11 <span data-i18n="blog.readTime">min read</span></span>
+          </div>
+        </header>
+
+        <div class="blog-article-body">
+          <p>A test suite is only as valuable as when it runs. You can have the most comprehensive Playwright tests, the best contract testing setup, and meticulous performance benchmarks — but if they don't run at the right moment in your delivery pipeline, they're documentation, not quality gates. The <strong>when</strong> and <strong>where</strong> of test execution is just as important as the <strong>what</strong>.</p>
+
+          <p>This article maps out the complete testing pipeline — from the moment a developer hits save to the moment a change reaches production. I'll share the architecture I use across teams, with concrete GitHub Actions configurations you can adapt to your own projects.</p>
+
+          <h2>The Testing Pipeline Spectrum</h2>
+
+          <p>Think of your delivery pipeline as a series of quality gates, each with increasing scope and cost:</p>
+
+          <ol>
+            <li><strong>Pre-commit</strong> — runs on the developer's machine before code is committed. Sub-second to seconds.</li>
+            <li><strong>PR / Pull Request</strong> — runs in CI when a PR is opened or updated. Minutes.</li>
+            <li><strong>Merge to main</strong> — runs after code lands on the main branch. Minutes to tens of minutes.</li>
+            <li><strong>Deployment</strong> — runs after deployment to an environment. Minutes.</li>
+            <li><strong>Production</strong> — runs continuously against live systems. Ongoing.</li>
+          </ol>
+
+          <p>Each gate should catch different categories of defects. The principle: <strong>fail fast, fail cheap</strong>. Catch what you can locally before it costs CI minutes, catch integration issues in PR checks before they block the team, and validate production behavior continuously.</p>
+
+          <h2>Pre-Commit: The First Gate</h2>
+
+          <p>Pre-commit hooks are the cheapest quality gate you have. They run on the developer's machine with zero CI cost. The goal is to catch obvious issues before they enter the repository.</p>
+
+          <p>I use <a href="https://typicode.github.io/husky/" target="_blank" rel="noopener">Husky</a> with lint-staged for this:</p>
+
+          <pre role="region" aria-label="Pre-commit hook configuration"><code class="language-bash">#!/usr/bin/env sh
+# .husky/pre-commit
+
+npx lint-staged</code></pre>
+
+          <pre role="region" aria-label="lint-staged configuration"><code class="language-json">{
+  "*.{ts,tsx}": [
+    "eslint --fix --max-warnings 0",
+    "prettier --write"
+  ],
+  "*.{ts,tsx}": [
+    "tsc --noEmit --pretty"
+  ],
+  "tests/unit/**/*.test.ts": [
+    "vitest run --reporter=dot"
+  ]
+}</code></pre>
+
+          <p>This ensures every commit has clean linting, correct types, and passing unit tests for changed files. Total execution time: under 10 seconds for most changesets. Developers who skip this step (using <code>--no-verify</code>) should be gently reminded that they're trading 10 seconds of local feedback for 10 minutes of CI failure.</p>
+
+          <h2>PR Stage: Integration and Visual Regression</h2>
+
+          <p>When a PR is opened, the pipeline should validate everything the pre-commit hook doesn't cover: integration tests, visual regression, security scans, and cross-browser checks. This is where most of your CI budget should go.</p>
+
+          <p>Here's the GitHub Actions workflow I use as a baseline:</p>
+
+          <pre role="region" aria-label="GitHub Actions PR workflow"><code class="language-yaml"># .github/workflows/pr-checks.yml
+name: PR Quality Gates
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  unit-and-lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test:unit -- --coverage
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: test_db
+          POSTGRES_PASSWORD: test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run test:integration
+        env:
+          DATABASE_URL: postgresql://postgres:test@localhost:5432/test_db
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e -- --shard=${{ matrix.shard }}
+        strategy:
+          matrix:
+            shard: [1/3, 2/3, 3/3]
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-traces-${{ matrix.shard }}
+          path: test-results/
+
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm audit --audit-level=high
+      - uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          severity: CRITICAL,HIGH</code></pre>
+
+          <p>Several design decisions are important here. The <code>concurrency</code> block cancels in-progress runs when a PR is updated — no point running checks on a commit the developer has already superseded. The E2E job uses <strong>sharding</strong> to split the Playwright suite across three parallel runners, reducing wall-clock time by roughly 60%. And the <code>if: failure()</code> condition on trace uploads ensures you only store debugging artifacts when tests actually fail, keeping storage costs low.</p>
+
+          <h2>Merge to Main: Full Regression</h2>
+
+          <p>After a PR is merged, the main branch should run the complete test suite — including tests that are too slow or too expensive for every PR. This typically includes:</p>
+
+          <ul>
+            <li><strong>Full E2E suite</strong> across all browsers (Chromium, Firefox, WebKit)</li>
+            <li><strong>Performance benchmarks</strong> compared against baseline</li>
+            <li><strong>Contract test verification</strong> against all consumer pacts</li>
+            <li><strong>Visual regression</strong> with screenshot comparison</li>
+          </ul>
+
+          <p>The merge-to-main pipeline is your <strong>safety net</strong>. PR checks might be optimized for speed (running only Chromium, skipping slow tests), but the merge pipeline runs everything. If something slips through, this gate catches it before deployment.</p>
+
+          <pre role="region" aria-label="Merge to main performance benchmark step"><code class="language-yaml"># Part of .github/workflows/merge-checks.yml
+  performance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test:perf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: perf-results
+          path: perf-results/
+      - name: Check performance budgets
+        run: |
+          node scripts/check-perf-budgets.js \
+            --baseline perf-results/baseline.json \
+            --current perf-results/current.json \
+            --threshold 10</code></pre>
+
+          <h2>Deployment: Smoke Tests and Canaries</h2>
+
+          <p>After deployment to staging or production, run <strong>smoke tests</strong> — a small, fast subset of your E2E suite that validates critical user paths work in the deployed environment. These tests answer one question: "is the deployment healthy enough to receive traffic?"</p>
+
+          <p>For production deployments, I recommend a <strong>canary strategy</strong>: route a small percentage of traffic (5-10%) to the new version while running smoke tests. If the tests pass and error rates remain stable, gradually increase traffic. If anything fails, roll back automatically.</p>
+
+          <pre role="region" aria-label="Smoke test TypeScript configuration"><code class="language-typescript">// tests/smoke/critical-paths.spec.ts
+import { test, expect } from '@playwright/test';
+
+test.describe('Smoke Tests - Critical Paths', () => {
+  test('homepage loads and displays key elements', async ({ page }) => {
+    await page.goto(process.env.DEPLOY_URL!);
+    await expect(page).toHaveTitle(/MyApp/);
+    await expect(page.getByRole('navigation')).toBeVisible();
+  });
+
+  test('user can authenticate', async ({ page }) => {
+    await page.goto(`${process.env.DEPLOY_URL}/login`);
+    await page.getByLabel('Email').fill(process.env.SMOKE_USER!);
+    await page.getByLabel('Password').fill(process.env.SMOKE_PASS!);
+    await page.getByRole('button', { name: 'Sign in' }).click();
+    await expect(page.getByText('Dashboard')).toBeVisible({ timeout: 10000 });
+  });
+
+  test('API health check returns OK', async ({ request }) => {
+    const response = await request.get(`${process.env.DEPLOY_URL}/api/health`);
+    expect(response.ok()).toBeTruthy();
+    const body = await response.json();
+    expect(body.status).toBe('healthy');
+    expect(body.database).toBe('connected');
+  });
+});</code></pre>
+
+          <p>Smoke tests should complete in <strong>under 2 minutes</strong>. If they take longer, you're running too many. Be ruthless about keeping this suite small and fast — its job is to detect catastrophic deployment failures, not catch edge cases.</p>
+
+          <h2>Parallelization Strategies</h2>
+
+          <p>Pipeline speed is a feature. Slow pipelines reduce developer productivity, encourage skipping checks, and increase the batch size of changes — which increases risk. Here are the parallelization strategies I apply consistently:</p>
+
+          <ul>
+            <li><strong>Job-level parallelism</strong>: Unit tests, integration tests, E2E tests, and security scans should all run as separate jobs that start simultaneously. A pipeline where these run sequentially is wasting 60-70% of its wall-clock time.</li>
+            <li><strong>Test sharding</strong>: Split large test suites across multiple runners using Playwright's built-in <code>--shard</code> flag. Three shards typically cut E2E execution from 15 minutes to 5.</li>
+            <li><strong>Selective execution</strong>: Use path filters to skip irrelevant jobs. A change to documentation shouldn't trigger E2E tests. GitHub Actions' <code>paths</code> filter makes this straightforward.</li>
+            <li><strong>Caching aggressively</strong>: Cache <code>node_modules</code>, Playwright browsers, and Docker layers. The difference between a cold and warm pipeline can be 3-5 minutes.</li>
+          </ul>
+
+          <h2>Artifact Management</h2>
+
+          <p>When tests fail in CI, developers need enough context to debug without reproducing the failure locally. This means collecting and storing the right artifacts:</p>
+
+          <ul>
+            <li><strong>Playwright traces</strong>: A trace file contains every network request, DOM snapshot, and console log from a test run. Upload these on failure and developers can debug visually in the <a href="https://trace.playwright.dev/" target="_blank" rel="noopener">Trace Viewer</a>.</li>
+            <li><strong>Screenshots and videos</strong>: Configure Playwright to capture screenshots on failure and videos for retried tests. These are invaluable for visual bugs and timing-related failures.</li>
+            <li><strong>Test reports</strong>: Generate HTML reports that summarize pass/fail/skip counts, execution time per test, and failure trends over time.</li>
+            <li><strong>Coverage reports</strong>: Upload coverage data and track trends. Declining coverage on a feature should trigger a conversation, not an automated block.</li>
+          </ul>
+
+          <h2>Measuring Pipeline Health</h2>
+
+          <p>A pipeline is a system, and like any system, it needs observability. These are the metrics I track:</p>
+
+          <ul>
+            <li><strong>P95 pipeline duration</strong>: How long does the 95th percentile PR take to get feedback? Target: under 15 minutes for the full PR check suite.</li>
+            <li><strong>Flake rate</strong>: What percentage of test failures are false positives? Track this weekly. A flake rate above 5% erodes trust in the pipeline. Developers start ignoring failures, and real bugs slip through.</li>
+            <li><strong>MTTR (Mean Time to Repair)</strong>: When the pipeline breaks, how long until it's green again? This measures how quickly the team responds to quality regressions.</li>
+            <li><strong>Queue time</strong>: How long do jobs wait for a runner before executing? If queue times are consistently above 2 minutes, you need more runners or better concurrency management.</li>
+          </ul>
+
+          <pre role="region" aria-label="Pipeline health metrics Bash script"><code class="language-bash">#!/bin/bash
+# scripts/pipeline-metrics.sh — collect weekly pipeline health metrics
+
+echo "=== Pipeline Health Report ==="
+echo "Period: $(date -d '7 days ago' +%Y-%m-%d) to $(date +%Y-%m-%d)"
+echo ""
+
+# P95 duration (from GitHub API)
+gh api repos/$REPO/actions/runs \
+  --jq '[.workflow_runs[] | select(.conclusion=="success") | .run_started_at as $start | .updated_at as $end | (($end | fromdate) - ($start | fromdate))] | sort | .[length * 0.95 | floor]' \
+  | xargs -I {} echo "P95 Duration: {} seconds"
+
+# Flake rate (tests that failed then passed on retry)
+echo "Flake Rate: $(cat test-results/flake-report.json | jq '.flakeRate')"
+
+# Failed runs this week
+gh api repos/$REPO/actions/runs \
+  --jq '[.workflow_runs[] | select(.conclusion=="failure")] | length' \
+  | xargs -I {} echo "Failed Runs: {}"</code></pre>
+
+          <blockquote>
+            <p>A fast, reliable pipeline is a competitive advantage. Teams with 10-minute feedback loops ship 3x more often than teams with 45-minute pipelines — and with fewer production incidents.</p>
+          </blockquote>
+
+          <hr>
+
+          <p>Your CI/CD pipeline is the backbone of your quality strategy. Design it with the same care you'd design your application architecture: clear separation of concerns at each stage, fast feedback loops, comprehensive artifact collection, and observable health metrics. The pipeline shouldn't just run tests — it should give your team confidence that every merge to main is safe to deploy.</p>
+        </div>
+
+        <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
+        <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
+          <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener" class="blog-book-banner">
+            <div class="blog-book-banner-icon">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+            <div class="blog-book-banner-content">
+              <span class="blog-book-banner-label">From the Author</span>
+              <strong class="blog-book-banner-title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong>
+              <p class="blog-book-banner-desc">Production-ready CI/CD templates, pipeline design patterns, and test automation strategies for modern delivery teams.</p>
+            </div>
+            <span class="blog-book-banner-cta">
+              <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon
+            </span>
+          </a>
+        </aside>
+
+        <footer class="blog-article-footer">
+          <div class="blog-article-tags">
+            <span class="blog-article-tag-item">CI/CD</span>
+            <span class="blog-article-tag-item">Pipeline Testing</span>
+            <span class="blog-article-tag-item">GitHub Actions</span>
+            <span class="blog-article-tag-item">DevOps</span>
+            <span class="blog-article-tag-item">Test Automation</span>
+            <span class="blog-article-tag-item">Quality Gates</span>
+          </div>
+
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <span data-i18n="blog.discuss">Discuss on LinkedIn</span>
+          </a>
+
+          <!--
+          <div class="blog-article-nav">
+            <a href="#" class="blog-article-nav-link is-prev">
+              <span class="blog-article-nav-label">Previous</span>
+              <span class="blog-article-nav-title">Previous article title here</span>
+            </a>
+            <a href="#" class="blog-article-nav-link is-next">
+              <span class="blog-article-nav-label">Next</span>
+              <span class="blog-article-nav-title">Next article title here</span>
+            </a>
+          </div>
+          -->
+        </footer>
+
+      </article>
+
+      <!-- Comment Section (placeholder) -->
+      <section class="blog-comments" aria-labelledby="comments-heading">
+        <div class="blog-comments-header">
+          <h2 id="comments-heading">Comments</h2>
+          <span class="blog-comments-count">0 comments</span>
+        </div>
+
+        <form class="blog-comment-form" id="commentForm" novalidate>
+          <div class="blog-comment-form-row">
+            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
+            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+          </div>
+          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <div class="blog-comment-form-footer">
+            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit">Post Comment</button>
+          </div>
+        </form>
+
+        <div class="blog-comment-notice" id="commentNotice" hidden>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <div>
+            <strong>Thank you for your comment.</strong>
+            <p>All comments are moderated and will appear after review.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Slot: Bottom (reserved for future ad network) -->
+      <aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden>
+        <!-- Paste Carbon Ads, AdSense, or EthicalAds script here when ready -->
+      </aside>
+
+      <div class="blog-affiliate-disclosure">
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+
+      <div class="blog-article-back">
+        <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="links">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span>
+            <div class="footer-logo">Elio Navarrete</div>
+            <p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p>
+            <p class="footer-summary" data-i18n="footer.summary">
+              Quality engineering, test automation and applied AI for teams, products and academic initiatives.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
+            <ul class="footer-link-list">
+              <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+              <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+              <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+              <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+              <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-connect">
+            <span class="footer-heading" data-i18n="footer.connect">Connect</span>
+            <ul class="footer-social">
+              <li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
+              <li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li>
+              <li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li>
+              <li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
+          <div class="footer-meta">
+            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    // ===== Mobile Menu =====
+    (function() {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        var focusableEls = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        function setMenuOpen(isOpen) {
+          menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+          if (isOpen && focusableEls.length) focusableEls[0].focus();
+          else if (!isOpen) toggle.focus();
+        }
+        toggle.addEventListener('click', function() { setMenuOpen(!menu.classList.contains('active')); });
+        menu.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { setMenuOpen(false); }); });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) { setMenuOpen(false); return; }
+          if (e.key === 'Tab' && menu.classList.contains('active') && focusableEls.length) {
+            var first = focusableEls[0], last = focusableEls[focusableEls.length - 1];
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+          }
+        });
+      }
+    })();
+    </script>
+
+    <!-- Comment form placeholder handler -->
+    <script>
+    (function() {
+      var form = document.getElementById('commentForm');
+      var notice = document.getElementById('commentNotice');
+      if (form && notice) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          notice.removeAttribute('hidden');
+        });
+      }
+    })();
+    </script>
+
+    <!-- Prism.js syntax highlighting (deferred) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="How embedding testing earlier in the development lifecycle reduces costs, catches defects sooner, and transforms QA from a bottleneck into an enabler.">
+    <meta name="keywords" content="Shift-Left Testing, QA Strategy, CI/CD, DevOps, Testing Culture, ISTQB, Elio Navarrete">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png">
+    <link rel="canonical" href="https://elionavarrete.com/blog/shift-left-testing.html">
+    <title>Shift-Left Testing: Moving Quality Earlier in the Pipeline | Elio Navarrete</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://elionavarrete.com/blog/shift-left-testing.html">
+    <meta property="og:title" content="Shift-Left Testing: Moving Quality Earlier in the Pipeline">
+    <meta property="og:description" content="How embedding testing earlier in the development lifecycle reduces costs, catches defects sooner, and transforms QA from a bottleneck into an enabler.">
+    <meta property="og:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <meta property="article:author" content="https://elionavarrete.com/">
+    <meta property="article:published_time" content="2026-03-19">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shift-Left Testing: Moving Quality Earlier in the Pipeline">
+    <meta name="twitter:description" content="How embedding testing earlier in the development lifecycle reduces costs, catches defects sooner, and transforms QA from a bottleneck into an enabler.">
+    <meta name="twitter:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/shift-left-testing.html">
+    <link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/shift-left-testing.html?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/shift-left-testing.html">
+
+    <!-- Preconnect CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload data files -->
+    <link rel="preload" href="../assets/data/i18n.json" as="fetch" crossorigin>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+      <link rel="stylesheet" href="../assets/css/responsive.css">
+    </noscript>
+
+    <!-- JSON-LD: BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Shift-Left Testing: Moving Quality Earlier in the Pipeline",
+      "description": "How embedding testing earlier in the development lifecycle reduces costs, catches defects sooner, and transforms QA from a bottleneck into an enabler.",
+      "author": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/", "@id": "https://elionavarrete.com/#author" },
+      "publisher": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/" },
+      "datePublished": "2026-03-19",
+      "dateModified": "2026-03-19",
+      "mainEntityOfPage": "https://elionavarrete.com/blog/shift-left-testing.html",
+      "image": "https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg",
+      "articleSection": "QA Strategy",
+      "wordCount": 1200,
+      "timeRequired": "PT9M"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://elionavarrete.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://elionavarrete.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Shift-Left Testing: Moving Quality Earlier in the Pipeline", "item": "https://elionavarrete.com/blog/shift-left-testing.html" }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+    <div class="nav-top-line">
+      <span class="nav-top-line-glow top"></span>
+      <span class="nav-top-line-glow bottom"></span>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html" class="nav-brand">
+            <span class="nav-brand-name">ELIO NAVARRETE</span>
+            <span class="nav-brand-divider" aria-hidden="true"></span>
+            <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+          <li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+          <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+          <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+        </ul>
+        <div class="nav-utilities">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+            <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+            <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+          </div>
+          <div class="nav-language" aria-label="Language selector">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
+            <span class="nav-language-separator" aria-hidden="true">|</span>
+            <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+          </div>
+        </div>
+        <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <div class="hamburger-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    </header>
+
+    <!-- i18n (configurable base path for subdirectory) -->
+    <script>window.__i18nBase = '../assets/data/';</script>
+    <script defer src="../assets/js/i18n.js"></script>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+        <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+        <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-menu-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+      </div>
+    </div>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <main class="blog-article-page" id="main-content">
+      <article class="blog-article">
+
+        <header class="blog-article-header">
+          <span class="blog-article-tag" data-i18n="blog.filter.qa">QA Strategy</span>
+          <h1 class="blog-article-title">Shift-Left Testing: Moving Quality Earlier in the Pipeline</h1>
+          <div class="blog-article-meta">
+            <span>Elio Navarrete</span>
+            <span class="blog-article-meta-sep" aria-hidden="true"></span>
+            <span>9 <span data-i18n="blog.readTime">min read</span></span>
+          </div>
+        </header>
+
+        <div class="blog-article-body">
+          <p>"Shift left" has become one of those phrases that everyone in software says but few teams practice with genuine discipline. At its core, the idea is straightforward: move testing activities earlier in the software development lifecycle so that defects are found when they are cheapest to fix. But the real challenge is not understanding the concept — it is changing the organizational habits, tooling, and culture required to make it work.</p>
+
+          <p>After leading QA teams across healthcare, fintech, and enterprise SaaS, and teaching the fundamentals of quality strategy at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener">UPC</a>, I have seen what separates teams that adopt shift-left successfully from those that treat it as a checkbox exercise. This article shares the practical patterns that actually work.</p>
+
+          <h2>What Shift-Left Really Means</h2>
+
+          <p>The traditional testing model places QA at the end of the development cycle: developers write code, hand it to QA, QA finds bugs, developers fix them, and the cycle repeats until someone decides the release is "good enough." This model has a well-documented problem.</p>
+
+          <p>The <a href="https://www.istqb.org/" target="_blank" rel="noopener">ISTQB Foundation Level syllabus</a> references research showing that a defect found during requirements analysis costs roughly <strong>1x</strong> to fix, while the same defect found in production costs <strong>30-100x</strong>. This is not a theoretical curve — I have seen it play out repeatedly in real projects. A missing validation rule that takes 15 minutes to add during design becomes a two-week incident response when it reaches production with real user data.</p>
+
+          <p>Shift-left testing means deliberately restructuring your process so that testing activities — not just execution, but test design, static analysis, and quality thinking — begin at the earliest possible phase. Requirements reviews, API contract validation, static code analysis, unit test gates: all of these are shift-left practices.</p>
+
+          <h2>The Cost Curve in Practice</h2>
+
+          <p>Consider a concrete scenario. Your team is building a new payment processing flow. In a traditional model, the QA engineer writes end-to-end tests after the feature is "dev complete." They discover that the API does not handle currency conversion edge cases correctly — amounts with more than two decimal places cause rounding errors.</p>
+
+          <p>In a shift-left model, this defect would be caught at multiple earlier stages. During API design review, a QA engineer participating in the spec review would flag the missing precision requirements. During development, a unit test enforcing decimal precision would catch the implementation error before the code leaves the developer's machine. During CI, a contract test validating the API schema would catch any drift between the spec and the implementation.</p>
+
+          <p>The shift-left version does not require more total effort — it redistributes the effort to where it has the highest return on investment.</p>
+
+          <h2>Practical Implementation</h2>
+
+          <p>Shift-left is not a single practice; it is a collection of practices applied at different stages. Here are the ones I have found most impactful across multiple teams and industries:</p>
+
+          <h3>Unit Test Gates in CI</h3>
+
+          <p>The most fundamental shift-left practice: no code merges without passing unit tests. This sounds obvious, but I still encounter teams where unit test failures are treated as warnings rather than blockers. The gate must be strict. If a developer's PR breaks existing tests or introduces new code without test coverage above a defined threshold, the merge is blocked. The threshold should be practical — I recommend starting at 70% line coverage for new code and increasing incrementally — not aspirational.</p>
+
+          <h3>Static Analysis as a First-Class Quality Gate</h3>
+
+          <p>Linters, type checkers, and static analysis tools like SonarQube or ESLint with custom rules catch entire categories of defects before any test executes. Null reference errors, unused variables, security vulnerabilities in dependencies, accessibility violations in markup — these are all detectable statically. The key is treating static analysis findings as blocking, not advisory. If your CI pipeline allows code with critical static analysis findings to merge, the tool is decorative.</p>
+
+          <h3>Developer-Written Component Tests</h3>
+
+          <p>One of the most effective shift-left patterns I have implemented is having developers write component-level integration tests for their own features. These are not unit tests (which test isolated functions) and not E2E tests (which test full user flows). They test a component's behavior with its real dependencies — database queries, API calls to downstream services, event handlers — in an isolated environment.</p>
+
+          <p>This practice has a powerful cultural side effect: developers who write their own tests start thinking about testability during design. They write cleaner interfaces, handle edge cases proactively, and produce code that is structurally easier for QA to test at higher levels.</p>
+
+          <h3>QA Involvement in Requirements and Design</h3>
+
+          <p>The earliest possible shift-left: having QA engineers participate in requirements discussions, design reviews, and sprint planning. Not as passive observers, but as active contributors who ask questions like: "What happens when this field is empty?", "How do we verify this works for users in different time zones?", "What is the expected behavior under network failure?"</p>
+
+          <p>In my experience, a single QA engineer in a design review meeting prevents more defects than a week of exploratory testing after the feature is built.</p>
+
+          <h2>The Cultural Shift: Coaching, Not Gatekeeping</h2>
+
+          <p>The hardest part of shift-left is not the tooling — it is the mindset change. In traditional organizations, QA is perceived as the team that finds bugs and blocks releases. In a shift-left organization, QA is the team that helps everyone build quality in from the start.</p>
+
+          <p>This means QA engineers need different skills. Instead of only writing test cases and executing them, they need to review pull requests, pair with developers on test design, create testing guidelines, and mentor junior developers on testability patterns. The role evolves from <em>tester</em> to <em>quality coach</em>.</p>
+
+          <p>When I transitioned my teams to this model, the initial resistance came from both sides. Developers felt that "testing is QA's job," and QA engineers felt that reviewing code was "not their responsibility." Both perspectives had to change. Quality is a shared responsibility, and the QA engineer's expertise is in knowing <em>what</em> to test and <em>how</em> to test it — not in being the only person who tests.</p>
+
+          <h2>Measuring Shift-Left Success</h2>
+
+          <p>If you cannot measure it, you cannot improve it. These are the metrics I track to evaluate whether a shift-left initiative is working:</p>
+
+          <ul>
+            <li><strong>Defect escape rate</strong>: The percentage of defects found in production versus total defects found. A successful shift-left initiative drives this number down over time. If you are finding 80% of defects before they reach staging, your early-stage practices are working.</li>
+            <li><strong>Time-to-feedback</strong>: How long does it take a developer to learn that their code has a quality problem? If the answer is "two days, when QA finishes their cycle," shift-left has not taken hold. If the answer is "eight minutes, when the CI pipeline completes," you are on track.</li>
+            <li><strong>Mean time to resolution (MTTR) for defects</strong>: Defects found earlier are typically resolved faster because the developer still has context. Track MTTR by phase (unit test, integration test, E2E, production) and you will see the data support the cost curve.</li>
+            <li><strong>Test pyramid health</strong>: The ratio of unit tests to integration tests to E2E tests. A healthy shift-left team has a wide base of fast unit tests, a moderate layer of integration tests, and a thin top of E2E tests covering critical paths. If your pyramid is inverted — more E2E than unit tests — your testing effort is concentrated too late.</li>
+          </ul>
+
+          <h2>Common Pitfalls</h2>
+
+          <p><strong>Shifting left without shifting mindset.</strong> Installing SonarQube and adding a unit test step to CI does not constitute shift-left. If developers ignore the quality gates, if QA is still excluded from design meetings, if test results are treated as noise — the tools are ceremony without substance.</p>
+
+          <p><strong>Mandating coverage numbers without context.</strong> A team that hits 90% code coverage by writing meaningless assertions is worse off than a team at 60% coverage with well-designed tests that target business-critical paths. Coverage is a useful signal, not a goal.</p>
+
+          <p><strong>Neglecting the right side.</strong> Shift-left does not mean "stop testing in later stages." You still need integration tests, E2E tests, performance tests, and production monitoring. The goal is to catch <em>more</em> defects early, not to eliminate later-stage testing entirely.</p>
+
+          <p><strong>Underestimating the training investment.</strong> Developers who have never written component tests need guidance. QA engineers who have never reviewed code need support. Budget time for pairing, workshops, and documentation. The productivity dip in the first two sprints pays for itself within a quarter.</p>
+
+          <hr>
+
+          <p>Shift-left testing is not a tool you install or a process you declare. It is a sustained organizational commitment to finding problems early, building quality into every phase, and treating QA as a discipline that enables speed rather than constraining it. The teams that internalize this — not as a buzzword but as a daily practice — ship faster, with fewer production incidents, and with engineers who are genuinely proud of what they release.</p>
+        </div>
+
+        <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
+        <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
+          <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener" class="blog-book-banner">
+            <div class="blog-book-banner-icon">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+            <div class="blog-book-banner-content">
+              <span class="blog-book-banner-label">From the Author</span>
+              <strong class="blog-book-banner-title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong>
+              <p class="blog-book-banner-desc">The complete framework behind this article — including shift-left strategies, test pyramid design, and CI/CD quality gates.</p>
+            </div>
+            <span class="blog-book-banner-cta">
+              <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon
+            </span>
+          </a>
+        </aside>
+
+        <footer class="blog-article-footer">
+          <div class="blog-article-tags">
+            <span class="blog-article-tag-item">Shift-Left</span>
+            <span class="blog-article-tag-item">QA Strategy</span>
+            <span class="blog-article-tag-item">CI/CD</span>
+            <span class="blog-article-tag-item">DevOps</span>
+            <span class="blog-article-tag-item">Testing Culture</span>
+            <span class="blog-article-tag-item">ISTQB</span>
+          </div>
+
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <span data-i18n="blog.discuss">Discuss on LinkedIn</span>
+          </a>
+
+          <!--
+          <div class="blog-article-nav">
+            <a href="#" class="blog-article-nav-link is-prev">
+              <span class="blog-article-nav-label">Previous</span>
+              <span class="blog-article-nav-title">Previous article title here</span>
+            </a>
+            <a href="#" class="blog-article-nav-link is-next">
+              <span class="blog-article-nav-label">Next</span>
+              <span class="blog-article-nav-title">Next article title here</span>
+            </a>
+          </div>
+          -->
+        </footer>
+
+      </article>
+
+      <!-- Comment Section (placeholder) -->
+      <section class="blog-comments" aria-labelledby="comments-heading">
+        <div class="blog-comments-header">
+          <h2 id="comments-heading">Comments</h2>
+          <span class="blog-comments-count">0 comments</span>
+        </div>
+
+        <form class="blog-comment-form" id="commentForm" novalidate>
+          <div class="blog-comment-form-row">
+            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
+            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+          </div>
+          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <div class="blog-comment-form-footer">
+            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit">Post Comment</button>
+          </div>
+        </form>
+
+        <div class="blog-comment-notice" id="commentNotice" hidden>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <div>
+            <strong>Thank you for your comment.</strong>
+            <p>All comments are moderated and will appear after review.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Slot: Bottom (reserved for future ad network) -->
+      <aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden>
+        <!-- Paste Carbon Ads, AdSense, or EthicalAds script here when ready -->
+      </aside>
+
+      <div class="blog-affiliate-disclosure">
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+
+      <div class="blog-article-back">
+        <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="links">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span>
+            <div class="footer-logo">Elio Navarrete</div>
+            <p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p>
+            <p class="footer-summary" data-i18n="footer.summary">
+              Quality engineering, test automation and applied AI for teams, products and academic initiatives.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
+            <ul class="footer-link-list">
+              <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+              <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+              <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+              <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+              <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-connect">
+            <span class="footer-heading" data-i18n="footer.connect">Connect</span>
+            <ul class="footer-social">
+              <li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
+              <li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li>
+              <li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li>
+              <li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
+          <div class="footer-meta">
+            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    // ===== Mobile Menu =====
+    (function() {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        var focusableEls = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        function setMenuOpen(isOpen) {
+          menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+          if (isOpen && focusableEls.length) focusableEls[0].focus();
+          else if (!isOpen) toggle.focus();
+        }
+        toggle.addEventListener('click', function() { setMenuOpen(!menu.classList.contains('active')); });
+        menu.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { setMenuOpen(false); }); });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) { setMenuOpen(false); return; }
+          if (e.key === 'Tab' && menu.classList.contains('active') && focusableEls.length) {
+            var first = focusableEls[0], last = focusableEls[focusableEls.length - 1];
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+          }
+        });
+      }
+    })();
+    </script>
+
+    <!-- Comment form placeholder handler -->
+    <script>
+    (function() {
+      var form = document.getElementById('commentForm');
+      var notice = document.getElementById('commentNotice');
+      if (form && notice) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          notice.removeAttribute('hidden');
+        });
+      }
+    })();
+    </script>
+  </body>
+</html>

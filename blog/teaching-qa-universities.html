@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Reflections on teaching software quality assurance at UPC — how to make QA education relevant in an industry that evolves faster than curricula. By Elio Navarrete.">
+    <meta name="keywords" content="Teaching, QA Education, University, ISTQB, Mentoring, Software Quality, Elio Navarrete">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png">
+    <link rel="canonical" href="https://elionavarrete.com/blog/teaching-qa-universities.html">
+    <title>Teaching QA in Universities: Bridging Theory and Practice | Elio Navarrete</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://elionavarrete.com/blog/teaching-qa-universities.html">
+    <meta property="og:title" content="Teaching QA in Universities: Bridging Theory and Practice">
+    <meta property="og:description" content="Reflections on teaching software quality assurance at UPC — how to make QA education relevant in an industry that evolves faster than curricula.">
+    <meta property="og:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <meta property="article:author" content="https://elionavarrete.com/">
+    <meta property="article:published_time" content="2026-03-19">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Teaching QA in Universities: Bridging Theory and Practice">
+    <meta name="twitter:description" content="Reflections on teaching software quality assurance at UPC — how to make QA education relevant in an industry that evolves faster than curricula.">
+    <meta name="twitter:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/teaching-qa-universities.html">
+    <link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/teaching-qa-universities.html?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/teaching-qa-universities.html">
+
+    <!-- Preconnect CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload data files -->
+    <link rel="preload" href="../assets/data/i18n.json" as="fetch" crossorigin>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+      <link rel="stylesheet" href="../assets/css/responsive.css">
+    </noscript>
+
+    <!-- JSON-LD: BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Teaching QA in Universities: Bridging Theory and Practice",
+      "description": "Reflections on teaching software quality assurance at UPC — how to make QA education relevant in an industry that evolves faster than curricula.",
+      "author": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/", "@id": "https://elionavarrete.com/#author" },
+      "publisher": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/" },
+      "datePublished": "2026-03-19",
+      "dateModified": "2026-03-19",
+      "mainEntityOfPage": "https://elionavarrete.com/blog/teaching-qa-universities.html",
+      "image": "https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg",
+      "articleSection": "Teaching",
+      "wordCount": 1100,
+      "timeRequired": "PT8M"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://elionavarrete.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://elionavarrete.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Teaching QA in Universities: Bridging Theory and Practice", "item": "https://elionavarrete.com/blog/teaching-qa-universities.html" }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+    <div class="nav-top-line">
+      <span class="nav-top-line-glow top"></span>
+      <span class="nav-top-line-glow bottom"></span>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html" class="nav-brand">
+            <span class="nav-brand-name">ELIO NAVARRETE</span>
+            <span class="nav-brand-divider" aria-hidden="true"></span>
+            <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+          <li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+          <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+          <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+        </ul>
+        <div class="nav-utilities">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+            <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+            <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+          </div>
+          <div class="nav-language" aria-label="Language selector">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
+            <span class="nav-language-separator" aria-hidden="true">|</span>
+            <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+          </div>
+        </div>
+        <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <div class="hamburger-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    </header>
+
+    <!-- i18n (configurable base path for subdirectory) -->
+    <script>window.__i18nBase = '../assets/data/';</script>
+    <script defer src="../assets/js/i18n.js"></script>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+        <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+        <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-menu-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+      </div>
+    </div>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <main class="blog-article-page" id="main-content">
+      <article class="blog-article">
+
+        <header class="blog-article-header">
+          <span class="blog-article-tag" data-i18n="blog.filter.teaching">Teaching</span>
+          <h1 class="blog-article-title">Teaching QA in Universities: Bridging Theory and Practice</h1>
+          <div class="blog-article-meta">
+            <span>Elio Navarrete</span>
+            <span class="blog-article-meta-sep" aria-hidden="true"></span>
+            <span>8 <span data-i18n="blog.readTime">min read</span></span>
+          </div>
+        </header>
+
+        <div class="blog-article-body">
+          <p>Most software engineering graduates enter the workforce having written thousands of lines of code but fewer than a dozen test cases. They can build a REST API from scratch but cannot articulate a test strategy for it. This is not their fault — it's a curriculum problem. And after teaching quality assurance at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener">UPC</a> in Lima for several years while simultaneously leading QA teams in production environments, I've developed strong opinions about how to close this gap.</p>
+
+          <p>This article shares what I've learned about making QA education genuinely useful — not just academically correct, but professionally relevant from the first day a graduate joins a team.</p>
+
+          <h2>The Gap Between Academic QA and Industry Reality</h2>
+
+          <p>Traditional computer science curricula treat testing as an afterthought. A typical software engineering course might dedicate two lectures to "verification and validation," cover the V-model, mention black-box vs. white-box techniques, and move on. Students graduate knowing the <em>vocabulary</em> of testing without understanding its <em>practice</em>.</p>
+
+          <p>Meanwhile, the industry needs engineers who can design a test pyramid for a microservices architecture, write reliable E2E tests in Playwright, configure a CI/CD pipeline with quality gates, and make risk-based decisions about what to automate and what to test manually. The disconnect is enormous.</p>
+
+          <p>The root cause: <strong>most QA curricula are designed by academics who haven't worked in software delivery teams</strong>. They teach testing theory well but miss the operational reality — the flaky tests, the environment configuration nightmares, the political dynamics of convincing a product owner that test infrastructure deserves investment.</p>
+
+          <h2>Curriculum Design: What Students Actually Need</h2>
+
+          <p>When I redesigned the QA module at UPC, I started with a question I ask every industry professional I work with: <em>"What do you wish your junior QA engineers already knew on day one?"</em> The answers were remarkably consistent:</p>
+
+          <ul>
+            <li><strong>Test strategy thinking</strong> — the ability to look at a feature and decide which tests to write, at which level, and why.</li>
+            <li><strong>Automation fundamentals</strong> — not just tool syntax, but understanding the Page Object pattern, test data management, and what makes a test reliable vs. flaky.</li>
+            <li><strong>API testing</strong> — most modern applications are API-first, yet graduates rarely know how to use Postman, let alone write contract tests.</li>
+            <li><strong>CI/CD awareness</strong> — understanding how tests fit into a delivery pipeline, what a quality gate is, and why test execution time matters.</li>
+            <li><strong>Communication</strong> — writing a clear bug report, defending a quality decision to stakeholders, explaining technical risk in business terms.</li>
+          </ul>
+
+          <p>Notice what's absent from this list: nobody asked for students who memorized ISTQB terminology. They want engineers who can <em>think</em> about quality, not just define it.</p>
+
+          <h2>Hands-On From Day One</h2>
+
+          <p>My courses begin with tools, not theory. In the first session, students install <a href="https://playwright.dev/" target="_blank" rel="noopener">Playwright</a>, write a test that navigates to a real website and asserts something visible, and run it. By the end of week one, they've seen a green test pass and a red test fail. They've experienced the feedback loop.</p>
+
+          <p>Theory follows practice, not the other way around. After students have written tests that break due to timing issues, I introduce the concept of synchronization strategies. After they've struggled with duplicated setup code, I introduce fixtures and the Page Object Model. The theory lands because they've already felt the pain it addresses.</p>
+
+          <p>This approach mirrors how professionals actually learn. Nobody reads the <a href="https://www.istqb.org/" target="_blank" rel="noopener">ISTQB Foundation Level syllabus</a> cover to cover before writing their first test. They learn by doing, and they seek theory when they hit a wall. My classroom replicates that cycle intentionally.</p>
+
+          <h2>Teaching Strategy, Not Just Tools</h2>
+
+          <p>Tools change. Selenium dominated for a decade; now Playwright and Cypress are the standard. Teaching a specific tool's API has a half-life of maybe three years. Teaching <em>test strategy</em> lasts an entire career.</p>
+
+          <p>I dedicate significant time to exercises where students receive a product specification and must produce a test strategy document — not code, just decisions. What testing levels? What's the automation vs. manual split? Where are the highest-risk areas? What environments are needed? What are the exit criteria?</p>
+
+          <p>These exercises force students to think like QA leads, not just test writers. They quickly discover that the hardest part of QA isn't writing the test — it's deciding <em>which</em> test to write and <em>when</em> it's good enough to stop testing.</p>
+
+          <h2>ISTQB as Foundation, Not Ceiling</h2>
+
+          <p>The ISTQB Foundation Level certification provides excellent vocabulary and a shared mental model for testing concepts. I use its structure as the backbone of my curriculum. Equivalence partitioning, boundary value analysis, decision tables, state transition testing — these techniques are timeless and universally applicable.</p>
+
+          <p>But I'm explicit with students: <strong>ISTQB certification alone does not make you a QA engineer</strong>. It makes you someone who understands QA terminology. The certification doesn't teach you how to debug a flaky Playwright test, how to design test data for a multi-tenant system, or how to negotiate test scope with a product manager under delivery pressure.</p>
+
+          <p>I encourage students to pursue the certification as a structured learning path, but I pair every theoretical concept with a practical exercise that grounds it in real tooling and real scenarios.</p>
+
+          <h2>Student Projects: Testing Real Software</h2>
+
+          <p>The most impactful part of the course is the final project. Students don't test toy applications — they test real open-source projects. Past cohorts have written test suites for projects like <a href="https://github.com/todomvc" target="_blank" rel="noopener">TodoMVC</a>, contributed bug reports to open-source issue trackers, and even submitted pull requests with test improvements.</p>
+
+          <p>This achieves several things simultaneously. Students interact with codebases they didn't write, which mirrors industry reality. They practice reading documentation and making testing decisions with incomplete information. They experience the satisfaction of contributing to a real project, which builds professional confidence. And they build a portfolio artifact they can show in job interviews.</p>
+
+          <p>One former student landed her first QA role partly because she could show an interviewer a Playwright test suite she'd written for an open-source project, complete with CI integration via GitHub Actions. That's the kind of outcome that validates the approach.</p>
+
+          <h2>Mentoring the Next Generation</h2>
+
+          <p>Teaching is mentoring at scale. Every semester, I see students who arrive convinced that QA is "less technical" than development. By the end of the course, many of them recognize that quality engineering requires deep technical skill, strategic thinking, and communication ability in equal measure.</p>
+
+          <p>The students who thrive are not necessarily the strongest programmers. They're the ones who develop a <strong>quality mindset</strong> — the habit of asking "what could go wrong?" before asking "how do I build this?" That mindset is teachable, but it requires deliberate practice, not just lectures.</p>
+
+          <p>I also connect top students with professionals in my network for internships and first roles. The QA community in Latin America is growing fast, and the demand for well-prepared junior engineers far exceeds supply. Universities that invest in practical QA education will produce graduates who are immediately valuable to industry.</p>
+
+          <h2>What Industry Can Learn From Academia</h2>
+
+          <p>The knowledge transfer is not one-directional. Working in academia has sharpened my industry practice in unexpected ways. Teaching forces you to articulate tacit knowledge — the intuitions and heuristics that experienced QA leads apply unconsciously. When a student asks "why do you start testing there?" you need an answer more rigorous than "because it feels risky."</p>
+
+          <p>Academic rigor also provides frameworks for evaluating testing approaches systematically. The industry often adopts tools and practices based on conference talks and blog posts. Academia demands evidence. Combining both perspectives — practical experience with analytical rigor — produces better QA leaders.</p>
+
+          <blockquote>
+            <p>The best QA education doesn't choose between theory and practice. It teaches theory <em>through</em> practice, and uses practice to challenge theory.</p>
+          </blockquote>
+
+          <hr>
+
+          <p>If you're an educator designing a QA curriculum, start with industry needs and work backward. If you're a QA leader, consider guest lecturing at a local university — the students need your perspective, and you'll sharpen your own thinking in the process. The future quality of our software depends on how well we prepare the next generation to think critically about it.</p>
+        </div>
+
+        <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
+        <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
+          <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener" class="blog-book-banner">
+            <div class="blog-book-banner-icon">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+            <div class="blog-book-banner-content">
+              <span class="blog-book-banner-label">From the Author</span>
+              <strong class="blog-book-banner-title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong>
+              <p class="blog-book-banner-desc">A complete guide bridging QA theory and practice — from ISTQB foundations to modern test automation with AI.</p>
+            </div>
+            <span class="blog-book-banner-cta">
+              <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon
+            </span>
+          </a>
+        </aside>
+
+        <footer class="blog-article-footer">
+          <div class="blog-article-tags">
+            <span class="blog-article-tag-item">Teaching</span>
+            <span class="blog-article-tag-item">QA Education</span>
+            <span class="blog-article-tag-item">University</span>
+            <span class="blog-article-tag-item">ISTQB</span>
+            <span class="blog-article-tag-item">Mentoring</span>
+            <span class="blog-article-tag-item">Software Quality</span>
+          </div>
+
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <span data-i18n="blog.discuss">Discuss on LinkedIn</span>
+          </a>
+
+          <!--
+          <div class="blog-article-nav">
+            <a href="#" class="blog-article-nav-link is-prev">
+              <span class="blog-article-nav-label">Previous</span>
+              <span class="blog-article-nav-title">Previous article title here</span>
+            </a>
+            <a href="#" class="blog-article-nav-link is-next">
+              <span class="blog-article-nav-label">Next</span>
+              <span class="blog-article-nav-title">Next article title here</span>
+            </a>
+          </div>
+          -->
+        </footer>
+
+      </article>
+
+      <!-- Comment Section (placeholder) -->
+      <section class="blog-comments" aria-labelledby="comments-heading">
+        <div class="blog-comments-header">
+          <h2 id="comments-heading">Comments</h2>
+          <span class="blog-comments-count">0 comments</span>
+        </div>
+
+        <form class="blog-comment-form" id="commentForm" novalidate>
+          <div class="blog-comment-form-row">
+            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
+            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+          </div>
+          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <div class="blog-comment-form-footer">
+            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit">Post Comment</button>
+          </div>
+        </form>
+
+        <div class="blog-comment-notice" id="commentNotice" hidden>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <div>
+            <strong>Thank you for your comment.</strong>
+            <p>All comments are moderated and will appear after review.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Slot: Bottom (reserved for future ad network) -->
+      <aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden>
+        <!-- Paste Carbon Ads, AdSense, or EthicalAds script here when ready -->
+      </aside>
+
+      <div class="blog-affiliate-disclosure">
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+
+      <div class="blog-article-back">
+        <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="links">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span>
+            <div class="footer-logo">Elio Navarrete</div>
+            <p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p>
+            <p class="footer-summary" data-i18n="footer.summary">
+              Quality engineering, test automation and applied AI for teams, products and academic initiatives.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
+            <ul class="footer-link-list">
+              <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+              <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+              <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+              <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+              <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-connect">
+            <span class="footer-heading" data-i18n="footer.connect">Connect</span>
+            <ul class="footer-social">
+              <li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
+              <li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li>
+              <li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li>
+              <li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
+          <div class="footer-meta">
+            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    // ===== Mobile Menu =====
+    (function() {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        var focusableEls = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        function setMenuOpen(isOpen) {
+          menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+          if (isOpen && focusableEls.length) focusableEls[0].focus();
+          else if (!isOpen) toggle.focus();
+        }
+        toggle.addEventListener('click', function() { setMenuOpen(!menu.classList.contains('active')); });
+        menu.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { setMenuOpen(false); }); });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) { setMenuOpen(false); return; }
+          if (e.key === 'Tab' && menu.classList.contains('active') && focusableEls.length) {
+            var first = focusableEls[0], last = focusableEls[focusableEls.length - 1];
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+          }
+        });
+      }
+    })();
+    </script>
+
+    <!-- Comment form placeholder handler -->
+    <script>
+    (function() {
+      var form = document.getElementById('commentForm');
+      var notice = document.getElementById('commentNotice');
+      if (form && notice) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          notice.removeAttribute('hidden');
+        });
+      }
+    })();
+    </script>
+  </body>
+</html>

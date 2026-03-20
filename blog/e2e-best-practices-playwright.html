@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Battle-tested patterns for writing maintainable, reliable end-to-end tests with Playwright — from project structure to CI integration.">
+    <meta name="keywords" content="Playwright, E2E Testing, Test Automation, Page Object Model, TypeScript, CI/CD, Elio Navarrete">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png">
+    <link rel="canonical" href="https://elionavarrete.com/blog/e2e-best-practices-playwright.html">
+    <title>E2E Testing Best Practices with Playwright in 2026 | Elio Navarrete</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://elionavarrete.com/blog/e2e-best-practices-playwright.html">
+    <meta property="og:title" content="E2E Testing Best Practices with Playwright in 2026">
+    <meta property="og:description" content="Battle-tested patterns for writing maintainable, reliable end-to-end tests with Playwright — from project structure to CI integration.">
+    <meta property="og:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <meta property="article:author" content="https://elionavarrete.com/">
+    <meta property="article:published_time" content="2026-03-19">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="E2E Testing Best Practices with Playwright in 2026">
+    <meta name="twitter:description" content="Battle-tested patterns for writing maintainable, reliable end-to-end tests with Playwright — from project structure to CI integration.">
+    <meta name="twitter:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/e2e-best-practices-playwright.html">
+    <link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/e2e-best-practices-playwright.html?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/e2e-best-practices-playwright.html">
+
+    <!-- Preconnect CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload data files -->
+    <link rel="preload" href="../assets/data/i18n.json" as="fetch" crossorigin>
+
+    <!-- Prism.js syntax highlighting (One Dark theme) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+      <link rel="stylesheet" href="../assets/css/responsive.css">
+    </noscript>
+
+    <!-- JSON-LD: BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "E2E Testing Best Practices with Playwright in 2026",
+      "description": "Battle-tested patterns for writing maintainable, reliable end-to-end tests with Playwright — from project structure to CI integration.",
+      "author": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/", "@id": "https://elionavarrete.com/#author" },
+      "publisher": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/" },
+      "datePublished": "2026-03-19",
+      "dateModified": "2026-03-19",
+      "mainEntityOfPage": "https://elionavarrete.com/blog/e2e-best-practices-playwright.html",
+      "image": "https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg",
+      "articleSection": "Test Automation",
+      "wordCount": 1500,
+      "timeRequired": "PT11M"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://elionavarrete.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://elionavarrete.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "E2E Testing Best Practices with Playwright in 2026", "item": "https://elionavarrete.com/blog/e2e-best-practices-playwright.html" }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+    <div class="nav-top-line">
+      <span class="nav-top-line-glow top"></span>
+      <span class="nav-top-line-glow bottom"></span>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html" class="nav-brand">
+            <span class="nav-brand-name">ELIO NAVARRETE</span>
+            <span class="nav-brand-divider" aria-hidden="true"></span>
+            <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+          <li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+          <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+          <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+        </ul>
+        <div class="nav-utilities">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+            <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+            <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+          </div>
+          <div class="nav-language" aria-label="Language selector">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
+            <span class="nav-language-separator" aria-hidden="true">|</span>
+            <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+          </div>
+        </div>
+        <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <div class="hamburger-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    </header>
+
+    <!-- i18n (configurable base path for subdirectory) -->
+    <script>window.__i18nBase = '../assets/data/';</script>
+    <script defer src="../assets/js/i18n.js"></script>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+        <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+        <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-menu-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+      </div>
+    </div>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <main class="blog-article-page" id="main-content">
+      <article class="blog-article">
+
+        <header class="blog-article-header">
+          <span class="blog-article-tag" data-i18n="blog.filter.automation">Automation</span>
+          <h1 class="blog-article-title">E2E Testing Best Practices with Playwright in 2026</h1>
+          <div class="blog-article-meta">
+            <span>Elio Navarrete</span>
+            <span class="blog-article-meta-sep" aria-hidden="true"></span>
+            <span>11 <span data-i18n="blog.readTime">min read</span></span>
+          </div>
+        </header>
+
+        <div class="blog-article-body">
+          <p>Playwright has matured into the default choice for end-to-end testing in modern web applications, and for good reason: auto-waiting, multi-browser support, native network interception, and a test runner that understands parallelism out of the box. But having a powerful tool does not automatically produce maintainable tests. After running Playwright at scale across multiple teams — and teaching it in my automation courses at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener">UPC</a> — I have compiled the patterns that separate test suites that scale from those that collapse under their own weight.</p>
+
+          <h2>Project Structure That Scales</h2>
+
+          <p>The first decision that determines long-term maintainability is how you organize your files. I recommend this structure for any team working with more than 20 test files:</p>
+
+          <pre role="region" aria-label="Recommended project structure"><code class="language-bash">tests/
+  e2e/
+    auth/
+      login.spec.ts
+      signup.spec.ts
+    payments/
+      checkout.spec.ts
+      refund.spec.ts
+  pages/
+    LoginPage.ts
+    CheckoutPage.ts
+    BasePage.ts
+  fixtures/
+    auth.fixture.ts
+    data.fixture.ts
+  utils/
+    api-helpers.ts
+    test-data-factory.ts
+playwright.config.ts</code></pre>
+
+          <p>The key principles: test specs live under <code>tests/e2e/</code> organized by feature domain, Page Objects live under <code>pages/</code>, custom fixtures under <code>fixtures/</code>, and shared utilities under <code>utils/</code>. This separation makes it immediately clear where new code belongs and prevents the "everything in one folder" entropy that plagues growing test suites.</p>
+
+          <h2>Page Object Model Done Right</h2>
+
+          <p>The Page Object Model (POM) is the most widely recommended pattern for E2E test organization, but it is also the most commonly misimplemented. The typical mistake is creating "god objects" — a single <code>DashboardPage</code> class with 50 methods that covers every possible interaction on the dashboard. These become impossible to maintain because every dashboard change touches the same file.</p>
+
+          <p>Instead, design Page Objects around user intents, not page URLs. A checkout flow might involve a <code>CartPage</code>, a <code>ShippingFormPage</code>, and a <code>PaymentPage</code> — even if they all render within the same single-page application route.</p>
+
+          <pre role="region" aria-label="Page Object example"><code class="language-typescript">// pages/CheckoutPage.ts
+import { type Page, type Locator } from '@playwright/test';
+
+export class CheckoutPage {
+  readonly page: Page;
+  readonly shippingAddress: Locator;
+  readonly paymentMethod: Locator;
+  readonly placeOrderButton: Locator;
+  readonly orderConfirmation: Locator;
+
+  constructor(page: Page) {
+    this.page = page;
+    this.shippingAddress = page.getByLabel('Shipping address');
+    this.paymentMethod = page.getByRole('combobox', { name: 'Payment method' });
+    this.placeOrderButton = page.getByRole('button', { name: 'Place order' });
+    this.orderConfirmation = page.getByTestId('order-confirmation');
+  }
+
+  async fillShipping(address: string) {
+    await this.shippingAddress.fill(address);
+  }
+
+  async selectPayment(method: string) {
+    await this.paymentMethod.selectOption(method);
+  }
+
+  async placeOrder() {
+    await this.placeOrderButton.click();
+    await this.orderConfirmation.waitFor({ state: 'visible' });
+  }
+}</code></pre>
+
+          <p>Notice that locators are defined in the constructor using Playwright's semantic selectors (<code>getByLabel</code>, <code>getByRole</code>, <code>getByTestId</code>), not raw CSS selectors. This makes the Page Object resilient to HTML structure changes while remaining readable.</p>
+
+          <h2>Fixture Patterns with test.extend</h2>
+
+          <p>Playwright's <code>test.extend</code> is one of its most powerful features, yet many teams underuse it. Custom fixtures let you encapsulate setup and teardown logic — authenticated sessions, test data creation, API state — so that test specs remain focused on behavior verification.</p>
+
+          <pre role="region" aria-label="Custom fixture example"><code class="language-typescript">// fixtures/auth.fixture.ts
+import { test as base, expect } from '@playwright/test';
+import { CheckoutPage } from '../pages/CheckoutPage';
+
+type AuthFixtures = {
+  authenticatedPage: CheckoutPage;
+};
+
+export const test = base.extend&lt;AuthFixtures&gt;({
+  authenticatedPage: async ({ page }, use) => {
+    // Setup: authenticate via API to skip UI login
+    const response = await page.request.post('/api/auth/login', {
+      data: { email: 'test@example.com', password: 'secure-password' }
+    });
+    const { token } = await response.json();
+
+    await page.context().addCookies([{
+      name: 'session',
+      value: token,
+      domain: 'localhost',
+      path: '/'
+    }]);
+
+    await page.goto('/checkout');
+    const checkoutPage = new CheckoutPage(page);
+    await use(checkoutPage);
+
+    // Teardown: clean up test data
+    await page.request.delete('/api/test/cleanup');
+  }
+});
+
+export { expect };</code></pre>
+
+          <p>Now every test that needs an authenticated checkout page simply declares it as a fixture parameter — no repeated login logic, no shared state between tests, and automatic cleanup on teardown.</p>
+
+          <h2>Reliable Selectors: The Foundation</h2>
+
+          <p>Flaky tests often trace back to brittle selectors. My selector priority, which I enforce through code review and linting rules, is:</p>
+
+          <ol>
+            <li><strong><code>getByRole</code></strong> — Reflects accessibility semantics. If your button is not findable by role, it has an accessibility problem too.</li>
+            <li><strong><code>getByLabel</code> / <code>getByPlaceholder</code> / <code>getByText</code></strong> — User-visible text selectors. Resilient to structural changes.</li>
+            <li><strong><code>getByTestId</code></strong> — Dedicated <code>data-testid</code> attributes. Use when semantic selectors are ambiguous.</li>
+            <li><strong>CSS selectors</strong> — Last resort. Avoid class names that are generated by CSS-in-JS tooling.</li>
+          </ol>
+
+          <p>I explicitly prohibit XPath in code reviews. It is fragile, hard to read, and nearly always replaceable with one of the above strategies.</p>
+
+          <h2>Handling Flaky Tests</h2>
+
+          <p>Flakiness is the number one credibility killer for a test suite. If developers cannot trust the results, they stop looking at them. Here are the patterns I use to eliminate and manage flakiness:</p>
+
+          <p><strong>Auto-retry with trace on failure.</strong> Playwright's built-in retry mechanism combined with trace recording gives you a full diagnostic package when a test fails intermittently:</p>
+
+          <pre role="region" aria-label="Playwright config for retries and traces"><code class="language-typescript">// playwright.config.ts
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  retries: process.env.CI ? 2 : 0,
+  use: {
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure'
+  },
+  reporter: [
+    ['html', { open: 'never' }],
+    ['junit', { outputFile: 'results/junit.xml' }]
+  ]
+});</code></pre>
+
+          <p><strong>Network mocking for external dependencies.</strong> Tests that depend on third-party APIs — payment gateways, geolocation services, email providers — should mock those boundaries. Playwright's <code>page.route()</code> makes this straightforward:</p>
+
+          <pre role="region" aria-label="Network mocking example"><code class="language-typescript">await page.route('**/api/payment/process', route =&gt; {
+  route.fulfill({
+    status: 200,
+    contentType: 'application/json',
+    body: JSON.stringify({
+      transactionId: 'mock-txn-001',
+      status: 'approved'
+    })
+  });
+});</code></pre>
+
+          <p><strong>Isolate test data.</strong> Tests should never share database state. Each test creates its own data through API fixtures and cleans up in teardown. If two tests depend on the same user account, they will eventually collide when running in parallel.</p>
+
+          <h2>Parallel Execution and Sharding</h2>
+
+          <p>Playwright runs test files in parallel by default, which is the correct behavior for CI. However, you need to design for it:</p>
+
+          <ul>
+            <li><strong>No shared state between spec files.</strong> Each <code>.spec.ts</code> file runs in its own worker. If two files need the same setup, use fixtures — not global state.</li>
+            <li><strong>Use sharding for large suites.</strong> When your suite exceeds 15 minutes on a single machine, shard across multiple CI runners. Playwright supports this natively:</li>
+          </ul>
+
+          <pre role="region" aria-label="GitHub Actions sharding config"><code class="language-yaml"># .github/workflows/e2e.yml
+name: E2E Tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shard: [1/4, 2/4, 3/4, 4/4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test --shard=${{ matrix.shard }}
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: traces-${{ matrix.shard }}
+          path: test-results/</code></pre>
+
+          <p>This configuration splits the test suite across four parallel runners. On failure, traces are uploaded as artifacts for debugging. The entire suite that takes 20 minutes on one machine completes in roughly 5 minutes across four shards.</p>
+
+          <h2>CI Integration Principles</h2>
+
+          <p>Beyond sharding, these CI practices have proven essential in my experience:</p>
+
+          <ul>
+            <li><strong>Install only the browsers you need.</strong> <code>npx playwright install chromium</code> is faster than installing all three browsers. Run cross-browser tests nightly, not on every PR.</li>
+            <li><strong>Cache Playwright browsers.</strong> Browser binaries are large. Cache them between CI runs to avoid re-downloading on every build.</li>
+            <li><strong>Fail fast, debug later.</strong> Configure CI to stop on the first failure during PR checks (quick feedback), but run the full suite nightly (complete coverage). Two different configurations for two different purposes.</li>
+            <li><strong>Report to the PR.</strong> Use Playwright's HTML reporter and publish results as CI artifacts or comments on the PR. If developers have to dig through CI logs to find failures, adoption suffers.</li>
+          </ul>
+
+          <h2>Patterns I Have Learned to Avoid</h2>
+
+          <p>After maintaining Playwright suites with hundreds of tests, these are the anti-patterns I catch in code review:</p>
+
+          <p><strong>Hard-coded waits.</strong> <code>await page.waitForTimeout(3000)</code> is almost always wrong. Playwright's auto-waiting handles the vast majority of timing issues. If you need an explicit wait, wait for a specific condition: <code>await page.waitForResponse()</code>, <code>await locator.waitFor()</code>, or <code>await expect(locator).toBeVisible()</code>.</p>
+
+          <p><strong>Testing implementation details.</strong> Your E2E test should validate what the user sees and does, not how the frontend renders it internally. Asserting on CSS classes, internal component state, or DOM structure couples your tests to implementation decisions that will change.</p>
+
+          <p><strong>Overusing E2E for what unit tests should cover.</strong> If you are writing an E2E test to verify that a utility function formats a date correctly, you are using the wrong testing level. E2E tests should cover user journeys through the application. Logic validation belongs in unit tests.</p>
+
+          <p><strong>Ignoring the test pyramid.</strong> I still see teams with 200 E2E tests and 10 unit tests. This inverted pyramid means slow feedback loops, high maintenance costs, and fragile test results. A healthy ratio for most web applications is roughly 70% unit, 20% integration, 10% E2E.</p>
+
+          <hr>
+
+          <p>Playwright gives you the tools to build a reliable E2E test suite. But tools do not enforce discipline — engineering practices do. Structure your project for growth, design Page Objects around user intents, leverage fixtures for isolation, choose resilient selectors, and integrate thoughtfully into CI. The result is a test suite that developers trust and actively maintain, rather than one they learn to ignore.</p>
+        </div>
+
+        <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
+        <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
+          <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener" class="blog-book-banner">
+            <div class="blog-book-banner-icon">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+            <div class="blog-book-banner-content">
+              <span class="blog-book-banner-label">From the Author</span>
+              <strong class="blog-book-banner-title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong>
+              <p class="blog-book-banner-desc">The complete automation framework — including Playwright patterns, API testing, and CI/CD integration strategies.</p>
+            </div>
+            <span class="blog-book-banner-cta">
+              <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon
+            </span>
+          </a>
+        </aside>
+
+        <footer class="blog-article-footer">
+          <div class="blog-article-tags">
+            <span class="blog-article-tag-item">Playwright</span>
+            <span class="blog-article-tag-item">E2E Testing</span>
+            <span class="blog-article-tag-item">Test Automation</span>
+            <span class="blog-article-tag-item">Page Object Model</span>
+            <span class="blog-article-tag-item">TypeScript</span>
+            <span class="blog-article-tag-item">CI/CD</span>
+          </div>
+
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <span data-i18n="blog.discuss">Discuss on LinkedIn</span>
+          </a>
+
+          <!--
+          <div class="blog-article-nav">
+            <a href="#" class="blog-article-nav-link is-prev">
+              <span class="blog-article-nav-label">Previous</span>
+              <span class="blog-article-nav-title">Previous article title here</span>
+            </a>
+            <a href="#" class="blog-article-nav-link is-next">
+              <span class="blog-article-nav-label">Next</span>
+              <span class="blog-article-nav-title">Next article title here</span>
+            </a>
+          </div>
+          -->
+        </footer>
+
+      </article>
+
+      <!-- Comment Section (placeholder) -->
+      <section class="blog-comments" aria-labelledby="comments-heading">
+        <div class="blog-comments-header">
+          <h2 id="comments-heading">Comments</h2>
+          <span class="blog-comments-count">0 comments</span>
+        </div>
+
+        <form class="blog-comment-form" id="commentForm" novalidate>
+          <div class="blog-comment-form-row">
+            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
+            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+          </div>
+          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <div class="blog-comment-form-footer">
+            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit">Post Comment</button>
+          </div>
+        </form>
+
+        <div class="blog-comment-notice" id="commentNotice" hidden>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <div>
+            <strong>Thank you for your comment.</strong>
+            <p>All comments are moderated and will appear after review.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Slot: Bottom (reserved for future ad network) -->
+      <aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden>
+        <!-- Paste Carbon Ads, AdSense, or EthicalAds script here when ready -->
+      </aside>
+
+      <div class="blog-affiliate-disclosure">
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+
+      <div class="blog-article-back">
+        <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="links">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span>
+            <div class="footer-logo">Elio Navarrete</div>
+            <p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p>
+            <p class="footer-summary" data-i18n="footer.summary">
+              Quality engineering, test automation and applied AI for teams, products and academic initiatives.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
+            <ul class="footer-link-list">
+              <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+              <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+              <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+              <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+              <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-connect">
+            <span class="footer-heading" data-i18n="footer.connect">Connect</span>
+            <ul class="footer-social">
+              <li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
+              <li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li>
+              <li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li>
+              <li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
+          <div class="footer-meta">
+            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    // ===== Mobile Menu =====
+    (function() {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        var focusableEls = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        function setMenuOpen(isOpen) {
+          menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+          if (isOpen && focusableEls.length) focusableEls[0].focus();
+          else if (!isOpen) toggle.focus();
+        }
+        toggle.addEventListener('click', function() { setMenuOpen(!menu.classList.contains('active')); });
+        menu.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { setMenuOpen(false); }); });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) { setMenuOpen(false); return; }
+          if (e.key === 'Tab' && menu.classList.contains('active') && focusableEls.length) {
+            var first = focusableEls[0], last = focusableEls[focusableEls.length - 1];
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+          }
+        });
+      }
+    })();
+    </script>
+
+    <!-- Comment form placeholder handler -->
+    <script>
+    (function() {
+      var form = document.getElementById('commentForm');
+      var notice = document.getElementById('commentNotice');
+      if (form && notice) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          notice.removeAttribute('hidden');
+        });
+      }
+    })();
+    </script>
+
+    <!-- Prism.js syntax highlighting (deferred) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  </body>
+</html>

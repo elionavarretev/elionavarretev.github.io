@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="After years using both tools in production, here is an honest comparison based on real projects, not marketing claims.">
+    <meta name="keywords" content="Playwright, Cypress, Test Automation, Framework Comparison, E2E Testing, TypeScript, Elio Navarrete">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png">
+    <link rel="canonical" href="https://elionavarrete.com/blog/playwright-vs-cypress-2026.html">
+    <title>Playwright vs Cypress in 2026: A Practical Comparison | Elio Navarrete</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://elionavarrete.com/blog/playwright-vs-cypress-2026.html">
+    <meta property="og:title" content="Playwright vs Cypress in 2026: A Practical Comparison">
+    <meta property="og:description" content="After years using both tools in production, here is an honest comparison based on real projects, not marketing claims.">
+    <meta property="og:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <meta property="article:author" content="https://elionavarrete.com/">
+    <meta property="article:published_time" content="2026-03-19">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Playwright vs Cypress in 2026: A Practical Comparison">
+    <meta name="twitter:description" content="After years using both tools in production, here is an honest comparison based on real projects, not marketing claims.">
+    <meta name="twitter:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/playwright-vs-cypress-2026.html">
+    <link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/playwright-vs-cypress-2026.html?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/playwright-vs-cypress-2026.html">
+
+    <!-- Preconnect CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload data files -->
+    <link rel="preload" href="../assets/data/i18n.json" as="fetch" crossorigin>
+
+    <!-- Prism.js syntax highlighting (One Dark theme) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+      <link rel="stylesheet" href="../assets/css/responsive.css">
+    </noscript>
+
+    <!-- JSON-LD: BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Playwright vs Cypress in 2026: A Practical Comparison",
+      "description": "After years using both tools in production, here is an honest comparison based on real projects, not marketing claims.",
+      "author": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/", "@id": "https://elionavarrete.com/#author" },
+      "publisher": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/" },
+      "datePublished": "2026-03-19",
+      "dateModified": "2026-03-19",
+      "mainEntityOfPage": "https://elionavarrete.com/blog/playwright-vs-cypress-2026.html",
+      "image": "https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg",
+      "articleSection": "Test Automation",
+      "wordCount": 1600,
+      "timeRequired": "PT12M"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://elionavarrete.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://elionavarrete.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Playwright vs Cypress in 2026: A Practical Comparison", "item": "https://elionavarrete.com/blog/playwright-vs-cypress-2026.html" }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+    <div class="nav-top-line">
+      <span class="nav-top-line-glow top"></span>
+      <span class="nav-top-line-glow bottom"></span>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html" class="nav-brand">
+            <span class="nav-brand-name">ELIO NAVARRETE</span>
+            <span class="nav-brand-divider" aria-hidden="true"></span>
+            <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+          <li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+          <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+          <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+        </ul>
+        <div class="nav-utilities">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+            <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+            <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+          </div>
+          <div class="nav-language" aria-label="Language selector">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Español">ESP</button>
+            <span class="nav-language-separator" aria-hidden="true">|</span>
+            <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+          </div>
+        </div>
+        <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <div class="hamburger-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    </header>
+
+    <!-- i18n (configurable base path for subdirectory) -->
+    <script>window.__i18nBase = '../assets/data/';</script>
+    <script defer src="../assets/js/i18n.js"></script>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Español">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+        <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+        <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-menu-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+      </div>
+    </div>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <main class="blog-article-page" id="main-content">
+      <article class="blog-article">
+
+        <header class="blog-article-header">
+          <span class="blog-article-tag" data-i18n="blog.filter.automation">Automation</span>
+          <h1 class="blog-article-title">Playwright vs Cypress in 2026: A Practical Comparison</h1>
+          <div class="blog-article-meta">
+            <span>Elio Navarrete</span>
+            <span class="blog-article-meta-sep" aria-hidden="true"></span>
+            <span>12 <span data-i18n="blog.readTime">min read</span></span>
+          </div>
+        </header>
+
+        <div class="blog-article-body">
+          <p>Every few months, someone asks me: "Should we use Playwright or Cypress?" My answer has never been a simple recommendation, because the right choice depends on your team's context, your application's architecture, and your CI/CD constraints. After running both frameworks in production across multiple organizations — from healthcare platforms to fintech applications — I can offer something better than an opinion: a comparison grounded in real project experience.</p>
+
+          <p>This is not a feature checklist pulled from documentation. It is an honest assessment of where each tool excels, where each struggles, and how to make the decision for your specific situation in 2026.</p>
+
+          <h2>Both Tools in 2026: Where They Have Evolved</h2>
+
+          <p>Playwright and Cypress have both matured significantly. Playwright, backed by Microsoft, has become the default choice for teams that need multi-browser, multi-context testing with first-class TypeScript support. Cypress, now under the Cypress.io company, has addressed many of its historical limitations — including experimental multi-tab support and improved iframe handling — while doubling down on its developer experience strengths.</p>
+
+          <p>The gap between them has narrowed in some areas and widened in others. Understanding where each tool has invested its engineering effort tells you a lot about their respective philosophies and target audiences.</p>
+
+          <h2>Architecture: The Fundamental Difference</h2>
+
+          <p>The architectural distinction between Playwright and Cypress remains the most important factor in the comparison, because it cascades into almost every other capability difference.</p>
+
+          <p><strong>Playwright</strong> operates outside the browser. It communicates with browser engines (Chromium, Firefox, WebKit) through the Chrome DevTools Protocol or equivalent native protocols. This out-of-process architecture means Playwright can control multiple browser contexts, tabs, and even separate browser instances simultaneously. It sees the browser the way a user does — from the outside.</p>
+
+          <p><strong>Cypress</strong> runs inside the browser alongside your application. It injects itself into the same JavaScript execution context, which gives it direct access to the DOM, network layer, and application state. This in-browser architecture is what makes Cypress's time-travel debugging and automatic waiting feel so natural — it has intimate knowledge of what the application is doing at every moment.</p>
+
+          <p>Neither architecture is inherently better. They represent different trade-offs that ripple through every feature comparison that follows.</p>
+
+          <h2>Multi-Tab, Multi-Origin, and Iframes</h2>
+
+          <p>This is where Playwright's architecture pays dividends. Because Playwright controls the browser from outside, handling multiple tabs, pop-ups, and cross-origin navigations is straightforward:</p>
+
+          <pre role="region" aria-label="Playwright multi-tab example"><code class="language-typescript">// Playwright: handling a new tab opened by a link click
+import { test, expect } from '@playwright/test';
+
+test('OAuth login opens provider in new tab', async ({ page, context }) => {
+  await page.goto('/login');
+
+  // Wait for the new tab to open after clicking OAuth button
+  const [newPage] = await Promise.all([
+    context.waitForEvent('page'),
+    page.click('[data-testid="oauth-google-btn"]')
+  ]);
+
+  // Interact with the OAuth provider in the new tab
+  await newPage.waitForLoadState();
+  await newPage.fill('#email', 'testuser@example.com');
+  await newPage.fill('#password', 'secure-password');
+  await newPage.click('#sign-in');
+
+  // After OAuth completes, verify the original page is authenticated
+  await page.waitForURL('/dashboard');
+  await expect(page.locator('[data-testid="user-avatar"]')).toBeVisible();
+});</code></pre>
+
+          <p>Cypress has added experimental support for multi-tab scenarios through <code>cy.origin()</code> and improved <code>cy.visit()</code> behavior, but the in-browser architecture fundamentally makes this harder. Cross-origin iframes, pop-up windows, and OAuth redirects that navigate to a different domain remain pain points in Cypress that require workarounds.</p>
+
+          <p>If your application heavily uses multi-tab workflows, cross-origin OAuth flows, or complex iframe interactions, Playwright is the stronger choice.</p>
+
+          <h2>Developer Experience: Cypress's Home Turf</h2>
+
+          <p>Where Cypress still outshines Playwright is in the interactive development experience. The Cypress Test Runner provides a real-time view of your test executing against the application, with time-travel debugging that lets you hover over any command and see the DOM state at that exact moment.</p>
+
+          <p>For engineers who are new to E2E testing, this visual feedback loop is transformative. You can see exactly what the test is doing, where it fails, and what the application looked like at the point of failure. This reduces the debugging cycle from minutes to seconds.</p>
+
+          <p>Playwright's UI mode and trace viewer have improved significantly, but the experience is not as seamless as Cypress's runner. Playwright's trace viewer is excellent for post-hoc debugging — you can inspect network requests, console logs, and DOM snapshots from a failed CI run — but it is a different workflow than watching your test execute in real time.</p>
+
+          <pre role="region" aria-label="Cypress interactive test example"><code class="language-javascript">// Cypress: the same OAuth flow — note the simplicity
+// but also the limitations with cross-origin handling
+describe('OAuth Login', () => {
+  it('authenticates through Google OAuth', () => {
+    cy.visit('/login');
+
+    // Cypress intercepts the OAuth redirect instead of
+    // opening a new tab — a pragmatic workaround
+    cy.intercept('GET', '/auth/google/callback*', (req) => {
+      req.redirect('/dashboard?token=mock-jwt-token');
+    }).as('oauthCallback');
+
+    cy.get('[data-testid="oauth-google-btn"]').click();
+    cy.wait('@oauthCallback');
+
+    cy.url().should('include', '/dashboard');
+    cy.get('[data-testid="user-avatar"]').should('be.visible');
+  });
+});</code></pre>
+
+          <p>Notice the difference: Cypress intercepts and mocks the OAuth flow rather than actually navigating to the provider. This is a legitimate testing strategy (faster, more deterministic), but it tests a different thing than Playwright's approach. Whether that matters depends on your risk tolerance for the authentication flow.</p>
+
+          <h2>CI/CD Performance: Parallel Execution and Sharding</h2>
+
+          <p>In CI pipelines, execution speed and resource efficiency matter enormously. A suite that takes 45 minutes locally is not useful if it blocks every PR merge.</p>
+
+          <p><strong>Playwright</strong> has native sharding built into its test runner. You can split your suite across N CI machines with a single CLI flag (<code>--shard=1/4</code>), and Playwright handles distributing tests evenly. Combined with its parallel worker support within a single machine, large suites can run in a fraction of the sequential time. Playwright's trace artifacts are lightweight and attach automatically to CI reports, making failure investigation fast.</p>
+
+          <p><strong>Cypress</strong> offers parallelization through Cypress Cloud (formerly Cypress Dashboard), a paid service that provides intelligent test distribution, load balancing, and historical analytics. The free tier has limitations, and self-hosted parallel execution requires third-party tools like <code>sorry-cypress</code> or <code>currents</code>. The trade-off is that Cypress Cloud provides richer analytics out of the box — flaky test detection, execution trends, and automatic spec balancing — while Playwright's native sharding is more basic but free.</p>
+
+          <p>In my experience, Playwright's sharding approach scales more predictably for large suites (500+ tests) because it does not depend on external services. For smaller suites (under 200 tests), the difference is negligible.</p>
+
+          <h2>API Testing Capabilities</h2>
+
+          <p>Playwright includes a built-in <code>APIRequestContext</code> that lets you make HTTP requests within the same test context as your browser interactions. This is powerful for setup, teardown, and hybrid testing scenarios where you need to verify both UI behavior and API responses:</p>
+
+          <pre role="region" aria-label="Playwright API testing example"><code class="language-typescript">// Playwright: API + UI in the same test
+import { test, expect } from '@playwright/test';
+
+test('created appointment appears in provider dashboard', async ({ page, request }) => {
+  // API: create appointment directly
+  const response = await request.post('/api/v1/appointments', {
+    data: {
+      patientId: 'patient-001',
+      providerId: 'dr-chen',
+      slot: '2026-03-20T10:00:00Z'
+    }
+  });
+  expect(response.ok()).toBeTruthy();
+  const { id } = await response.json();
+
+  // UI: verify it appears in the dashboard
+  await page.goto('/provider/dashboard');
+  await expect(page.locator(`[data-appointment-id="${id}"]`)).toBeVisible();
+});</code></pre>
+
+          <p>Cypress provides API testing through <code>cy.request()</code>, which is similarly capable but uses the Cypress command queue, meaning API calls are chained rather than awaited. Both approaches work; the syntax preference is a matter of whether your team prefers async/await or Cypress's chainable API.</p>
+
+          <h2>Component Testing</h2>
+
+          <p>Both tools now support component testing — rendering individual components in isolation and testing them without a full application server. Cypress pioneered this capability and has more mature support for React, Vue, Angular, and Svelte. Playwright's experimental component testing has improved but still lags behind Cypress in framework coverage and documentation.</p>
+
+          <p>If component testing is a primary use case, Cypress currently has the edge. If component testing is secondary to E2E, Playwright's broader E2E capabilities are more important.</p>
+
+          <h2>Community, Ecosystem, and Corporate Backing</h2>
+
+          <p>Playwright benefits from Microsoft's resources: a large engineering team, rapid release cadence (monthly), and integration with VS Code and Azure DevOps. The ecosystem of third-party plugins is growing but smaller than Cypress's.</p>
+
+          <p>Cypress has a larger community by install count and a more extensive plugin ecosystem built over its longer history. However, Cypress's commercial model (Cypress Cloud as a paid service) has created some tension in the open-source community, and the pace of core framework innovation has slowed relative to Playwright.</p>
+
+          <h2>Decision Matrix: When to Choose Which</h2>
+
+          <p>Based on my experience across multiple production deployments, here is when I recommend each tool:</p>
+
+          <p><strong>Choose Playwright when:</strong></p>
+          <ul>
+            <li>Your application uses multi-tab workflows, cross-origin redirects, or complex iframe integrations</li>
+            <li>You need to test across Chromium, Firefox, and WebKit (Safari)</li>
+            <li>Your CI/CD pipeline requires native sharding without paid services</li>
+            <li>Your team is comfortable with async/await patterns and TypeScript</li>
+            <li>You need combined API + UI testing in the same test context</li>
+            <li>You are building a large suite (500+ tests) that needs to scale efficiently</li>
+          </ul>
+
+          <p><strong>Choose Cypress when:</strong></p>
+          <ul>
+            <li>Your team includes engineers who are new to E2E testing and benefit from visual debugging</li>
+            <li>Component testing is a primary use case alongside E2E</li>
+            <li>Your application is a single-origin SPA without complex multi-tab requirements</li>
+            <li>You value the interactive test runner for local development workflow</li>
+            <li>Your organization is willing to invest in Cypress Cloud for analytics and parallelization</li>
+            <li>Your existing test suite is already in Cypress and migration cost is not justified</li>
+          </ul>
+
+          <p><strong>Either tool works well when:</strong></p>
+          <ul>
+            <li>Your suite is under 200 tests</li>
+            <li>Your application is a standard web application without exotic browser requirements</li>
+            <li>Your team has prior experience with either tool</li>
+          </ul>
+
+          <hr>
+
+          <p>The Playwright vs Cypress debate is not about which tool is objectively better — it is about which tool fits your constraints. In teams I have led, I have chosen Playwright for healthcare platforms (multi-tab video calls, cross-origin OAuth, WebKit coverage for iOS Safari) and Cypress for internal admin tools (simpler architecture, junior engineers who benefited from the interactive runner). The worst decision is the one made based on hype rather than fit. Evaluate both against your actual application, your actual team, and your actual CI pipeline — then commit to one and invest in mastering it.</p>
+        </div>
+
+        <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
+        <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
+          <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener" class="blog-book-banner">
+            <div class="blog-book-banner-icon">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+            <div class="blog-book-banner-content">
+              <span class="blog-book-banner-label">From the Author</span>
+              <strong class="blog-book-banner-title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong>
+              <p class="blog-book-banner-desc">Hands-on guidance on building automation frameworks with Playwright and Cypress, including CI configuration examples.</p>
+            </div>
+            <span class="blog-book-banner-cta">
+              <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon
+            </span>
+          </a>
+        </aside>
+
+        <footer class="blog-article-footer">
+          <div class="blog-article-tags">
+            <span class="blog-article-tag-item">Playwright</span>
+            <span class="blog-article-tag-item">Cypress</span>
+            <span class="blog-article-tag-item">Test Automation</span>
+            <span class="blog-article-tag-item">Framework Comparison</span>
+            <span class="blog-article-tag-item">E2E Testing</span>
+            <span class="blog-article-tag-item">TypeScript</span>
+          </div>
+
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <span data-i18n="blog.discuss">Discuss on LinkedIn</span>
+          </a>
+
+          <!--
+          <div class="blog-article-nav">
+            <a href="#" class="blog-article-nav-link is-prev">
+              <span class="blog-article-nav-label">Previous</span>
+              <span class="blog-article-nav-title">Previous article title here</span>
+            </a>
+            <a href="#" class="blog-article-nav-link is-next">
+              <span class="blog-article-nav-label">Next</span>
+              <span class="blog-article-nav-title">Next article title here</span>
+            </a>
+          </div>
+          -->
+        </footer>
+
+      </article>
+
+      <!-- Comment Section (placeholder) -->
+      <section class="blog-comments" aria-labelledby="comments-heading">
+        <div class="blog-comments-header">
+          <h2 id="comments-heading">Comments</h2>
+          <span class="blog-comments-count">0 comments</span>
+        </div>
+
+        <form class="blog-comment-form" id="commentForm" novalidate>
+          <div class="blog-comment-form-row">
+            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
+            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+          </div>
+          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <div class="blog-comment-form-footer">
+            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit">Post Comment</button>
+          </div>
+        </form>
+
+        <div class="blog-comment-notice" id="commentNotice" hidden>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <div>
+            <strong>Thank you for your comment.</strong>
+            <p>All comments are moderated and will appear after review.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Slot: Bottom (reserved for future ad network) -->
+      <aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden>
+        <!-- Paste Carbon Ads, AdSense, or EthicalAds script here when ready -->
+      </aside>
+
+      <div class="blog-affiliate-disclosure">
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+
+      <div class="blog-article-back">
+        <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="links">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span>
+            <div class="footer-logo">Elio Navarrete</div>
+            <p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p>
+            <p class="footer-summary" data-i18n="footer.summary">
+              Quality engineering, test automation and applied AI for teams, products and academic initiatives.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
+            <ul class="footer-link-list">
+              <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+              <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+              <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+              <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+              <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-connect">
+            <span class="footer-heading" data-i18n="footer.connect">Connect</span>
+            <ul class="footer-social">
+              <li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
+              <li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li>
+              <li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li>
+              <li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
+          <div class="footer-meta">
+            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    // ===== Mobile Menu =====
+    (function() {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        var focusableEls = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        function setMenuOpen(isOpen) {
+          menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+          if (isOpen && focusableEls.length) focusableEls[0].focus();
+          else if (!isOpen) toggle.focus();
+        }
+        toggle.addEventListener('click', function() { setMenuOpen(!menu.classList.contains('active')); });
+        menu.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { setMenuOpen(false); }); });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) { setMenuOpen(false); return; }
+          if (e.key === 'Tab' && menu.classList.contains('active') && focusableEls.length) {
+            var first = focusableEls[0], last = focusableEls[focusableEls.length - 1];
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+          }
+        });
+      }
+    })();
+    </script>
+
+    <!-- Comment form placeholder handler -->
+    <script>
+    (function() {
+      var form = document.getElementById('commentForm');
+      var notice = document.getElementById('commentNotice');
+      if (form && notice) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          notice.removeAttribute('hidden');
+        });
+      }
+    })();
+    </script>
+
+    <!-- Prism.js syntax highlighting (deferred) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  </body>
+</html>

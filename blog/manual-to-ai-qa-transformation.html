@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A step-by-step roadmap for QA teams transitioning from manual testing to AI-assisted automation — practical stages, common pitfalls, and success metrics.">
+    <meta name="keywords" content="QA Transformation, AI in Testing, Test Automation, Career Development, Vibe Testing, Quality Engineering, Elio Navarrete">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png">
+    <link rel="canonical" href="https://elionavarrete.com/blog/manual-to-ai-qa-transformation.html">
+    <title>From Manual to AI-Assisted: A QA Transformation Roadmap | Elio Navarrete</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://elionavarrete.com/blog/manual-to-ai-qa-transformation.html">
+    <meta property="og:title" content="From Manual to AI-Assisted: A QA Transformation Roadmap">
+    <meta property="og:description" content="A step-by-step roadmap for QA teams transitioning from manual testing to AI-assisted automation — practical stages, common pitfalls, and success metrics.">
+    <meta property="og:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <meta property="article:author" content="https://elionavarrete.com/">
+    <meta property="article:published_time" content="2026-03-19">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="From Manual to AI-Assisted: A QA Transformation Roadmap">
+    <meta name="twitter:description" content="A step-by-step roadmap for QA teams transitioning from manual testing to AI-assisted automation — practical stages, common pitfalls, and success metrics.">
+    <meta name="twitter:image" content="https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/manual-to-ai-qa-transformation.html">
+    <link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/manual-to-ai-qa-transformation.html?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/manual-to-ai-qa-transformation.html">
+
+    <!-- Preconnect CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload data files -->
+    <link rel="preload" href="../assets/data/i18n.json" as="fetch" crossorigin>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+      <link rel="stylesheet" href="../assets/css/responsive.css">
+    </noscript>
+
+    <!-- JSON-LD: BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "From Manual to AI-Assisted: A QA Transformation Roadmap",
+      "description": "A step-by-step roadmap for QA teams transitioning from manual testing to AI-assisted automation — practical stages, common pitfalls, and success metrics.",
+      "author": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/", "@id": "https://elionavarrete.com/#author" },
+      "publisher": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/" },
+      "datePublished": "2026-03-19",
+      "dateModified": "2026-03-19",
+      "mainEntityOfPage": "https://elionavarrete.com/blog/manual-to-ai-qa-transformation.html",
+      "image": "https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg",
+      "articleSection": "AI in Testing",
+      "wordCount": 1300,
+      "timeRequired": "PT10M"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://elionavarrete.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://elionavarrete.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "From Manual to AI-Assisted: A QA Transformation Roadmap", "item": "https://elionavarrete.com/blog/manual-to-ai-qa-transformation.html" }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+    <div class="nav-top-line">
+      <span class="nav-top-line-glow top"></span>
+      <span class="nav-top-line-glow bottom"></span>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html" class="nav-brand">
+            <span class="nav-brand-name">ELIO NAVARRETE</span>
+            <span class="nav-brand-divider" aria-hidden="true"></span>
+            <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+          <li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+          <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+          <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+        </ul>
+        <div class="nav-utilities">
+          <div class="nav-social">
+            <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+            <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+            <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+          </div>
+          <div class="nav-language" aria-label="Language selector">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Español">ESP</button>
+            <span class="nav-language-separator" aria-hidden="true">|</span>
+            <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+          </div>
+        </div>
+        <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <div class="hamburger-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    </header>
+
+    <!-- i18n (configurable base path for subdirectory) -->
+    <script>window.__i18nBase = '../assets/data/';</script>
+    <script defer src="../assets/js/i18n.js"></script>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="mobile-menu-language" aria-label="Language selector">
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Español">ESP</button>
+        <span class="nav-language-separator" aria-hidden="true">|</span>
+        <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+        <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+        <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <div class="mobile-panel mobile-panel--pro">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
+        <div class="mobile-panel-links">
+          <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
+          <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.pro.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-panel mobile-panel--acad">
+        <div class="mobile-panel-header">
+          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
+        </div>
+        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
+        <div class="mobile-panel-links">
+          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
+          <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.acad.link3">Contact</a>
+        </div>
+      </div>
+      <div class="mobile-menu-social" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
+        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
+      </div>
+    </div>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <main class="blog-article-page" id="main-content">
+      <article class="blog-article">
+
+        <header class="blog-article-header">
+          <span class="blog-article-tag" data-i18n="blog.filter.ai">AI in Testing</span>
+          <h1 class="blog-article-title">From Manual to AI-Assisted: A QA Transformation Roadmap</h1>
+          <div class="blog-article-meta">
+            <span>Elio Navarrete</span>
+            <span class="blog-article-meta-sep" aria-hidden="true"></span>
+            <span>10 <span data-i18n="blog.readTime">min read</span></span>
+          </div>
+        </header>
+
+        <div class="blog-article-body">
+          <p>The most common question I get from QA leaders — whether at conferences or in my university courses at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener">UPC</a> — is some variation of: "We're mostly manual. How do we get to AI-assisted automation without losing our team or breaking our delivery?" It's a fair question, and the answer is never "just buy a tool." Transformation is a journey with distinct stages, and skipping stages almost always leads to failure.</p>
+
+          <p>This article lays out a practical roadmap based on patterns I've seen succeed (and fail) across dozens of organizations. The goal is not to rush to the finish line — it's to build a sustainable capability that grows with your team.</p>
+
+          <h2>The Transformation Spectrum</h2>
+
+          <p>QA maturity exists on a spectrum with four distinct stages:</p>
+
+          <ol>
+            <li><strong>Manual</strong>: All testing is performed by humans executing test cases from spreadsheets or test management tools. No automation exists.</li>
+            <li><strong>Scripted</strong>: The team has started writing automated tests, typically E2E scripts using tools like Selenium or Playwright. Automation covers some regression paths but is fragile and maintenance-heavy.</li>
+            <li><strong>Framework</strong>: Automation is built on a structured framework with Page Objects, reusable fixtures, CI/CD integration, and a clear test pyramid. The team has dedicated automation engineers and established patterns.</li>
+            <li><strong>AI-Assisted</strong>: The framework stage is augmented with AI capabilities — test generation from prompts, self-healing locators, risk-based prioritization, and intelligent maintenance. This is where the <strong>Vibe Testing</strong> approach operates.</li>
+          </ol>
+
+          <p>Most teams I encounter are somewhere between stages 1 and 2. The mistake they make is trying to jump directly to stage 4. AI-assisted testing without a solid framework underneath produces impressive demos and terrible long-term results.</p>
+
+          <h2>Stage 1: Foundation</h2>
+
+          <p>Before you write a single automated test, you need three things in place: a <strong>CI/CD pipeline</strong> that can execute tests automatically, a <strong>chosen framework and language</strong> that the team will standardize on, and a <strong>skills baseline</strong> — at least two team members who can write and maintain code.</p>
+
+          <p>The foundation stage is where most transformations stall, because it requires investment that doesn't immediately produce automated tests. Leadership wants to see green checkmarks in CI; instead, you're asking for training time and infrastructure setup. This is where you need executive buy-in and clear communication about why the foundation matters.</p>
+
+          <p>Concrete deliverables for this stage: a working CI pipeline that runs a "hello world" test on every commit, a documented decision on framework (I recommend Playwright for web, but the choice matters less than the commitment), and a training plan that gives at least two team members 20% of their time for learning over 8-12 weeks.</p>
+
+          <p><strong>Common pitfall</strong>: Choosing a framework based on hype rather than team skills. If your team knows Java, starting with a JavaScript framework adds unnecessary friction. Meet people where they are.</p>
+
+          <h2>Stage 2: Scale</h2>
+
+          <p>Once the foundation is solid, stage 2 focuses on making automation a reliable, integral part of the development workflow. This means three capabilities: <strong>parallel execution</strong> so your test suite finishes in minutes, not hours; <strong>test data management</strong> so tests are independent and repeatable; and <strong>reporting and visibility</strong> so everyone — not just QA — can see test results.</p>
+
+          <p>At this stage, you should establish a Page Object Model (or equivalent abstraction pattern), create shared fixtures for authentication and common setup, and integrate test results into your team's existing dashboards. The goal is that developers start relying on automated tests as a safety net, not just something QA runs on the side.</p>
+
+          <p><strong>Common pitfall</strong>: Automating everything at the E2E level. Teams at stage 2 often confuse "test automation" with "E2E automation." A healthy automation strategy includes unit and integration tests. If developers aren't writing tests, that's a cultural problem to address — not a gap to fill with more E2E scripts.</p>
+
+          <p>Another frequent mistake is neglecting test data. Flaky tests are overwhelmingly caused by shared test data, race conditions in test environments, or implicit dependencies between tests. Invest in test data factories and environment isolation early — it pays dividends for the entire lifetime of your suite.</p>
+
+          <h2>Stage 3: Intelligence</h2>
+
+          <p>This is where AI enters the picture, and it only works because stages 1 and 2 created the foundation it needs. AI-assisted testing requires well-structured code for the model to understand, clean patterns for it to follow, and reliable infrastructure for it to execute against.</p>
+
+          <p>Stage 3 introduces three AI capabilities:</p>
+
+          <ul>
+            <li><strong>AI test generation</strong>: Using LLMs to generate test scaffolding from structured prompts. The engineer defines the test scenarios and context; the AI produces the initial code. This is the core of the Vibe Testing framework — the AI accelerates the "how" while the human owns the "what" and "why."</li>
+            <li><strong>Self-healing tests</strong>: When a UI change breaks a locator, AI analyzes the DOM diff and proposes updated selectors. Instead of a developer spending 30 minutes debugging a CSS selector change, they review a one-line fix suggestion.</li>
+            <li><strong>Risk-based prioritization</strong>: AI analyzes code changes, historical defect data, and test execution history to determine which tests to run first. This reduces feedback time from 45 minutes to 12 minutes for the most common change patterns.</li>
+          </ul>
+
+          <p><strong>Common pitfall</strong>: Trusting AI output without review. Every AI-generated test must pass through human review before reaching the main branch. The AI doesn't understand your business domain, regulatory requirements, or edge cases that only domain experts know about. Treat AI output as a first draft from a fast but junior engineer.</p>
+
+          <h2>Team Structure Evolution</h2>
+
+          <p>The transformation isn't just technical — it's organizational. Team roles evolve across stages:</p>
+
+          <p>In <strong>stage 1</strong>, you likely have manual testers and maybe one person learning automation. Don't rebrand anyone yet. Let skills develop organically.</p>
+
+          <p>In <strong>stage 2</strong>, roles start differentiating: some team members focus on automation framework development, others on test design and exploratory testing. Both are valuable. The worst thing you can do is signal that "automation is the only path forward" — that alienates your best exploratory testers, who find the bugs automation never will.</p>
+
+          <p>In <strong>stage 3</strong>, the team has evolved into <strong>quality engineers</strong>: professionals who combine testing expertise, coding ability, and strategic thinking. Manual-only roles may still exist for specialized domains (accessibility auditing, usability testing, regulatory compliance review), and they should be respected as specialized expertise, not leftovers.</p>
+
+          <h2>Measuring Transformation Success</h2>
+
+          <p>You need metrics to know whether the transformation is working. Here are the ones I track:</p>
+
+          <ul>
+            <li><strong>Deployment frequency</strong>: Are you shipping more often? If automation isn't enabling faster delivery, something is wrong.</li>
+            <li><strong>Defect escape rate</strong>: What percentage of defects reach production? This should decrease as automation matures.</li>
+            <li><strong>Mean time to feedback</strong>: How long from code commit to test results? Target under 15 minutes for PR-level checks.</li>
+            <li><strong>Test maintenance cost</strong>: Hours spent per sprint fixing broken tests. This should decrease in stage 3 with AI assistance.</li>
+            <li><strong>Team confidence</strong>: Do developers trust the test suite enough to deploy on Friday? This is qualitative but telling.</li>
+          </ul>
+
+          <h2>Cultural Challenges</h2>
+
+          <p>The hardest part of transformation is never the technology — it's the people. Two cultural challenges appear consistently:</p>
+
+          <p><strong>Fear of replacement</strong>: Manual testers worry that automation will eliminate their jobs. Address this directly and honestly. Automation changes the job, it doesn't eliminate it. The team members who embrace learning will become more valuable, not less. But this requires genuine investment in their growth — training time, mentorship, and patience.</p>
+
+          <p><strong>Resistance from developers</strong>: Some development teams see QA automation as "not their problem." In healthy organizations, quality is everyone's responsibility. If developers don't write unit tests, the test pyramid collapses regardless of how good your E2E suite is. This requires leadership alignment and sometimes difficult conversations about engineering standards.</p>
+
+          <h2>The Role of Leadership</h2>
+
+          <p>As a Tech Lead Manager, I can say unequivocally: QA transformation fails without active leadership support. This means protecting training time from sprint commitments, setting realistic timelines (expect 12-18 months for a full stage 1 to stage 3 journey), celebrating incremental wins rather than waiting for the "big reveal," and making quality metrics visible at the leadership level alongside velocity and delivery metrics.</p>
+
+          <blockquote>
+            <p>Transformation is not a project with a finish date. It's a capability you build and continuously improve. The teams that succeed treat it as an ongoing investment, not a one-time initiative.</p>
+          </blockquote>
+
+          <hr>
+
+          <p>The path from manual testing to AI-assisted quality engineering is achievable for any team willing to invest in the journey. The key is respecting the stages: build the foundation before scaling, scale before adding intelligence, and keep your people at the center of every decision. Technology enables transformation, but people drive it.</p>
+        </div>
+
+        <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
+        <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
+          <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener" class="blog-book-banner">
+            <div class="blog-book-banner-icon">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+            <div class="blog-book-banner-content">
+              <span class="blog-book-banner-label">From the Author</span>
+              <strong class="blog-book-banner-title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong>
+              <p class="blog-book-banner-desc">The complete transformation roadmap — including the Vibe Testing framework, team exercises, and real-world case studies.</p>
+            </div>
+            <span class="blog-book-banner-cta">
+              <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon
+            </span>
+          </a>
+        </aside>
+
+        <footer class="blog-article-footer">
+          <div class="blog-article-tags">
+            <span class="blog-article-tag-item">QA Transformation</span>
+            <span class="blog-article-tag-item">AI in Testing</span>
+            <span class="blog-article-tag-item">Test Automation</span>
+            <span class="blog-article-tag-item">Career Development</span>
+            <span class="blog-article-tag-item">Vibe Testing</span>
+            <span class="blog-article-tag-item">Quality Engineering</span>
+          </div>
+
+          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <span data-i18n="blog.discuss">Discuss on LinkedIn</span>
+          </a>
+
+          <!--
+          <div class="blog-article-nav">
+            <a href="#" class="blog-article-nav-link is-prev">
+              <span class="blog-article-nav-label">Previous</span>
+              <span class="blog-article-nav-title">Previous article title here</span>
+            </a>
+            <a href="#" class="blog-article-nav-link is-next">
+              <span class="blog-article-nav-label">Next</span>
+              <span class="blog-article-nav-title">Next article title here</span>
+            </a>
+          </div>
+          -->
+        </footer>
+
+      </article>
+
+      <!-- Comment Section (placeholder) -->
+      <section class="blog-comments" aria-labelledby="comments-heading">
+        <div class="blog-comments-header">
+          <h2 id="comments-heading">Comments</h2>
+          <span class="blog-comments-count">0 comments</span>
+        </div>
+
+        <form class="blog-comment-form" id="commentForm" novalidate>
+          <div class="blog-comment-form-row">
+            <input type="text" class="blog-comment-input" placeholder="Name" aria-label="Your name" required>
+            <input type="email" class="blog-comment-input" placeholder="Email (not published)" aria-label="Your email" required>
+          </div>
+          <textarea class="blog-comment-textarea" placeholder="Share your thoughts..." aria-label="Your comment" rows="4" required></textarea>
+          <div class="blog-comment-form-footer">
+            <span class="blog-comment-guidelines">Be respectful. Constructive feedback is welcome.</span>
+            <button type="submit" class="blog-comment-submit">Post Comment</button>
+          </div>
+        </form>
+
+        <div class="blog-comment-notice" id="commentNotice" hidden>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <div>
+            <strong>Thank you for your comment.</strong>
+            <p>All comments are moderated and will appear after review.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Slot: Bottom (reserved for future ad network) -->
+      <aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden>
+        <!-- Paste Carbon Ads, AdSense, or EthicalAds script here when ready -->
+      </aside>
+
+      <div class="blog-affiliate-disclosure">
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+
+      <div class="blog-article-back">
+        <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="links">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span>
+            <div class="footer-logo">Elio Navarrete</div>
+            <p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p>
+            <p class="footer-summary" data-i18n="footer.summary">
+              Quality engineering, test automation and applied AI for teams, products and academic initiatives.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
+            <ul class="footer-link-list">
+              <li><a href="../news.html" data-i18n="nav.news">News</a></li>
+              <li><a href="./" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
+              <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
+              <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
+              <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-connect">
+            <span class="footer-heading" data-i18n="footer.connect">Connect</span>
+            <ul class="footer-social">
+              <li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
+              <li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li>
+              <li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li>
+              <li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
+          <div class="footer-meta">
+            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    // ===== Mobile Menu =====
+    (function() {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        var focusableEls = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        function setMenuOpen(isOpen) {
+          menu.classList.toggle('active', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+          if (isOpen && focusableEls.length) focusableEls[0].focus();
+          else if (!isOpen) toggle.focus();
+        }
+        toggle.addEventListener('click', function() { setMenuOpen(!menu.classList.contains('active')); });
+        menu.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { setMenuOpen(false); }); });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) { setMenuOpen(false); return; }
+          if (e.key === 'Tab' && menu.classList.contains('active') && focusableEls.length) {
+            var first = focusableEls[0], last = focusableEls[focusableEls.length - 1];
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+          }
+        });
+      }
+    })();
+    </script>
+
+    <!-- Comment form placeholder handler -->
+    <script>
+    (function() {
+      var form = document.getElementById('commentForm');
+      var notice = document.getElementById('commentNotice');
+      if (form && notice) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          notice.removeAttribute('hidden');
+        });
+      }
+    })();
+    </script>
+  </body>
+</html>
