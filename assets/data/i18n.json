@@ -320,7 +320,22 @@
     "profile.back": "Back to Home",
     "profile.hero.location": "Lima, Peru",
     "profile.pub.book.meta": "Amazon — Kindle & Paperback — 144 pages",
-    "profile.pub.orcid": "View all on ORCID"
+    "profile.pub.orcid": "View all on ORCID",
+
+    "nav.blog": "Blog",
+    "blog.title": "Blog",
+    "blog.subtitle": "Insights & Articles",
+    "blog.back": "Back to Home",
+    "blog.backToBlog": "Back to Blog",
+    "blog.readMore": "Read",
+    "blog.readTime": "min read",
+    "blog.discuss": "Discuss on LinkedIn",
+    "blog.filter.all": "All",
+    "blog.filter.qa": "QA Strategy",
+    "blog.filter.automation": "Automation",
+    "blog.filter.ai": "AI in Testing",
+    "blog.filter.teaching": "Teaching",
+    "blog.filter.research": "Research"
   },
   "es": {
     "nav.subtitle": "Sitio Web<br>Oficial",
@@ -643,6 +658,21 @@
     "profile.back": "Volver al Inicio",
     "profile.hero.location": "Lima, Perú",
     "profile.pub.book.meta": "Amazon — Kindle y Tapa Blanda — 144 páginas",
-    "profile.pub.orcid": "Ver todo en ORCID"
+    "profile.pub.orcid": "Ver todo en ORCID",
+
+    "nav.blog": "Blog",
+    "blog.title": "Blog",
+    "blog.subtitle": "Ideas y Artículos",
+    "blog.back": "Volver al Inicio",
+    "blog.backToBlog": "Volver al Blog",
+    "blog.readMore": "Leer",
+    "blog.readTime": "min de lectura",
+    "blog.discuss": "Discutir en LinkedIn",
+    "blog.filter.all": "Todos",
+    "blog.filter.qa": "Estrategia QA",
+    "blog.filter.automation": "Automatización",
+    "blog.filter.ai": "IA en Testing",
+    "blog.filter.teaching": "Docencia",
+    "blog.filter.research": "Investigación"
   }
 }

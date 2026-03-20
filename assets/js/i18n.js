@@ -14,7 +14,7 @@
 (function () {
   'use strict';
 
-  var I18N_PATH = 'assets/data/i18n.json';
+  var I18N_PATH = (window.__i18nBase || 'assets/data/') + 'i18n.json';
   var STORAGE_KEY = 'lang';
   var DEFAULT_LANG = 'en';
 
@@ -83,11 +83,9 @@
     for (var k = 0; k < buttons.length; k++) {
       var btn = buttons[k];
       var btnText = btn.textContent.trim().toUpperCase();
-      if ((lang === 'es' && btnText === 'ESP') || (lang === 'en' && btnText === 'ENG')) {
-        btn.classList.add('is-active');
-      } else {
-        btn.classList.remove('is-active');
-      }
+      var isActive = (lang === 'es' && btnText === 'ESP') || (lang === 'en' && btnText === 'ENG');
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
     }
 
     // Re-render the "View More" text in update-list (injected by news.js)
