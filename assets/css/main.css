@@ -5845,6 +5845,63 @@ body.mobile-menu-open {
   color: rgba(26, 26, 26, 0.6);
   letter-spacing: 0.3px;
 }
+.blog-support-section {
+  text-align: center;
+  padding: 36px 28px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(184, 150, 62, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(184, 150, 62, 0.04), rgba(184, 150, 62, 0.01));
+  transition: all 0.3s ease;
+  position: relative;
+}
+.blog-support-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #b8963e, transparent);
+  border-radius: 2px;
+}
+.blog-support-section h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #b8963e;
+  margin: 0 0 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.blog-support-section p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 22px;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Dark mode overrides */
+[data-theme="dark"] .blog-support-section {
+  border-color: rgba(184, 150, 62, 0.15);
+  background: linear-gradient(135deg, rgba(184, 150, 62, 0.06), rgba(184, 150, 62, 0.02));
+}
+[data-theme="dark"] .blog-support-section h3 {
+  color: #d4a84b;
+}
+[data-theme="dark"] .blog-support-section p {
+  color: #999;
+}
+.blog-support-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 .blog-article-footer .blog-discuss-cta {
   display: inline-flex;
   align-items: center;
@@ -5861,7 +5918,26 @@ body.mobile-menu-open {
   border: none;
   border-radius: 4px;
   transition: all 0.3s ease;
-  margin-bottom: 32px;
+  margin-bottom: 0;
+}
+.blog-article-footer .blog-coffee-cta {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  border: none;
+  margin-bottom: 0;
+  transition: transform 0.3s ease;
+}
+.blog-article-footer .blog-coffee-cta:hover {
+  transform: translateY(-1px);
+  background: transparent;
+  box-shadow: none;
+}
+.blog-article-footer .blog-coffee-cta img {
+  height: 42px;
+  width: auto;
+  border-radius: 4px;
 }
 .blog-article-footer .blog-discuss-cta i {
   font-size: 16px;
