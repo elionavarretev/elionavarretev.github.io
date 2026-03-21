@@ -5643,19 +5643,22 @@ body.mobile-menu-open {
 
 .blog-book-banner {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 22px 28px;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
   background: #faf8f5;
-  border: 1px solid rgba(26, 26, 26, 0.1);
-  border-radius: 8px;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 10px;
   text-decoration: none;
   transition: all 0.3s ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .blog-book-banner:hover {
-  border-color: rgba(26, 26, 26, 0.25);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transform: translateY(-1px);
+  border-color: rgba(26, 26, 26, 0.2);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 .blog-book-banner:hover .blog-book-banner-cta {
   background: #e47911;
@@ -5677,6 +5680,40 @@ body.mobile-menu-open {
   color: #fff;
 }
 
+.blog-book-banner-img {
+  flex-shrink: 0;
+  width: 100px;
+  background: linear-gradient(135deg, #e8e4df, #d5d0c9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+  border-radius: 10px 0 0 10px;
+  overflow: hidden;
+}
+.blog-book-banner-img img {
+  width: 80px;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.blog-book-banner:hover .blog-book-banner-img img {
+  transform: scale(1.06) rotate(-1deg);
+}
+
+.blog-book-banner-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 16px 20px;
+  gap: 4px;
+}
+
 .blog-book-banner-content {
   flex: 1;
   min-width: 0;
@@ -5686,40 +5723,40 @@ body.mobile-menu-open {
   display: block;
   font-family: "Rajdhani", sans-serif;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.2px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: rgba(26, 26, 26, 0.4);
-  margin-bottom: 4px;
 }
 
 .blog-book-banner-title {
   display: block;
   font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: #1a1a1a;
-  line-height: 1.35;
-  margin-bottom: 4px;
+  line-height: 1.3;
 }
 
 .blog-book-banner-desc {
   font-family: "Inter", "Source Sans Pro", sans-serif;
-  font-size: 13px;
+  font-size: 12.5px;
   color: rgba(26, 26, 26, 0.55);
   line-height: 1.5;
   margin: 0;
 }
 
 .blog-book-banner-cta {
-  flex-shrink: 0;
-  padding: 8px 16px;
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 7px 16px;
   font-family: "Rajdhani", sans-serif;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.5px;
   color: #e47911;
-  border: 1px solid #e47911;
+  border: 1.5px solid #e47911;
   border-radius: 4px;
   white-space: nowrap;
   transition: all 0.3s ease;
@@ -5742,17 +5779,22 @@ body.mobile-menu-open {
   margin: 0;
 }
 
-@media (max-width: 767px) {
-  .blog-book-banner {
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
-    padding: 20px;
+@media (max-width: 420px) {
+  .blog-book-banner-img {
+    width: 90px;
+    padding: 12px 10px;
   }
-  .blog-book-banner-cta {
-    width: 100%;
-    text-align: center;
-    padding: 10px 16px;
+  .blog-book-banner-img img {
+    width: 68px;
+  }
+  .blog-book-banner-right {
+    padding: 14px 16px;
+  }
+  .blog-book-banner-title {
+    font-size: 15px;
+  }
+  .blog-book-banner-desc {
+    font-size: 12px;
   }
 }
 /* Share Bar */
@@ -7145,6 +7187,9 @@ body.mobile-menu-open {
   border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
+.blog-article-page[data-theme="dark"] .blog-book-banner-img {
+  background: linear-gradient(135deg, #2a2520, #1e1a16);
+}
 .blog-article-page[data-theme="dark"] .blog-book-banner-icon {
   background: #f0ece6;
 }
@@ -7477,6 +7522,9 @@ body.mobile-menu-open {
 }
 .blog-article-page[data-theme="sunset"] .blog-book-banner:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+.blog-article-page[data-theme="sunset"] .blog-book-banner-img {
+  background: linear-gradient(135deg, rgba(255,200,150,0.3), rgba(255,150,100,0.2));
 }
 .blog-article-page[data-theme="sunset"] .blog-book-banner-icon {
   background: rgba(184, 150, 62, 0.2);
