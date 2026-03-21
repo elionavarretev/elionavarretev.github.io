@@ -7387,3 +7387,352 @@ body.mobile-menu-open {
 .blog-article-page .blog-article-footer {
   transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* ===== Sunset Mode (Easter Egg) ===== */
+.blog-article-page[data-theme="sunset"] {
+  background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+  transition: background 0.5s ease;
+}
+.blog-article-page[data-theme="sunset"] .blog-theme-toggle {
+  border-color: rgba(61, 43, 31, 0.3);
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-theme-toggle:hover {
+  border-color: rgba(61, 43, 31, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-header .blog-article-tag {
+  background: #5c3d2e;
+  color: #fff3e0;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-header .blog-article-title {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-header .blog-article-meta {
+  color: rgba(61, 43, 31, 0.6);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-header .blog-article-meta-sep {
+  background: rgba(61, 43, 31, 0.3);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body h2 {
+  color: #5c3d2e;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body h3 {
+  color: #5c3d2e;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body p {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body ul,
+.blog-article-page[data-theme="sunset"] .blog-article-body ol {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body strong {
+  color: #5c3d2e;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body a {
+  color: #b8963e;
+  text-decoration-color: rgba(184, 150, 62, 0.3);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body a:hover {
+  color: #9a7e34;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body hr {
+  border-color: rgba(61, 43, 31, 0.15);
+  background: rgba(61, 43, 31, 0.15);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body blockquote {
+  border-left-color: #b8963e;
+  background: rgba(255, 255, 255, 0.2);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body blockquote p {
+  color: #5c3d2e;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body pre {
+  background: rgba(61, 43, 31, 0.08);
+  border-color: rgba(61, 43, 31, 0.12);
+  box-shadow: none;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body p code {
+  background: rgba(61, 43, 31, 0.1);
+  color: #5c3d2e;
+  border-color: rgba(61, 43, 31, 0.15);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body img {
+  box-shadow: 0 4px 20px rgba(61, 43, 31, 0.15);
+}
+.blog-article-page[data-theme="sunset"] .blog-ad-placeholder {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(61, 43, 31, 0.1);
+}
+.blog-article-page[data-theme="sunset"] .blog-ad-label {
+  color: rgba(61, 43, 31, 0.5);
+}
+.blog-article-page[data-theme="sunset"] .blog-ad-info {
+  color: rgba(61, 43, 31, 0.4);
+}
+.blog-article-page[data-theme="sunset"] .blog-book-banner {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(61, 43, 31, 0.12);
+}
+.blog-article-page[data-theme="sunset"] .blog-book-banner:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.blog-article-page[data-theme="sunset"] .blog-book-banner-icon {
+  background: rgba(184, 150, 62, 0.2);
+}
+.blog-article-page[data-theme="sunset"] .blog-book-banner-icon i {
+  color: #b8963e;
+}
+.blog-article-page[data-theme="sunset"] .blog-book-banner-label {
+  color: #b8963e;
+}
+.blog-article-page[data-theme="sunset"] .blog-book-banner-title {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-book-banner-desc {
+  color: rgba(61, 43, 31, 0.7);
+}
+.blog-article-page[data-theme="sunset"] .blog-affiliate-disclosure p {
+  color: rgba(61, 43, 31, 0.5);
+}
+.blog-article-page[data-theme="sunset"] .blog-share-bar {
+  border-color: rgba(61, 43, 31, 0.1);
+}
+.blog-article-page[data-theme="sunset"] .blog-share-bar-title {
+  color: rgba(61, 43, 31, 0.5);
+}
+.blog-article-page[data-theme="sunset"] .blog-share-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-share-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  color: #5c3d2e;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-footer {
+  border-color: rgba(61, 43, 31, 0.1);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-footer .blog-article-tag-item {
+  background: rgba(255, 255, 255, 0.2);
+  color: #5c3d2e;
+}
+.blog-article-page[data-theme="sunset"] .blog-article-footer .blog-article-nav-label {
+  color: rgba(61, 43, 31, 0.5);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-footer .blog-article-nav-title {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-rating {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(61, 43, 31, 0.1);
+}
+.blog-article-page[data-theme="sunset"] .blog-rating-title {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-rating-stars svg {
+  color: rgba(61, 43, 31, 0.3);
+}
+.blog-article-page[data-theme="sunset"] .blog-rating-thanks {
+  color: #b8963e;
+}
+.blog-article-page[data-theme="sunset"] .blog-rating-avg {
+  color: rgba(61, 43, 31, 0.5);
+}
+.blog-article-page[data-theme="sunset"] .blog-related-title {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-related-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(61, 43, 31, 0.1);
+}
+.blog-article-page[data-theme="sunset"] .blog-related-card:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(61, 43, 31, 0.2);
+}
+.blog-article-page[data-theme="sunset"] .blog-related-card-title {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-related-card-meta {
+  color: rgba(61, 43, 31, 0.5);
+}
+.blog-article-page[data-theme="sunset"] .blog-comments {
+  border-color: rgba(61, 43, 31, 0.1);
+}
+.blog-article-page[data-theme="sunset"] .blog-comments-header h2 {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-comments-count {
+  color: rgba(61, 43, 31, 0.5);
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-input,
+.blog-article-page[data-theme="sunset"] .blog-comment-textarea {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(61, 43, 31, 0.15);
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-input::placeholder,
+.blog-article-page[data-theme="sunset"] .blog-comment-textarea::placeholder {
+  color: rgba(61, 43, 31, 0.4);
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-input:focus,
+.blog-article-page[data-theme="sunset"] .blog-comment-textarea:focus {
+  border-color: #b8963e;
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-guidelines {
+  color: rgba(61, 43, 31, 0.4);
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-submit {
+  background: #5c3d2e;
+  color: #fff3e0;
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-submit:hover {
+  background: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-notice strong {
+  color: #5c3d2e;
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-notice p {
+  color: rgba(61, 43, 31, 0.6);
+}
+.blog-article-page[data-theme="sunset"] .blog-references details {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(61, 43, 31, 0.1);
+}
+.blog-article-page[data-theme="sunset"] .blog-references details summary {
+  color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-references .blog-refs-list li {
+  color: rgba(61, 43, 31, 0.8);
+}
+.blog-article-page[data-theme="sunset"] .blog-references .blog-refs-apa {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(61, 43, 31, 0.8);
+}
+.blog-article-page[data-theme="sunset"] .blog-references .blog-refs-tab {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(61, 43, 31, 0.6);
+}
+.blog-article-page[data-theme="sunset"] .blog-references .blog-refs-tab.active {
+  background: #5c3d2e;
+  color: #fff3e0;
+}
+.blog-article-page[data-theme="sunset"] .blog-support-section {
+  border-color: rgba(61, 43, 31, 0.15);
+  background: rgba(255, 255, 255, 0.2);
+}
+.blog-article-page[data-theme="sunset"] .blog-support-section h3 {
+  color: #5c3d2e;
+}
+.blog-article-page[data-theme="sunset"] .blog-support-section p {
+  color: rgba(61, 43, 31, 0.7);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-back a {
+  color: rgba(61, 43, 31, 0.6);
+  border-color: rgba(61, 43, 31, 0.2);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-back a:hover {
+  color: #3d2b1f;
+  border-color: #3d2b1f;
+}
+.blog-article-page[data-theme="sunset"] .blog-comment-char-count {
+  color: rgba(61, 43, 31, 0.4);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body table {
+  border-color: rgba(61, 43, 31, 0.15);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body th {
+  background: rgba(255, 255, 255, 0.2);
+  color: #3d2b1f;
+  border-color: rgba(61, 43, 31, 0.15);
+}
+.blog-article-page[data-theme="sunset"] .blog-article-body td {
+  color: rgba(61, 43, 31, 0.85);
+  border-color: rgba(61, 43, 31, 0.1);
+}
+
+/* Sunset mode notification */
+.sunset-mode-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(61, 43, 31, 0.9);
+  color: #feb47b;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border-radius: 8px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  animation: sunsetToastAnim 2s ease forwards;
+}
+@keyframes sunsetToastAnim {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  15% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+  25% { transform: translate(-50%, -50%) scale(1); }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ===== Pinball Play Button (Easter Egg) ===== */
+.blog-support-section h3 {
+  position: relative;
+  display: inline-block;
+}
+.pinball-play-btn {
+  display: none;
+  margin-left: 8px;
+  font-size: 13px;
+  color: #b8963e;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  vertical-align: middle;
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  font-family: inherit;
+  line-height: 1;
+}
+[data-theme="sunset"] .pinball-play-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  color: #5c3d2e;
+  opacity: 0.7;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(92, 61, 46, 0.3) !important;
+  border-radius: 50%;
+  vertical-align: middle;
+  font-size: 11px;
+}
+[data-theme="sunset"] .pinball-play-btn:hover {
+  opacity: 1;
+  background: rgba(92, 61, 46, 0.1);
+  transform: scale(1.1);
+}
+.pinball-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: 1px solid rgba(184, 150, 62, 0.3);
+  color: #b8963e;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: "Rajdhani", sans-serif;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.pinball-close-btn:hover {
+  background: rgba(184, 150, 62, 0.1);
+  border-color: #b8963e;
+}

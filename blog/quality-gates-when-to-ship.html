@@ -760,15 +760,289 @@
       var saved = localStorage.getItem('blogArticleTheme');
       var theme = saved || 'dark';
       page.setAttribute('data-theme', theme);
-      btn.querySelector('.theme-icon-moon').style.display = theme === 'dark' ? 'block' : 'none'; btn.querySelector('.theme-icon-sun').style.display = theme === 'dark' ? 'none' : 'block';
+      function updateIcons(t) {
+        btn.querySelector('.theme-icon-moon').style.display = (t === 'dark' || t === 'sunset') ? 'block' : 'none';
+        btn.querySelector('.theme-icon-sun').style.display = (t === 'dark' || t === 'sunset') ? 'none' : 'block';
+      }
+      updateIcons(theme);
 
+      /* Easter Egg 1: Sunset Mode - 6 rapid clicks within 3s */
+      var clickTimes = [];
       btn.addEventListener('click', function() {
+        var now = Date.now();
+        clickTimes.push(now);
+        /* Remove clicks older than 3 seconds */
+        clickTimes = clickTimes.filter(function(t) { return now - t < 3000; });
+        if (clickTimes.length >= 6) {
+          clickTimes = [];
+          page.setAttribute('data-theme', 'sunset');
+          localStorage.setItem('blogArticleTheme', 'sunset');
+          updateIcons('sunset');
+          /* Show toast */
+          var toast = document.createElement('div');
+          toast.className = 'sunset-mode-toast';
+          toast.textContent = 'Sunset Mode';
+          document.body.appendChild(toast);
+          setTimeout(function() { toast.remove(); }, 2200);
+          return;
+        }
         var current = page.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
+        var next;
+        if (current === 'sunset') { next = 'dark'; }
+        else { next = current === 'dark' ? 'light' : 'dark'; }
         page.setAttribute('data-theme', next);
-        btn.querySelector('.theme-icon-moon').style.display = next === 'dark' ? 'block' : 'none'; btn.querySelector('.theme-icon-sun').style.display = next === 'dark' ? 'none' : 'block';
+        updateIcons(next);
         localStorage.setItem('blogArticleTheme', next);
       });
+
+      /* Easter Egg 2: Pinball Game */
+      var supportSection = document.querySelector('.blog-support-section');
+      if (supportSection) {
+        var h3 = supportSection.querySelector('h3');
+        if (h3) {
+          var playBtn = document.createElement('button');
+          playBtn.className = 'pinball-play-btn';
+          playBtn.innerHTML = '&#9654;';
+          playBtn.title = 'Play Pinball';
+          playBtn.setAttribute('aria-label', 'Play Pinball');
+          h3.appendChild(playBtn);
+
+          var supportHTML = supportSection.innerHTML;
+
+          playBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            supportHTML = supportSection.innerHTML;
+            supportSection.style.position = 'relative';
+            var w = supportSection.offsetWidth;
+            var h = Math.max(400, supportSection.offsetHeight);
+            supportSection.innerHTML = '';
+            supportSection.style.padding = '0';
+            supportSection.style.height = h + 'px';
+
+            /* Close button */
+            var closeBtn = document.createElement('button');
+            closeBtn.className = 'pinball-close-btn';
+            closeBtn.textContent = '\u2715 Close';
+            supportSection.appendChild(closeBtn);
+
+            /* Canvas */
+            var canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            canvas.style.display = 'block';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.borderRadius = '8px';
+            supportSection.appendChild(canvas);
+
+            var ctx = canvas.getContext('2d');
+            var cW = w, cH = h;
+            var gold = '#b8963e', darkBg = '#1a1a1a', lightGold = '#d4a84b';
+
+            /* Ball */
+            var ball = { x: cW / 2, y: cH - 80, r: 8, vx: 2.5, vy: -4 };
+
+            /* Flippers */
+            var flipW = 60, flipH = 10, flipY = cH - 35;
+            var leftFlip = { x: cW / 2 - 70, angle: 0.3 };
+            var rightFlip = { x: cW / 2 + 70, angle: -0.3 };
+            var leftDown = false, rightDown = false;
+
+            /* Bumpers */
+            var bumpers = [
+              { x: cW * 0.25, y: cH * 0.25, r: 18 },
+              { x: cW * 0.75, y: cH * 0.25, r: 18 },
+              { x: cW * 0.5, y: cH * 0.35, r: 22 },
+              { x: cW * 0.35, y: cH * 0.5, r: 16 },
+              { x: cW * 0.65, y: cH * 0.5, r: 16 },
+              { x: cW * 0.2, y: cH * 0.15, r: 14 },
+              { x: cW * 0.8, y: cH * 0.15, r: 14 },
+              { x: cW * 0.5, y: cH * 0.12, r: 12 }
+            ];
+            var bumperHit = bumpers.map(function() { return 0; });
+
+            var score = 0, running = true, gameOver = false;
+
+            function resetBall() {
+              ball.x = cW / 2; ball.y = cH - 80;
+              ball.vx = (Math.random() - 0.5) * 5;
+              ball.vy = -5;
+            }
+
+            function draw() {
+              /* Background */
+              ctx.fillStyle = darkBg;
+              ctx.fillRect(0, 0, cW, cH);
+
+              /* Border */
+              ctx.strokeStyle = gold;
+              ctx.lineWidth = 2;
+              ctx.strokeRect(1, 1, cW - 2, cH - 2);
+
+              /* Bumpers */
+              for (var i = 0; i < bumpers.length; i++) {
+                var b = bumpers[i];
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+                ctx.fillStyle = bumperHit[i] > 0 ? lightGold : 'rgba(184,150,62,0.3)';
+                ctx.fill();
+                ctx.strokeStyle = gold;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                if (bumperHit[i] > 0) bumperHit[i]--;
+              }
+
+              /* Flippers */
+              ctx.save();
+              ctx.fillStyle = gold;
+              /* Left flipper */
+              ctx.save();
+              ctx.translate(leftFlip.x, flipY);
+              ctx.rotate(leftDown ? -0.5 : leftFlip.angle);
+              ctx.beginPath();
+              ctx.roundRect(-5, -flipH / 2, flipW, flipH, 5);
+              ctx.fill();
+              ctx.restore();
+              /* Right flipper */
+              ctx.save();
+              ctx.translate(rightFlip.x, flipY);
+              ctx.rotate(rightDown ? 0.5 : rightFlip.angle);
+              ctx.beginPath();
+              ctx.roundRect(-flipW + 5, -flipH / 2, flipW, flipH, 5);
+              ctx.fill();
+              ctx.restore();
+              ctx.restore();
+
+              /* Ball */
+              ctx.beginPath();
+              ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+              ctx.fillStyle = '#fff';
+              ctx.fill();
+              ctx.shadowColor = gold;
+              ctx.shadowBlur = 10;
+              ctx.fill();
+              ctx.shadowBlur = 0;
+
+              /* Score */
+              ctx.fillStyle = gold;
+              ctx.font = '600 16px Rajdhani, sans-serif';
+              ctx.textAlign = 'left';
+              ctx.fillText('SCORE: ' + score, 12, 24);
+
+              if (gameOver) {
+                ctx.fillStyle = 'rgba(0,0,0,0.6)';
+                ctx.fillRect(0, 0, cW, cH);
+                ctx.fillStyle = gold;
+                ctx.font = '600 28px Rajdhani, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('GAME OVER', cW / 2, cH / 2 - 10);
+                ctx.font = '500 16px Rajdhani, sans-serif';
+                ctx.fillText('Score: ' + score + '  |  Press SPACE to restart', cW / 2, cH / 2 + 20);
+              }
+            }
+
+            function update() {
+              if (gameOver) return;
+              ball.vy += 0.15; /* gravity */
+              ball.x += ball.vx;
+              ball.y += ball.vy;
+
+              /* Walls */
+              if (ball.x - ball.r < 0) { ball.x = ball.r; ball.vx = Math.abs(ball.vx); }
+              if (ball.x + ball.r > cW) { ball.x = cW - ball.r; ball.vx = -Math.abs(ball.vx); }
+              if (ball.y - ball.r < 0) { ball.y = ball.r; ball.vy = Math.abs(ball.vy); }
+
+              /* Bottom - game over */
+              if (ball.y > cH + 20) { gameOver = true; }
+
+              /* Bumper collisions */
+              for (var i = 0; i < bumpers.length; i++) {
+                var b = bumpers[i];
+                var dx = ball.x - b.x, dy = ball.y - b.y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < ball.r + b.r) {
+                  var nx = dx / dist, ny = dy / dist;
+                  ball.vx = nx * 5;
+                  ball.vy = ny * 5;
+                  ball.x = b.x + nx * (ball.r + b.r + 1);
+                  ball.y = b.y + ny * (ball.r + b.r + 1);
+                  score += 100;
+                  bumperHit[i] = 8;
+                }
+              }
+
+              /* Flipper collision (simplified) */
+              var flipTop = flipY - flipH;
+              var flipBot = flipY + flipH;
+              /* Left flipper zone */
+              if (ball.y + ball.r > flipTop && ball.y - ball.r < flipBot) {
+                if (ball.x > leftFlip.x - 10 && ball.x < leftFlip.x + flipW + 10) {
+                  if (ball.vy > 0) {
+                    ball.vy = leftDown ? -8 : -5;
+                    ball.vx += leftDown ? 2 : 0.5;
+                    ball.y = flipTop - ball.r;
+                    score += 10;
+                  }
+                }
+                /* Right flipper zone */
+                if (ball.x > rightFlip.x - flipW - 10 && ball.x < rightFlip.x + 10) {
+                  if (ball.vy > 0) {
+                    ball.vy = rightDown ? -8 : -5;
+                    ball.vx -= rightDown ? 2 : 0.5;
+                    ball.y = flipTop - ball.r;
+                    score += 10;
+                  }
+                }
+              }
+
+              /* Speed cap */
+              var speed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
+              if (speed > 10) { ball.vx *= 10 / speed; ball.vy *= 10 / speed; }
+            }
+
+            function loop() {
+              if (!running) return;
+              update();
+              draw();
+              requestAnimationFrame(loop);
+            }
+
+            function onKey(e) {
+              if (!running) return;
+              var down = e.type === 'keydown';
+              if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') { leftDown = down; e.preventDefault(); }
+              if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { rightDown = down; e.preventDefault(); }
+              if (e.key === ' ' && gameOver && down) { gameOver = false; score = 0; resetBall(); e.preventDefault(); }
+            }
+            document.addEventListener('keydown', onKey);
+            document.addEventListener('keyup', onKey);
+
+            /* Touch controls for mobile */
+            canvas.addEventListener('touchstart', function(e) {
+              var t = e.touches[0];
+              if (t.clientX < window.innerWidth / 2) leftDown = true; else rightDown = true;
+              if (gameOver) { gameOver = false; score = 0; resetBall(); }
+              e.preventDefault();
+            }, { passive: false });
+            canvas.addEventListener('touchend', function(e) {
+              leftDown = false; rightDown = false;
+              e.preventDefault();
+            }, { passive: false });
+
+            loop();
+
+            closeBtn.addEventListener('click', function() {
+              running = false;
+              document.removeEventListener('keydown', onKey);
+              document.removeEventListener('keyup', onKey);
+              supportSection.innerHTML = supportHTML;
+              supportSection.style.height = '';
+              supportSection.style.padding = '';
+              supportSection.style.position = '';
+            });
+          });
+        }
+      }
     })();
     </script>
   </body>
