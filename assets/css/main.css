@@ -7699,6 +7699,21 @@ body.mobile-menu-open {
   border-color: rgba(61, 43, 31, 0.1);
 }
 
+/* Disclaimer notes for self-reported statistics */
+.disclaimer-note {
+  display: block;
+  font-size: 12px;
+  color: rgba(26, 26, 26, 0.45);
+  margin-top: 4px;
+  font-style: italic;
+}
+.blog-article-page[data-theme="dark"] .disclaimer-note {
+  color: rgba(255, 255, 255, 0.35);
+}
+.blog-article-page[data-theme="sunset"] .disclaimer-note {
+  color: rgba(254, 180, 123, 0.45);
+}
+
 /* Sunset mode notification */
 .sunset-mode-toast {
   position: fixed;

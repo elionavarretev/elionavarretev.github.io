@@ -59,8 +59,8 @@
       "description": "How AI assistants can dramatically reduce the cost of maintaining automated test suites by detecting, classifying, and fixing broken tests.",
       "author": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/", "@id": "https://elionavarrete.com/#author" },
       "publisher": { "@type": "Person", "name": "Elio Navarrete", "url": "https://elionavarrete.com/" },
-      "datePublished": "2026-03-19",
-      "dateModified": "2026-03-19",
+      "datePublished": "2026-03-10",
+      "dateModified": "2026-03-11",
       "mainEntityOfPage": "https://elionavarrete.com/blog/ai-test-maintenance.html",
       "image": "https://elionavarrete.com/assets/img/about/about-ElioNavarrete.jpg",
       "articleSection": "AI in Testing",
@@ -233,7 +233,7 @@
 
           <p data-i18n-rich="blog.ai-maintenance.p.10">LLMs excel at this classification task. By feeding the AI the test failure trace, the recent git diff, and the test source code, you can get a structured classification in seconds. The AI analyzes the error message ("Element not found: [data-testid='submit-btn']"), cross-references it with the diff (which shows the element was renamed to <code>data-testid="confirm-btn"</code>), and correctly classifies it as locator rot — not a bug.</p>
 
-          <p data-i18n-rich="blog.ai-maintenance.p.11">In teams I have worked with, this classification step alone reduced triage time by <strong>70%</strong>. The engineer still reviews the AI's classification, but reviewing a structured summary is far faster than reading raw stack traces.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.11">In teams I have worked with, this classification step alone reduced triage time by <strong>70%</strong>. The engineer still reviews the AI's classification, but reviewing a structured summary is far faster than reading raw stack traces.<em class="disclaimer-note">Based on observed results across multiple QA teams the author has coached.</em></p>
 
           <h2 data-i18n="blog.ai-maintenance.h2.3">Self-Healing Selectors: How AI Proposes Fixes</h2>
 
@@ -263,8 +263,9 @@
             <li data-i18n-rich="blog.ai-maintenance.li.6"><strong>Before AI assistance:</strong> Average MTTR for a broken E2E test was 45-90 minutes. This includes investigation, root cause analysis, implementing the fix, and verifying the fix passes.</li>
             <li data-i18n-rich="blog.ai-maintenance.li.7"><strong>After AI assistance:</strong> Average MTTR dropped to 8-15 minutes. The investigation and root cause analysis are handled by the AI. The engineer's time is spent on review and verification.</li>
           </ul>
+          <em class="disclaimer-note">MTTR figures based on the author's experience coaching QA teams through AI-assisted maintenance adoption.</em>
 
-          <p data-i18n-rich="blog.ai-maintenance.p.17">Over a quarter, for a team maintaining 300+ E2E tests with an average of 10-15 breakages per sprint, this translates to roughly <strong>20-30 hours of engineering time saved per sprint</strong>. That is time redirected to writing new coverage, improving test architecture, or — crucially — working on preventing breakages in the first place through better selector strategies and test design.</p>
+          <p data-i18n-rich="blog.ai-maintenance.p.17">Over a quarter, for a team maintaining 300+ E2E tests with an average of 10-15 breakages per sprint, this translates to roughly <strong>20-30 hours of engineering time saved per sprint</strong>.<em class="disclaimer-note">Estimated from the author's experience leading QA transformations.</em> That is time redirected to writing new coverage, improving test architecture, or — crucially — working on preventing breakages in the first place through better selector strategies and test design.</p>
 
           <h2 data-i18n="blog.ai-maintenance.h2.6">When NOT to Use AI Maintenance</h2>
 
