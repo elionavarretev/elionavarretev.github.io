@@ -680,11 +680,11 @@
             <i class="fa fa-amazon" aria-hidden="true"></i>
             <span data-i18n="book.badge">Amazon</span>
           </a>
-          <a
-            href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20"
+          <button
+            type="button"
             class="goods-book-cover"
-            target="_blank"
-            rel="noopener noreferrer"
+            id="book-sample-trigger"
+            aria-label="Read free sample"
           >
             <picture>
               <source srcset="assets/img/books/quality-assurance-book.webp" type="image/webp">
@@ -695,7 +695,8 @@
                 width="600" height="900"
               >
             </picture>
-          </a>
+            <span class="book-cover-overlay"><i class="fa fa-book"></i> <span data-i18n="book.sample">Read Sample</span></span>
+          </button>
           <div class="goods-book-details">
             <span class="goods-book-kicker" data-i18n="book.kicker">Featured Publication</span>
             <h3 class="goods-book-name" data-i18n="book.name">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</h3>
@@ -1062,6 +1063,62 @@
       </div>
     </footer>
 
+    <!-- Book Sample Modal -->
+    <div id="book-sample-modal" class="book-modal-overlay" aria-hidden="true" role="dialog" aria-label="Book preview">
+      <div class="book-modal">
+        <button type="button" class="book-modal-close" id="book-sample-close" aria-label="Close">&times;</button>
+
+        <!-- Ambient glow -->
+        <div class="book-modal-glow"></div>
+
+        <div class="book-modal-content">
+          <!-- Left: cover + info -->
+          <div class="book-modal-left">
+            <div class="book-modal-cover">
+              <picture>
+                <source srcset="assets/img/books/quality-assurance-book.webp" type="image/webp">
+                <img src="assets/img/books/quality-assurance-book.jpg" alt="Quality Assurance Book Cover" width="600" height="900">
+              </picture>
+            </div>
+            <div class="book-modal-rating">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
+              <span>4.5</span>
+            </div>
+            <span class="book-modal-kicker" data-i18n="book.modal.kicker">Featured Publication &middot; 2026</span>
+            <div class="book-modal-meta-pills">
+              <span><i class="fa fa-file-text-o"></i> 147 <span data-i18n="book.modal.pages">pages</span></span>
+              <span><i class="fa fa-language"></i> <span data-i18n="book.modal.lang">Spanish</span></span>
+            </div>
+            <div class="book-modal-actions">
+              <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" class="book-modal-btn-secondary" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-amazon"></i> Kindle
+              </a>
+              <a href="https://www.amazon.com/dp/B0GRKF9CZD?tag=elionavarrete-20" class="book-modal-btn-tertiary" target="_blank" rel="noopener noreferrer">
+                <span data-i18n="book.modal.paperback">Paperback</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: prefacio excerpt (scrollable) -->
+          <div class="book-modal-right">
+            <div class="book-modal-excerpt-header">
+              <h3 class="book-modal-excerpt-label">Prefacio</h3>
+              <span class="book-modal-excerpt-badge"><i class="fa fa-lock-open"></i> <span data-i18n="book.modal.free">Free Excerpt</span></span>
+            </div>
+            <div class="book-modal-excerpt">
+              <p>Este libro naci&oacute; de una frustraci&oacute;n y una convicci&oacute;n. La frustraci&oacute;n de ver que la mayor&iacute;a de los recursos sobre Quality Assurance en espa&ntilde;ol son traducciones desactualizadas, gu&iacute;as superficiales, o manuales acad&eacute;micos desconectados de la realidad de la industria. La convicci&oacute;n de que hay una forma mejor de ense&ntilde;ar QA: combinando la teor&iacute;a necesaria con la pr&aacute;ctica real, y poniendo la inteligencia artificial como la herramienta transformadora que ya es.</p>
+              <p>Escribo desde dos trincheras: como QA Lead en una empresa de tecnolog&iacute;a en salud donde lidero la estrategia de calidad para m&uacute;ltiples productos, y como profesor universitario donde ense&ntilde;o a la siguiente generaci&oacute;n de ingenieros de software. Esta perspectiva dual me permite ver lo que la industria necesita y lo que la academia no est&aacute; ense&ntilde;ando. Este libro intenta cerrar esa brecha.</p>
+              <p>Pero hay algo m&aacute;s que me impuls&oacute; a escribir estas p&aacute;ginas. En los &uacute;ltimos a&ntilde;os, el mundo del desarrollo de software fue sacudido por el fen&oacute;meno del vibe coding: programar asistido por inteligencia artificial, donde el desarrollador describe lo que quiere y la IA genera el c&oacute;digo.</p>
+              <div class="book-modal-excerpt-fade"></div>
+            </div>
+            <a href="https://read.amazon.com/sample/B0GR7ZT2C8?clientId=share&asin=B0GR7ZT2C8&revisionId=8a8d7378&format=3&depth=1" class="book-modal-btn-primary" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-book"></i> <span data-i18n="book.modal.read">Continue Reading on Amazon</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Swiper.js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Internationalization (must load before news.js for correct initial lang) -->
@@ -1082,6 +1139,34 @@
         setTimeout(function() { loader.style.display = 'none'; }, 500);
       }
     });
+
+    // ===== Book Sample Modal =====
+    (function () {
+      var trigger = document.getElementById('book-sample-trigger');
+      var modal   = document.getElementById('book-sample-modal');
+      var closeBtn = document.getElementById('book-sample-close');
+      if (!trigger || !modal) return;
+
+      function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      trigger.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    })();
 
     // ===== Hero Swiper =====
     var heroSwiper = new Swiper('.heroSwiper', {
