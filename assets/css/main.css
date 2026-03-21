@@ -7680,24 +7680,17 @@ body.mobile-menu-open {
 }
 
 /* ===== Pinball Play Button (Easter Egg) ===== */
-.blog-support-section h3 {
-  position: relative;
-  display: inline-block;
-}
 .pinball-play-btn {
   display: none;
-  margin-left: 8px;
   font-size: 13px;
   color: #b8963e;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  vertical-align: middle;
   background: none;
   border: none;
   padding: 2px 4px;
   font-family: inherit;
   line-height: 1;
+  margin: 4px 0 8px 0;
 }
 [data-theme="sunset"] .pinball-play-btn {
   display: inline-flex !important;
@@ -7709,8 +7702,8 @@ body.mobile-menu-open {
   height: 28px;
   border: 1px solid rgba(92, 61, 46, 0.3) !important;
   border-radius: 50%;
-  vertical-align: middle;
   font-size: 11px;
+  transition: opacity 0.3s ease, transform 0.2s ease;
 }
 [data-theme="sunset"] .pinball-play-btn:hover {
   opacity: 1;

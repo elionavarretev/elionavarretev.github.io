@@ -398,6 +398,7 @@
 
           <div class="blog-support-section">
             <h3 data-i18n="blog.support.title">Support My Work</h3>
+            <button class="pinball-play-btn" type="button" title="Play Pinball" aria-label="Play Pinball">&#9654;</button>
             <p data-i18n="blog.support.text">If you found this useful, consider leaving a comment on LinkedIn or buying me a coffee/tea. It helps me keep creating content like this.</p>
             <div class="blog-support-buttons">
               <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
@@ -796,12 +797,7 @@
       if (supportSection) {
         var h3 = supportSection.querySelector('h3');
         if (h3) {
-          var playBtn = document.createElement('button');
-          playBtn.className = 'pinball-play-btn';
-          playBtn.innerHTML = '&#9654;';
-          playBtn.title = 'Play Pinball';
-          playBtn.setAttribute('aria-label', 'Play Pinball');
-          h3.appendChild(playBtn);
+          var playBtn = supportSection.querySelector('.pinball-play-btn');
 
           var supportHTML = supportSection.innerHTML;
 
@@ -835,6 +831,28 @@
             var cW = w, cH = h;
             var gold = '#b8963e', darkBg = '#1a1a1a', lightGold = '#d4a84b';
 
+            /* Sound engine (Web Audio API) */
+            var audioCtx = null;
+            try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
+            function playTone(freq, dur, vol, type) {
+              if (!audioCtx) return;
+              var osc = audioCtx.createOscillator();
+              var gain = audioCtx.createGain();
+              osc.type = type || 'sine';
+              osc.frequency.value = freq;
+              gain.gain.setValueAtTime(vol || 0.15, audioCtx.currentTime);
+              gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+              osc.connect(gain);
+              gain.connect(audioCtx.destination);
+              osc.start(); osc.stop(audioCtx.currentTime + dur);
+            }
+            function sndBumper() { playTone(880 + Math.random()*200, 0.08, 0.12, 'square'); }
+            function sndFlipper() { playTone(220, 0.05, 0.1, 'triangle'); }
+            function sndWall() { playTone(330, 0.04, 0.06, 'sine'); }
+            function sndSling() { playTone(660, 0.1, 0.1, 'sawtooth'); }
+            function sndDrain() { playTone(120, 0.3, 0.15, 'sine'); setTimeout(function(){playTone(90,0.3,0.12,'sine');},150); }
+            function sndGameOver() { playTone(200,0.15,0.12,'square'); setTimeout(function(){playTone(150,0.15,0.12,'square');},150); setTimeout(function(){playTone(100,0.4,0.15,'square');},300); }
+
             /* Ball */
             var ball = { x: cW / 2, y: cH - 80, r: 8, vx: 2.5, vy: -4 };
 
@@ -856,6 +874,7 @@
               { x: cW * 0.5, y: cH * 0.12, r: 12 }
             ];
             var bumperHit = bumpers.map(function() { return 0; });
+            var bumperCooldown = bumpers.map(function() { return 0; });
 
             var score = 0, running = true, gameOver = false;
 
