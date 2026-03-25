@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head> <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#000000"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favi/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favi/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favi/apple-icon-180x180.png"><title id="page-title">Page Not Found | Elio Navarrete</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/main.css"> <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: #000;
+        color: #eee;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+      }
+
+      .error-code {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(6rem, 15vw, 12rem);
+        font-weight: 600;
+        line-height: 1;
+        margin: 0;
+        color: #eee;
+        letter-spacing: -0.02em;
+        opacity: 0.15;
+      }
+
+      .error-title {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin: -1rem 0 1.5rem;
+        color: #eee;
+      }
+
+      .error-message {
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        color: #999;
+        max-width: 440px;
+        line-height: 1.7;
+        margin: 0 0 2.5rem;
+      }
+
+      .error-nav {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .error-nav a {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #00cef0;
+        text-decoration: none;
+        padding: 0.6rem 1.6rem;
+        border: 1px solid rgba(0, 206, 240, 0.3);
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .error-nav a:hover {
+        background-color: #00cef0;
+        color: #000;
+        border-color: #00cef0;
+      }
+
+      .error-line {
+        width: 40px;
+        height: 1px;
+        background-color: rgba(0, 206, 240, 0.4);
+        margin: 0 0 2rem;
+      }
+    </style> </head><body> <div class="error-container"><p class="error-code">404</p><div class="error-line"></div><h1 class="error-title" id="error-title">Page not found</h1><p class="error-message" id="error-message"> The page you are looking for does not exist or has been moved. </p><nav class="error-nav"> <a href="/" id="link-home">Home</a> <a href="/blog/" id="link-blog">Blog</a></nav></div> <script>
+      (function () {
+        var isSpanish = false;
+        var path = window.location.pathname.toLowerCase();
+        var params = new URLSearchParams(window.location.search);
+
+        if (params.get('lang') === 'es') {
+          isSpanish = true;
+        } else if (path.indexOf('/es/') === 0 || path.indexOf('/es') === 0) {
+          isSpanish = true;
+        } else if (navigator.language && navigator.language.startsWith('es')) {
+          isSpanish = true;
+        }
+
+        if (isSpanish) {
+          document.documentElement.lang = 'es';
+          document.getElementById('page-title').textContent = 'Pagina no encontrada | Elio Navarrete';
+          document.getElementById('error-title').textContent = 'Pagina no encontrada';
+          document.getElementById('error-message').textContent =
+            'La pagina que buscas no existe o ha sido movida.';
+          document.getElementById('link-home').textContent = 'Inicio';
+          document.getElementById('link-blog').textContent = 'Blog';
+        }
+      })();
+    </script> <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("keydown",function(e){if(e.ctrlKey&&(e.key==="u"||e.key==="U"||e.key==="s"||e.key==="S")){e.preventDefault()}if(e.key==="F12"){e.preventDefault()}});</script></body></html>

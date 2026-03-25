@@ -1,61 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Practical patterns for testing APIs in microservices architectures — from contract testing to integration strategies that scale. By Elio Navarrete.">
-    <meta name="description:es" content="Patrones prácticos para testing de APIs en arquitecturas de microservicios, desde contract testing hasta estrategias de integración que escalan.">
-    <meta name="robots" content="index, follow">
-    <meta name="keywords" content="API Testing, Microservices, Contract Testing, Pact, Integration Testing, REST API, Elio Navarrete">
-    <meta name="theme-color" content="#000000">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png">
-    <link rel="canonical" href="https://elionavarrete.com/blog/api-testing-microservices.html">
-    <title>API Testing Patterns for Microservices Architecture | Elio Navarrete</title>
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://elionavarrete.com/blog/api-testing-microservices.html">
-    <meta property="og:title" content="API Testing Patterns for Microservices Architecture">
-    <meta property="og:description" content="Practical patterns for testing APIs in microservices architectures — from contract testing to integration strategies that scale.">
-    <meta property="og:image" content="https://elionavarrete.com/assets/img/books/quality-assurance-book-og.jpg">
-    <meta property="article:author" content="https://elionavarrete.com/">
-    <meta property="article:published_time" content="2026-03-19">
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="API Testing Patterns for Microservices Architecture">
-    <meta name="twitter:description" content="Practical patterns for testing APIs in microservices architectures — from contract testing to integration strategies that scale.">
-    <meta name="twitter:image" content="https://elionavarrete.com/assets/img/books/quality-assurance-book-og.jpg">
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/api-testing-microservices.html">
-    <link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/api-testing-microservices.html?lang=es">
-    <link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/api-testing-microservices.html">
-
-    <!-- Preconnect CDNs -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <!-- Google Fonts (non-render-blocking) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-
-    <!-- Preload data files -->
-    <link rel="preload" href="../assets/data/i18n.json" as="fetch" crossorigin>
-
-    <!-- Prism.js syntax highlighting (One Dark theme) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-      <link rel="stylesheet" href="../assets/css/responsive.css">
-    </noscript>
-
-    <!-- JSON-LD: BlogPosting -->
-    <script type="application/ld+json">
+<!DOCTYPE html><html lang="en"><head> <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="description" content="Practical patterns for testing APIs in microservices architectures — from contract testing to integration strategies that scale. By Elio Navarrete."><meta name="description:es" content="Patrones prácticos para testing de APIs en arquitecturas de microservicios, desde contract testing hasta estrategias de integración que escalan."><meta name="robots" content="index, follow"><meta name="keywords" content="API Testing, Microservices, Contract Testing, Pact, Integration Testing, REST API, Elio Navarrete"><meta name="theme-color" content="#000000"><link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favi/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favi/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favi/apple-icon-180x180.png"><link rel="canonical" href="https://elionavarrete.com/blog/api-testing-microservices.html"><title>API Testing Patterns for Microservices Architecture | Elio Navarrete</title><meta property="og:type" content="article"><meta property="og:url" content="https://elionavarrete.com/blog/api-testing-microservices.html"><meta property="og:title" content="API Testing Patterns for Microservices Architecture"><meta property="og:description" content="Practical patterns for testing APIs in microservices architectures — from contract testing to integration strategies that scale."><meta property="og:image" content="https://elionavarrete.com/assets/img/books/quality-assurance-book-og.jpg"><meta property="article:author" content="https://elionavarrete.com/"><meta property="article:published_time" content="2026-03-19"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="API Testing Patterns for Microservices Architecture"><meta name="twitter:description" content="Practical patterns for testing APIs in microservices architectures — from contract testing to integration strategies that scale."><meta name="twitter:image" content="https://elionavarrete.com/assets/img/books/quality-assurance-book-og.jpg"><link rel="alternate" hreflang="en" href="https://elionavarrete.com/blog/api-testing-microservices.html"><link rel="alternate" hreflang="es" href="https://elionavarrete.com/blog/api-testing-microservices.html?lang=es"><link rel="alternate" hreflang="x-default" href="https://elionavarrete.com/blog/api-testing-microservices.html"><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Rajdhani:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript><link rel="preload" href="../assets/data/i18n-en.json" as="fetch" crossorigin><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript><link rel="stylesheet" href="../assets/css/main.css"><link rel="preload" href="../assets/fonts/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript> <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css"><link rel="stylesheet" href="../assets/css/responsive.css"></noscript> <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -71,10 +14,7 @@
       "wordCount": 1300,
       "timeRequired": "PT10M"
     }
-    </script>
-
-    <!-- JSON-LD: BreadcrumbList -->
-    <script type="application/ld+json">
+    </script> <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -84,152 +24,7 @@
         { "@type": "ListItem", "position": 3, "name": "API Testing Patterns for Microservices Architecture", "item": "https://elionavarrete.com/blog/api-testing-microservices.html" }
       ]
     }
-    </script>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8911911889816355" crossorigin="anonymous"></script>
-  </head>
-
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
-
-    <!-- Skip Navigation -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- ===== NAVBAR ===== -->
-    <header>
-    <div class="nav-top-line">
-      <span class="nav-top-line-glow top"></span>
-      <span class="nav-top-line-glow bottom"></span>
-    </div>
-    <nav class="main-nav" aria-label="Main navigation">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="../index.html" class="nav-brand">
-            <span class="nav-brand-name">ELIO NAVARRETE</span>
-            <span class="nav-brand-divider" aria-hidden="true"></span>
-            <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span>
-          </a>
-        </div>
-        <ul class="nav-links">
-          <li><a href="../news.html" data-i18n="nav.news">News</a></li>
-          <li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li>
-          <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
-          <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
-          <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
-          <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
-          <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
-        </ul>
-        <div class="nav-utilities">
-          <div class="nav-social">
-            <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-            <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-            <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
-            <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
-          </div>
-          <div class="nav-language" aria-label="Language selector">
-            <i class="fa fa-globe" aria-hidden="true"></i>
-            <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
-            <span class="nav-language-separator" aria-hidden="true">|</span>
-            <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
-          </div>
-        </div>
-        <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-          <div class="hamburger-lines">
-            <span></span><span></span><span></span>
-          </div>
-        </button>
-      </div>
-    </nav>
-    </header>
-
-    <!-- i18n (configurable base path for subdirectory) -->
-    <script>window.__i18nBase = '../assets/data/'; window.__i18nExtra = ['i18n-blog-batch2.json'];</script>
-    <script defer src="../assets/js/i18n.js"></script>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-      <div class="mobile-menu-language" aria-label="Language selector">
-        <i class="fa fa-globe" aria-hidden="true"></i>
-        <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button>
-        <span class="nav-language-separator" aria-hidden="true">|</span>
-        <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button>
-      </div>
-      <ul class="mobile-menu-links">
-        <li><a href="../news.html" data-i18n="nav.news">News</a></li>
-        <li><a href="./" data-i18n="nav.blog">Blog</a></li>
-        <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
-        <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
-        <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
-        <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
-        <li><a href="../index.html#links" data-i18n="nav.links">Links</a></li>
-      </ul>
-      <div class="mobile-panel mobile-panel--pro">
-        <div class="mobile-panel-header">
-          <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span>
-        </div>
-        <p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p>
-        <div class="mobile-panel-links">
-          <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a>
-          <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a>
-          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.pro.link3">Contact</a>
-        </div>
-      </div>
-      <div class="mobile-panel mobile-panel--acad">
-        <div class="mobile-panel-header">
-          <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span>
-        </div>
-        <p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p>
-        <div class="mobile-panel-links">
-          <a href="https://scholar.google.com" target="_blank" rel="noopener" data-i18n="panels.acad.link1">Research</a>
-          <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a>
-          <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" data-i18n="panels.acad.link3">Contact</a>
-        </div>
-      </div>
-      <div class="mobile-menu-social" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-        <a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-        <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a>
-        <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a>
-      </div>
-    </div>
-
-    <!-- ===== ARTICLE CONTENT ===== -->
-    <main class="blog-article-page" id="main-content" data-theme="light">
-      <article class="blog-article">
-
-        <header class="blog-article-header">
-          <span class="blog-article-tag" data-i18n="blog.filter.automation">Automation</span>
-          <h1 class="blog-article-title" data-i18n="blog.api-microservices.title">API Testing Patterns for Microservices Architecture</h1>
-          <div class="blog-article-meta">
-            <span>Elio Navarrete</span>
-            <span class="blog-article-meta-sep" aria-hidden="true"></span>
-            <span>10 <span data-i18n="blog.readTime">min read</span></span>
-            <button class="blog-theme-toggle" id="blogThemeToggle" type="button" aria-label="Toggle light/dark mode" title="Toggle light/dark mode"><svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
-          </div>
-        </header>
-
-        <div class="blog-article-body">
-          <p data-i18n-rich="blog.api-microservices.p.1">Microservices promise independent deployability, team autonomy, and technology diversity. But from a testing perspective, they introduce a problem monoliths never had: <strong>every service boundary is a potential point of failure</strong> that no single team fully owns. When you have 30 services communicating over HTTP and message queues, the question shifts from "does my code work?" to "do all these contracts still hold?"</p>
-
-          <p data-i18n-rich="blog.api-microservices.p.2">After leading QA strategy across distributed architectures for several years, I've identified patterns that consistently work — and anti-patterns that waste enormous amounts of engineering time. This article covers the practical approaches I teach at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener">UPC</a> and apply in production environments.</p>
-
-          <h2 data-i18n="blog.api-microservices.h2.1">The Microservices Testing Challenge</h2>
-
-          <p data-i18n="blog.api-microservices.p.3">In a monolith, an integration test can exercise the entire request lifecycle in a single process. In microservices, that same logical flow might cross four network boundaries, two message queues, and three databases. Testing it end-to-end is slow, flaky, and expensive. Testing each service in isolation misses the integration bugs that actually hurt users.</p>
-
-          <p data-i18n-rich="blog.api-microservices.p.4">The solution is not choosing one or the other — it's building a <strong>testing strategy that operates at multiple levels</strong>, with different patterns optimized for each level. Let me walk through the patterns I've found most effective.</p>
-
-          <h2 data-i18n="blog.api-microservices.h2.2">Contract Testing with Pact</h2>
-
-          <p data-i18n="blog.api-microservices.p.5">Contract testing is the single most impactful pattern for microservices. Instead of spinning up every dependency to test an integration, you verify that each service honors the contracts its consumers expect — and vice versa.</p>
-
-          <p data-i18n-rich="blog.api-microservices.p.6"><a href="https://pact.io/" target="_blank" rel="noopener">Pact</a> is the industry-standard tool here. The consumer defines what it expects from the provider, and that expectation is codified as a contract (a "pact file"). The provider then verifies it can satisfy that contract independently.</p>
-
-          <pre role="region" aria-label="Pact consumer test example"><code class="language-typescript">// Consumer side: Order Service expects Product Service to return product details
+    </script> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KKV8G66K');</script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8911911889816355" crossorigin="anonymous"></script> </head><body> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV8G66K" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript><a href="#main-content" class="skip-link">Skip to main content</a><header> <div class="nav-top-line"> <span class="nav-top-line-glow top"></span> <span class="nav-top-line-glow bottom"></span></div><nav class="main-nav" aria-label="Main navigation"><div class="nav-container"><div class="nav-logo"> <a href="../index.html" class="nav-brand"> <span class="nav-brand-name">ELIO NAVARRETE</span> <span class="nav-brand-divider" aria-hidden="true"></span> <span class="nav-brand-subtitle" data-i18n-html="nav.subtitle">Official<br>Website</span> </a></div><ul class="nav-links"><li><a href="../news.html" data-i18n="nav.news">News</a></li><li><a href="./" class="active" data-i18n="nav.blog">Blog</a></li><li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li><li><a href="../index.html#services" data-i18n="nav.services">Services</a></li><li><a href="../index.html#book" data-i18n="nav.book">Book</a></li><li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li><li><a href="../index.html#links" data-i18n="nav.links">Links</a></li></ul><div class="nav-utilities"><div class="nav-social"> <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a> <a href="https://github.com/elionavarretev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa fa-github"></i></a> <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a> <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a></div><div class="nav-language" aria-label="Language selector"> <i class="fa fa-globe" aria-hidden="true"></i> <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button> <span class="nav-language-separator" aria-hidden="true">|</span> <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button></div></div> <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false"><div class="hamburger-lines"> <span></span><span></span><span></span></div></button></div></nav></header> <script>window.__i18nBase = '../assets/data/'; window.__i18nBlog = true;</script> <script defer src="../assets/js/i18n.js"></script> <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu"><div class="mobile-menu-language" aria-label="Language selector"> <i class="fa fa-globe" aria-hidden="true"></i> <button type="button" class="nav-language-option" aria-pressed="false" aria-label="Espa&ntilde;ol">ESP</button> <span class="nav-language-separator" aria-hidden="true">|</span> <button type="button" class="nav-language-option is-active" aria-pressed="true" aria-label="English">ENG</button></div><ul class="mobile-menu-links"><li><a href="../news.html" data-i18n="nav.news">News</a></li><li><a href="./" data-i18n="nav.blog">Blog</a></li><li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li><li><a href="../index.html#services" data-i18n="nav.services">Services</a></li><li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li><li><a href="../index.html#book" data-i18n="nav.book">Book</a></li><li><a href="../index.html#links" data-i18n="nav.links">Links</a></li></ul><div class="mobile-panel mobile-panel--pro"><div class="mobile-panel-header"> <span class="mobile-panel-title" data-i18n="panels.pro.kicker">Professional</span></div><p class="mobile-panel-desc" data-i18n="panels.pro.desc">Building quality engineering direction that connects product delivery, automation and release confidence through critical flows.</p><div class="mobile-panel-links"> <a href="../index.html#portfolios" data-i18n="panels.pro.link1">Portfolio</a> <a href="../index.html#book" data-i18n="panels.pro.link2">Publications</a> <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener noreferrer" data-i18n="panels.pro.link3">Contact</a></div></div><div class="mobile-panel mobile-panel--acad"><div class="mobile-panel-header"> <span class="mobile-panel-title" data-i18n="panels.acad.kicker">Academic</span></div><p class="mobile-panel-desc" data-i18n="panels.acad.desc">Bridging industry practice with academic rigor through publications, university courses and applied research in software quality.</p><div class="mobile-panel-links"> <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" data-i18n="panels.acad.link1">Research</a> <a href="../index.html#faq" data-i18n="panels.acad.link2">FAQ</a> <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener noreferrer" data-i18n="panels.acad.link3">Contact</a></div></div><div class="mobile-menu-social" aria-label="Social links"> <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a> <a href="https://github.com/elionavarretev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa fa-github"></i></a> <a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa fa-graduation-cap"></i></a> <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><i class="fa fa-amazon"></i></a></div></div><main class="blog-article-page" id="main-content" data-theme="light"><article class="blog-article"><header class="blog-article-header"> <span class="blog-article-tag" data-i18n="blog.filter.automation">Automation</span><h1 class="blog-article-title" data-i18n="blog.api-microservices.title">API Testing Patterns for Microservices Architecture</h1><div class="blog-article-meta"> <span>Elio Navarrete</span> <span class="blog-article-meta-sep" aria-hidden="true"></span> <span>10 <span data-i18n="blog.readTime">min read</span></span> <button class="blog-theme-toggle" id="blogThemeToggle" type="button" aria-label="Toggle light/dark mode" title="Toggle light/dark mode"><svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></header><div class="blog-article-body"><p data-i18n-rich="blog.api-microservices.p.1">Microservices promise independent deployability, team autonomy, and technology diversity. But from a testing perspective, they introduce a problem monoliths never had: <strong>every service boundary is a potential point of failure</strong> that no single team fully owns. When you have 30 services communicating over HTTP and message queues, the question shifts from "does my code work?" to "do all these contracts still hold?"</p><p data-i18n-rich="blog.api-microservices.p.2">After leading QA strategy across distributed architectures for several years, I've identified patterns that consistently work — and anti-patterns that waste enormous amounts of engineering time. This article covers the practical approaches I teach at <a href="https://www.upc.edu.pe/" target="_blank" rel="noopener noreferrer">UPC</a> and apply in production environments.</p><h2 data-i18n="blog.api-microservices.h2.1">The Microservices Testing Challenge</h2><p data-i18n="blog.api-microservices.p.3">In a monolith, an integration test can exercise the entire request lifecycle in a single process. In microservices, that same logical flow might cross four network boundaries, two message queues, and three databases. Testing it end-to-end is slow, flaky, and expensive. Testing each service in isolation misses the integration bugs that actually hurt users.</p><p data-i18n-rich="blog.api-microservices.p.4">The solution is not choosing one or the other — it's building a <strong>testing strategy that operates at multiple levels</strong>, with different patterns optimized for each level. Let me walk through the patterns I've found most effective.</p><h2 data-i18n="blog.api-microservices.h2.2">Contract Testing with Pact</h2><p data-i18n="blog.api-microservices.p.5">Contract testing is the single most impactful pattern for microservices. Instead of spinning up every dependency to test an integration, you verify that each service honors the contracts its consumers expect — and vice versa.</p><p data-i18n-rich="blog.api-microservices.p.6"><a href="https://pact.io/" target="_blank" rel="noopener noreferrer">Pact</a> is the industry-standard tool here. The consumer defines what it expects from the provider, and that expectation is codified as a contract (a "pact file"). The provider then verifies it can satisfy that contract independently.</p> <pre role="region" aria-label="Pact consumer test example"><code class="language-typescript">// Consumer side: Order Service expects Product Service to return product details
 import { PactV3, MatchersV3 } from '@pact-foundation/pact';
 
 const provider = new PactV3({
@@ -270,15 +65,7 @@ describe('Product API Contract', () => {
         expect(product.inStock).toBeDefined();
       });
   });
-});</code></pre>
-
-          <p data-i18n-rich="blog.api-microservices.p.7">The critical insight: contract tests run in <strong>each service's CI pipeline independently</strong>. The Order Service team doesn't need the Product Service running to validate the integration. This decouples deployment pipelines while maintaining integration confidence.</p>
-
-          <h2 data-i18n="blog.api-microservices.h2.3">Integration Testing with Testcontainers</h2>
-
-          <p data-i18n-rich="blog.api-microservices.p.8">For testing a service against its own dependencies — databases, caches, message brokers — <strong>Testcontainers</strong> has become the standard approach. It spins up real Docker containers for your dependencies during test execution, giving you high-fidelity integration tests without shared test environments.</p>
-
-          <pre role="region" aria-label="Testcontainers setup example"><code class="language-typescript">import { PostgreSqlContainer } from '@testcontainers/postgresql';
+});</code></pre> <p data-i18n-rich="blog.api-microservices.p.7">The critical insight: contract tests run in <strong>each service's CI pipeline independently</strong>. The Order Service team doesn't need the Product Service running to validate the integration. This decouples deployment pipelines while maintaining integration confidence.</p><h2 data-i18n="blog.api-microservices.h2.3">Integration Testing with Testcontainers</h2><p data-i18n-rich="blog.api-microservices.p.8">For testing a service against its own dependencies — databases, caches, message brokers — <strong>Testcontainers</strong> has become the standard approach. It spins up real Docker containers for your dependencies during test execution, giving you high-fidelity integration tests without shared test environments.</p> <pre role="region" aria-label="Testcontainers setup example"><code class="language-typescript">import { PostgreSqlContainer } from '@testcontainers/postgresql';
 import { GenericContainer } from 'testcontainers';
 
 let postgresContainer;
@@ -301,15 +88,7 @@ beforeAll(async () => {
 afterAll(async () => {
   await postgresContainer?.stop();
   await redisContainer?.stop();
-});</code></pre>
-
-          <p data-i18n="blog.api-microservices.p.9">Each test run gets a fresh, isolated environment. No more "it works on my machine" or shared staging databases corrupted by parallel test runs.</p>
-
-          <h2 data-i18n="blog.api-microservices.h2.4">API Schema Validation</h2>
-
-          <p data-i18n="blog.api-microservices.p.10">If your services expose OpenAPI (Swagger) specifications, you should be validating every response against the schema automatically. This catches drift between documentation and implementation — a common source of integration bugs.</p>
-
-          <pre role="region" aria-label="OpenAPI schema validation config"><code class="language-json">{
+});</code></pre> <p data-i18n="blog.api-microservices.p.9">Each test run gets a fresh, isolated environment. No more "it works on my machine" or shared staging databases corrupted by parallel test runs.</p><h2 data-i18n="blog.api-microservices.h2.4">API Schema Validation</h2><p data-i18n="blog.api-microservices.p.10">If your services expose OpenAPI (Swagger) specifications, you should be validating every response against the schema automatically. This catches drift between documentation and implementation — a common source of integration bugs.</p> <pre role="region" aria-label="OpenAPI schema validation config"><code class="language-json">{
   "schemaValidation": {
     "openApiSpec": "./openapi/product-service.yaml",
     "validateResponses": true,
@@ -320,17 +99,7 @@ afterAll(async () => {
       "/metrics"
     ]
   }
-}</code></pre>
-
-          <p data-i18n-rich="blog.api-microservices.p.11">I recommend running schema validation as a <strong>pre-merge check</strong>. If a developer changes a response shape without updating the OpenAPI spec, the pipeline fails before it reaches code review. This keeps your API contracts honest.</p>
-
-          <h2 data-i18n="blog.api-microservices.h2.5">Testing Async Communication</h2>
-
-          <p data-i18n="blog.api-microservices.p.12">Synchronous HTTP calls are only half the story. Most microservices architectures rely heavily on message queues (RabbitMQ, SQS) or event streaming (Kafka) for asynchronous communication. Testing these patterns requires a different approach.</p>
-
-          <p data-i18n-rich="blog.api-microservices.p.13">The pattern I use most: <strong>publish-and-poll with timeout assertions</strong>. Publish an event, then poll the downstream system's state until it reflects the expected change — or fail after a reasonable timeout.</p>
-
-          <pre role="region" aria-label="Async event testing pattern"><code class="language-typescript">async function waitForOrderProcessed(
+}</code></pre> <p data-i18n-rich="blog.api-microservices.p.11">I recommend running schema validation as a <strong>pre-merge check</strong>. If a developer changes a response shape without updating the OpenAPI spec, the pipeline fails before it reaches code review. This keeps your API contracts honest.</p><h2 data-i18n="blog.api-microservices.h2.5">Testing Async Communication</h2><p data-i18n="blog.api-microservices.p.12">Synchronous HTTP calls are only half the story. Most microservices architectures rely heavily on message queues (RabbitMQ, SQS) or event streaming (Kafka) for asynchronous communication. Testing these patterns requires a different approach.</p><p data-i18n-rich="blog.api-microservices.p.13">The pattern I use most: <strong>publish-and-poll with timeout assertions</strong>. Publish an event, then poll the downstream system's state until it reflects the expected change — or fail after a reasonable timeout.</p> <pre role="region" aria-label="Async event testing pattern"><code class="language-typescript">async function waitForOrderProcessed(
   orderId: string,
   timeoutMs = 10000
 ): Promise&lt;OrderStatus&gt; {
@@ -353,17 +122,7 @@ test('payment event triggers order fulfillment', async () => {
   const status = await waitForOrderProcessed(order.id);
   expect(status.state).toBe('FULFILLED');
   expect(status.fulfilledAt).toBeDefined();
-});</code></pre>
-
-          <p data-i18n="blog.api-microservices.p.14">The key discipline: keep timeout values realistic but not generous. If your async processing should complete in 2 seconds, set the timeout to 10 — not 60. Generous timeouts mask performance regressions.</p>
-
-          <h2 data-i18n="blog.api-microservices.h2.6">Performance Testing APIs at Scale</h2>
-
-          <p data-i18n="blog.api-microservices.p.15">Microservices introduce performance concerns that monoliths don't have. A single user request might fan out to 5 downstream services. If one service adds 200ms of latency, the user-facing response degrades noticeably.</p>
-
-          <p data-i18n-rich="blog.api-microservices.p.16">I recommend establishing <strong>per-service latency budgets</strong> and testing them in CI:</p>
-
-          <pre role="region" aria-label="Performance budget YAML config"><code class="language-yaml"># performance-budget.yml
+});</code></pre> <p data-i18n="blog.api-microservices.p.14">The key discipline: keep timeout values realistic but not generous. If your async processing should complete in 2 seconds, set the timeout to 10 — not 60. Generous timeouts mask performance regressions.</p><h2 data-i18n="blog.api-microservices.h2.6">Performance Testing APIs at Scale</h2><p data-i18n="blog.api-microservices.p.15">Microservices introduce performance concerns that monoliths don't have. A single user request might fan out to 5 downstream services. If one service adds 200ms of latency, the user-facing response degrades noticeably.</p><p data-i18n-rich="blog.api-microservices.p.16">I recommend establishing <strong>per-service latency budgets</strong> and testing them in CI:</p> <pre role="region" aria-label="Performance budget YAML config"><code class="language-yaml"># performance-budget.yml
 services:
   product-service:
     p50: 50ms
@@ -381,284 +140,7 @@ services:
     p50: 120ms
     p95: 400ms
     p99: 800ms
-    throughput: 100rps</code></pre>
-
-          <p data-i18n-rich="blog.api-microservices.p.17">Tools like <strong>k6</strong> or <strong>Grafana k6</strong> integrate well with CI pipelines. Run a focused load test against each service's critical endpoints on every merge to main. If P95 latency exceeds the budget, the build fails. This catches performance regressions before they compound across service boundaries.</p>
-
-          <h2 data-i18n="blog.api-microservices.h2.7">Monitoring as Testing: Synthetic Transactions</h2>
-
-          <p data-i18n="blog.api-microservices.p.18">Even with comprehensive pre-production testing, some failures only manifest in production — configuration drift, certificate expiration, third-party API changes. Synthetic monitoring bridges this gap.</p>
-
-          <p data-i18n-rich="blog.api-microservices.p.19">A synthetic transaction is a <strong>scheduled test that runs against production</strong>, executing a critical user flow and alerting if it fails. The key difference from traditional monitoring: it validates business logic, not just uptime. An HTTP 200 from your API doesn't mean the response contains correct data.</p>
-
-          <p data-i18n="blog.api-microservices.p.20">I implement synthetic tests using the same test framework (Playwright for UI, plain HTTP clients for APIs) but deployed as scheduled jobs. They run every 5 minutes, and failures page the on-call engineer immediately.</p>
-
-          <h2 data-i18n="blog.api-microservices.h2.8">Putting It All Together</h2>
-
-          <p data-i18n="blog.api-microservices.p.21">The patterns above form a layered strategy. Each layer catches different categories of defects at different costs:</p>
-
-          <ul>
-            <li data-i18n-rich="blog.api-microservices.li.1"><strong>Unit tests</strong> — validate business logic within a service. Fast, cheap, high volume.</li>
-            <li data-i18n-rich="blog.api-microservices.li.2"><strong>Contract tests</strong> — validate inter-service agreements. Fast, decoupled, high confidence for integration.</li>
-            <li data-i18n-rich="blog.api-microservices.li.3"><strong>Integration tests (Testcontainers)</strong> — validate a service against its real dependencies. Medium speed, high fidelity.</li>
-            <li data-i18n-rich="blog.api-microservices.li.4"><strong>Schema validation</strong> — catch API drift automatically. Zero runtime cost.</li>
-            <li data-i18n-rich="blog.api-microservices.li.5"><strong>Performance budgets</strong> — prevent latency regressions. Runs on merge to main.</li>
-            <li data-i18n-rich="blog.api-microservices.li.6"><strong>Synthetic monitoring</strong> — validate production continuously. Catches environment-specific failures.</li>
-          </ul>
-
-          <p data-i18n="blog.api-microservices.p.22">The anti-pattern I see most often: teams that skip contract testing and try to compensate with massive E2E suites that spin up 10 services. These suites are slow, flaky, expensive to maintain, and provide feedback too late in the development cycle.</p>
-
-          <blockquote>
-            <p data-i18n="blog.api-microservices.bq.1">Invest in contract testing first. It gives you 80% of integration confidence at 20% of the cost of full E2E tests.</p>
-          </blockquote>
-
-          <hr>
-
-          <p data-i18n="blog.api-microservices.p.23">Microservices testing is not about choosing between isolation and integration — it's about having the right pattern at the right level. Contract tests protect boundaries cheaply, Testcontainers give you real integration locally, schema validation keeps APIs honest, and synthetic monitoring watches production around the clock. Master these patterns, and your microservices architecture stops being a testing nightmare and becomes a well-orchestrated system with confidence at every layer.</p>
-        </div>
-
-        <!-- Share Bar -->
-        <div class="blog-share-bar">
-          <p class="blog-share-bar-title" data-i18n="blog.share.title">Share this article</p>
-          <div class="blog-share-buttons">
-            <a class="blog-share-btn blog-share-btn--whatsapp" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp" data-share="whatsapp">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              <span>WhatsApp</span>
-            </a>
-            <a class="blog-share-btn blog-share-btn--linkedin" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn" data-share="linkedin">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              <span>LinkedIn</span>
-            </a>
-            <a class="blog-share-btn blog-share-btn--facebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook" data-share="facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              <span>Facebook</span>
-            </a>
-            <a class="blog-share-btn blog-share-btn--twitter" href="#" target="_blank" rel="noopener" aria-label="Share on X" data-share="twitter">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              <span>X</span>
-            </a>
-            <button class="blog-share-btn blog-share-btn--copy" type="button" aria-label="Copy link" data-share="copy">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span class="blog-share-btn-label" data-i18n="blog.share.copyLabel">Copy Link</span>
-            </button>
-          </div>
-        </div>
-
-
-        <!-- Article Rating -->
-        <section class="blog-rating" data-article="api-testing-microservices">
-          <p class="blog-rating-title" data-i18n="blog.rate.title">Was this article helpful?</p>
-          <div class="blog-rating-stars" role="radiogroup" aria-label="Rate this article">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
-          </div>
-          <p class="blog-rating-thanks" data-i18n="blog.rate.thanks">Thanks for your feedback!</p>
-          <div class="blog-rating-avg">
-            <span class="blog-rating-avg-score">4.4</span>
-            <span class="blog-rating-avg-label">/ 5</span>
-            <span class="blog-rating-avg-sep">&middot;</span>
-            <span class="blog-rating-avg-count">56 <span data-i18n="blog.rate.ratings">ratings</span></span>
-          </div>
-        </section>
-
-        <!-- Related Articles -->
-        <section class="blog-related">
-          <h2 class="blog-related-title" data-i18n="blog.related.title">You might also like</h2>
-          <div class="blog-related-grid">
-            <a href="e2e-best-practices-playwright.html" class="blog-related-card">
-              <span class="blog-related-card-tag" data-i18n="blog.filter.automation">Automation</span>
-              <h3 class="blog-related-card-title">E2E Testing Best Practices with Playwright in 2026</h3>
-              <span class="blog-related-card-meta">11 <span data-i18n="blog.readTime">min read</span></span>
-            </a>
-            <a href="playwright-vs-cypress-2026.html" class="blog-related-card">
-              <span class="blog-related-card-tag" data-i18n="blog.filter.automation">Automation</span>
-              <h3 class="blog-related-card-title">Playwright vs Cypress in 2026: A Practical Comparison</h3>
-              <span class="blog-related-card-meta">12 <span data-i18n="blog.readTime">min read</span></span>
-            </a>
-            <a href="cicd-pipeline-testing.html" class="blog-related-card">
-              <span class="blog-related-card-tag" data-i18n="blog.filter.automation">Automation</span>
-              <h3 class="blog-related-card-title">CI/CD Pipeline Testing: A Complete Integration Guide</h3>
-              <span class="blog-related-card-meta">11 <span data-i18n="blog.readTime">min read</span></span>
-            </a>
-          </div>
-        </section>
-
-        <!-- References -->
-        <section class="blog-references">
-          <details>
-            <summary data-i18n="blog.refs.title">References</summary>
-            <div class="blog-refs-body">
-              <p class="blog-refs-intro" data-i18n="blog.refs.intro">All information we provide is backed by authoritative and up-to-date bibliographic sources, ensuring reliable content in line with our editorial principles.</p>
-              <ul class="blog-refs-list">
-                <li>Pact Foundation. (2024). Consumer-Driven Contract Testing. <em>Pact Documentation</em>. <a href="https://docs.pact.io/" target="_blank" rel="noopener">https://docs.pact.io/</a></li>
-                <li>Newman, S. (2021). <em>Building Microservices</em> (2nd ed.). O'Reilly Media.</li>
-                <li>AtomicJar. (2024). <em>Testcontainers Documentation</em>. <a href="https://testcontainers.com/" target="_blank" rel="noopener">https://testcontainers.com/</a></li>
-              </ul>
-              <h3 class="blog-refs-how-cite" data-i18n="blog.refs.howCite">How to cite this article</h3>
-              <p class="blog-refs-cite-explain" data-i18n="blog.refs.citeExplain">Citing original sources serves to give credit to corresponding authors and avoid plagiarism. It also allows readers to access the original sources to verify or expand information.</p>
-              <div class="blog-refs-citation-tabs">
-                <button class="blog-refs-tab active" data-tab="apa">APA</button>
-                <button class="blog-refs-tab" data-tab="ieee">IEEE</button>
-              </div>
-              <div class="blog-refs-apa" id="refsCitationApa"></div>
-              <div class="blog-refs-apa" id="refsCitationIeee" style="display:none"></div>
-              <button class="blog-cite-copy-btn" id="copyCitationBtn" data-i18n="blog.refs.copyCite" data-i18n-default="Copy citation" data-i18n-copied="Copied!">Copy citation</button>
-            </div>
-          </details>
-        </section>
-
-        <!-- Ad Slot: Book Banner (Amazon Affiliate) -->
-        <aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author">
-          <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener" class="blog-book-banner">
-            <div class="blog-book-banner-img">
-              <img src="/assets/img/books/quality-assurance-book-cover.png" alt="Quality Assurance: De Fundamentos a Automatización con IA" width="80" loading="lazy">
-            </div>
-            <div class="blog-book-banner-right">
-              <span class="blog-book-banner-label" data-i18n="blog.book.label">From the Author</span>
-              <strong class="blog-book-banner-title" data-i18n="blog.book.title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong>
-              <p class="blog-book-banner-desc" data-i18n="blog.book.desc">The complete framework behind this article — including API testing patterns, contract testing templates, and CI/CD integration guides.</p>
-              <span class="blog-book-banner-cta" data-i18n="blog.book.cta">
-                <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon
-              </span>
-            </div>
-          </a>
-        </aside>
-
-        <footer class="blog-article-footer">
-          <div class="blog-article-tags">
-            <span class="blog-article-tag-item">API Testing</span>
-            <span class="blog-article-tag-item">Microservices</span>
-            <span class="blog-article-tag-item">Contract Testing</span>
-            <span class="blog-article-tag-item">Pact</span>
-            <span class="blog-article-tag-item">Integration Testing</span>
-            <span class="blog-article-tag-item">REST API</span>
-          </div>
-
-          <div class="blog-support-section">
-            <h3 data-i18n="blog.support.title">Support My Work</h3>
-            <button class="pinball-play-btn" type="button" title="Play Pinball" aria-label="Play Pinball">&#9654;</button>
-            <p data-i18n="blog.support.text">If you found this useful, consider leaving a comment on LinkedIn or buying me a coffee/tea. It helps me keep creating content like this.</p>
-            <div class="blog-support-buttons">
-              <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" class="blog-discuss-cta">
-                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                <span data-i18n="blog.discuss">Discuss on LinkedIn</span>
-              </a>
-              <a href="https://www.buymeacoffee.com/eliojeff" target="_blank" rel="noopener" class="blog-coffee-cta">
-                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="150">
-              </a>
-            </div>
-          </div>
-
-          <!--
-          <div class="blog-article-nav">
-            <a href="#" class="blog-article-nav-link is-prev">
-              <span class="blog-article-nav-label">Previous</span>
-              <span class="blog-article-nav-title">Previous article title here</span>
-            </a>
-            <a href="#" class="blog-article-nav-link is-next">
-              <span class="blog-article-nav-label">Next</span>
-              <span class="blog-article-nav-title">Next article title here</span>
-            </a>
-          </div>
-          -->
-        </footer>
-
-      </article>
-
-      <!-- Comment Section -->
-      <section class="blog-comments" aria-labelledby="comments-heading">
-        <div class="blog-comments-header">
-          <h2 id="comments-heading" data-i18n="blog.comments.title">Comments</h2>
-          <span class="blog-comments-count" data-i18n="blog.comments.count">0 comments</span>
-        </div>
-
-        <form class="blog-comment-form" id="commentForm" action="https://formspree.io/f/mqeyjyyg" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="New blog comment">
-          <input type="hidden" name="_page" id="formPageUrl">
-          <div class="blog-comment-form-row">
-            <input type="text" class="blog-comment-input" id="commentName" name="name" data-i18n-placeholder="blog.comments.namePlaceholder" placeholder="Name *" aria-label="Your name" required minlength="2" maxlength="100">
-            <input type="email" class="blog-comment-input" id="commentEmail" name="email" data-i18n-placeholder="blog.comments.emailPlaceholder" placeholder="Email * (not published)" aria-label="Your email" required>
-          </div>
-          <textarea class="blog-comment-textarea" id="commentMessage" name="message" data-i18n-placeholder="blog.comments.textPlaceholder" placeholder="Share your thoughts... *" aria-label="Your comment" rows="4" required minlength="10" maxlength="1000"></textarea>
-          <div class="blog-comment-char-count"><span id="charCount">0</span> / 1000</div>
-          <div class="blog-comment-form-footer">
-            <span class="blog-comment-guidelines" data-i18n="blog.comments.guidelines">Be respectful. Constructive feedback is welcome.</span>
-            <button type="submit" class="blog-comment-submit" data-i18n="blog.comments.submit">Post Comment</button>
-          </div>
-        </form>
-
-        <div class="blog-comment-notice" id="commentNotice" hidden>
-          <i class="fa fa-check-circle" aria-hidden="true"></i>
-          <div>
-            <strong data-i18n="blog.comments.thankYou">Thank you for your comment.</strong>
-            <p data-i18n="blog.comments.moderation">All comments are moderated and will appear after review.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Ad Slot: Bottom (reserved for future ad network) -->
-      <aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden>
-        <!-- Paste Carbon Ads, AdSense, or EthicalAds script here when ready -->
-      </aside>
-
-      <div class="blog-affiliate-disclosure">
-        <p>As an Amazon Associate I earn from qualifying purchases.</p>
-      </div>
-
-      <div class="blog-article-back">
-        <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a>
-      </div>
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="site-footer" id="links">
-      <div class="footer-content">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span>
-            <div class="footer-logo">Elio Navarrete</div>
-            <p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p>
-            <p class="footer-summary" data-i18n="footer.summary">
-              Quality engineering, test automation and applied AI for teams, products and academic initiatives.
-            </p>
-          </div>
-
-          <nav class="footer-nav" aria-label="Footer navigation">
-            <span class="footer-heading" data-i18n="footer.navigate">Navigate</span>
-            <ul class="footer-link-list">
-              <li><a href="../news.html" data-i18n="nav.news">News</a></li>
-              <li><a href="./" data-i18n="nav.blog">Blog</a></li>
-              <li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li>
-              <li><a href="../index.html#services" data-i18n="nav.services">Services</a></li>
-              <li><a href="../index.html#book" data-i18n="nav.book">Book</a></li>
-              <li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li>
-            </ul>
-          </nav>
-
-          <div class="footer-connect">
-            <span class="footer-heading" data-i18n="footer.connect">Connect</span>
-            <ul class="footer-social">
-              <li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
-              <li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li>
-              <li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li>
-              <li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p>
-          <div class="footer-meta">
-            <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script>
+    throughput: 100rps</code></pre> <p data-i18n-rich="blog.api-microservices.p.17">Tools like <strong>k6</strong> or <strong>Grafana k6</strong> integrate well with CI pipelines. Run a focused load test against each service's critical endpoints on every merge to main. If P95 latency exceeds the budget, the build fails. This catches performance regressions before they compound across service boundaries.</p><h2 data-i18n="blog.api-microservices.h2.7">Monitoring as Testing: Synthetic Transactions</h2><p data-i18n="blog.api-microservices.p.18">Even with comprehensive pre-production testing, some failures only manifest in production — configuration drift, certificate expiration, third-party API changes. Synthetic monitoring bridges this gap.</p><p data-i18n-rich="blog.api-microservices.p.19">A synthetic transaction is a <strong>scheduled test that runs against production</strong>, executing a critical user flow and alerting if it fails. The key difference from traditional monitoring: it validates business logic, not just uptime. An HTTP 200 from your API doesn't mean the response contains correct data.</p><p data-i18n="blog.api-microservices.p.20">I implement synthetic tests using the same test framework (Playwright for UI, plain HTTP clients for APIs) but deployed as scheduled jobs. They run every 5 minutes, and failures page the on-call engineer immediately.</p><h2 data-i18n="blog.api-microservices.h2.8">Putting It All Together</h2><p data-i18n="blog.api-microservices.p.21">The patterns above form a layered strategy. Each layer catches different categories of defects at different costs:</p><ul> <li data-i18n-rich="blog.api-microservices.li.1"><strong>Unit tests</strong> — validate business logic within a service. Fast, cheap, high volume.</li><li data-i18n-rich="blog.api-microservices.li.2"><strong>Contract tests</strong> — validate inter-service agreements. Fast, decoupled, high confidence for integration.</li><li data-i18n-rich="blog.api-microservices.li.3"><strong>Integration tests (Testcontainers)</strong> — validate a service against its real dependencies. Medium speed, high fidelity.</li><li data-i18n-rich="blog.api-microservices.li.4"><strong>Schema validation</strong> — catch API drift automatically. Zero runtime cost.</li><li data-i18n-rich="blog.api-microservices.li.5"><strong>Performance budgets</strong> — prevent latency regressions. Runs on merge to main.</li><li data-i18n-rich="blog.api-microservices.li.6"><strong>Synthetic monitoring</strong> — validate production continuously. Catches environment-specific failures.</li></ul><p data-i18n="blog.api-microservices.p.22">The anti-pattern I see most often: teams that skip contract testing and try to compensate with massive E2E suites that spin up 10 services. These suites are slow, flaky, expensive to maintain, and provide feedback too late in the development cycle.</p><blockquote> <p data-i18n="blog.api-microservices.bq.1">Invest in contract testing first. It gives you 80% of integration confidence at 20% of the cost of full E2E tests.</p></blockquote><hr><p data-i18n="blog.api-microservices.p.23">Microservices testing is not about choosing between isolation and integration — it's about having the right pattern at the right level. Contract tests protect boundaries cheaply, Testcontainers give you real integration locally, schema validation keeps APIs honest, and synthetic monitoring watches production around the clock. Master these patterns, and your microservices architecture stops being a testing nightmare and becomes a well-orchestrated system with confidence at every layer.</p></div><div class="blog-share-bar"><p class="blog-share-bar-title" data-i18n="blog.share.title">Share this article</p><div class="blog-share-buttons"> <a class="blog-share-btn blog-share-btn--whatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" data-share="whatsapp"> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> <span>WhatsApp</span> </a> <a class="blog-share-btn blog-share-btn--linkedin" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" data-share="linkedin"> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> <span>LinkedIn</span> </a> <a class="blog-share-btn blog-share-btn--facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" data-share="facebook"> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> <span>Facebook</span> </a> <a class="blog-share-btn blog-share-btn--twitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X" data-share="twitter"> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> <span>X</span> </a> <button class="blog-share-btn blog-share-btn--copy" type="button" aria-label="Copy link" data-share="copy"> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg> <span class="blog-share-btn-label" data-i18n="blog.share.copyLabel">Copy Link</span> </button></div></div><section class="blog-rating" data-article="api-testing-microservices"><p class="blog-rating-title" data-i18n="blog.rate.title">Was this article helpful?</p><div class="blog-rating-stars" role="radiogroup" aria-label="Rate this article"> <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg> <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg> <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg> <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg> <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg></div><p class="blog-rating-thanks" data-i18n="blog.rate.thanks">Thanks for your feedback!</p><div class="blog-rating-avg"> <span class="blog-rating-avg-score">4.4</span> <span class="blog-rating-avg-label">/ 5</span> <span class="blog-rating-avg-sep">&middot;</span> <span class="blog-rating-avg-count">56 <span data-i18n="blog.rate.ratings">ratings</span></span></div></section><section class="blog-related"><h2 class="blog-related-title" data-i18n="blog.related.title">You might also like</h2><div class="blog-related-grid"> <a href="e2e-best-practices-playwright.html" class="blog-related-card"> <span class="blog-related-card-tag" data-i18n="blog.filter.automation">Automation</span><h3 class="blog-related-card-title">E2E Testing Best Practices with Playwright in 2026</h3><span class="blog-related-card-meta">11 <span data-i18n="blog.readTime">min read</span></span> </a> <a href="playwright-vs-cypress-2026.html" class="blog-related-card"> <span class="blog-related-card-tag" data-i18n="blog.filter.automation">Automation</span><h3 class="blog-related-card-title">Playwright vs Cypress in 2026: A Practical Comparison</h3><span class="blog-related-card-meta">12 <span data-i18n="blog.readTime">min read</span></span> </a> <a href="cicd-pipeline-testing.html" class="blog-related-card"> <span class="blog-related-card-tag" data-i18n="blog.filter.automation">Automation</span><h3 class="blog-related-card-title">CI/CD Pipeline Testing: A Complete Integration Guide</h3><span class="blog-related-card-meta">11 <span data-i18n="blog.readTime">min read</span></span> </a></div></section><section class="blog-references"><details> <summary data-i18n="blog.refs.title">References</summary><div class="blog-refs-body"><p class="blog-refs-intro" data-i18n="blog.refs.intro">All information we provide is backed by authoritative and up-to-date bibliographic sources, ensuring reliable content in line with our editorial principles.</p><ul class="blog-refs-list"><li>Pact Foundation. (2024). Consumer-Driven Contract Testing. <em>Pact Documentation</em>. <a href="https://docs.pact.io/" target="_blank" rel="noopener noreferrer">https://docs.pact.io/</a></li><li>Newman, S. (2021). <em>Building Microservices</em> (2nd ed.). O'Reilly Media.</li><li>AtomicJar. (2024). <em>Testcontainers Documentation</em>. <a href="https://testcontainers.com/" target="_blank" rel="noopener noreferrer">https://testcontainers.com/</a></li></ul><h3 class="blog-refs-how-cite" data-i18n="blog.refs.howCite">How to cite this article</h3><p class="blog-refs-cite-explain" data-i18n="blog.refs.citeExplain">Citing original sources serves to give credit to corresponding authors and avoid plagiarism. It also allows readers to access the original sources to verify or expand information.</p><div class="blog-refs-citation-tabs"> <button class="blog-refs-tab active" data-tab="apa">APA</button> <button class="blog-refs-tab" data-tab="ieee">IEEE</button></div><div class="blog-refs-apa" id="refsCitationApa"></div><div class="blog-refs-apa" id="refsCitationIeee" style="display:none"></div><button class="blog-cite-copy-btn" id="copyCitationBtn" data-i18n="blog.refs.copyCite" data-i18n-default="Copy citation" data-i18n-copied="Copied!">Copy citation</button></div></details></section><aside class="blog-ad-slot" id="adSlotArticle" aria-label="Related content from the author"> <a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" class="blog-book-banner"><div class="blog-book-banner-img"> <img src="/assets/img/books/quality-assurance-book-cover.png" alt="Quality Assurance: De Fundamentos a Automatización con IA" width="80" loading="lazy"></div><div class="blog-book-banner-right"> <span class="blog-book-banner-label" data-i18n="blog.book.label">From the Author</span> <strong class="blog-book-banner-title" data-i18n="blog.book.title">Quality Assurance: De Fundamentos a Automatizaci&oacute;n con IA</strong><p class="blog-book-banner-desc" data-i18n="blog.book.desc">The complete framework behind this article — including API testing patterns, contract testing templates, and CI/CD integration guides.</p><span class="blog-book-banner-cta" data-i18n="blog.book.cta"> <i class="fa fa-amazon" aria-hidden="true"></i> View on Amazon </span></div></a></aside><footer class="blog-article-footer"><div class="blog-article-tags"> <span class="blog-article-tag-item">API Testing</span> <span class="blog-article-tag-item">Microservices</span> <span class="blog-article-tag-item">Contract Testing</span> <span class="blog-article-tag-item">Pact</span> <span class="blog-article-tag-item">Integration Testing</span> <span class="blog-article-tag-item">REST API</span></div><div class="blog-support-section"><h3 data-i18n="blog.support.title">Support My Work</h3><button class="pinball-play-btn" type="button" title="Play Pinball" aria-label="Play Pinball">&#9654;</button><p data-i18n="blog.support.text">If you found this useful, consider leaving a comment on LinkedIn or buying me a coffee/tea. It helps me keep creating content like this.</p><div class="blog-support-buttons"> <a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener noreferrer" class="blog-discuss-cta"> <i class="fa fa-linkedin-square" aria-hidden="true"></i> <span data-i18n="blog.discuss">Discuss on LinkedIn</span> </a> <a href="https://www.buymeacoffee.com/eliojeff" target="_blank" rel="noopener noreferrer" class="blog-coffee-cta"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="150"> </a></div></div></footer></article><section class="blog-comments" aria-labelledby="comments-heading"><div class="blog-comments-header"><h2 id="comments-heading" data-i18n="blog.comments.title">Comments</h2><span class="blog-comments-count" data-i18n="blog.comments.count">0 comments</span></div><form class="blog-comment-form" id="commentForm" action="https://formspree.io/f/mqeyjyyg" method="POST" novalidate> <input type="hidden" name="_subject" value="New blog comment"> <input type="hidden" name="_page" id="formPageUrl"><div class="blog-comment-form-row"> <input type="text" class="blog-comment-input" id="commentName" name="name" data-i18n-placeholder="blog.comments.namePlaceholder" placeholder="Name *" aria-label="Your name" required minlength="2" maxlength="100"> <input type="email" class="blog-comment-input" id="commentEmail" name="email" data-i18n-placeholder="blog.comments.emailPlaceholder" placeholder="Email * (not published)" aria-label="Your email" required></div> <textarea class="blog-comment-textarea" id="commentMessage" name="message" data-i18n-placeholder="blog.comments.textPlaceholder" placeholder="Share your thoughts... *" aria-label="Your comment" rows="4" required minlength="10" maxlength="1000"></textarea> <div class="blog-comment-char-count"><span id="charCount">0</span> / 1000</div><div class="blog-comment-form-footer"> <span class="blog-comment-guidelines" data-i18n="blog.comments.guidelines">Be respectful. Constructive feedback is welcome.</span> <button type="submit" class="blog-comment-submit" data-i18n="blog.comments.submit">Post Comment</button></div></form><div class="blog-comment-notice" id="commentNotice" hidden> <i class="fa fa-check-circle" aria-hidden="true"></i><div> <strong data-i18n="blog.comments.thankYou">Thank you for your comment.</strong><p data-i18n="blog.comments.moderation">All comments are moderated and will appear after review.</p></div></div></section><aside class="blog-ad-slot blog-ad-slot--bottom" id="adSlotBottom" aria-label="Advertisement" hidden></aside><div class="blog-affiliate-disclosure"><p>As an Amazon Associate I earn from qualifying purchases.</p></div><div class="blog-article-back"> <a href="./"><i class="fa fa-angle-left"></i> <span data-i18n="blog.backToBlog">Back to Blog</span></a></div></main><footer class="site-footer" id="links"><div class="footer-content"><div class="footer-grid"><div class="footer-brand"> <span class="footer-kicker" data-i18n="footer.kicker">Official Website</span><div class="footer-logo">Elio Navarrete</div><p class="footer-role" data-i18n="footer.role">Tech Lead Manager - QA | Professor | Author</p><p class="footer-summary" data-i18n="footer.summary"> Quality engineering, test automation and applied AI for teams, products and academic initiatives. </p></div><nav class="footer-nav" aria-label="Footer navigation"> <span class="footer-heading" data-i18n="footer.navigate">Navigate</span><ul class="footer-link-list"><li><a href="../news.html" data-i18n="nav.news">News</a></li><li><a href="./" data-i18n="nav.blog">Blog</a></li><li><a href="../profile.html" data-i18n="nav.profile">Profile</a></li><li><a href="../index.html#services" data-i18n="nav.services">Services</a></li><li><a href="../index.html#book" data-i18n="nav.book">Book</a></li><li><a href="../index.html#portfolios" data-i18n="nav.portfolio">Portfolio</a></li></ul></nav><div class="footer-connect"> <span class="footer-heading" data-i18n="footer.connect">Connect</span><ul class="footer-social"><li><a href="https://www.linkedin.com/in/eliojeff" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn on footer"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li><li><a href="https://github.com/elionavarretev" target="_blank" rel="noopener noreferrer" aria-label="GitHub on footer"><i class="fa fa-github"></i><span>GitHub</span></a></li><li><a href="https://orcid.org/0000-0001-8810-2068" target="_blank" rel="noopener noreferrer" aria-label="ORCID on footer"><i class="fa fa-graduation-cap"></i><span>ORCID</span></a></li><li><a href="https://www.amazon.com/Quality-Assurance-Automatizaci%C3%B3n-Herramientas-Inteligencia-ebook/dp/B0GR7ZT2C8?tag=elionavarrete-20" target="_blank" rel="noopener noreferrer" aria-label="Amazon on footer"><i class="fa fa-amazon"></i><span>Amazon</span></a></li></ul></div></div><div class="footer-bottom"><p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 Elio Navarrete. All Rights Reserved.</p><div class="footer-meta"> <a href="../privacy.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; letter-spacing: 0.5px;" data-i18n="footer.privacy">Privacy Policy</a></div></div></div></footer> <script>
     // ===== Mobile Menu =====
     (function() {
       var toggle = document.getElementById('menuToggle');
@@ -686,10 +168,7 @@ services:
         });
       }
     })();
-    </script>
-
-    <!-- Comment form handler -->
-    <script>
+    </script> <script>
     (function() {
       var form = document.getElementById('commentForm');
       var notice = document.getElementById('commentNotice');
@@ -757,9 +236,7 @@ services:
         });
       }
     })();
-    </script>
-    <!-- Share buttons handler -->
-    <script>
+    </script> <script>
     (function() {
       var isEs = document.documentElement.lang === 'es' || window.location.search.indexOf('lang=es') > -1;
       var url = encodeURIComponent(window.location.href);
@@ -794,16 +271,7 @@ services:
         }
       });
     })();
-    </script>
-
-    <!-- Prism.js syntax highlighting (deferred) -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
-  
-    <!-- Article Rating Script -->
-    <script>
+    </script> <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script> <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script> <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script> <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script> <script>
     (function() {
       var section = document.querySelector('.blog-rating[data-article="api-testing-microservices"]');
       if (!section) return;
@@ -842,9 +310,7 @@ services:
         });
       });
     })();
-    </script>
-    <!-- Dynamic citations -->
-    <script>
+    </script> <script>
     (function() {
       var title = document.title.split('|')[0].trim();
       var url = window.location.href;
@@ -892,10 +358,7 @@ services:
         });
       }
     })();
-    </script>
-
-    <!-- Blog Theme Toggle Script -->
-    <script>
+    </script> <script>
     (function() {
       var page = document.getElementById('main-content');
       var btn = document.getElementById('blogThemeToggle');
@@ -1643,6 +1106,4 @@ services:
         }
       }
     })();
-    </script>
-  </body>
-</html>
+    </script> <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("keydown",function(e){if(e.ctrlKey&&(e.key==="u"||e.key==="U"||e.key==="s"||e.key==="S")){e.preventDefault()}if(e.key==="F12"){e.preventDefault()}});</script></body></html>
